@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta name="keywords" content="Toptal interview, Toptal screening, Codility, coding test, C#, algorithms, problem solving, technical screening, remote developer interview, Toptal preparation">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat10-strings-pattern-matching.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat10-strings-pattern-matching.html">
+  <meta property="og:title" content="Category 10: Strings & Pattern Matching — 12 Problems - Toptal Problem Bank">
+  <meta property="og:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat10-strings-pattern-matching.html">
+  <meta name="twitter:title" content="Category 10: Strings & Pattern Matching — 12 Problems - Toptal Problem Bank">
+  <meta name="twitter:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Category 10: Strings & Pattern Matching \u2014 12 Problems - Toptal Problem Bank",
+  "description": "Complete Toptal screening preparation guide \u2014 coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat10-strings-pattern-matching.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Category 10: Strings & Pattern Matching — 12 Problems - Toptal Problem Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.algo{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px}
+.algo-head{padding:28px 32px 22px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.algo-idx{font-size:58px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em}
+.algo-name{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.algo-desc{font-family:var(--serif);font-size:14.5px;color:var(--ink2);line-height:1.72;max-width:580px}
+.algo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.algo-body{padding:28px 32px}
+.cx-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.cx{background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;min-width:110px}
+.cx-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cx-v{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink)}
+.steps{margin-bottom:26px}
+.step{display:flex}
+.step-left{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--acc-l);border:1.5px solid var(--acc-b);color:var(--acc);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono);flex-shrink:0}
+.step-vline{width:1.5px;flex:1;background:var(--rule);margin:4px 0}
+.step:last-child .step-vline{display:none}
+.step-body{padding:3px 0 22px 14px;font-size:14px;color:var(--ink2);line-height:1.68}
+.step-body strong{color:var(--ink);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+@media(max-width:700px){
+  .algo-head{grid-template-columns:1fr}.algo-idx{display:none}
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Problem Bank
+        <span class="pill">v1</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#toc">Category 10</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Category 10</div>
+      </div>
+      <h1>Strings & <em>Pattern Matching</em></h1>
+      <p class="hero-sub">Master string manipulation, palindrome detection, pattern matching, and advanced algorithms like KMP, sliding window, and dynamic programming on strings. From validation to pattern recognition, these problems cover essential string techniques.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">12</div>
+          <div class="stat-l">Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">3</div>
+          <div class="stat-l">Difficulty Levels</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Complete Solutions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">12</div>
+          <div class="stat-l">LeetCode Problems</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THEORY SECTION -->
+    <section class="section fade" id="sec-theory">
+      <div class="sec-tag">
+        <span class="sec-num">Theory</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>String Fundamentals & Algorithms</h2>
+      <p class="lead">Understanding string properties and manipulation techniques is critical for solving pattern matching and text processing problems efficiently. Strings are immutable in C#, so we use StringBuilder for mutations, frequency arrays for character analysis, and various scanning techniques for pattern detection.</p>
+
+      <h3>1. String Immutability & StringBuilder</h3>
+      <p>Strings in C# are immutable. Every concatenation creates a new object, making repeated concatenation O(n²). Use <code class="il">StringBuilder</code> for building strings in loops.</p>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Bad: O(n²) concatenation</span>
+<span class="kw">string</span> result = <span class="str">""</span>;
+<span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) {
+    result += s[i];  <span class="cm">// Creates new string each time</span>
+}
+
+<span class="cm">// Good: O(n) with StringBuilder</span>
+<span class="kw">var</span> sb = <span class="kw">new</span> StringBuilder();
+<span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) {
+    sb.<span class="fn">Append</span>(s[i]);
+}
+<span class="kw">string</span> result = sb.<span class="fn">ToString</span>();</pre>
+      </div>
+
+      <h3>2. Character Frequency Analysis</h3>
+      <p>Many string problems require counting character occurrences. Use a simple array for ASCII or small character sets (lowercase letters: 26 chars).</p>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Frequency array for lowercase English letters</span>
+<span class="ty">int</span>[] freq = <span class="kw">new</span> <span class="ty">int</span>[<span class="num">26</span>];
+<span class="kw">foreach</span> (<span class="kw">char</span> c <span class="kw">in</span> s) {
+    <span class="kw">if</span> (<span class="kw">char</span>.<span class="fn">IsLower</span>(c)) {
+        freq[c - <span class="str">'a'</span>]++;
+    }
+}
+
+<span class="cm">// Dictionary for arbitrary characters or Unicode</span>
+<span class="kw">var</span> charCount = <span class="kw">new</span> Dictionary&lt;<span class="kw">char</span>, <span class="ty">int</span>&gt;();
+<span class="kw">foreach</span> (<span class="kw">char</span> c <span class="kw">in</span> s) {
+    <span class="kw">if</span> (!charCount.<span class="fn">ContainsKey</span>(c)) {
+        charCount[c] = <span class="num">0</span>;
+    }
+    charCount[c]++;
+}</pre>
+      </div>
+
+      <h3>3. Palindrome Checking</h3>
+      <p>A palindrome reads the same forwards and backwards. Two main approaches: two-pointer scan or expand-around-center for longest palindromic substrings.</p>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Two-pointer approach</span>
+<span class="kw">bool</span> IsPalindrome(<span class="kw">string</span> s) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = s.Length - <span class="num">1</span>;
+    <span class="kw">while</span> (left &lt; right) {
+        <span class="kw">if</span> (s[left] != s[right]) <span class="kw">return</span> <span class="kw">false</span>;
+        left++;
+        right--;
+    }
+    <span class="kw">return</span> <span class="kw">true</span>;
+}
+
+<span class="cm">// Expand around center (for odd/even length palindromes)</span>
+<span class="kw">string</span> ExpandAroundCenter(<span class="kw">string</span> s, <span class="ty">int</span> left, <span class="ty">int</span> right) {
+    <span class="kw">while</span> (left &gt;= <span class="num">0</span> &amp;&amp; right &lt; s.Length &amp;&amp; s[left] == s[right]) {
+        left--;
+        right++;
+    }
+    <span class="kw">return</span> s.<span class="fn">Substring</span>(left + <span class="num">1</span>, right - left - <span class="num">1</span>);
+}</pre>
+      </div>
+
+      <h3>4. Sliding Window Pattern</h3>
+      <p>Maintain a window of characters and slide it across the string. Useful for substring problems, minimum windows, and pattern matching.</p>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Template: Sliding window with frequency tracking</span>
+<span class="ty">int</span> left = <span class="num">0</span>;
+<span class="kw">var</span> windowFreq = <span class="kw">new</span> Dictionary&lt;<span class="kw">char</span>, <span class="ty">int</span>&gt;();
+
+<span class="kw">for</span> (<span class="ty">int</span> right = <span class="num">0</span>; right &lt; s.Length; right++) {
+    <span class="cm">// Add right character to window</span>
+    <span class="kw">if</span> (!windowFreq.<span class="fn">ContainsKey</span>(s[right])) {
+        windowFreq[s[right]] = <span class="num">0</span>;
+    }
+    windowFreq[s[right]]++;
+
+    <span class="cm">// Shrink window from left if needed</span>
+    <span class="kw">while</span> (WindowInvalid(windowFreq)) {
+        windowFreq[s[left]]--;
+        <span class="kw">if</span> (windowFreq[s[left]] == <span class="num">0</span>) {
+            windowFreq.<span class="fn">Remove</span>(s[left]);
+        }
+        left++;
+    }
+
+    <span class="cm">// Process valid window</span>
+}</pre>
+      </div>
+
+      <h3>5. Dynamic Programming on Strings</h3>
+      <p>Many string problems use DP to avoid redundant substring checks. Build a 2D table where dp[i][j] typically represents the result for s[0..i] and t[0..j].</p>
+
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>DP String Template:</strong> Allocate dp[n+1][m+1] to handle empty string cases naturally at indices 0. Initialize base cases (empty strings) and fill bottom-up by comparing s[i-1] and t[j-1].</div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 1 -->
+    <div class="algo">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">1. Valid Palindrome (LC 125)</div>
+          <div class="algo-desc">Check if a string is a palindrome, ignoring non-alphanumeric characters and case.</div>
+          <div class="algo-tags">
+            <span class="badge b-green">Easy</span>
+            <span class="badge b-orange">Two Pointers</span>
+            <span class="badge b-blue">String</span>
+          </div>
+        </div>
+        <div class="algo-idx">01</div>
+      </div>
+      <div class="algo-body">
+        <h3>Problem Statement</h3>
+        <p>Given a string <code class="il">s</code>, determine if it is a valid palindrome, considering only alphanumeric characters and ignoring cases. Return <code class="il">true</code> if valid palindrome, <code class="il">false</code> otherwise.</p>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">"A man, a plan, a canal: Panama"</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">true</div>
+          </div>
+        </div>
+
+        <h3>Approach: Two-Pointer Skip Non-Alphanumeric</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body"><strong>Initialize pointers:</strong> left at start, right at end.</div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body"><strong>Skip non-alphanumeric:</strong> Move left/right pointers past non-alphanumeric characters.</div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body"><strong>Compare characters:</strong> Convert to lowercase and compare. If mismatch, return false.</div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">4</div>
+            </div>
+            <div class="step-body"><strong>Return true:</strong> If pointers cross without mismatch, it's a valid palindrome.</div>
+          </div>
+        </div>
+
+        <h3>Complete C# Solution</h3>
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public bool</span> <span class="fn">IsPalindrome</span>(<span class="kw">string</span> s) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = s.Length - <span class="num">1</span>;
+
+    <span class="kw">while</span> (left &lt; right) {
+        <span class="cm">// Skip non-alphanumeric from left</span>
+        <span class="kw">while</span> (left &lt; right &amp;&amp; !<span class="kw">char</span>.<span class="fn">IsLetterOrDigit</span>(s[left])) {
+            left++;
+        }
+
+        <span class="cm">// Skip non-alphanumeric from right</span>
+        <span class="kw">while</span> (left &lt; right &amp;&amp; !<span class="kw">char</span>.<span class="fn">IsLetterOrDigit</span>(s[right])) {
+            right--;
+        }
+
+        <span class="cm">// Compare characters (case-insensitive)</span>
+        <span class="kw">if</span> (<span class="kw">char</span>.<span class="fn">ToLower</span>(s[left]) != <span class="kw">char</span>.<span class="fn">ToLower</span>(s[right])) {
+            <span class="kw">return</span> <span class="kw">false</span>;
+        }
+
+        left++;
+        right--;
+    }
+
+    <span class="kw">return</span> <span class="kw">true</span>;
+}</pre>
+        </div>
+
+        <h3>Trace Example</h3>
+        <p>Input: <code class="il">"A man, a plan, a canal: Panama"</code></p>
+        <ul style="margin-left:20px;margin-bottom:16px">
+          <li>left=0 (A), right=30 (a): 'a' == 'a' ✓, move both</li>
+          <li>left=1 (space), skip; left=2 (m), right=29 (n): 'm' != 'n' would fail, but right=29 is 'a', continue</li>
+          <li>After stripping non-alphanumeric: "AmanaplanacanalPanama" → palindrome check succeeds</li>
+          <li>Output: <code class="il">true</code></li>
+        </ul>
+
+        <h3>Complexity & Edge Cases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time Complexity</td>
+                <td>O(n) — single pass with two pointers</td>
+              </tr>
+              <tr>
+                <td>Space Complexity</td>
+                <td>O(1) — only pointers, no extra storage</td>
+              </tr>
+              <tr>
+                <td>Empty/Single Char</td>
+                <td>Valid palindromes (true)</td>
+              </tr>
+              <tr>
+                <td>All Non-Alphanumeric</td>
+                <td>Valid palindrome (true)</td>
+              </tr>
+              <tr>
+                <td>Mixed Case</td>
+                <td>Handled by ToLower() conversion</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM 2 -->
+    <div class="algo">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">2. Longest Palindromic Substring (LC 5)</div>
+          <div class="algo-desc">Find the longest contiguous substring that is a palindrome.</div>
+          <div class="algo-tags">
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-orange">Expand Around Center</span>
+            <span class="badge b-blue">String</span>
+          </div>
+        </div>
+        <div class="algo-idx">02</div>
+      </div>
+      <div class="algo-body">
+        <h3>Problem Statement</h3>
+        <p>Given a string <code class="il">s</code>, return the longest palindromic substring. If multiple exist with same length, return any one.</p>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">"babad"</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">"bab" or "aba"</div>
+          </div>
+        </div>
+
+        <h3>Approach: Expand Around Center</h3>
+        <p>For each possible center (odd-length: single char; even-length: between chars), expand outward while characters match. Track the longest found.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public string</span> <span class="fn">LongestPalindrome</span>(<span class="kw">string</span> s) {
+    <span class="kw">if</span> (s.Length &lt; <span class="num">2</span>) <span class="kw">return</span> s;
+
+    <span class="ty">int</span> start = <span class="num">0</span>, maxLen = <span class="num">1</span>;
+
+    <span class="cm">// Helper: expand around center, return length</span>
+    <span class="kw">int</span> ExpandAroundCenter(<span class="ty">int</span> left, <span class="ty">int</span> right) {
+        <span class="kw">while</span> (left &gt;= <span class="num">0</span> &amp;&amp; right &lt; s.Length &amp;&amp; s[left] == s[right]) {
+            left--;
+            right++;
+        }
+        <span class="kw">return</span> right - left - <span class="num">1</span>;  <span class="cm">// Length of palindrome</span>
+    }
+
+    <span class="cm">// Check all centers: single char (odd) and between chars (even)</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; s.Length; i++) {
+        <span class="ty">int</span> len1 = ExpandAroundCenter(i, i);          <span class="cm">// Odd-length</span>
+        <span class="ty">int</span> len2 = ExpandAroundCenter(i, i + <span class="num">1</span>);  <span class="cm">// Even-length</span>
+
+        <span class="ty">int</span> len = Math.<span class="fn">Max</span>(len1, len2);
+
+        <span class="kw">if</span> (len &gt; maxLen) {
+            maxLen = len;
+            start = i - (len - <span class="num">1</span>) / <span class="num">2</span>;  <span class="cm">// Calculate start position</span>
+        }
+    }
+
+    <span class="kw">return</span> s.<span class="fn">Substring</span>(start, maxLen);
+}</pre>
+        </div>
+
+        <h3>Trace Example</h3>
+        <p>Input: <code class="il">"babad"</code></p>
+        <ul style="margin-left:20px;margin-bottom:16px">
+          <li>i=0 (b): odd expansion fails immediately (len=1), even fails (len=0)</li>
+          <li>i=1 (a): odd expansion "bab" (len=3), even fails</li>
+          <li>i=2 (b): odd expansion "aba" (len=3), even fails</li>
+          <li>Maximum len=3, start=1 → Substring(1, 3) = "bab"</li>
+          <li>Output: <code class="il">"bab"</code></li>
+        </ul>
+
+        <h3>Complexity & Edge Cases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time Complexity</td>
+                <td>O(n²) — n centers × O(n) expansion each</td>
+              </tr>
+              <tr>
+                <td>Space Complexity</td>
+                <td>O(1) — only tracking indices</td>
+              </tr>
+              <tr>
+                <td>Single Character</td>
+                <td>Return that character</td>
+              </tr>
+              <tr>
+                <td>No Palindrome > 1</td>
+                <td>Return first character</td>
+              </tr>
+              <tr>
+                <td>Entire String Palindrome</td>
+                <td>Returns entire string correctly</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout tip">
+          <span class="callout-icon">💡</span>
+          <div><strong>Manacher's Algorithm:</strong> Can solve this in O(n) time, but expand-around-center is simpler to code and O(n²) is often acceptable for interview settings.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM 3 -->
+    <div class="algo">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">3. Reverse String (LC 344)</div>
+          <div class="algo-desc">Reverse a character array in place using two pointers.</div>
+          <div class="algo-tags">
+            <span class="badge b-green">Easy</span>
+            <span class="badge b-orange">Two Pointers</span>
+            <span class="badge b-blue">String</span>
+          </div>
+        </div>
+        <div class="algo-idx">03</div>
+      </div>
+      <div class="algo-body">
+        <h3>Problem Statement</h3>
+        <p>Given an array of characters <code class="il">s</code>, reverse it in place without using extra space. The input is modified directly.</p>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">['h','e','l','l','o']</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">['o','l','l','e','h']</div>
+          </div>
+        </div>
+
+        <h3>Approach: Two-Pointer Swap</h3>
+        <p>Use left and right pointers starting from opposite ends. Swap characters and move pointers toward center until they meet.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public void</span> <span class="fn">ReverseString</span>(<span class="kw">char</span>[] s) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = s.Length - <span class="num">1</span>;
+
+    <span class="kw">while</span> (left &lt; right) {
+        <span class="cm">// Swap</span>
+        <span class="kw">char</span> temp = s[left];
+        s[left] = s[right];
+        s[right] = temp;
+
+        left++;
+        right--;
+    }
+}</pre>
+        </div>
+
+        <h3>Trace Example</h3>
+        <p>Input: <code class="il">['h','e','l','l','o']</code></p>
+        <ul style="margin-left:20px;margin-bottom:16px">
+          <li>left=0, right=4: swap 'h' ↔ 'o' → ['o','e','l','l','h']</li>
+          <li>left=1, right=3: swap 'e' ↔ 'l' → ['o','l','l','e','h']</li>
+          <li>left=2, right=2: pointers meet, stop</li>
+          <li>Output: <code class="il">['o','l','l','e','h']</code></li>
+        </ul>
+
+        <h3>Complexity & Edge Cases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time Complexity</td>
+                <td>O(n) — single pass, n/2 swaps</td>
+              </tr>
+              <tr>
+                <td>Space Complexity</td>
+                <td>O(1) — in-place, only temp variable</td>
+              </tr>
+              <tr>
+                <td>Single Character</td>
+                <td>No swap needed (left >= right immediately)</td>
+              </tr>
+              <tr>
+                <td>Even Length</td>
+                <td>All pairs swapped correctly</td>
+              </tr>
+              <tr>
+                <td>Odd Length</td>
+                <td>Middle character stays in place</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM 4 -->
+    <div class="algo">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">4. String to Integer (atoi) (LC 8)</div>
+          <div class="algo-desc">Convert a string to a 32-bit signed integer with edge case handling.</div>
+          <div class="algo-tags">
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-orange">Parsing</span>
+            <span class="badge b-blue">String</span>
+          </div>
+        </div>
+        <div class="algo-idx">04</div>
+      </div>
+      <div class="algo-body">
+        <h3>Problem Statement</h3>
+        <p>Convert a string to a 32-bit signed integer. Handle leading/trailing whitespace, optional sign, and clamp to [INT_MIN, INT_MAX]. Non-numeric characters stop parsing.</p>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">"42"</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">42</div>
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">"  -42"</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">-42</div>
+          </div>
+        </div>
+
+        <h3>Approach: Character-by-Character Parsing</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body"><strong>Skip leading whitespace.</strong></div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body"><strong>Check for optional sign</strong> ('+' or '-').</div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body"><strong>Parse digits,</strong> accumulating result. Check for overflow before multiplying by 10.</div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">4</div>
+            </div>
+            <div class="step-body"><strong>Stop on non-digit</strong> or end of string. Clamp to int bounds.</div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public int</span> <span class="fn">MyAtoi</span>(<span class="kw">string</span> s) {
+    <span class="ty">int</span> i = <span class="num">0</span>;
+    <span class="ty">int</span> sign = <span class="num">1</span>;
+    <span class="kw">long</span> result = <span class="num">0</span>;  <span class="cm">// Use long to detect overflow</span>
+
+    <span class="cm">// Skip leading whitespace</span>
+    <span class="kw">while</span> (i &lt; s.Length &amp;&amp; s[i] == <span class="str">' '</span>) {
+        i++;
+    }
+
+    <span class="kw">if</span> (i == s.Length) <span class="kw">return</span> <span class="num">0</span>;  <span class="cm">// All whitespace</span>
+
+    <span class="cm">// Check sign</span>
+    <span class="kw">if</span> (s[i] == <span class="str">'+'</span> || s[i] == <span class="str">'-'</span>) {
+        sign = (s[i] == <span class="str">'-'</span>) ? -<span class="num">1</span> : <span class="num">1</span>;
+        i++;
+    }
+
+    <span class="cm">// Parse digits</span>
+    <span class="kw">while</span> (i &lt; s.Length &amp;&amp; <span class="kw">char</span>.<span class="fn">IsDigit</span>(s[i])) {
+        <span class="ty">int</span> digit = s[i] - <span class="str">'0'</span>;
+
+        <span class="cm">// Check overflow before multiplication</span>
+        <span class="kw">if</span> (result &gt; <span class="ty">int</span>.<span class="prop">MaxValue</span> / <span class="num">10</span> ||
+            (result == <span class="ty">int</span>.<span class="prop">MaxValue</span> / <span class="num">10</span> &amp;&amp; digit &gt; <span class="num">7</span>)) {
+            <span class="kw">return</span> sign == <span class="num">1</span> ? <span class="ty">int</span>.<span class="prop">MaxValue</span> : <span class="ty">int</span>.<span class="prop">MinValue</span>;
+        }
+
+        result = result * <span class="num">10</span> + digit;
+        i++;
+    }
+
+    <span class="kw">return</span> (<span class="ty">int</span>)(result * sign);
+}</pre>
+        </div>
+
+        <h3>Trace Example</h3>
+        <p>Input: <code class="il">"  -42"</code></p>
+        <ul style="margin-left:20px;margin-bottom:16px">
+          <li>Skip whitespace: i=2</li>
+          <li>Sign check: s[2] = '-' → sign = -1, i=3</li>
+          <li>Parse '4': result = 4, i=4</li>
+          <li>Parse '2': result = 4*10 + 2 = 42, i=5</li>
+          <li>End of string, return 42 * (-1) = -42</li>
+          <li>Output: <code class="il">-42</code></li>
+        </ul>
+
+        <h3>Complexity & Edge Cases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time Complexity</td>
+                <td>O(n) — single pass through string</td>
+              </tr>
+              <tr>
+                <td>Space Complexity</td>
+                <td>O(1) — constant space</td>
+              </tr>
+              <tr>
+                <td>Overflow (large positive)</td>
+                <td>Clamped to INT_MAX (2147483647)</td>
+              </tr>
+              <tr>
+                <td>Overflow (large negative)</td>
+                <td>Clamped to INT_MIN (-2147483648)</td>
+              </tr>
+              <tr>
+                <td>All whitespace / no digits</td>
+                <td>Returns 0</td>
+              </tr>
+              <tr>
+                <td>Non-digit after number</td>
+                <td>Parsing stops, returns accumulated result</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div><strong>Overflow Detection:</strong> Use <code class="il">long</code> for intermediate result to safely detect overflow. Check <code class="il">result > INT_MAX / 10</code> before multiplying to avoid overflow in the check itself.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM 5 -->
+    <div class="algo">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">5. Count and Say (LC 38)</div>
+          <div class="algo-desc">Generate the nth term of the look-and-say sequence.</div>
+          <div class="algo-tags">
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-orange">Simulation</span>
+            <span class="badge b-blue">String</span>
+          </div>
+        </div>
+        <div class="algo-idx">05</div>
+      </div>
+      <div class="algo-body">
+        <h3>Problem Statement</h3>
+        <p>The look-and-say sequence starts with "1". Each term describes the previous: count and say the digits. n=1 → "1", n=2 → "11" (one 1), n=3 → "21" (two 1s), n=4 → "1211", etc.</p>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">n = 4</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">"1211"</div>
+          </div>
+        </div>
+
+        <h3>Approach: Iterative Sequence Generation</h3>
+        <p>Start with "1" and iteratively generate the next term by counting consecutive identical characters.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public string</span> <span class="fn">CountAndSay</span>(<span class="ty">int</span> n) {
+    <span class="kw">string</span> current = <span class="str">"1"</span>;
+
+    <span class="cm">// Generate n-1 iterations</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; n; i++) {
+        <span class="kw">var</span> sb = <span class="kw">new</span> StringBuilder();
+        <span class="ty">int</span> j = <span class="num">0</span>;
+
+        <span class="kw">while</span> (j &lt; current.Length) {
+            <span class="kw">char</span> c = current[j];
+            <span class="ty">int</span> count = <span class="num">1</span>;
+
+            <span class="cm">// Count consecutive characters</span>
+            <span class="kw">while</span> (j + <span class="num">1</span> &lt; current.Length &amp;&amp; current[j + <span class="num">1</span>] == c) {
+                count++;
+                j++;
+            }
+
+            <span class="cm">// Append count and character</span>
+            sb.<span class="fn">Append</span>(count).<span class="fn">Append</span>(c);
+            j++;
+        }
+
+        current = sb.<span class="fn">ToString</span>();
+    }
+
+    <span class="kw">return</span> current;
+}</pre>
+        </div>
+
+        <h3>Trace Example</h3>
+        <p>Generating n=4:</p>
+        <ul style="margin-left:20px;margin-bottom:16px">
+          <li>n=1: "1"</li>
+          <li>n=2: Read "1" → one 1 → "11"</li>
+          <li>n=3: Read "11" → two 1s → "21"</li>
+          <li>n=4: Read "21" → one 2, one 1 → "1211"</li>
+          <li>Output: <code class="il">"1211"</code></li>
+        </ul>
+
+        <h3>Complexity & Edge Cases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time Complexity</td>
+                <td>O(n * m) where m is length of current term (grows exponentially)</td>
+              </tr>
+              <tr>
+                <td>Space Complexity</td>
+                <td>O(m) for StringBuilder storing current term</td>
+              </tr>
+              <tr>
+                <td>n=1</td>
+                <td>Returns "1" immediately</td>
+              </tr>
+              <tr>
+                <td>Large n</td>
+                <td>String grows exponentially; n ≤ 30 is practical limit</td>
+              </tr>
+              <tr>
+                <td>Consecutive chars</td>
+                <td>Counts correctly handled by inner while loop</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM 6 -->
+    <div class="algo">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">6. Longest Common Prefix (LC 14)</div>
+          <div class="algo-desc">Find the longest common prefix among an array of strings.</div>
+          <div class="algo-tags">
+            <span class="badge b-green">Easy</span>
+            <span class="badge b-orange">Vertical Scan</span>
+            <span class="badge b-blue">String</span>
+          </div>
+        </div>
+        <div class="algo-idx">06</div>
+      </div>
+      <div class="algo-body">
+        <h3>Problem Statement</h3>
+        <p>Given an array of strings, find the longest common prefix. If no common prefix, return empty string.</p>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">["flower","flow","flight"]</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">"fl"</div>
+          </div>
+        </div>
+
+        <h3>Approach: Vertical Scan</h3>
+        <p>Compare characters column-by-column across all strings. Stop when a mismatch or end-of-string is found.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public string</span> <span class="fn">LongestCommonPrefix</span>(<span class="kw">string</span>[] strs) {
+    <span class="kw">if</span> (strs.Length == <span class="num">0</span>) <span class="kw">return</span> <span class="str">""</span>;
+
+    <span class="cm">// Find minimum length</span>
+    <span class="ty">int</span> minLen = strs[<span class="num">0</span>].Length;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; strs.Length; i++) {
+        minLen = Math.<span class="fn">Min</span>(minLen, strs[i].Length);
+    }
+
+    <span class="cm">// Vertical scan: compare character by character</span>
+    <span class="kw">for</span> (<span class="ty">int</span> col = <span class="num">0</span>; col &lt; minLen; col++) {
+        <span class="kw">char</span> c = strs[<span class="num">0</span>][col];
+
+        <span class="kw">for</span> (<span class="ty">int</span> row = <span class="num">1</span>; row &lt; strs.Length; row++) {
+            <span class="kw">if</span> (strs[row][col] != c) {
+                <span class="cm">// Mismatch found, return prefix up to this column</span>
+                <span class="kw">return</span> strs[<span class="num">0</span>].<span class="fn">Substring</span>(<span class="num">0</span>, col);
+            }
+        }
+    }
+
+    <span class="cm">// All characters up to minLen match</span>
+    <span class="kw">return</span> strs[<span class="num">0</span>].<span class="fn">Substring</span>(<span class="num">0</span>, minLen);
+}</pre>
+        </div>
+
+        <h3>Trace Example</h3>
+        <p>Input: <code class="il">["flower","flow","flight"]</code></p>
+        <ul style="margin-left:20px;margin-bottom:16px">
+          <li>minLen = min(6,4,6) = 4</li>
+          <li>col=0: 'f' == 'f' == 'f' ✓</li>
+          <li>col=1: 'l' == 'l' == 'l' ✓</li>
+          <li>col=2: 'o' != 'i' ✗ → return Substring(0,2) = "fl"</li>
+          <li>Output: <code class="il">"fl"</code></li>
+        </ul>
+
+        <h3>Complexity & Edge Cases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time Complexity</td>
+                <td>O(n * m) where n=num strings, m=min string length</td>
+              </tr>
+              <tr>
+                <td>Space Complexity</td>
+                <td>O(1) or O(m) for returned substring</td>
+              </tr>
+              <tr>
+                <td>Empty array</td>
+                <td>Returns empty string</td>
+              </tr>
+              <tr>
+                <td>Single string</td>
+                <td>Returns that string</td>
+              </tr>
+              <tr>
+                <td>No common prefix</td>
+                <td>Returns empty string (mismatch at col=0)</td>
+              </tr>
+              <tr>
+                <td>All identical strings</td>
+                <td>Returns the entire string</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM 7 -->
+    <div class="algo">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">7. Implement strStr (LC 28)</div>
+          <div class="algo-desc">Find first occurrence of a pattern in a string (KMP or naive approach).</div>
+          <div class="algo-tags">
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-orange">KMP / Naive</span>
+            <span class="badge b-blue">String</span>
+          </div>
+        </div>
+        <div class="algo-idx">07</div>
+      </div>
+      <div class="algo-body">
+        <h3>Problem Statement</h3>
+        <p>Find the index of the first occurrence of pattern <code class="il">needle</code> in string <code class="il">haystack</code>. Return -1 if not found. If needle is empty, return 0.</p>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">haystack="hello", needle="ll"</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">2</div>
+          </div>
+        </div>
+
+        <h3>Approach A: Naive (Simple & Sufficient)</h3>
+        <p>Iterate through haystack, check if pattern matches at each position.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public int</span> <span class="fn">StrStr_Naive</span>(<span class="kw">string</span> haystack, <span class="kw">string</span> needle) {
+    <span class="kw">if</span> (needle.Length == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+    <span class="kw">if</span> (needle.Length &gt; haystack.Length) <span class="kw">return</span> -<span class="num">1</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt;= haystack.Length - needle.Length; i++) {
+        <span class="ty">int</span> j;
+        <span class="kw">for</span> (j = <span class="num">0</span>; j &lt; needle.Length; j++) {
+            <span class="kw">if</span> (haystack[i + j] != needle[j]) <span class="kw">break</span>;
+        }
+        <span class="kw">if</span> (j == needle.Length) <span class="kw">return</span> i;  <span class="cm">// Full match</span>
+    }
+
+    <span class="kw">return</span> -<span class="num">1</span>;
+}</pre>
+        </div>
+
+        <h3>Approach B: KMP (Efficient for Repeated Patterns)</h3>
+        <p>Use a failure function to avoid redundant comparisons when a mismatch occurs.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public int</span> <span class="fn">StrStr_KMP</span>(<span class="kw">string</span> haystack, <span class="kw">string</span> needle) {
+    <span class="kw">if</span> (needle.Length == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="cm">// Build failure function (LPS array)</span>
+    <span class="ty">int</span>[] lps = <span class="kw">new</span> <span class="ty">int</span>[needle.Length];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; needle.Length; i++) {
+        <span class="ty">int</span> j = lps[i - <span class="num">1</span>];
+        <span class="kw">while</span> (j &gt; <span class="num">0</span> &amp;&amp; needle[i] != needle[j]) {
+            j = lps[j - <span class="num">1</span>];
+        }
+        <span class="kw">if</span> (needle[i] == needle[j]) {
+            lps[i] = j + <span class="num">1</span>;
+        }
+    }
+
+    <span class="cm">// KMP matching</span>
+    <span class="ty">int</span> k = <span class="num">0</span>;  <span class="cm">// needle pointer</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; haystack.Length; i++) {
+        <span class="kw">while</span> (k &gt; <span class="num">0</span> &amp;&amp; haystack[i] != needle[k]) {
+            k = lps[k - <span class="num">1</span>];
+        }
+        <span class="kw">if</span> (haystack[i] == needle[k]) {
+            k++;
+        }
+        <span class="kw">if</span> (k == needle.Length) {
+            <span class="kw">return</span> i - needle.Length + <span class="num">1</span>;
+        }
+    }
+
+    <span class="kw">return</span> -<span class="num">1</span>;
+}</pre>
+        </div>
+
+        <h3>Trace Example (Naive)</h3>
+        <p>Input: <code class="il">haystack="hello", needle="ll"</code></p>
+        <ul style="margin-left:20px;margin-bottom:16px">
+          <li>i=0: h[0..1]="he" != "ll"</li>
+          <li>i=1: h[1..2]="el" != "ll"</li>
+          <li>i=2: h[2..3]="ll" == "ll" ✓ → return 2</li>
+          <li>Output: <code class="il">2</code></li>
+        </ul>
+
+        <h3>Complexity Comparison</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Algorithm</th>
+                <th>Time (Best)</th>
+                <th>Time (Worst)</th>
+                <th>Space</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Naive</td>
+                <td>O(n)</td>
+                <td>O(n * m)</td>
+                <td>O(1)</td>
+              </tr>
+              <tr>
+                <td>KMP</td>
+                <td>O(n + m)</td>
+                <td>O(n + m)</td>
+                <td>O(m)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout tip">
+          <span class="callout-icon">💡</span>
+          <div><strong>For Interviews:</strong> Start with naive approach (simpler, easier to explain). Mention KMP optimization if asked about repeated patterns or if input constraints are very large.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM 8 -->
+    <div class="algo">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">8. Palindrome Partitioning (LC 131)</div>
+          <div class="algo-desc">Find all ways to partition a string into palindromic substrings.</div>
+          <div class="algo-tags">
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-orange">Backtracking + DP</span>
+            <span class="badge b-blue">String</span>
+          </div>
+        </div>
+        <div class="algo-idx">08</div>
+      </div>
+      <div class="algo-body">
+        <h3>Problem Statement</h3>
+        <p>Given string <code class="il">s</code>, return all possible ways to partition it into palindromic substrings.</p>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">"nitin"</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">[["n","i","t","i","n"], ["n","iti","n"]]</div>
+          </div>
+        </div>
+
+        <h3>Approach: Backtracking + DP Memoization</h3>
+        <p>Use backtracking to explore all partitions, pre-compute which substrings are palindromes to avoid repeated checks.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> IList&lt;IList&lt;<span class="kw">string</span>&gt;&gt; <span class="fn">Partition</span>(<span class="kw">string</span> s) {
+    <span class="kw">var</span> result = <span class="kw">new</span> List&lt;IList&lt;<span class="kw">string</span>&gt;&gt;();
+    <span class="ty">int</span> n = s.Length;
+
+    <span class="cm">// DP table: isPalin[i,j] = true if s[i..j] is palindrome</span>
+    <span class="kw">bool</span>[,] isPalin = <span class="kw">new</span> <span class="kw">bool</span>[n, n];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = i; j &lt; n; j++) {
+            <span class="kw">if</span> (s[i] == s[j] &amp;&amp; (j - i &lt;= <span class="num">1</span> || isPalin[i + <span class="num">1</span>, j - <span class="num">1</span>])) {
+                isPalin[i, j] = <span class="kw">true</span>;
+            }
+        }
+    }
+
+    <span class="cm">// Backtracking</span>
+    <span class="kw">void</span> Backtrack(<span class="ty">int</span> start, List&lt;<span class="kw">string</span>&gt; current) {
+        <span class="kw">if</span> (start == n) {
+            result.<span class="fn">Add</span>(<span class="kw">new</span> List&lt;<span class="kw">string</span>&gt;(current));
+            <span class="kw">return</span>;
+        }
+
+        <span class="kw">for</span> (<span class="ty">int</span> end = start; end &lt; n; end++) {
+            <span class="kw">if</span> (isPalin[start, end]) {
+                current.<span class="fn">Add</span>(s.<span class="fn">Substring</span>(start, end - start + <span class="num">1</span>));
+                Backtrack(end + <span class="num">1</span>, current);
+                current.<span class="fn">RemoveAt</span>(current.Count - <span class="num">1</span>);
+            }
+        }
+    }
+
+    Backtrack(<span class="num">0</span>, <span class="kw">new</span> List&lt;<span class="kw">string</span>&gt;());
+    <span class="kw">return</span> result;
+}</pre>
+        </div>
+
+        <h3>Trace Example</h3>
+        <p>Input: <code class="il">"nitin"</code></p>
+        <ul style="margin-left:20px;margin-bottom:16px">
+          <li>DP: palindromes are "n"(0,0), "i"(1,1), "t"(2,2), "i"(3,3), "n"(4,4), "iti"(1,3), "nitin"(0,4)</li>
+          <li>Backtrack(0): try "n"(0,0) → Backtrack(1)</li>
+          <li>Backtrack(1): try "i"(1,1) → Backtrack(2) or "iti"(1,3) → Backtrack(4)</li>
+          <li>Collects ["n","i","t","i","n"] and ["n","iti","n"]</li>
+          <li>Output: <code class="il">[["n","i","t","i","n"], ["n","iti","n"]]</code></li>
+        </ul>
+
+        <h3>Complexity & Edge Cases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time Complexity</td>
+                <td>O(n² + 2^n) — DP O(n²), backtracking O(2^n)</td>
+              </tr>
+              <tr>
+                <td>Space Complexity</td>
+                <td>O(n²) for DP table + O(n) recursion stack</td>
+              </tr>
+              <tr>
+                <td>Single character</td>
+                <td>Returns [["c"]]</td>
+              </tr>
+              <tr>
+                <td>All different chars</td>
+                <td>Only partitioning is individual characters</td>
+              </tr>
+              <tr>
+                <td>Entire string palindrome</td>
+                <td>Includes whole string as one partition option</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM 9 -->
+    <div class="algo">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">9. Decode Ways (LC 91)</div>
+          <div class="algo-desc">Count the number of ways to decode a digit string using dynamic programming.</div>
+          <div class="algo-tags">
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-orange">Dynamic Programming</span>
+            <span class="badge b-blue">String</span>
+          </div>
+        </div>
+        <div class="algo-idx">09</div>
+      </div>
+      <div class="algo-body">
+        <h3>Problem Statement</h3>
+        <p>Given a digit string, count ways to decode it using mapping: 1='A', 2='B', ..., 26='Z'. For example, "12" can decode to "AB" (1,2) or "L" (12).</p>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">"12"</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">2</div>
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">"226"</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">3</div>
+          </div>
+        </div>
+
+        <h3>Approach: Dynamic Programming</h3>
+        <p>dp[i] = ways to decode s[0..i-1]. At each position, check if s[i-1] alone or s[i-2..i-1] together form valid codes.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public int</span> <span class="fn">NumDecodings</span>(<span class="kw">string</span> s) {
+    <span class="kw">if</span> (s.Length == <span class="num">0</span> || s[<span class="num">0</span>] == <span class="str">'0'</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="ty">int</span> n = s.Length;
+    <span class="ty">long</span>[] dp = <span class="kw">new</span> <span class="ty">long</span>[n + <span class="num">1</span>];
+    dp[<span class="num">0</span>] = <span class="num">1</span>;  <span class="cm">// Empty string</span>
+    dp[<span class="num">1</span>] = s[<span class="num">0</span>] != <span class="str">'0'</span> ? <span class="num">1</span> : <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">2</span>; i &lt;= n; i++) {
+        <span class="cm">// Check single digit (s[i-1])</span>
+        <span class="ty">int</span> oneDigit = s[i - <span class="num">1</span>] - <span class="str">'0'</span>;
+        <span class="kw">if</span> (oneDigit &gt;= <span class="num">1</span> &amp;&amp; oneDigit &lt;= <span class="num">9</span>) {
+            dp[i] += dp[i - <span class="num">1</span>];
+        }
+
+        <span class="cm">// Check two digits (s[i-2..i-1])</span>
+        <span class="ty">int</span> twoDigits = (<span class="ty">int</span>)(<span class="kw">char</span>.<span class="fn">GetNumericValue</span>(s[i - <span class="num">2</span>]) * <span class="num">10</span> +
+                               <span class="kw">char</span>.<span class="fn">GetNumericValue</span>(s[i - <span class="num">1</span>]));
+        <span class="kw">if</span> (twoDigits &gt;= <span class="num">10</span> &amp;&amp; twoDigits &lt;= <span class="num">26</span>) {
+            dp[i] += dp[i - <span class="num">2</span>];
+        }
+    }
+
+    <span class="kw">return</span> (<span class="ty">int</span>)dp[n];
+}</pre>
+        </div>
+
+        <h3>Trace Example</h3>
+        <p>Input: <code class="il">"226"</code></p>
+        <ul style="margin-left:20px;margin-bottom:16px">
+          <li>dp[0]=1, dp[1]=1 (s[0]='2' is valid)</li>
+          <li>i=2 (s[1]='2'): oneDigit=2 (valid) → dp[2]+=dp[1]=1; twoDigits=22 (valid) → dp[2]+=dp[0]=2</li>
+          <li>i=3 (s[2]='6'): oneDigit=6 (valid) → dp[3]+=dp[2]=2; twoDigits=26 (valid) → dp[3]+=dp[1]=1; dp[3]=3</li>
+          <li>Output: <code class="il">3</code> (decodes: "2,2,6", "22,6", "2,26")</li>
+        </ul>
+
+        <h3>Complexity & Edge Cases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time Complexity</td>
+                <td>O(n) — single pass through string</td>
+              </tr>
+              <tr>
+                <td>Space Complexity</td>
+                <td>O(n) for DP array (can optimize to O(1))</td>
+              </tr>
+              <tr>
+                <td>Starts with '0'</td>
+                <td>Returns 0 (invalid)</td>
+              </tr>
+              <tr>
+                <td>Contains '0' in middle</td>
+                <td>Valid only if preceded by '1' or '2'</td>
+              </tr>
+              <tr>
+                <td>Ends with '0'</td>
+                <td>Valid only if previous digit is '1' or '2'</td>
+              </tr>
+              <tr>
+                <td>Single digit</td>
+                <td>Returns 1 if '1'-'9', else 0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout tip">
+          <span class="callout-icon">💡</span>
+          <div><strong>Space Optimization:</strong> Only need dp[i-1] and dp[i-2], so use two variables instead of an array.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM 10 -->
+    <div class="algo">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">10. Wildcard Matching (LC 44)</div>
+          <div class="algo-desc">Match strings with '?' (any single char) and '*' (any sequence) using DP or greedy.</div>
+          <div class="algo-tags">
+            <span class="badge b-red">Hard</span>
+            <span class="badge b-orange">Dynamic Programming</span>
+            <span class="badge b-blue">String</span>
+          </div>
+        </div>
+        <div class="algo-idx">10</div>
+      </div>
+      <div class="algo-body">
+        <h3>Problem Statement</h3>
+        <p>Check if string <code class="il">s</code> matches pattern <code class="il">p</code> where '?' matches single character and '*' matches zero or more characters.</p>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">s="aa", p="*"</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">true</div>
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">s="cb", p="?a"</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">false</div>
+          </div>
+        </div>
+
+        <h3>Approach: Dynamic Programming</h3>
+        <p>dp[i][j] = true if s[0..i-1] matches p[0..j-1]. Handle '*' by checking zero (dp[i][j-1]) or one+ (dp[i-1][j]) matches.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public bool</span> <span class="fn">IsMatch</span>(<span class="kw">string</span> s, <span class="kw">string</span> p) {
+    <span class="ty">int</span> sLen = s.Length, pLen = p.Length;
+    <span class="kw">bool</span>[,] dp = <span class="kw">new</span> <span class="kw">bool</span>[sLen + <span class="num">1</span>, pLen + <span class="num">1</span>];
+
+    <span class="cm">// Base case: empty string and empty pattern</span>
+    dp[<span class="num">0</span>, <span class="num">0</span>] = <span class="kw">true</span>;
+
+    <span class="cm">// Handle patterns like *, **, a*b* (first row)</span>
+    <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">1</span>; j &lt;= pLen; j++) {
+        <span class="kw">if</span> (p[j - <span class="num">1</span>] == <span class="str">'*'</span>) {
+            dp[<span class="num">0</span>, j] = dp[<span class="num">0</span>, j - <span class="num">1</span>];
+        }
+    }
+
+    <span class="cm">// Fill the DP table</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt;= sLen; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">1</span>; j &lt;= pLen; j++) {
+            <span class="kw">char</span> sChar = s[i - <span class="num">1</span>];
+            <span class="kw">char</span> pChar = p[j - <span class="num">1</span>];
+
+            <span class="kw">if</span> (pChar == <span class="str">'*'</span>) {
+                <span class="cm">// * matches zero chars (p[j-1] = *) or one+ chars (move s pointer)</span>
+                dp[i, j] = dp[i, j - <span class="num">1</span>] || dp[i - <span class="num">1</span>, j];
+            } <span class="kw">else</span> <span class="kw">if</span> (pChar == <span class="str">'?'</span> || sChar == pChar) {
+                <span class="cm">// ? or exact match</span>
+                dp[i, j] = dp[i - <span class="num">1</span>, j - <span class="num">1</span>];
+            }
+            <span class="cm">// else: dp[i,j] remains false</span>
+        }
+    }
+
+    <span class="kw">return</span> dp[sLen, pLen];
+}</pre>
+        </div>
+
+        <h3>Trace Example</h3>
+        <p>Input: <code class="il">s="aa", p="*"</code></p>
+        <ul style="margin-left:20px;margin-bottom:16px">
+          <li>dp[0][0] = true</li>
+          <li>dp[0][1] = true (*matches zero of s)</li>
+          <li>dp[1][1] = dp[0][1] || dp[1][0] = true (*matches 'a')</li>
+          <li>dp[2][1] = dp[1][1] || dp[2][0] = true (*matches 'a')</li>
+          <li>Output: <code class="il">true</code></li>
+        </ul>
+
+        <h3>Complexity & Edge Cases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time Complexity</td>
+                <td>O(m * n) where m=len(s), n=len(p)</td>
+              </tr>
+              <tr>
+                <td>Space Complexity</td>
+                <td>O(m * n) for DP table</td>
+              </tr>
+              <tr>
+                <td>Pattern '*' only</td>
+                <td>Matches any string (true)</td>
+              </tr>
+              <tr>
+                <td>Pattern with leading '*'</td>
+                <td>Handled by base case propagation</td>
+              </tr>
+              <tr>
+                <td>Multiple consecutive '*'</td>
+                <td>Treated as single '*' effectively</td>
+              </tr>
+              <tr>
+                <td>No wildcard</td>
+                <td>Requires exact match</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div><strong>Key Insight:</strong> For '*', check both options: skip it in pattern (dp[i][j-1]) or match one+ characters (dp[i-1][j]).</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM 11 -->
+    <div class="algo">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">11. Reorganize String (LC 767)</div>
+          <div class="algo-desc">Rearrange a string so no two adjacent characters are the same.</div>
+          <div class="algo-tags">
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-orange">Frequency + Greedy</span>
+            <span class="badge b-blue">String</span>
+          </div>
+        </div>
+        <div class="algo-idx">11</div>
+      </div>
+      <div class="algo-body">
+        <h3>Problem Statement</h3>
+        <p>Given a string, return a reorganized version where no two adjacent characters are the same. If impossible, return empty string.</p>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">"aab"</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">"aba"</div>
+          </div>
+        </div>
+
+        <h3>Approach: Frequency + Greedy with Max Heap</h3>
+        <p>Always place the character with highest remaining frequency, ensuring it's not the same as the previous. If max-frequency char > (n+1)/2, it's impossible.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public string</span> <span class="fn">ReorganizeString</span>(<span class="kw">string</span> s) {
+    <span class="cm">// Count character frequencies</span>
+    <span class="kw">var</span> freq = <span class="kw">new</span> Dictionary&lt;<span class="kw">char</span>, <span class="ty">int</span>&gt;();
+    <span class="kw">int</span> maxFreq = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="kw">char</span> c <span class="kw">in</span> s) {
+        <span class="kw">if</span> (!freq.<span class="fn">ContainsKey</span>(c)) freq[c] = <span class="num">0</span>;
+        freq[c]++;
+        maxFreq = Math.<span class="fn">Max</span>(maxFreq, freq[c]);
+    }
+
+    <span class="cm">// If max frequency > (n+1)/2, impossible</span>
+    <span class="kw">if</span> (maxFreq &gt; (s.Length + <span class="num">1</span>) / <span class="num">2</span>) <span class="kw">return</span> <span class="str">""</span>;
+
+    <span class="cm">// Max heap (priority queue) of (freq, char)</span>
+    <span class="kw">var</span> heap = <span class="kw">new</span> PriorityQueue&lt;(<span class="ty">int</span>, <span class="kw">char</span>), <span class="ty">int</span>&gt;();
+    <span class="kw">foreach</span> (<span class="kw">var</span> kvp <span class="kw">in</span> freq) {
+        heap.<span class="fn">Enqueue</span>((kvp.<span class="prop">Value</span>, kvp.<span class="prop">Key</span>), -kvp.<span class="prop">Value</span>);
+    }
+
+    <span class="kw">var</span> result = <span class="kw">new</span> StringBuilder();
+    <span class="kw">while</span> (heap.Count &gt; <span class="num">0</span>) {
+        <span class="cm">// Take two most frequent characters</span>
+        <span class="kw">var</span> (freq1, char1) = heap.<span class="fn">Dequeue</span>();
+
+        <span class="kw">if</span> (heap.Count == <span class="num">0</span>) {
+            <span class="cm">// Only one character left, can only use if freq=1</span>
+            <span class="kw">if</span> (freq1 == <span class="num">1</span>) {
+                result.<span class="fn">Append</span>(char1);
+            }
+            <span class="kw">break</span>;
+        }
+
+        <span class="kw">var</span> (freq2, char2) = heap.<span class="fn">Dequeue</span>();
+
+        <span class="cm">// Add both characters</span>
+        result.<span class="fn">Append</span>(char1).<span class="fn">Append</span>(char2);
+
+        <span class="cm">// Decrease frequencies and re-enqueue if needed</span>
+        <span class="kw">if</span> (freq1 - <span class="num">1</span> &gt; <span class="num">0</span>) {
+            heap.<span class="fn">Enqueue</span>((freq1 - <span class="num">1</span>, char1), -(freq1 - <span class="num">1</span>));
+        }
+        <span class="kw">if</span> (freq2 - <span class="num">1</span> &gt; <span class="num">0</span>) {
+            heap.<span class="fn">Enqueue</span>((freq2 - <span class="num">1</span>, char2), -(freq2 - <span class="num">1</span>));
+        }
+    }
+
+    <span class="kw">return</span> result.<span class="fn">ToString</span>();
+}</pre>
+        </div>
+
+        <h3>Trace Example</h3>
+        <p>Input: <code class="il">"aab"</code></p>
+        <ul style="margin-left:20px;margin-bottom:16px">
+          <li>freq: {'a':2, 'b':1}, maxFreq=2, (3+1)/2=2 ✓</li>
+          <li>Heap: [('a',2), ('b',1)]</li>
+          <li>Dequeue ('a',2) and ('b',1) → result="ab", enqueue ('a',1)</li>
+          <li>Dequeue ('a',1) → result="aba", freq becomes 0</li>
+          <li>Output: <code class="il">"aba"</code></li>
+        </ul>
+
+        <h3>Complexity & Edge Cases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time Complexity</td>
+                <td>O(n log k) where k=alphabet size</td>
+              </tr>
+              <tr>
+                <td>Space Complexity</td>
+                <td>O(k) for freq map and heap</td>
+              </tr>
+              <tr>
+                <td>Single character</td>
+                <td>Returns that character</td>
+              </tr>
+              <tr>
+                <td>All same character</td>
+                <td>Returns "" if length > 1, else the character</td>
+              </tr>
+              <tr>
+                <td>Two characters, equal freq</td>
+                <td>Always possible: "ababab..."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout tip">
+          <span class="callout-icon">💡</span>
+          <div><strong>Impossibility Check:</strong> If any character has frequency > (n+1)/2, it cannot be placed without adjacency violations. For example, "aaa" (3 a's) needs 2 non-a characters between them, but we only have 2 positions.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM 12 -->
+    <div class="algo">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">12. Minimum Window Substring (LC 76)</div>
+          <div class="algo-desc">Find the smallest window containing all characters from target string using sliding window.</div>
+          <div class="algo-tags">
+            <span class="badge b-red">Hard</span>
+            <span class="badge b-orange">Sliding Window</span>
+            <span class="badge b-blue">String</span>
+          </div>
+        </div>
+        <div class="algo-idx">12</div>
+      </div>
+      <div class="algo-body">
+        <h3>Problem Statement</h3>
+        <p>Given strings <code class="il">s</code> and <code class="il">t</code>, return the minimum window substring in <code class="il">s</code> that contains all characters in <code class="il">t</code>. If no such window exists, return empty string.</p>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Input</div>
+            <div class="cx-v">s="ADOBECODEBANC", t="ABC"</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Output</div>
+            <div class="cx-v">"BANC"</div>
+          </div>
+        </div>
+
+        <h3>Approach: Sliding Window with Frequency Tracking</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body"><strong>Build target frequency map:</strong> Count characters needed.</div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body"><strong>Expand window:</strong> Move right pointer, add characters to window frequency.</div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body"><strong>Contract window:</strong> Move left pointer when window contains all required characters, track minimum.</div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">4</div>
+            </div>
+            <div class="step-body"><strong>Return minimum window:</strong> Save coordinates of smallest valid window.</div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public string</span> <span class="fn">MinWindow</span>(<span class="kw">string</span> s, <span class="kw">string</span> t) {
+    <span class="kw">if</span> (s.Length &lt; t.Length) <span class="kw">return</span> <span class="str">""</span>;
+
+    <span class="cm">// Build target frequency map</span>
+    <span class="kw">var</span> targetFreq = <span class="kw">new</span> Dictionary&lt;<span class="kw">char</span>, <span class="ty">int</span>&gt;();
+    <span class="kw">foreach</span> (<span class="kw">char</span> c <span class="kw">in</span> t) {
+        <span class="kw">if</span> (!targetFreq.<span class="fn">ContainsKey</span>(c)) targetFreq[c] = <span class="num">0</span>;
+        targetFreq[c]++;
+    }
+
+    <span class="cm">// Sliding window with window frequency map</span>
+    <span class="kw">var</span> windowFreq = <span class="kw">new</span> Dictionary&lt;<span class="kw">char</span>, <span class="ty">int</span>&gt;();
+    <span class="ty">int</span> required = targetFreq.Count;  <span class="cm">// Unique chars needed</span>
+    <span class="ty">int</span> formed = <span class="num">0</span>;  <span class="cm">// Unique chars with correct frequency</span>
+
+    <span class="ty">int</span> left = <span class="num">0</span>, minLen = <span class="ty">int</span>.<span class="prop">MaxValue</span>, minStart = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> right = <span class="num">0</span>; right &lt; s.Length; right++) {
+        <span class="kw">char</span> c = s[right];
+
+        <span class="cm">// Add character to window</span>
+        <span class="kw">if</span> (!windowFreq.<span class="fn">ContainsKey</span>(c)) windowFreq[c] = <span class="num">0</span>;
+        windowFreq[c]++;
+
+        <span class="cm">// Check if this character's frequency is now satisfied</span>
+        <span class="kw">if</span> (targetFreq.<span class="fn">ContainsKey</span>(c) &amp;&amp; windowFreq[c] == targetFreq[c]) {
+            formed++;
+        }
+
+        <span class="cm">// Contract window from left</span>
+        <span class="kw">while</span> (left &lt;= right &amp;&amp; formed == required) {
+            <span class="cm">// Update minimum if current window is smaller</span>
+            <span class="kw">if</span> (right - left + <span class="num">1</span> &lt; minLen) {
+                minLen = right - left + <span class="num">1</span>;
+                minStart = left;
+            }
+
+            <span class="cm">// Remove character from left</span>
+            <span class="kw">char</span> leftChar = s[left];
+            windowFreq[leftChar]--;
+
+            <span class="cm">// Check if we lost a required character</span>
+            <span class="kw">if</span> (targetFreq.<span class="fn">ContainsKey</span>(leftChar) &amp;&amp; windowFreq[leftChar] &lt; targetFreq[leftChar]) {
+                formed--;
+            }
+
+            left++;
+        }
+    }
+
+    <span class="kw">return</span> minLen == <span class="ty">int</span>.<span class="prop">MaxValue</span> ? <span class="str">""</span> : s.<span class="fn">Substring</span>(minStart, minLen);
+}</pre>
+        </div>
+
+        <h3>Trace Example</h3>
+        <p>Input: <code class="il">s="ADOBECODEBANC", t="ABC"</code></p>
+        <ul style="margin-left:20px;margin-bottom:16px">
+          <li>targetFreq: {'A':1, 'B':1, 'C':1}, required=3</li>
+          <li>Expand: right moves to 10 (ADOBECODED) → formed=3</li>
+          <li>Contract: left shrinks, minWindow="ADOBEC" (len=6) at right=9</li>
+          <li>Continue expanding/contracting → minWindow="BANC" (len=4)</li>
+          <li>Output: <code class="il">"BANC"</code></li>
+        </ul>
+
+        <h3>Complexity & Edge Cases</h3>
+        <div class="tbl-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Analysis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time Complexity</td>
+                <td>O(m + n) where m=len(s), n=len(t); each char visited twice</td>
+              </tr>
+              <tr>
+                <td>Space Complexity</td>
+                <td>O(n) for frequency maps (at most 52 chars)</td>
+              </tr>
+              <tr>
+                <td>No valid window</td>
+                <td>Returns empty string</td>
+              </tr>
+              <tr>
+                <td>Duplicate chars in target</td>
+                <td>Correctly counts required frequency</td>
+              </tr>
+              <tr>
+                <td>Window length = target length</td>
+                <td>Finds minimum containing substring</td>
+              </tr>
+              <tr>
+                <td>Case sensitivity</td>
+                <td>'A' and 'a' treated as different characters</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div><strong>Key Optimization:</strong> Track "formed" (unique chars with correct frequency) instead of rechecking all frequencies on each iteration. This avoids repeated map lookups.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUMMARY SECTION -->
+    <section class="section fade" id="sec-summary">
+      <div class="sec-tag">
+        <span class="sec-num">Summary</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Quick Reference & Key Takeaways</h2>
+
+      <h3>Techniques Reference Table</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Problem</th>
+              <th>Primary Technique</th>
+              <th>Time Complexity</th>
+              <th>Space Complexity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Valid Palindrome</td>
+              <td>Two Pointers</td>
+              <td>O(n)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+              <td>Longest Palindromic Substring</td>
+              <td>Expand Around Center</td>
+              <td>O(n²)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+              <td>Reverse String</td>
+              <td>Two Pointers Swap</td>
+              <td>O(n)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+              <td>String to Integer (atoi)</td>
+              <td>Character Parsing</td>
+              <td>O(n)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+              <td>Count and Say</td>
+              <td>Simulation</td>
+              <td>O(n*m)</td>
+              <td>O(m)</td>
+            </tr>
+            <tr>
+              <td>Longest Common Prefix</td>
+              <td>Vertical Scan</td>
+              <td>O(n*m)</td>
+              <td>O(1)</td>
+            </tr>
+            <tr>
+              <td>Implement strStr</td>
+              <td>KMP / Naive</td>
+              <td>O(n+m)</td>
+              <td>O(m)</td>
+            </tr>
+            <tr>
+              <td>Palindrome Partitioning</td>
+              <td>Backtracking + DP</td>
+              <td>O(n² + 2^n)</td>
+              <td>O(n²)</td>
+            </tr>
+            <tr>
+              <td>Decode Ways</td>
+              <td>Dynamic Programming</td>
+              <td>O(n)</td>
+              <td>O(n)</td>
+            </tr>
+            <tr>
+              <td>Wildcard Matching</td>
+              <td>Dynamic Programming</td>
+              <td>O(m*n)</td>
+              <td>O(m*n)</td>
+            </tr>
+            <tr>
+              <td>Reorganize String</td>
+              <td>Frequency + Greedy</td>
+              <td>O(n log k)</td>
+              <td>O(k)</td>
+            </tr>
+            <tr>
+              <td>Minimum Window Substring</td>
+              <td>Sliding Window</td>
+              <td>O(m+n)</td>
+              <td>O(k)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Common Patterns Checklist</h3>
+      <div style="margin-bottom:28px">
+        <div class="callout tip">
+          <span class="callout-icon">💡</span>
+          <div>
+            <strong>When to use Two Pointers:</strong> Valid Palindrome, Reverse String, checking from both ends<br><br>
+            <strong>When to use Sliding Window:</strong> Minimum/maximum substrings, Minimum Window Substring, character frequency tracking<br><br>
+            <strong>When to use DP:</strong> Decode Ways, Wildcard Matching, overlapping subproblems, state transitions<br><br>
+            <strong>When to use Backtracking:</strong> All partitions, all combinations, Palindrome Partitioning<br><br>
+            <strong>When to use Frequency Maps:</strong> Character count problems, Reorganize String, anagram detection
+          </div>
+        </div>
+      </div>
+
+      <h3>Edge Cases to Always Consider</h3>
+      <ul style="margin-left:20px;margin-bottom:28px">
+        <li><strong>Empty strings:</strong> Return appropriate base case (empty, 0, false, etc.)</li>
+        <li><strong>Single character:</strong> Often a special case; verify palindrome/match logic</li>
+        <li><strong>Overflow:</strong> Use long for intermediate results when parsing or accumulating</li>
+        <li><strong>Leading zeros:</strong> May be invalid (atoi) or require special handling (decode ways)</li>
+        <li><strong>Whitespace/non-alphanumeric:</strong> Skip or include based on problem requirements</li>
+        <li><strong>Case sensitivity:</strong> Convert to lowercase/uppercase if case-insensitive comparison needed</li>
+        <li><strong>Duplicates:</strong> Frequency maps handle multi-occurrence characters correctly</li>
+      </ul>
+
+      <h3>Common Mistakes to Avoid</h3>
+      <div class="callout danger">
+        <span class="callout-icon">⚠️</span>
+        <div>
+          <strong>String concatenation in loops:</strong> Always use StringBuilder, not +=<br><br>
+          <strong>Off-by-one errors:</strong> Double-check loop bounds, especially with Substring(start, length)<br><br>
+          <strong>Overflow in DP/parsing:</strong> Check bounds before arithmetic operations<br><br>
+          <strong>Forgetting to handle wildcards:</strong> In pattern matching, remember both '?' and '*'<br><br>
+          <strong>Not initializing maps/arrays:</strong> Count all unique characters, not just occurrences
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+document.querySelectorAll('.fade').forEach((el, idx) => {
+  setTimeout(() => el.classList.add('in'), idx * 100);
+});
+
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const pre = this.parentElement.nextElementSibling;
+    const text = pre.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const original = this.textContent;
+      this.textContent = 'copied!';
+      setTimeout(() => this.textContent = original, 2000);
+    });
+  });
+});
+  </script>
+</body>
+</html>

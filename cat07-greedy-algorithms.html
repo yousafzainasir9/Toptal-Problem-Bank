@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta name="keywords" content="Toptal interview, Toptal screening, Codility, coding test, C#, algorithms, problem solving, technical screening, remote developer interview, Toptal preparation">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat07-greedy-algorithms.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat07-greedy-algorithms.html">
+  <meta property="og:title" content="Category 7: Greedy Algorithms — 12 Problems - Toptal Problem Bank">
+  <meta property="og:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat07-greedy-algorithms.html">
+  <meta name="twitter:title" content="Category 7: Greedy Algorithms — 12 Problems - Toptal Problem Bank">
+  <meta name="twitter:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Category 7: Greedy Algorithms \u2014 12 Problems - Toptal Problem Bank",
+  "description": "Complete Toptal screening preparation guide \u2014 coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat07-greedy-algorithms.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Category 7: Greedy Algorithms — 12 Problems - Toptal Problem Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.algo{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px}
+.algo-head{padding:28px 32px 22px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.algo-idx{font-size:58px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em}
+.algo-name{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.algo-desc{font-family:var(--serif);font-size:14.5px;color:var(--ink2);line-height:1.72;max-width:580px}
+.algo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.algo-body{padding:28px 32px}
+.cx-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.cx{background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;min-width:110px}
+.cx-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cx-v{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink)}
+.steps{margin-bottom:26px}
+.step{display:flex}
+.step-left{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--acc-l);border:1.5px solid var(--acc-b);color:var(--acc);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono);flex-shrink:0}
+.step-vline{width:1.5px;flex:1;background:var(--rule);margin:4px 0}
+.step:last-child .step-vline{display:none}
+.step-body{padding:3px 0 22px 14px;font-size:14px;color:var(--ink2);line-height:1.68}
+.step-body strong{color:var(--ink);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+@media(max-width:700px){
+  .algo-head{grid-template-columns:1fr}.algo-idx{display:none}
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Problem Bank
+        <span class="pill">150+ Problems</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#toc">Category 7</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Category 7</div>
+      </div>
+      <h1>Greedy <em>Algorithms</em></h1>
+      <p class="hero-sub">Master the greedy choice property where locally optimal decisions lead to globally optimal solutions. Learn when greedy works, when it fails, and classic patterns including activity selection, interval scheduling, and jump game variants.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">12</div>
+          <div class="stat-l">Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">3</div>
+          <div class="stat-l">Difficulty Levels</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Complete Solutions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">6</div>
+          <div class="stat-l">Codility Problems</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THEORY SECTION -->
+    <section class="section fade" id="sec-theory">
+      <div class="sec-tag">
+        <span class="sec-num">Theory</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>The Greedy Choice Property</h2>
+      <p class="lead">A problem exhibits the greedy choice property when a sequence of locally optimal choices yields a globally optimal solution. Understanding when and why greedy works—and when it fails—is essential for algorithm design.</p>
+
+      <h3>1. Greedy Choice Property</h3>
+      <p><strong>Definition:</strong> At each step, make the locally optimal choice (often the "best" by some metric: minimum, maximum, earliest, latest). If these choices combine to form a globally optimal solution, the problem is greedy-solvable.</p>
+      <p><strong>When it works:</strong> Problems with optimal substructure where future choices don't invalidate past decisions. Example: Activity selection (pick earliest-ending activities greedily).</p>
+      <p><strong>When it fails:</strong> Problems where greedy decisions create constraints that block better global solutions. Example: Longest increasing subsequence (greedy pick of largest elements fails).</p>
+
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>Greedy vs. Dynamic Programming:</strong> If greedy seems natural but fails on small test cases, try DP. If DP works but is slow, ask whether greedy observation (like "always pick smallest ending time") can reduce complexity.</div>
+      </div>
+
+      <h3>2. Sorting as Preprocessing</h3>
+      <p>Many greedy problems require sorting first. Sort by different keys depending on the problem:</p>
+      <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+        <li><strong>Activity selection:</strong> Sort by end time (pick activities that end earliest)</li>
+        <li><strong>Interval coverage:</strong> Sort by start time, then by end time (descending)</li>
+        <li><strong>Assign cookies:</strong> Sort both children and cookies, match greedily</li>
+        <li><strong>Task scheduling:</strong> Sort by deadline or frequency</li>
+      </ul>
+
+      <h3>3. Key Patterns</h3>
+      <p><strong>Interval Scheduling:</strong> Select maximum number of non-overlapping intervals. Greedy: sort by end time, pick earliest-ending intervals.</p>
+      <p><strong>Jump Games:</strong> Can you reach the end? Track maximum reachable index at each position. Greedy: always jump to maximum reachable position.</p>
+      <p><strong>Gap Filling:</strong> Schedule tasks with gaps between them. Greedy: sort by frequency/deadline, fill largest gaps with most-frequent tasks.</p>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Template: Activity Selection (Sort + Greedy)</span>
+<span class="kw">public</span> <span class="ty">int</span> <span class="fn">ActivitySelection</span>(<span class="ty">int</span>[] starts, <span class="ty">int</span>[] ends) {
+    <span class="ty">int</span> n = starts.Length;
+    <span class="kw">var</span> activities = <span class="kw">new</span> <span class="ty">int</span>[n];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) activities[i] = i;
+
+    <span class="cm">// Sort by end time</span>
+    System.Array.<span class="fn">Sort</span>(activities, (a, b) =&gt; ends[a].<span class="fn">CompareTo</span>(ends[b]));
+
+    <span class="ty">int</span> count = <span class="num">0</span>;
+    <span class="ty">int</span> lastEnd = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> i <span class="kw">in</span> activities) {
+        <span class="kw">if</span> (starts[i] &gt;= lastEnd) {
+            count++;
+            lastEnd = ends[i];
+        }
+    }
+    <span class="kw">return</span> count;
+}</pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Template: Jump Game (Track Maximum Reachable)</span>
+<span class="kw">public</span> <span class="ty">bool</span> <span class="fn">CanReachEnd</span>(<span class="ty">int</span>[] nums) {
+    <span class="ty">int</span> maxReach = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; nums.Length; i++) {
+        <span class="kw">if</span> (i &gt; maxReach) <span class="kw">return</span> <span class="kw">false</span>;
+        maxReach = Math.<span class="fn">Max</span>(maxReach, i + nums[i]);
+    }
+    <span class="kw">return</span> <span class="kw">true</span>;
+}</pre>
+      </div>
+
+    </section>
+
+    <!-- PROBLEMS SECTION -->
+    <section class="section fade" id="sec-problems">
+      <div class="sec-tag">
+        <span class="sec-num">Problems</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>12 Greedy Algorithm Problems</h2>
+
+      <!-- Problem 1: MaxProfit -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">1. MaxProfit — Best Time to Buy and Sell Stock</div>
+            <div class="algo-desc">Given an array of prices, find the maximum profit from one buy-sell transaction (buy before sell, single transaction only).</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Codility</span>
+              <span class="badge b-amber">Difficulty ★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">1</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Source</div>
+              <div class="cx-v">Codility, LeetCode</div>
+            </div>
+          </div>
+
+          <h3>Problem Statement</h3>
+          <p>You are given an array <code class="il">prices</code> where <code class="il">prices[i]</code> is the price of a stock on day i. You may buy and sell the stock, but only once. Return the maximum profit. If no profit is possible, return 0.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Greedy Insight:</strong> Track the minimum price seen so far. At each price, compute profit if sold at that price. Greedily update maximum profit.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Why it works:</strong> To maximize profit, buy at the lowest point before any selling point. Since we process left-to-right, the minimum so far is the best buying point for each sale position.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Implementation:</strong> Single pass, track min price and max profit.</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">MaxProfit</span>(<span class="ty">int</span>[] prices) {
+    <span class="kw">if</span> (prices == <span class="kw">null</span> || prices.Length &lt; <span class="num">2</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="ty">int</span> minPrice = prices[<span class="num">0</span>];
+    <span class="ty">int</span> maxProfit = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; prices.Length; i++) {
+        <span class="ty">int</span> profit = prices[i] - minPrice;
+        maxProfit = Math.<span class="fn">Max</span>(maxProfit, profit);
+        minPrice = Math.<span class="fn">Min</span>(minPrice, prices[i]);
+    }
+
+    <span class="kw">return</span> maxProfit;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">prices = [7, 1, 5, 3, 6, 4]</code></p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>i=1: min=1, profit=1-7=-6, maxProfit=0</li>
+            <li>i=2: min=1, profit=5-1=4, maxProfit=4</li>
+            <li>i=3: min=1, profit=3-1=2, maxProfit=4</li>
+            <li>i=4: min=1, profit=6-1=5, maxProfit=5</li>
+            <li>i=5: min=1, profit=4-1=3, maxProfit=5</li>
+          </ul>
+          <p><strong>Output:</strong> 5 (buy at 1, sell at 6)</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>Prices strictly decreasing: return 0</li>
+            <li>Single element: return 0</li>
+            <li>All same price: return 0</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Problem 2: TieRopes -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">2. TieRopes — Minimum Ropes to Tie for Length K</div>
+            <div class="algo-desc">Given rope lengths and a target length K, find the minimum number of ropes to tie together to reach at least K.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Codility</span>
+              <span class="badge b-amber">Difficulty ★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">2</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Source</div>
+              <div class="cx-v">Codility</div>
+            </div>
+          </div>
+
+          <h3>Problem Statement</h3>
+          <p>You have an array of rope lengths. You need to tie them together to create a rope of at least length K. When you tie two ropes together, the resulting length is the sum of both. Find the minimum number of ropes needed.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Greedy Insight:</strong> Sort ropes in descending order. Take the longest ropes first to reach K as quickly as possible.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Why it works:</strong> To minimize count, use largest values. Each additional rope adds the least overhead when it's the smallest one used.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Implementation:</strong> Sort descending, accumulate until sum ≥ K.</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">TieRopes</span>(<span class="ty">int</span>[] lengths, <span class="ty">int</span> K) {
+    <span class="kw">if</span> (lengths == <span class="kw">null</span> || lengths.Length == <span class="num">0</span>) <span class="kw">return</span> -<span class="num">1</span>;
+
+    System.Array.<span class="fn">Sort</span>(lengths, (a, b) =&gt; b.<span class="fn">CompareTo</span>(a)); <span class="cm">// Descending</span>
+
+    <span class="ty">int</span> sum = <span class="num">0</span>;
+    <span class="ty">int</span> count = <span class="num">0</span>;
+
+    <span class="kw">foreach</span> (<span class="ty">int</span> length <span class="kw">in</span> lengths) {
+        sum += length;
+        count++;
+        <span class="kw">if</span> (sum &gt;= K) <span class="kw">return</span> count;
+    }
+
+    <span class="kw">return</span> -<span class="num">1</span>; <span class="cm">// Cannot reach K</span>
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">lengths = [4, 3, 2, 6], K = 10</code></p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>Sorted descending: [6, 4, 3, 2]</li>
+            <li>count=1, sum=6 (< 10)</li>
+            <li>count=2, sum=10 (>= 10) → return 2</li>
+          </ul>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>Sum of all ropes < K: return -1</li>
+            <li>K = 0: return 0 or 1 (clarify with problem)</li>
+            <li>Empty array: return -1</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Problem 3: MaxNonoverlappingSegments -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">3. MaxNonoverlappingSegments — Greedy Interval Selection</div>
+            <div class="algo-desc">Given intervals, find the maximum number of non-overlapping segments. Classic activity selection problem.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Codility</span>
+              <span class="badge b-amber">Difficulty ★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">3</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Source</div>
+              <div class="cx-v">Codility</div>
+            </div>
+          </div>
+
+          <h3>Problem Statement</h3>
+          <p>Given an array of intervals (each with start and end), find the maximum number of non-overlapping intervals you can select.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Greedy Insight:</strong> Sort intervals by end time. Greedily select intervals that end earliest and don't overlap with the last selected.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Why it works:</strong> By picking earliest-ending intervals, we leave maximum room for future selections.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Non-overlap check:</strong> Two intervals [a,b] and [c,d] don't overlap if b < c or d < a (assuming b < d). Check b ≤ c for "touching" non-overlap.</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">MaxNonoverlappingSegments</span>(<span class="ty">int</span>[] A, <span class="ty">int</span>[] B) {
+    <span class="ty">int</span> n = A.Length;
+    <span class="kw">var</span> intervals = <span class="kw">new</span> <span class="ty">int</span>[n];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) intervals[i] = i;
+
+    <span class="cm">// Sort by end time (B[i])</span>
+    System.Array.<span class="fn">Sort</span>(intervals, (i, j) =&gt; B[i].<span class="fn">CompareTo</span>(B[j]));
+
+    <span class="ty">int</span> count = <span class="num">0</span>;
+    <span class="ty">int</span> lastEnd = <span class="ty">int</span>.<span class="fn">MinValue</span>;
+
+    <span class="kw">foreach</span> (<span class="ty">int</span> i <span class="kw">in</span> intervals) {
+        <span class="kw">if</span> (A[i] &gt; lastEnd) {
+            count++;
+            lastEnd = B[i];
+        }
+    }
+
+    <span class="kw">return</span> count;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">A = [1, 3, 7, 9, 9], B = [5, 6, 6, 9, 10]</code></p>
+          <p>Intervals: [1,5], [3,6], [7,6], [9,9], [9,10]</p>
+          <p>Sorted by end: [7,6], [1,5], [3,6], [9,9], [9,10]</p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>Select [7,6], lastEnd=6, count=1</li>
+            <li>Check [1,5]: 1 ≤ 6, skip</li>
+            <li>Check [3,6]: 3 ≤ 6, skip</li>
+            <li>Check [9,9]: 9 > 6, select, lastEnd=9, count=2</li>
+            <li>Check [9,10]: 9 ≤ 9, skip</li>
+          </ul>
+          <p><strong>Output:</strong> 2</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>All intervals overlap: return 1</li>
+            <li>All intervals non-overlapping: return n</li>
+            <li>Empty array: return 0</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Problem 4: Jump Game -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">4. Jump Game — Can Reach End?</div>
+            <div class="algo-desc">Given an array where each element is max jump length, determine if you can reach the last index starting from index 0.</div>
+            <div class="algo-tags">
+              <span class="badge b-blue">LeetCode 55</span>
+              <span class="badge b-amber">Difficulty ★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">4</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Source</div>
+              <div class="cx-v">LeetCode</div>
+            </div>
+          </div>
+
+          <h3>Problem Statement</h3>
+          <p>Given an array <code class="il">nums</code> where <code class="il">nums[i]</code> is the maximum jump length from index i, return true if you can reach the last index.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Greedy Insight:</strong> Track the maximum index reachable at each position. If current index > max reachable, you're stuck.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Why it works:</strong> You don't need to try all jump paths. Just track the farthest position reachable.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Implementation:</strong> Iterate left-to-right, update maxReach = max(maxReach, i + nums[i]).</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">bool</span> <span class="fn">CanJump</span>(<span class="ty">int</span>[] nums) {
+    <span class="ty">int</span> maxReach = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; nums.Length; i++) {
+        <span class="kw">if</span> (i &gt; maxReach) <span class="kw">return</span> <span class="kw">false</span>; <span class="cm">// Can't reach this index</span>
+        maxReach = Math.<span class="fn">Max</span>(maxReach, i + nums[i]);
+        <span class="kw">if</span> (maxReach &gt;= nums.Length - <span class="num">1</span>) <span class="kw">return</span> <span class="kw">true</span>;
+    }
+
+    <span class="kw">return</span> <span class="kw">false</span>;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">nums = [2, 3, 1, 1, 4]</code> (last index = 4)</p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>i=0: maxReach = max(0, 0+2) = 2</li>
+            <li>i=1: maxReach = max(2, 1+3) = 4 (≥ 4) → return true</li>
+          </ul>
+
+          <p><code class="il">nums = [3, 2, 1, 0, 4]</code></p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>i=0: maxReach = 3</li>
+            <li>i=1: maxReach = max(3, 1+2) = 3</li>
+            <li>i=2: maxReach = max(3, 2+1) = 3</li>
+            <li>i=3: maxReach = max(3, 3+0) = 3 (stuck, can't reach index 4)</li>
+            <li>return false</li>
+          </ul>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>nums = [0]: return true (already at end)</li>
+            <li>nums = [0, 1]: return false (can't leave index 0)</li>
+            <li>Single large jump that overshoots: still return true</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Problem 5: Jump Game II -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">5. Jump Game II — Minimum Number of Jumps</div>
+            <div class="algo-desc">Find the minimum number of jumps to reach the last index (guaranteed reachable).</div>
+            <div class="algo-tags">
+              <span class="badge b-blue">LeetCode 45</span>
+              <span class="badge b-amber">Difficulty ★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">5</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Source</div>
+              <div class="cx-v">LeetCode</div>
+            </div>
+          </div>
+
+          <h3>Problem Statement</h3>
+          <p>Given an array where each element is max jump length, return the minimum jumps to reach the last index. Guaranteed reachable from index 0.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Greedy Insight:</strong> Use BFS-like approach without explicit queue. Track current jump's max reach and next jump's max reach.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Why it works:</strong> We must reach the end. Greedily take all reachable indices from current jump and count each new "level" as one additional jump.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Implementation:</strong> Maintain currentEnd and nextEnd. When i reaches currentEnd, increment jumps and update currentEnd to nextEnd.</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">Jump</span>(<span class="ty">int</span>[] nums) {
+    <span class="kw">if</span> (nums.Length &lt;= <span class="num">1</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="ty">int</span> jumps = <span class="num">0</span>;
+    <span class="ty">int</span> currentEnd = <span class="num">0</span>; <span class="cm">// End of current jump's range</span>
+    <span class="ty">int</span> nextEnd = <span class="num">0</span>;   <span class="cm">// Farthest we can reach from current range</span>
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; nums.Length - <span class="num">1</span>; i++) {
+        nextEnd = Math.<span class="fn">Max</span>(nextEnd, i + nums[i]);
+
+        <span class="kw">if</span> (i == currentEnd) {
+            jumps++;
+            currentEnd = nextEnd;
+        }
+    }
+
+    <span class="kw">return</span> jumps;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">nums = [2, 3, 1, 1, 4]</code></p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>i=0: nextEnd=max(0, 0+2)=2. i==currentEnd, jumps=1, currentEnd=2</li>
+            <li>i=1: nextEnd=max(2, 1+3)=4. i!=currentEnd</li>
+            <li>i=2: nextEnd=max(4, 2+1)=4. i==currentEnd, jumps=2, currentEnd=4</li>
+            <li>Loop ends (i &lt; 4)</li>
+          </ul>
+          <p><strong>Output:</strong> 2</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>nums = [1, 1, 1, 1]: return 3</li>
+            <li>nums = [10, 1, 1, 1]: return 1 (can jump straight to end)</li>
+            <li>nums = [2, 3, 1, 1, 4]: return 2</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Problem 6: Gas Station -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">6. Gas Station — Circular Route Feasibility</div>
+            <div class="algo-desc">Given gas and cost arrays for a circular route, find the starting station to complete the loop (or -1 if impossible).</div>
+            <div class="algo-tags">
+              <span class="badge b-blue">LeetCode 134</span>
+              <span class="badge b-amber">Difficulty ★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">6</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Source</div>
+              <div class="cx-v">LeetCode</div>
+            </div>
+          </div>
+
+          <h3>Problem Statement</h3>
+          <p>You have a circular route with n stations. At each station i, you can get <code class="il">gas[i]</code> gas and spend <code class="il">cost[i]</code> gas to reach the next station. Find the starting station index such that you can travel the entire loop. If impossible, return -1.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Greedy Key:</strong> If total gas < total cost, return -1 (no solution exists).</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Greedy Choice:</strong> If we can't reach station j from station i, then no earlier start can reach j via i. Start from j+1.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Why it works:</strong> Negative total at index i means starting from any earlier position fails even better. Only reset to i+1.</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">CanCompleteCircuit</span>(<span class="ty">int</span>[] gas, <span class="ty">int</span>[] cost) {
+    <span class="ty">long</span> totalGas = <span class="num">0</span>, totalCost = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> g <span class="kw">in</span> gas) totalGas += g;
+    <span class="kw">foreach</span> (<span class="ty">int</span> c <span class="kw">in</span> cost) totalCost += c;
+
+    <span class="kw">if</span> (totalGas &lt; totalCost) <span class="kw">return</span> -<span class="num">1</span>;
+
+    <span class="ty">int</span> start = <span class="num">0</span>;
+    <span class="ty">long</span> currentGas = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; gas.Length; i++) {
+        currentGas += gas[i] - cost[i];
+        <span class="kw">if</span> (currentGas &lt; <span class="num">0</span>) {
+            start = i + <span class="num">1</span>;
+            currentGas = <span class="num">0</span>;
+        }
+    }
+
+    <span class="kw">return</span> start;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">gas = [1, 2, 3, 4, 5], cost = [3, 4, 5, 1, 2]</code></p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>totalGas = 15, totalCost = 15 (feasible)</li>
+            <li>i=0: currentGas = 1-3 = -2 (< 0), start=1, currentGas=0</li>
+            <li>i=1: currentGas = 2-4 = -2 (< 0), start=2, currentGas=0</li>
+            <li>i=2: currentGas = 3-5 = -2 (< 0), start=3, currentGas=0</li>
+            <li>i=3: currentGas = 4-1 = 3 (≥ 0)</li>
+            <li>i=4: currentGas = 3+5-2 = 6 (≥ 0)</li>
+          </ul>
+          <p><strong>Output:</strong> 3</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>totalGas < totalCost: return -1</li>
+            <li>Single station: check if gas[0] ≥ cost[0]</li>
+            <li>Multiple valid starts: any one is acceptable</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Problem 7: Best Time to Buy and Sell Stock II -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">7. Stock II — Multiple Transactions</div>
+            <div class="algo-desc">Find maximum profit with unlimited buy-sell transactions (must sell before buying again).</div>
+            <div class="algo-tags">
+              <span class="badge b-blue">LeetCode 122</span>
+              <span class="badge b-amber">Difficulty ★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">7</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Source</div>
+              <div class="cx-v">LeetCode</div>
+            </div>
+          </div>
+
+          <h3>Problem Statement</h3>
+          <p>Given prices for multiple days, find the max profit with unlimited transactions. You must sell before buying again.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Key Insight:</strong> Every upward slope is a profit opportunity. If price[i+1] > price[i], capture the gain.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Why it works:</strong> Breaking any increase into many small transactions gives the same total profit.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Implementation:</strong> Sum all positive differences (next - current).</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">MaxProfitMultiple</span>(<span class="ty">int</span>[] prices) {
+    <span class="ty">int</span> profit = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; prices.Length - <span class="num">1</span>; i++) {
+        <span class="ty">int</span> gain = prices[i + <span class="num">1</span>] - prices[i];
+        <span class="kw">if</span> (gain &gt; <span class="num">0</span>) {
+            profit += gain;
+        }
+    }
+
+    <span class="kw">return</span> profit;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">prices = [7, 1, 5, 3, 6, 4]</code></p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>1 → 5: gain = 4</li>
+            <li>5 → 3: loss (skip)</li>
+            <li>3 → 6: gain = 3</li>
+            <li>6 → 4: loss (skip)</li>
+            <li>Total profit = 4 + 3 = 7</li>
+          </ul>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>Prices strictly decreasing: return 0</li>
+            <li>Prices strictly increasing: sum all differences</li>
+            <li>Single element: return 0</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Problem 8: Assign Cookies -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">8. Assign Cookies — Greedy Matching</div>
+            <div class="algo-desc">Given children with greed factors and cookies with sizes, maximize satisfied children using greedy matching.</div>
+            <div class="algo-tags">
+              <span class="badge b-blue">LeetCode 455</span>
+              <span class="badge b-green">Difficulty ★</span>
+            </div>
+          </div>
+          <div class="algo-idx">8</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Source</div>
+              <div class="cx-v">LeetCode</div>
+            </div>
+          </div>
+
+          <h3>Problem Statement</h3>
+          <p>You have children with greed factors and cookies with sizes. A child is satisfied if cookie size ≥ greed factor. Maximize the number of satisfied children (each cookie to one child).</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Greedy Insight:</strong> Sort both arrays. Assign smallest cookie to least greedy child, then move forward.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Why it works:</strong> Assigning a large cookie to a less-greedy child wastes it. Use small cookies for picky kids first.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Implementation:</strong> Two pointers, match greedily, advance both on success, advance cookies on failure.</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">FindContentChildren</span>(<span class="ty">int</span>[] g, <span class="ty">int</span>[] s) {
+    System.Array.<span class="fn">Sort</span>(g); <span class="cm">// Children greed factors</span>
+    System.Array.<span class="fn">Sort</span>(s); <span class="cm">// Cookie sizes</span>
+
+    <span class="ty">int</span> childIdx = <span class="num">0</span>, cookieIdx = <span class="num">0</span>;
+
+    <span class="kw">while</span> (childIdx &lt; g.Length &amp;&amp; cookieIdx &lt; s.Length) {
+        <span class="kw">if</span> (s[cookieIdx] &gt;= g[childIdx]) {
+            childIdx++; <span class="cm">// Child satisfied, move to next child</span>
+        }
+        cookieIdx++; <span class="cm">// Move to next cookie</span>
+    }
+
+    <span class="kw">return</span> childIdx;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">g = [1, 2, 3], s = [1, 1]</code></p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>Both sorted: g=[1,2,3], s=[1,1]</li>
+            <li>cookieIdx=0: s[0]=1 ≥ g[0]=1, childIdx=1, cookieIdx=1</li>
+            <li>cookieIdx=1: s[1]=1 < g[1]=2, cookieIdx=2</li>
+            <li>cookieIdx=2 (out of bounds), stop</li>
+          </ul>
+          <p><strong>Output:</strong> 1</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>Empty children or cookies: return 0</li>
+            <li>All cookies satisfy all children: return children.length</li>
+            <li>No cookies satisfy any child: return 0</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Problem 9: Non-overlapping Intervals -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">9. Non-overlapping Intervals — Minimum Removals</div>
+            <div class="algo-desc">Given intervals, find the minimum number to remove to make all remaining non-overlapping.</div>
+            <div class="algo-tags">
+              <span class="badge b-blue">LeetCode 435</span>
+              <span class="badge b-amber">Difficulty ★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">9</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Source</div>
+              <div class="cx-v">LeetCode</div>
+            </div>
+          </div>
+
+          <h3>Problem Statement</h3>
+          <p>Given a list of intervals, return the minimum number of intervals to remove so that the remaining intervals don't overlap.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Insight:</strong> Minimum removals = total intervals - maximum non-overlapping intervals.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Greedy:</strong> Sort by end time. Greedily select earliest-ending intervals (same as MaxNonoverlappingSegments).</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Implementation:</strong> Count selected intervals, return total - count.</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">EraseOverlapIntervals</span>(<span class="ty">int</span>[][] intervals) {
+    <span class="kw">if</span> (intervals.Length &lt;= <span class="num">1</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    System.Array.<span class="fn">Sort</span>(intervals, (a, b) =&gt; a[<span class="num">1</span>].<span class="fn">CompareTo</span>(b[<span class="num">1</span>])); <span class="cm">// Sort by end</span>
+
+    <span class="ty">int</span> count = <span class="num">1</span>;
+    <span class="ty">int</span> lastEnd = intervals[<span class="num">0</span>][<span class="num">1</span>];
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; intervals.Length; i++) {
+        <span class="kw">if</span> (intervals[i][<span class="num">0</span>] &gt;= lastEnd) {
+            count++;
+            lastEnd = intervals[i][<span class="num">1</span>];
+        }
+    }
+
+    <span class="kw">return</span> intervals.Length - count;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">intervals = [[1,2], [2,3], [3,4], [1,3]]</code></p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>Sorted by end: [[1,2], [2,3], [1,3], [3,4]]</li>
+            <li>Select [1,2], lastEnd=2, count=1</li>
+            <li>[2,3]: start=2 ≥ 2, select, lastEnd=3, count=2</li>
+            <li>[1,3]: start=1 < 3, skip</li>
+            <li>[3,4]: start=3 ≥ 3, select, lastEnd=4, count=3</li>
+          </ul>
+          <p><strong>Output:</strong> 4 - 3 = 1 (remove 1 interval)</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>Empty or single interval: return 0</li>
+            <li>All overlapping: remove all but one</li>
+            <li>All non-overlapping: return 0</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Problem 10: Minimum Arrows to Burst Balloons -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">10. Burst Balloons — Interval Piercing</div>
+            <div class="algo-desc">Given balloon positions as intervals, find minimum arrows to burst all balloons.</div>
+            <div class="algo-tags">
+              <span class="badge b-blue">LeetCode 452</span>
+              <span class="badge b-amber">Difficulty ★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">10</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Source</div>
+              <div class="cx-v">LeetCode</div>
+            </div>
+          </div>
+
+          <h3>Problem Statement</h3>
+          <p>Balloons are represented by [xstart, xend]. An arrow shot at coordinate x bursts all balloons where xstart ≤ x ≤ xend. Find minimum arrows needed.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Insight:</strong> Similar to interval scheduling but pierce at the end of the first balloon, burst all overlapping.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Greedy:</strong> Sort by end position. Shoot at the end of the first balloon. Skip all overlapping balloons.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Difference:</strong> Two balloons overlap if xstart1 ≤ xend2 (not strict <). Use lastEnd as the arrow position.</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">FindMinArrowShots</span>(<span class="ty">int</span>[][] points) {
+    <span class="kw">if</span> (points.Length == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    System.Array.<span class="fn">Sort</span>(points, (a, b) =&gt; {
+        <span class="cm">// Handle overflow: use long for comparison</span>
+        <span class="kw">long</span> diff = (<span class="kw">long</span>)a[<span class="num">1</span>] - (<span class="kw">long</span>)b[<span class="num">1</span>];
+        <span class="kw">if</span> (diff &lt; <span class="num">0</span>) <span class="kw">return</span> -<span class="num">1</span>;
+        <span class="kw">if</span> (diff &gt; <span class="num">0</span>) <span class="kw">return</span> <span class="num">1</span>;
+        <span class="kw">return</span> <span class="num">0</span>;
+    });
+
+    <span class="ty">int</span> arrows = <span class="num">1</span>;
+    <span class="kw">long</span> lastEnd = points[<span class="num">0</span>][<span class="num">1</span>];
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; points.Length; i++) {
+        <span class="kw">if</span> (points[i][<span class="num">0</span>] &gt; lastEnd) {
+            arrows++;
+            lastEnd = points[i][<span class="num">1</span>];
+        }
+    }
+
+    <span class="kw">return</span> arrows;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">points = [[10,16], [2,8], [1,6], [7,12]]</code></p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>Sorted by end: [[1,6], [2,8], [7,12], [10,16]]</li>
+            <li>arrows=1, lastEnd=6</li>
+            <li>[2,8]: start=2 ≤ 6, skip</li>
+            <li>[7,12]: start=7 > 6, arrows=2, lastEnd=12</li>
+            <li>[10,16]: start=10 ≤ 12, skip</li>
+          </ul>
+          <p><strong>Output:</strong> 2</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>Overflow: use <code class="il">long</code> for comparisons</li>
+            <li>All balloons overlap at one point: arrows=1</li>
+            <li>Single balloon: arrows=1</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Problem 11: Task Scheduler -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">11. Task Scheduler — Gap Filling Strategy</div>
+            <div class="algo-desc">Given tasks with cooldown period, find minimum time to schedule all tasks.</div>
+            <div class="algo-tags">
+              <span class="badge b-blue">LeetCode 621</span>
+              <span class="badge b-amber">Difficulty ★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">11</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Source</div>
+              <div class="cx-v">LeetCode</div>
+            </div>
+          </div>
+
+          <h3>Problem Statement</h3>
+          <p>You have tasks represented as characters (same task type requires cooldown n between executions). Return the minimum time units to execute all tasks.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Greedy Insight:</strong> Execute most frequent tasks first. Fill gaps with other tasks or idle time.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Formula:</strong> If max frequency is maxFreq, and cooldown is n, then minimum time = (maxFreq - 1) * (n + 1) + (number of tasks with maxFreq).</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Why it works:</strong> We need at least (maxFreq - 1) gaps, each of size (n + 1). After last instance, no gap needed.</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">LeastInterval</span>(<span class="ty">char</span>[] tasks, <span class="ty">int</span> n) {
+    <span class="cm">// Count frequency of each task</span>
+    <span class="ty">int</span>[] freq = <span class="kw">new</span> <span class="ty">int</span>[<span class="num">26</span>];
+    <span class="ty">int</span> maxFreq = <span class="num">0</span>;
+
+    <span class="kw">foreach</span> (<span class="ty">char</span> task <span class="kw">in</span> tasks) {
+        freq[task - <span class="str">'A'</span>]++;
+        maxFreq = Math.<span class="fn">Max</span>(maxFreq, freq[task - <span class="str">'A'</span>]);
+    }
+
+    <span class="cm">// Count tasks with max frequency</span>
+    <span class="ty">int</span> countMaxFreq = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; <span class="num">26</span>; i++) {
+        <span class="kw">if</span> (freq[i] == maxFreq) countMaxFreq++;
+    }
+
+    <span class="cm">// Formula: (maxFreq - 1) * (n + 1) + countMaxFreq</span>
+    <span class="ty">int</span> minTime = (maxFreq - <span class="num">1</span>) * (n + <span class="num">1</span>) + countMaxFreq;
+
+    <span class="cm">// At least tasks.Length time needed if many unique tasks</span>
+    <span class="kw">return</span> Math.<span class="fn">Max</span>(minTime, tasks.Length);
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">tasks = ['A', 'A', 'A', 'B', 'B', 'C'], n = 2</code></p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>freq: A=3, B=2, C=1</li>
+            <li>maxFreq=3, countMaxFreq=1</li>
+            <li>minTime = (3-1) * (2+1) + 1 = 2*3 + 1 = 7</li>
+            <li>Execution: A _ _ A _ _ A B C or similar</li>
+          </ul>
+          <p><strong>Output:</strong> 8 (actual schedule may need gaps filled)</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>All tasks same: return tasks.length</li>
+            <li>Many unique tasks, small n: return tasks.length (no idle time)</li>
+            <li>n=0: return tasks.length (no cooldown)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Problem 12: Partition Labels -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">12. Partition Labels — Last Occurrence Greedy</div>
+            <div class="algo-desc">Partition string so each letter appears in only one partition. Return partition sizes.</div>
+            <div class="algo-tags">
+              <span class="badge b-blue">LeetCode 763</span>
+              <span class="badge b-amber">Difficulty ★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">12</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Source</div>
+              <div class="cx-v">LeetCode</div>
+            </div>
+          </div>
+
+          <h3>Problem Statement</h3>
+          <p>Given a string, partition it such that each letter appears in at most one part. Return the sizes of these partitions.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Preprocessing:</strong> Record the last occurrence index of each character.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Greedy Partition:</strong> At each position, track the maximum last occurrence seen so far. When current index reaches this max, partition here.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Why it works:</strong> Can't partition before the last occurrence of any character in the partition.</div>
+            </div>
+          </div>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> IList&lt;<span class="ty">int</span>&gt; <span class="fn">PartitionLabels</span>(<span class="ty">string</span> s) {
+    <span class="cm">// Record last occurrence of each character</span>
+    <span class="ty">int</span>[] lastOccur = <span class="kw">new</span> <span class="ty">int</span>[<span class="num">26</span>];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; s.Length; i++) {
+        lastOccur[s[i] - <span class="str">'a'</span>] = i;
+    }
+
+    <span class="ty">var</span> result = <span class="kw">new</span> List&lt;<span class="ty">int</span>&gt;();
+    <span class="ty">int</span> start = <span class="num">0</span>, maxEnd = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; s.Length; i++) {
+        maxEnd = Math.<span class="fn">Max</span>(maxEnd, lastOccur[s[i] - <span class="str">'a'</span>]);
+
+        <span class="kw">if</span> (i == maxEnd) {
+            <span class="cm">// Partition here</span>
+            result.<span class="fn">Add</span>(i - start + <span class="num">1</span>);
+            start = i + <span class="num">1</span>;
+        }
+    }
+
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">s = "ababcbacaddefegdehijhijk"</code></p>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>lastOccur: a=8, b=5, c=7, d=13, e=15, f=11, g=12, h=19, i=22, j=23, k=24</li>
+            <li>i=0: maxEnd=8</li>
+            <li>i=1-7: update maxEnd as needed</li>
+            <li>i=8: i==maxEnd, partition, size=9, start=9</li>
+            <li>Continue similarly...</li>
+          </ul>
+          <p><strong>Output:</strong> [9, 7, 8]</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:12px 0 16px 20px;color:var(--ink2);line-height:1.78">
+            <li>Single character: return [1]</li>
+            <li>All same character: return [s.length]</li>
+            <li>All unique characters: return [1, 1, 1, ...]</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <script>
+document.querySelectorAll('.fade').forEach(el => {
+  setTimeout(() => el.classList.add('in'), 50);
+});
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    const code = e.target.closest('.code-block').querySelector('pre').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'copied!';
+      setTimeout(() => btn.textContent = orig, 1200);
+    });
+  });
+});
+  </script>
+</body>
+</html>

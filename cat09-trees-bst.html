@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta name="keywords" content="Toptal interview, Toptal screening, Codility, coding test, C#, algorithms, problem solving, technical screening, remote developer interview, Toptal preparation">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat09-trees-bst.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat09-trees-bst.html">
+  <meta property="og:title" content="Category 9: Trees & BST — 12 Problems - Toptal Problem Bank">
+  <meta property="og:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat09-trees-bst.html">
+  <meta name="twitter:title" content="Category 9: Trees & BST — 12 Problems - Toptal Problem Bank">
+  <meta name="twitter:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Category 9: Trees & BST \u2014 12 Problems - Toptal Problem Bank",
+  "description": "Complete Toptal screening preparation guide \u2014 coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat09-trees-bst.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Category 9: Trees & BST — 12 Problems - Toptal Problem Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.algo{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px}
+.algo-head{padding:28px 32px 22px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.algo-idx{font-size:58px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em}
+.algo-name{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.algo-desc{font-family:var(--serif);font-size:14.5px;color:var(--ink2);line-height:1.72;max-width:580px}
+.algo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.algo-body{padding:28px 32px}
+.cx-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.cx{background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;min-width:110px}
+.cx-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cx-v{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink)}
+.steps{margin-bottom:26px}
+.step{display:flex}
+.step-left{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--acc-l);border:1.5px solid var(--acc-b);color:var(--acc);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono);flex-shrink:0}
+.step-vline{width:1.5px;flex:1;background:var(--rule);margin:4px 0}
+.step:last-child .step-vline{display:none}
+.step-body{padding:3px 0 22px 14px;font-size:14px;color:var(--ink2);line-height:1.68}
+.step-body strong{color:var(--ink);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+@media(max-width:700px){
+  .algo-head{grid-template-columns:1fr}.algo-idx{display:none}
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Problem Bank
+        <span class="pill">v1</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#toc">Category 9</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Category 9</div>
+      </div>
+      <h1>Trees & <em>BST</em></h1>
+      <p class="hero-sub">Master tree traversals, binary search trees, and advanced tree patterns including lowest common ancestor, path problems, and tree serialization. Essential for system design and algorithmic problems.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">12</div>
+          <div class="stat-l">Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">3</div>
+          <div class="stat-l">Difficulty Levels</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Complete Solutions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">LeetCode</div>
+          <div class="stat-l">Curated</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THEORY SECTION -->
+    <section class="section fade" id="sec-theory">
+      <div class="sec-tag">
+        <span class="sec-num">Theory</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Binary Trees & Binary Search Trees</h2>
+      <p class="lead">Trees are non-linear data structures used extensively in databases, file systems, and search algorithms. Understanding traversals and BST properties is fundamental to solving tree problems efficiently.</p>
+
+      <h3>1. TreeNode Class Definition</h3>
+      <p>The standard tree node representation in C# contains a value and references to left and right children.</p>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="kw">public class</span> <span class="ty">TreeNode</span> {
+    <span class="kw">public int</span> <span class="prop">val</span>;
+    <span class="kw">public</span> <span class="ty">TreeNode</span> <span class="prop">left</span>;
+    <span class="kw">public</span> <span class="ty">TreeNode</span> <span class="prop">right</span>;
+    <span class="kw">public</span> <span class="fn">TreeNode</span>(<span class="ty">int</span> val = <span class="num">0</span>, <span class="ty">TreeNode</span> left = <span class="kw">null</span>, <span class="ty">TreeNode</span> right = <span class="kw">null</span>) {
+        <span class="kw">this</span>.<span class="prop">val</span> = val;
+        <span class="kw">this</span>.<span class="prop">left</span> = left;
+        <span class="kw">this</span>.<span class="prop">right</span> = right;
+    }
+}</pre>
+      </div>
+
+      <h3>2. DFS Traversals (Recursive)</h3>
+      <p>Depth-first search explores the tree by going as deep as possible before backtracking. Three main orders: inorder, preorder, postorder.</p>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Inorder: Left -> Root -> Right (BST gives sorted order)</span>
+<span class="kw">void</span> <span class="fn">Inorder</span>(<span class="ty">TreeNode</span> root, List&lt;<span class="ty">int</span>&gt; result) {
+    <span class="kw">if</span> (root == <span class="kw">null</span>) <span class="kw">return</span>;
+    <span class="fn">Inorder</span>(root.left, result);
+    result.<span class="fn">Add</span>(root.val);
+    <span class="fn">Inorder</span>(root.right, result);
+}
+
+<span class="cm">// Preorder: Root -> Left -> Right</span>
+<span class="kw">void</span> <span class="fn">Preorder</span>(<span class="ty">TreeNode</span> root, List&lt;<span class="ty">int</span>&gt; result) {
+    <span class="kw">if</span> (root == <span class="kw">null</span>) <span class="kw">return</span>;
+    result.<span class="fn">Add</span>(root.val);
+    <span class="fn">Preorder</span>(root.left, result);
+    <span class="fn">Preorder</span>(root.right, result);
+}
+
+<span class="cm">// Postorder: Left -> Right -> Root</span>
+<span class="kw">void</span> <span class="fn">Postorder</span>(<span class="ty">TreeNode</span> root, List&lt;<span class="ty">int</span>&gt; result) {
+    <span class="kw">if</span> (root == <span class="kw">null</span>) <span class="kw">return</span>;
+    <span class="fn">Postorder</span>(root.left, result);
+    <span class="fn">Postorder</span>(root.right, result);
+    result.<span class="fn">Add</span>(root.val);
+}</pre>
+      </div>
+
+      <h3>3. BFS / Level-Order Traversal</h3>
+      <p>Breadth-first search explores level by level using a queue. Essential for finding nodes at specific depths and level-order problems.</p>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="kw">IList</span>&lt;<span class="ty">int</span>&gt; <span class="fn">LevelOrder</span>(<span class="ty">TreeNode</span> root) {
+    <span class="kw">var</span> result = <span class="kw">new</span> List&lt;<span class="ty">int</span>&gt;();
+    <span class="kw">if</span> (root == <span class="kw">null</span>) <span class="kw">return</span> result;
+
+    <span class="kw">var</span> queue = <span class="kw">new</span> Queue&lt;<span class="ty">TreeNode</span>&gt;();
+    queue.<span class="fn">Enqueue</span>(root);
+
+    <span class="kw">while</span> (queue.<span class="prop">Count</span> &gt; <span class="num">0</span>) {
+        <span class="ty">int</span> levelSize = queue.<span class="prop">Count</span>;
+        <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; levelSize; i++) {
+            <span class="ty">TreeNode</span> node = queue.<span class="fn">Dequeue</span>();
+            result.<span class="fn">Add</span>(node.val);
+            <span class="kw">if</span> (node.left != <span class="kw">null</span>) queue.<span class="fn">Enqueue</span>(node.left);
+            <span class="kw">if</span> (node.right != <span class="kw">null</span>) queue.<span class="fn">Enqueue</span>(node.right);
+        }
+    }
+    <span class="kw">return</span> result;
+}</pre>
+      </div>
+
+      <h3>4. Binary Search Tree Property</h3>
+      <p>In a BST, for any node: all values in the left subtree are strictly less than the node's value, and all values in the right subtree are strictly greater.</p>
+
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>Key insight:</strong> Inorder traversal of a BST yields sorted values. Use this property to validate BSTs and solve path problems.</div>
+      </div>
+
+      <h3>5. Common Tree Patterns</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Pattern</th>
+              <th>Strategy</th>
+              <th>Time Complexity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Path Problems</td>
+              <td>DFS accumulate path sum, check at leaves or intermediate nodes</td>
+              <td>O(n)</td>
+            </tr>
+            <tr>
+              <td>Ancestor Problems</td>
+              <td>Postorder DFS returning matched nodes from both subtrees</td>
+              <td>O(n)</td>
+            </tr>
+            <tr>
+              <td>BST Search</td>
+              <td>Compare value with node, go left if smaller, right if larger</td>
+              <td>O(log n) avg, O(n) worst</td>
+            </tr>
+            <tr>
+              <td>Serialization</td>
+              <td>Preorder or level-order with markers for null children</td>
+              <td>O(n)</td>
+            </tr>
+            <tr>
+              <td>Depth/Height</td>
+              <td>Recursively compute max depth of subtrees</td>
+              <td>O(n)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- PROBLEMS SECTION -->
+    <section class="section fade" id="sec-problems">
+      <div class="sec-tag">
+        <span class="sec-num">Problems</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>12 Tree & BST Problems</h2>
+
+      <!-- Problem 1: Maximum Depth -->
+      <article class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">1. Maximum Depth of Binary Tree</div>
+            <p class="algo-desc">Find the maximum depth (height) of a binary tree. Depth is defined as the number of nodes along the longest path from root to any leaf.</p>
+            <div class="algo-tags">
+              <span class="badge b-green">★ Easy</span>
+              <span class="badge b-orange">DFS</span>
+              <span class="badge b-orange">Recursion</span>
+            </div>
+          </div>
+          <div class="algo-idx">1</div>
+        </div>
+        <div class="algo-body">
+          <h4>Problem Statement</h4>
+          <p>Given a binary tree, find the maximum depth. A leaf node's depth is 1. An empty tree has depth 0.</p>
+          <p><strong>Example:</strong> Tree [3,9,20,null,null,15,7] has depth 3.</p>
+
+          <h4>Approach</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Use recursive DFS: base case is null node returns 0.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">For each node, recursively find max depth of left and right subtrees.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body">Return 1 + max(left_depth, right_depth).</div>
+            </div>
+          </div>
+
+          <h4>Complete C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// LeetCode 104</span>
+<span class="kw">public class</span> <span class="ty">Solution</span> {
+    <span class="kw">public int</span> <span class="fn">MaxDepth</span>(<span class="ty">TreeNode</span> root) {
+        <span class="kw">if</span> (root == <span class="kw">null</span>) <span class="kw">return</span> <span class="num">0</span>;
+        <span class="kw">return</span> <span class="num">1</span> + Math.<span class="fn">Max</span>(<span class="fn">MaxDepth</span>(root.left), <span class="fn">MaxDepth</span>(root.right));
+    }
+}</pre>
+          </div>
+
+          <h4>Complexity Analysis</h4>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(h)</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink3);margin-top:10px;"><strong>h =</strong> height; recursion stack depth equals tree height. Balanced tree: O(log n), skewed: O(n).</p>
+
+          <h4>Edge Cases</h4>
+          <ul style="font-size:14px;color:var(--ink2);margin-bottom:0;margin-left:20px;line-height:1.7;">
+            <li>Null tree: returns 0</li>
+            <li>Single node: returns 1</li>
+            <li>Skewed tree (linked list): O(n) space used</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Problem 2: Invert Binary Tree -->
+      <article class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">2. Invert Binary Tree</div>
+            <p class="algo-desc">Mirror a binary tree by swapping left and right children at every node.</p>
+            <div class="algo-tags">
+              <span class="badge b-green">★ Easy</span>
+              <span class="badge b-orange">DFS</span>
+              <span class="badge b-orange">Tree Transformation</span>
+            </div>
+          </div>
+          <div class="algo-idx">2</div>
+        </div>
+        <div class="algo-body">
+          <h4>Problem Statement</h4>
+          <p>Invert a binary tree. All left children become right children and vice versa.</p>
+          <p><strong>Example:</strong> [4,2,7,1,3,6,9] becomes [4,7,2,9,6,3,1].</p>
+
+          <h4>Approach</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Use recursive DFS to traverse all nodes.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">At each node, swap its left and right children.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body">Recursively invert both subtrees and return the node.</div>
+            </div>
+          </div>
+
+          <h4>Complete C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// LeetCode 226</span>
+<span class="kw">public class</span> <span class="ty">Solution</span> {
+    <span class="kw">public</span> <span class="ty">TreeNode</span> <span class="fn">InvertTree</span>(<span class="ty">TreeNode</span> root) {
+        <span class="kw">if</span> (root == <span class="kw">null</span>) <span class="kw">return</span> <span class="kw">null</span>;
+
+        <span class="cm">// Swap children</span>
+        <span class="ty">TreeNode</span> temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+
+        <span class="cm">// Recursively invert both subtrees</span>
+        <span class="fn">InvertTree</span>(root.left);
+        <span class="fn">InvertTree</span>(root.right);
+
+        <span class="kw">return</span> root;
+    }
+}</pre>
+          </div>
+
+          <h4>Complexity Analysis</h4>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(h)</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink3);margin-top:10px;"><strong>Must visit every node</strong> to swap; recursion depth is tree height.</p>
+
+          <h4>Edge Cases</h4>
+          <ul style="font-size:14px;color:var(--ink2);margin-bottom:0;margin-left:20px;line-height:1.7;">
+            <li>Null tree: returns null</li>
+            <li>Single node: returns same node (no children to swap)</li>
+            <li>Symmetric tree: becomes symmetric after inversion</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Problem 3: Same Tree -->
+      <article class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">3. Same Tree</div>
+            <p class="algo-desc">Check if two binary trees are structurally identical with the same node values.</p>
+            <div class="algo-tags">
+              <span class="badge b-green">★ Easy</span>
+              <span class="badge b-orange">DFS</span>
+              <span class="badge b-orange">Comparison</span>
+            </div>
+          </div>
+          <div class="algo-idx">3</div>
+        </div>
+        <div class="algo-body">
+          <h4>Problem Statement</h4>
+          <p>Determine if two binary trees are the same. Both structure and values must match.</p>
+
+          <h4>Approach</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Base case: both null → true; one null → false.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Check if current node values match.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body">Recursively check left and right subtrees simultaneously.</div>
+            </div>
+          </div>
+
+          <h4>Complete C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// LeetCode 100</span>
+<span class="kw">public class</span> <span class="ty">Solution</span> {
+    <span class="kw">public bool</span> <span class="fn">IsSameTree</span>(<span class="ty">TreeNode</span> p, <span class="ty">TreeNode</span> q) {
+        <span class="cm">// Both null</span>
+        <span class="kw">if</span> (p == <span class="kw">null</span> &amp;&amp; q == <span class="kw">null</span>) <span class="kw">return true</span>;
+
+        <span class="cm">// One null or values differ</span>
+        <span class="kw">if</span> (p == <span class="kw">null</span> || q == <span class="kw">null</span> || p.val != q.val) <span class="kw">return false</span>;
+
+        <span class="cm">// Recursively check both subtrees</span>
+        <span class="kw">return</span> <span class="fn">IsSameTree</span>(p.left, q.left) &amp;&amp; <span class="fn">IsSameTree</span>(p.right, q.right);
+    }
+}</pre>
+          </div>
+
+          <h4>Complexity Analysis</h4>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(min(m, n))</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(h)</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink3);margin-top:10px;"><strong>m, n =</strong> sizes of two trees; stops early on mismatch.</p>
+
+          <h4>Edge Cases</h4>
+          <ul style="font-size:14px;color:var(--ink2);margin-bottom:0;margin-left:20px;line-height:1.7;">
+            <li>Both null: true</li>
+            <li>One null: false</li>
+            <li>Same structure, different values: false</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Problem 4: Symmetric Tree -->
+      <article class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">4. Symmetric Tree</div>
+            <p class="algo-desc">Check if a binary tree is a mirror of itself (symmetric around its center).</p>
+            <div class="algo-tags">
+              <span class="badge b-green">★ Easy</span>
+              <span class="badge b-orange">DFS</span>
+              <span class="badge b-orange">Mirror Check</span>
+            </div>
+          </div>
+          <div class="algo-idx">4</div>
+        </div>
+        <div class="algo-body">
+          <h4>Problem Statement</h4>
+          <p>A tree is symmetric if its left subtree is a mirror of its right subtree.</p>
+
+          <h4>Approach</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Create helper function to check if two subtrees are mirrors.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Compare root.left with root.right, matching left.left with right.right and left.right with right.left.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body">Check values match and recurse on mirror-swapped children.</div>
+            </div>
+          </div>
+
+          <h4>Complete C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// LeetCode 101</span>
+<span class="kw">public class</span> <span class="ty">Solution</span> {
+    <span class="kw">public bool</span> <span class="fn">IsSymmetric</span>(<span class="ty">TreeNode</span> root) {
+        <span class="kw">return</span> <span class="fn">IsMirror</span>(root, root);
+    }
+
+    <span class="kw">private bool</span> <span class="fn">IsMirror</span>(<span class="ty">TreeNode</span> left, <span class="ty">TreeNode</span> right) {
+        <span class="kw">if</span> (left == <span class="kw">null</span> &amp;&amp; right == <span class="kw">null</span>) <span class="kw">return true</span>;
+        <span class="kw">if</span> (left == <span class="kw">null</span> || right == <span class="kw">null</span> || left.val != right.val) <span class="kw">return false</span>;
+        <span class="kw">return</span> <span class="fn">IsMirror</span>(left.left, right.right) &amp;&amp; <span class="fn">IsMirror</span>(left.right, right.left);
+    }
+}</pre>
+          </div>
+
+          <h4>Complexity Analysis</h4>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(h)</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink3);margin-top:10px;"><strong>Must check all nodes</strong>; space is recursion depth.</p>
+
+          <h4>Edge Cases</h4>
+          <ul style="font-size:14px;color:var(--ink2);margin-bottom:0;margin-left:20px;line-height:1.7;">
+            <li>Null tree: symmetric (true)</li>
+            <li>Single node: symmetric (true)</li>
+            <li>Skewed tree: not symmetric (false)</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Problem 5: Level Order Traversal -->
+      <article class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">5. Binary Tree Level Order Traversal</div>
+            <p class="algo-desc">Return a list of lists containing node values at each level of the tree.</p>
+            <div class="algo-tags">
+              <span class="badge b-blue">★★ Medium</span>
+              <span class="badge b-orange">BFS</span>
+              <span class="badge b-orange">Queue</span>
+            </div>
+          </div>
+          <div class="algo-idx">5</div>
+        </div>
+        <div class="algo-body">
+          <h4>Problem Statement</h4>
+          <p>Given a binary tree, return its level-order traversal (BFS). Return a list of lists where each inner list contains nodes at that depth level.</p>
+
+          <h4>Approach</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Initialize a queue with the root node.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">While queue is not empty, process all nodes at current level (use queue.Count as level size).</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body">For each level, enqueue all children and add values to result list.</div>
+            </div>
+          </div>
+
+          <h4>Complete C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// LeetCode 102</span>
+<span class="kw">public class</span> <span class="ty">Solution</span> {
+    <span class="kw">public</span> <span class="ty">IList</span>&lt;<span class="ty">IList</span>&lt;<span class="ty">int</span>&gt;&gt; <span class="fn">LevelOrder</span>(<span class="ty">TreeNode</span> root) {
+        <span class="kw">var</span> result = <span class="kw">new</span> List&lt;<span class="ty">IList</span>&lt;<span class="ty">int</span>&gt;&gt;();
+        <span class="kw">if</span> (root == <span class="kw">null</span>) <span class="kw">return</span> result;
+
+        <span class="kw">var</span> queue = <span class="kw">new</span> Queue&lt;<span class="ty">TreeNode</span>&gt;();
+        queue.<span class="fn">Enqueue</span>(root);
+
+        <span class="kw">while</span> (queue.<span class="prop">Count</span> &gt; <span class="num">0</span>) {
+            <span class="ty">int</span> levelSize = queue.<span class="prop">Count</span>;
+            <span class="kw">var</span> currentLevel = <span class="kw">new</span> List&lt;<span class="ty">int</span>&gt;();
+
+            <span class="cm">// Process all nodes at current level</span>
+            <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; levelSize; i++) {
+                <span class="ty">TreeNode</span> node = queue.<span class="fn">Dequeue</span>();
+                currentLevel.<span class="fn">Add</span>(node.val);
+                <span class="kw">if</span> (node.left != <span class="kw">null</span>) queue.<span class="fn">Enqueue</span>(node.left);
+                <span class="kw">if</span> (node.right != <span class="kw">null</span>) queue.<span class="fn">Enqueue</span>(node.right);
+            }
+            result.<span class="fn">Add</span>(currentLevel);
+        }
+        <span class="kw">return</span> result;
+    }
+}</pre>
+          </div>
+
+          <h4>Complexity Analysis</h4>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(w)</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink3);margin-top:10px;"><strong>w =</strong> max width (max nodes at any level); for complete binary tree w ≤ n/2.</p>
+
+          <h4>Edge Cases</h4>
+          <ul style="font-size:14px;color:var(--ink2);margin-bottom:0;margin-left:20px;line-height:1.7;">
+            <li>Null tree: empty result</li>
+            <li>Single node: one level</li>
+            <li>Skewed tree: each level has 1 node, w = 1</li>
+            <li>Complete binary tree: w = n/2 for bottom level</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Problem 6: Validate BST -->
+      <article class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">6. Validate Binary Search Tree</div>
+            <p class="algo-desc">Check if a binary tree is a valid BST where all left values are smaller and right values are larger than parent.</p>
+            <div class="algo-tags">
+              <span class="badge b-blue">★★ Medium</span>
+              <span class="badge b-orange">DFS</span>
+              <span class="badge b-orange">BST Property</span>
+            </div>
+          </div>
+          <div class="algo-idx">6</div>
+        </div>
+        <div class="algo-body">
+          <h4>Problem Statement</h4>
+          <p>Validate a BST: for every node, all nodes in left subtree must be strictly less than the node's value, and all nodes in right subtree must be strictly greater.</p>
+
+          <h4>Approach (Bounds Method)</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Maintain min and max bounds for each node.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Check if node value is within [min, max) bounds; return false if not.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body">For left child, tighten upper bound to node.val; for right, tighten lower bound.</div>
+            </div>
+          </div>
+
+          <h4>Complete C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// LeetCode 98 - Bounds approach (avoids overflow)</span>
+<span class="kw">public class</span> <span class="ty">Solution</span> {
+    <span class="kw">public bool</span> <span class="fn">IsValidBST</span>(<span class="ty">TreeNode</span> root) {
+        <span class="kw">return</span> <span class="fn">Validate</span>(root, <span class="kw">long</span>.<span class="ty">MinValue</span>, <span class="kw">long</span>.<span class="ty">MaxValue</span>);
+    }
+
+    <span class="kw">private bool</span> <span class="fn">Validate</span>(<span class="ty">TreeNode</span> node, <span class="kw">long</span> min, <span class="kw">long</span> max) {
+        <span class="kw">if</span> (node == <span class="kw">null</span>) <span class="kw">return true</span>;
+
+        <span class="cm">// Check bounds</span>
+        <span class="kw">if</span> (node.val &lt;= min || node.val &gt;= max) <span class="kw">return false</span>;
+
+        <span class="cm">// Recursively validate subtrees with updated bounds</span>
+        <span class="kw">return</span> <span class="fn">Validate</span>(node.left, min, node.val) &amp;&amp;
+               <span class="fn">Validate</span>(node.right, node.val, max);
+    }
+}</pre>
+          </div>
+
+          <h4>Complexity Analysis</h4>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(h)</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink3);margin-top:10px;"><strong>Note:</strong> Inorder traversal method also works: if inorder traversal is sorted, tree is BST.</p>
+
+          <h4>Edge Cases</h4>
+          <ul style="font-size:14px;color:var(--ink2);margin-bottom:0;margin-left:20px;line-height:1.7;">
+            <li>Single node: valid BST</li>
+            <li>Invalid subtle case: node.val = max int allowed in subtree range</li>
+            <li>Duplicate values: invalid BST (must be strictly less/greater)</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Problem 7: Lowest Common Ancestor BST -->
+      <article class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">7. Lowest Common Ancestor (BST)</div>
+            <p class="algo-desc">Find the lowest common ancestor of two nodes in a binary search tree using BST properties.</p>
+            <div class="algo-tags">
+              <span class="badge b-blue">★★ Medium</span>
+              <span class="badge b-orange">DFS</span>
+              <span class="badge b-orange">BST Property</span>
+            </div>
+          </div>
+          <div class="algo-idx">7</div>
+        </div>
+        <div class="algo-body">
+          <h4>Problem Statement</h4>
+          <p>Given a BST and two node values p and q, find their LCA—the lowest node that is an ancestor of both.</p>
+
+          <h4>Approach</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Exploit BST property: if both p and q are less than node, LCA is in left subtree.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">If both are greater, LCA is in right subtree.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body">Otherwise (one on each side or at current node), current node is the LCA.</div>
+            </div>
+          </div>
+
+          <h4>Complete C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// LeetCode 235</span>
+<span class="kw">public class</span> <span class="ty">Solution</span> {
+    <span class="kw">public</span> <span class="ty">TreeNode</span> <span class="fn">LowestCommonAncestor</span>(<span class="ty">TreeNode</span> root, <span class="ty">TreeNode</span> p, <span class="ty">TreeNode</span> q) {
+        <span class="ty">TreeNode</span> current = root;
+
+        <span class="kw">while</span> (current != <span class="kw">null</span>) {
+            <span class="kw">if</span> (p.val &lt; current.val &amp;&amp; q.val &lt; current.val) {
+                <span class="cm">// Both in left subtree</span>
+                current = current.left;
+            } <span class="kw">else if</span> (p.val &gt; current.val &amp;&amp; q.val &gt; current.val) {
+                <span class="cm">// Both in right subtree</span>
+                current = current.right;
+            } <span class="kw">else</span> {
+                <span class="cm">// One on each side or at current node</span>
+                <span class="kw">return</span> current;
+            }
+        }
+        <span class="kw">return</span> current;
+    }
+}</pre>
+          </div>
+
+          <h4>Complexity Analysis</h4>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(log n) to O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink3);margin-top:10px;"><strong>Balanced BST:</strong> O(log n); skewed: O(n). Space is constant (no recursion).</p>
+
+          <h4>Edge Cases</h4>
+          <ul style="font-size:14px;color:var(--ink2);margin-bottom:0;margin-left:20px;line-height:1.7;">
+            <li>p or q is the LCA itself: returns that node</li>
+            <li>Nodes at same level: LCA is a common parent</li>
+            <li>Deep skewed tree: O(n) time needed</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Problem 8: Lowest Common Ancestor Binary Tree -->
+      <article class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">8. Lowest Common Ancestor (Binary Tree)</div>
+            <p class="algo-desc">Find LCA in an arbitrary binary tree (not necessarily a BST) using postorder DFS.</p>
+            <div class="algo-tags">
+              <span class="badge b-blue">★★ Medium</span>
+              <span class="badge b-orange">DFS</span>
+              <span class="badge b-orange">Postorder</span>
+            </div>
+          </div>
+          <div class="algo-idx">8</div>
+        </div>
+        <div class="algo-body">
+          <h4>Problem Statement</h4>
+          <p>Given a binary tree and two node values, find their LCA. The tree is not necessarily a BST.</p>
+
+          <h4>Approach</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Use postorder DFS: process left subtree, right subtree, then current node.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">If node matches p or q, return it; if both subtrees return non-null, current is LCA.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body">Otherwise, return whichever subtree found a match (or null if neither).</div>
+            </div>
+          </div>
+
+          <h4>Complete C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// LeetCode 236</span>
+<span class="kw">public class</span> <span class="ty">Solution</span> {
+    <span class="kw">public</span> <span class="ty">TreeNode</span> <span class="fn">LowestCommonAncestor</span>(<span class="ty">TreeNode</span> root, <span class="ty">TreeNode</span> p, <span class="ty">TreeNode</span> q) {
+        <span class="kw">if</span> (root == <span class="kw">null</span> || root == p || root == q) <span class="kw">return</span> root;
+
+        <span class="cm">// Postorder: check subtrees first</span>
+        <span class="ty">TreeNode</span> left = <span class="fn">LowestCommonAncestor</span>(root.left, p, q);
+        <span class="ty">TreeNode</span> right = <span class="fn">LowestCommonAncestor</span>(root.right, p, q);
+
+        <span class="cm">// If both found, current is LCA</span>
+        <span class="kw">if</span> (left != <span class="kw">null</span> &amp;&amp; right != <span class="kw">null</span>) <span class="kw">return</span> root;
+
+        <span class="cm">// Return whichever subtree found a match</span>
+        <span class="kw">return</span> left ?? right;
+    }
+}</pre>
+          </div>
+
+          <h4>Complexity Analysis</h4>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(h)</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink3);margin-top:10px;"><strong>Must visit all nodes</strong> in worst case; postorder ensures correct LCA detection.</p>
+
+          <h4>Edge Cases</h4>
+          <ul style="font-size:14px;color:var(--ink2);margin-bottom:0;margin-left:20px;line-height:1.7;">
+            <li>p or q is the LCA: returns that node</li>
+            <li>Both in same subtree: LCA is that subtree root</li>
+            <li>Nodes in different subtrees: LCA is current node</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Problem 9: Path Sum -->
+      <article class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">9. Path Sum</div>
+            <p class="algo-desc">Check if the tree has a root-to-leaf path whose sum equals a target value.</p>
+            <div class="algo-tags">
+              <span class="badge b-green">★ Easy</span>
+              <span class="badge b-orange">DFS</span>
+              <span class="badge b-orange">Path Accumulation</span>
+            </div>
+          </div>
+          <div class="algo-idx">9</div>
+        </div>
+        <div class="algo-body">
+          <h4>Problem Statement</h4>
+          <p>Given a binary tree and target sum, return true if any root-to-leaf path sums to the target.</p>
+
+          <h4>Approach</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Use DFS, accumulating sum along the path from root.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">At leaf nodes, check if accumulated sum equals target.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body">Return true if any path matches; false otherwise.</div>
+            </div>
+          </div>
+
+          <h4>Complete C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// LeetCode 112</span>
+<span class="kw">public class</span> <span class="ty">Solution</span> {
+    <span class="kw">public bool</span> <span class="fn">HasPathSum</span>(<span class="ty">TreeNode</span> root, <span class="ty">int</span> targetSum) {
+        <span class="kw">return</span> <span class="fn">DFS</span>(root, targetSum, <span class="num">0</span>);
+    }
+
+    <span class="kw">private bool</span> <span class="fn">DFS</span>(<span class="ty">TreeNode</span> node, <span class="ty">int</span> target, <span class="ty">int</span> sum) {
+        <span class="kw">if</span> (node == <span class="kw">null</span>) <span class="kw">return false</span>;
+
+        sum += node.val;
+
+        <span class="cm">// Leaf node check</span>
+        <span class="kw">if</span> (node.left == <span class="kw">null</span> &amp;&amp; node.right == <span class="kw">null</span>) {
+            <span class="kw">return</span> sum == target;
+        }
+
+        <span class="cm">// Recurse on children</span>
+        <span class="kw">return</span> <span class="fn">DFS</span>(node.left, target, sum) || <span class="fn">DFS</span>(node.right, target, sum);
+    }
+}</pre>
+          </div>
+
+          <h4>Complexity Analysis</h4>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(h)</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink3);margin-top:10px;"><strong>Worst case:</strong> visit all nodes; best case: O(log n) if found early in balanced tree.</p>
+
+          <h4>Edge Cases</h4>
+          <ul style="font-size:14px;color:var(--ink2);margin-bottom:0;margin-left:20px;line-height:1.7;">
+            <li>Null tree: false</li>
+            <li>Single node: true if node.val == target</li>
+            <li>Negative numbers: sums can decrease</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Problem 10: Path Sum III -->
+      <article class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">10. Path Sum III</div>
+            <p class="algo-desc">Count all paths in a tree (not necessarily root-to-leaf) that sum to a target value.</p>
+            <div class="algo-tags">
+              <span class="badge b-blue">★★ Medium</span>
+              <span class="badge b-orange">DFS</span>
+              <span class="badge b-orange">Prefix Sum</span>
+            </div>
+          </div>
+          <div class="algo-idx">10</div>
+        </div>
+        <div class="algo-body">
+          <h4>Problem Statement</h4>
+          <p>Count the number of paths in a binary tree that sum to a target. Paths can start and end at any node (not necessarily root-to-leaf).</p>
+
+          <h4>Approach</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Use prefix sum map: for each node, compute path sum from some ancestor to this node.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">If (current_sum - target) exists in map, there's a path ending at current node with sum = target.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body">Track prefix sums in a map, backtrack to clean up after exploring subtrees.</div>
+            </div>
+          </div>
+
+          <h4>Complete C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// LeetCode 437</span>
+<span class="kw">public class</span> <span class="ty">Solution</span> {
+    <span class="kw">public int</span> <span class="fn">PathSum</span>(<span class="ty">TreeNode</span> root, <span class="ty">int</span> targetSum) {
+        <span class="kw">var</span> prefixSums = <span class="kw">new</span> Dictionary&lt;<span class="kw">long</span>, <span class="ty">int</span>&gt;();
+        prefixSums[<span class="num">0</span>] = <span class="num">1</span>; <span class="cm">// Base case: empty path</span>
+        <span class="kw">return</span> <span class="fn">DFS</span>(root, <span class="num">0</span>, targetSum, prefixSums);
+    }
+
+    <span class="kw">private int</span> <span class="fn">DFS</span>(<span class="ty">TreeNode</span> node, <span class="kw">long</span> pathSum, <span class="ty">int</span> target,
+                    Dictionary&lt;<span class="kw">long</span>, <span class="ty">int</span>&gt; prefixSums) {
+        <span class="kw">if</span> (node == <span class="kw">null</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+        <span class="cm">// Add current node to path sum</span>
+        pathSum += node.val;
+
+        <span class="cm">// Count paths ending at this node</span>
+        <span class="ty">int</span> count = <span class="num">0</span>;
+        <span class="kw">if</span> (prefixSums.<span class="fn">ContainsKey</span>(pathSum - target)) {
+            count = prefixSums[pathSum - target];
+        }
+
+        <span class="cm">// Add current path sum to map</span>
+        <span class="kw">if</span> (!prefixSums.<span class="fn">ContainsKey</span>(pathSum)) {
+            prefixSums[pathSum] = <span class="num">0</span>;
+        }
+        prefixSums[pathSum]++;
+
+        <span class="cm">// Recurse on children</span>
+        count += <span class="fn">DFS</span>(node.left, pathSum, target, prefixSums);
+        count += <span class="fn">DFS</span>(node.right, pathSum, target, prefixSums);
+
+        <span class="cm">// Backtrack: remove path sum</span>
+        prefixSums[pathSum]--;
+        <span class="kw">if</span> (prefixSums[pathSum] == <span class="num">0</span>) {
+            prefixSums.<span class="fn">Remove</span>(pathSum);
+        }
+
+        <span class="kw">return</span> count;
+    }
+}</pre>
+          </div>
+
+          <h4>Complexity Analysis</h4>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(h)</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink3);margin-top:10px;"><strong>Prefix sum approach eliminates</strong> nested loops; map stores at most h entries (path length).</p>
+
+          <h4>Edge Cases</h4>
+          <ul style="font-size:14px;color:var(--ink2);margin-bottom:0;margin-left:20px;line-height:1.7;">
+            <li>Target = 0: must account for zero-sum paths</li>
+            <li>Negative values: prefix sum approach handles them</li>
+            <li>Multiple paths with same sum: count all</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Problem 11: Kth Smallest in BST -->
+      <article class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">11. Kth Smallest Element in BST</div>
+            <p class="algo-desc">Find the kth smallest element in a BST using inorder traversal.</p>
+            <div class="algo-tags">
+              <span class="badge b-blue">★★ Medium</span>
+              <span class="badge b-orange">Inorder</span>
+              <span class="badge b-orange">BST Property</span>
+            </div>
+          </div>
+          <div class="algo-idx">11</div>
+        </div>
+        <div class="algo-body">
+          <h4>Problem Statement</h4>
+          <p>Given a BST, return the kth smallest element (1-indexed). Inorder traversal yields sorted values.</p>
+
+          <h4>Approach</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Use inorder traversal (Left → Root → Right) which yields BST values in sorted order.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Count nodes visited; when count reaches k, return the current node's value.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body">Use a helper class or ref variable to track count across recursive calls.</div>
+            </div>
+          </div>
+
+          <h4>Complete C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// LeetCode 230</span>
+<span class="kw">public class</span> <span class="ty">Solution</span> {
+    <span class="kw">private int</span> <span class="prop">count</span> = <span class="num">0</span>;
+    <span class="kw">private int</span> <span class="prop">result</span> = <span class="num">0</span>;
+
+    <span class="kw">public int</span> <span class="fn">KthSmallest</span>(<span class="ty">TreeNode</span> root, <span class="ty">int</span> k) {
+        <span class="prop">count</span> = <span class="num">0</span>;
+        <span class="fn">Inorder</span>(root, k);
+        <span class="kw">return</span> <span class="prop">result</span>;
+    }
+
+    <span class="kw">private void</span> <span class="fn">Inorder</span>(<span class="ty">TreeNode</span> node, <span class="ty">int</span> k) {
+        <span class="kw">if</span> (node == <span class="kw">null</span>) <span class="kw">return</span>;
+
+        <span class="cm">// Visit left subtree</span>
+        <span class="fn">Inorder</span>(node.left, k);
+
+        <span class="cm">// Process current node</span>
+        <span class="prop">count</span>++;
+        <span class="kw">if</span> (<span class="prop">count</span> == k) {
+            <span class="prop">result</span> = node.val;
+            <span class="kw">return</span>;
+        }
+
+        <span class="cm">// Visit right subtree</span>
+        <span class="fn">Inorder</span>(node.right, k);
+    }
+}</pre>
+          </div>
+
+          <h4>Complexity Analysis</h4>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(k) to O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(h)</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink3);margin-top:10px;"><strong>Best case:</strong> O(k) if kth element is found early; worst: O(n) if k = n.</p>
+
+          <h4>Edge Cases</h4>
+          <ul style="font-size:14px;color:var(--ink2);margin-bottom:0;margin-left:20px;line-height:1.7;">
+            <li>k = 1: returns minimum element (leftmost node)</li>
+            <li>k = n: returns maximum element (rightmost node)</li>
+            <li>Balanced vs. skewed: affects recursion depth but not overall time</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Problem 12: Serialize/Deserialize Binary Tree -->
+      <article class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">12. Serialize and Deserialize Binary Tree</div>
+            <p class="algo-desc">Convert a binary tree to a string representation and back, preserving structure and values.</p>
+            <div class="algo-tags">
+              <span class="badge b-red">★★★ Hard</span>
+              <span class="badge b-orange">Preorder DFS</span>
+              <span class="badge b-orange">BFS Queue</span>
+            </div>
+          </div>
+          <div class="algo-idx">12</div>
+        </div>
+        <div class="algo-body">
+          <h4>Problem Statement</h4>
+          <p>Serialize a binary tree to a string and deserialize back to the original tree. Preserve structure using markers for null children.</p>
+
+          <h4>Approach (Preorder DFS)</h4>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Serialize using preorder (Root → Left → Right) with "null" markers for empty nodes.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body">Deserialize by consuming tokens in preorder order; reconstruct recursively.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body">Use comma-separated format for clarity; null values signal stopping recursion.</div>
+            </div>
+          </div>
+
+          <h4>Complete C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// LeetCode 297</span>
+<span class="kw">public class</span> <span class="ty">Codec</span> {
+    <span class="cm">// Encodes tree to string (preorder DFS)</span>
+    <span class="kw">public string</span> <span class="fn">serialize</span>(<span class="ty">TreeNode</span> root) {
+        <span class="kw">var</span> sb = <span class="kw">new</span> StringBuilder();
+        <span class="fn">SerializeDFS</span>(root, sb);
+        <span class="kw">return</span> sb.<span class="fn">ToString</span>();
+    }
+
+    <span class="kw">private void</span> <span class="fn">SerializeDFS</span>(<span class="ty">TreeNode</span> node, StringBuilder sb) {
+        <span class="kw">if</span> (node == <span class="kw">null</span>) {
+            sb.<span class="fn">Append</span>(<span class="str">"null,"</span>);
+            <span class="kw">return</span>;
+        }
+        sb.<span class="fn">Append</span>(node.val).<span class="fn">Append</span>(<span class="str">","</span>);
+        <span class="fn">SerializeDFS</span>(node.left, sb);
+        <span class="fn">SerializeDFS</span>(node.right, sb);
+    }
+
+    <span class="cm">// Decodes string to tree (preorder reconstruction)</span>
+    <span class="kw">public</span> <span class="ty">TreeNode</span> <span class="fn">deserialize</span>(<span class="ty">string</span> data) {
+        <span class="kw">var</span> tokens = <span class="kw">new</span> Queue&lt;<span class="ty">string</span>&gt;(data.<span class="fn">Split</span>(<span class="str">','</span>));
+        <span class="kw">return</span> <span class="fn">DeserializeDFS</span>(tokens);
+    }
+
+    <span class="kw">private</span> <span class="ty">TreeNode</span> <span class="fn">DeserializeDFS</span>(Queue&lt;<span class="ty">string</span>&gt; tokens) {
+        <span class="ty">string</span> val = tokens.<span class="fn">Dequeue</span>();
+        <span class="kw">if</span> (val == <span class="str">"null"</span>) <span class="kw">return</span> <span class="kw">null</span>;
+
+        <span class="ty">TreeNode</span> node = <span class="kw">new</span> <span class="ty">TreeNode</span>(<span class="ty">int</span>.<span class="fn">Parse</span>(val));
+        node.left = <span class="fn">DeserializeDFS</span>(tokens);
+        node.right = <span class="fn">DeserializeDFS</span>(tokens);
+        <span class="kw">return</span> node;
+    }
+}</pre>
+          </div>
+
+          <h4>Complexity Analysis</h4>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink3);margin-top:10px;"><strong>Both serialize and deserialize:</strong> visit all n nodes; space for string representation is O(n).</p>
+
+          <h4>Edge Cases</h4>
+          <ul style="font-size:14px;color:var(--ink2);margin-bottom:0;margin-left:20px;line-height:1.7;">
+            <li>Null tree: serializes to "null"</li>
+            <li>Single node: serializes to "val,null,null"</li>
+            <li>Duplicate values: handled correctly; structure preserved</li>
+            <li>Very deep tree: string may be large but deserializes correctly</li>
+          </ul>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- SUMMARY SECTION -->
+    <section class="section fade">
+      <div class="sec-tag">
+        <span class="sec-num">Summary</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Key Takeaways</h2>
+      <p>Mastering tree problems requires understanding traversal patterns, BST properties, and problem-solving strategies:</p>
+      <div style="margin-top:26px;">
+        <div class="callout tip">
+          <span class="callout-icon">💡</span>
+          <div><strong>Traversal choice matters:</strong> DFS (inorder, preorder, postorder) for ancestors and path problems; BFS for level-order and distance problems.</div>
+        </div>
+        <div class="callout tip">
+          <span class="callout-icon">💡</span>
+          <div><strong>BST optimization:</strong> Exploit the left < root < right property to avoid full tree scans in problems 6 and 7.</div>
+        </div>
+        <div class="callout tip">
+          <span class="callout-icon">💡</span>
+          <div><strong>Path problems:</strong> Accumulate state (sum, prefix map) along the path; postorder DFS works for checking ancestor relationships.</div>
+        </div>
+        <div class="callout tip">
+          <span class="callout-icon">💡</span>
+          <div><strong>Serialization pattern:</strong> Use preorder + null markers to uniquely encode tree structure; queue-based deserialization reconstructs efficiently.</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:44px;">Recommended Practice Order</h3>
+      <ol style="font-size:14px;color:var(--ink2);line-height:1.8;margin-left:20px;margin-top:16px;">
+        <li><strong>Problems 1-4:</strong> Start with easy DFS traversal problems to build comfort with recursion.</li>
+        <li><strong>Problem 5:</strong> BFS/level-order introduces queue-based tree processing.</li>
+        <li><strong>Problems 6-7:</strong> BST-specific optimizations show importance of tree properties.</li>
+        <li><strong>Problems 8-10:</strong> Advanced DFS patterns (LCA, path sums) combine multiple concepts.</li>
+        <li><strong>Problems 11-12:</strong> Capstone problems integrating traversal, state tracking, and serialization.</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <script>
+    // Fade-in animation on load
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.fade').forEach((el, idx) => {
+        setTimeout(() => {
+          el.classList.add('in');
+        }, idx * 100);
+      });
+    });
+
+    // Copy code to clipboard
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        const codeBlock = this.closest('.code-block').querySelector('pre');
+        const text = codeBlock.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          const originalText = this.textContent;
+          this.textContent = 'copied!';
+          setTimeout(() => {
+            this.textContent = originalText;
+          }, 2000);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

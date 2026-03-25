@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta name="keywords" content="Toptal interview, Toptal screening, Codility, coding test, C#, algorithms, problem solving, technical screening, remote developer interview, Toptal preparation">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/">
+  <meta property="og:title" content="Toptal Problem Bank — Complete C# Screening Guide">
+  <meta property="og:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/">
+  <meta name="twitter:title" content="Toptal Problem Bank — Complete C# Screening Guide">
+  <meta name="twitter:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Toptal Problem Bank \u2014 Complete C# Screening Guide",
+  "description": "Complete Toptal screening preparation guide \u2014 coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+<title>Toptal Problem Bank — Complete C# Screening Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:1040px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.wrap{max-width:1040px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(36px,5vw,58px);font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:700px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content;flex-wrap:wrap}
+.stat{padding:14px 24px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.section{padding-top:64px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:26px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:24px;max-width:760px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin:28px 0}
+.card{background:var(--white);border:1px solid var(--rule);border-radius:12px;padding:22px 24px;position:relative;overflow:hidden;transition:all .25s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.07)}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.card.c-orange::before{background:var(--acc)}.card.c-green::before{background:var(--green)}.card.c-blue::before{background:var(--blue)}.card.c-amber::before{background:var(--amber)}.card.c-red::before{background:var(--red)}
+.card-tag{font-family:var(--mono);font-size:11px;color:var(--ink4);margin-bottom:6px;font-weight:600}
+.card-title{font-size:17px;font-weight:700;margin-bottom:8px}
+.card-desc{font-size:13px;color:var(--ink2);line-height:1.6;margin-bottom:12px;flex-grow:1}
+.card-meta{font-size:12px;color:var(--ink3);padding-top:10px;border-top:1px solid var(--rule);display:flex;gap:12px;flex-wrap:wrap}
+.card-meta span{display:flex;align-items:center;gap:4px}
+.badge{display:inline-flex;font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;border:1px solid}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.path{background:var(--white);border:1px solid var(--rule);border-radius:12px;padding:28px 32px;margin:28px 0}
+.path-phase{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.path-items{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.path-items:last-child{margin-bottom:0}
+.path-item{font-size:13px;color:var(--ink2);background:var(--bg);padding:6px 12px;border-radius:6px;text-decoration:none;transition:background .15s}
+a.path-item:hover{background:var(--acc-l);color:var(--acc)}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:20px 0;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout strong{color:inherit;font-weight:600}
+.quick-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:28px 0}
+.quick-card{background:var(--white);border:2px solid;border-radius:12px;padding:24px;text-align:center;text-decoration:none;color:inherit;transition:all .2s}
+.quick-card:hover{transform:scale(1.02)}
+.quick-card.start{border-color:var(--green)}.quick-card.mid{border-color:var(--blue)}.quick-card.adv{border-color:var(--acc)}
+.quick-title{font-size:15px;font-weight:700;margin-bottom:8px}
+.quick-desc{font-size:12px;color:var(--ink2);margin-bottom:14px}
+.quick-cta{display:inline-block;padding:7px 14px;border-radius:6px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#fff}
+.quick-card.start .quick-cta{background:var(--green)}.quick-card.mid .quick-cta{background:var(--blue)}.quick-card.adv .quick-cta{background:var(--acc)}
+footer{margin-top:80px;padding:36px 0;border-top:1px solid var(--rule);text-align:center;background:var(--bg2)}
+.footer-inner{max-width:1040px;margin:0 auto;padding:0 2rem}
+footer p{font-size:13px;color:var(--ink3)}footer p+p{font-size:12px;color:var(--ink4);margin-top:4px}
+@media(max-width:700px){.grid,.quick-grid{grid-template-columns:1fr}.stats{flex-direction:column}.stat{border-right:none;border-bottom:1px solid var(--rule)}.stat:last-child{border-bottom:none}}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="#" class="nav-brand">Toptal Problem Bank <span class="pill">C# Edition</span></a></div></nav>
+
+<div class="wrap">
+<div class="hero">
+  <div class="eyebrow"><div class="eyebrow-line"></div><div class="eyebrow-text">Complete Screening Guide</div></div>
+  <h1>The Complete Guide to Passing <em>Toptal</em></h1>
+  <p class="hero-sub">150+ problems organized by category, covering all 4 rounds of Toptal's technical screening. Deep theory, full C# solutions, step-by-step traces, edge cases, and mock tests. With a structured 60-day study plan and ~120 hours of practice, you'll be ready to be in the 7.4% who pass.</p>
+  <div class="stats">
+    <div class="stat"><div class="stat-n">150+</div><div class="stat-l">Problems</div></div>
+    <div class="stat"><div class="stat-n">13</div><div class="stat-l">Categories</div></div>
+    <div class="stat"><div class="stat-n">4</div><div class="stat-l">Rounds Covered</div></div>
+    <div class="stat"><div class="stat-n">17</div><div class="stat-l">Codility Lessons</div></div>
+    <div class="stat"><div class="stat-n">3</div><div class="stat-l">Mock Tests</div></div>
+    <div class="stat"><div class="stat-n">C#</div><div class="stat-l">All Solutions</div></div>
+  </div>
+</div>
+</div>
+
+<div class="wrap">
+
+<!-- Quick Start -->
+<div class="section">
+  <div class="sec-tag"><div class="sec-num">01</div><div class="sec-line"></div></div>
+  <h2>Quick Start</h2>
+  <p class="lead">Choose your starting point based on where you are in the process.</p>
+  <div class="quick-grid">
+    <a href="00-strategy-overview.html" class="quick-card start">
+      <div class="quick-title">New to Toptal?</div>
+      <div class="quick-desc">Start here. Understand all 4 rounds, pass rates, and the 60-day study plan.</div>
+      <div class="quick-cta">Strategy Overview</div>
+    </a>
+    <a href="cat01-arrays-prefix-sums.html" class="quick-card mid">
+      <div class="quick-title">Ready to Practice?</div>
+      <div class="quick-desc">Jump into problems. Start with Arrays & Prefix Sums — the most tested category.</div>
+      <div class="quick-cta">Start Problems</div>
+    </a>
+    <a href="pattern-cheatsheet.html" class="quick-card adv">
+      <div class="quick-title">Test Tomorrow?</div>
+      <div class="quick-desc">Quick-reference cheatsheet with pattern recognition, templates, and edge cases.</div>
+      <div class="quick-cta">Cheatsheet</div>
+    </a>
+  </div>
+</div>
+
+<!-- 60-Day Study Path -->
+<div class="section">
+  <div class="sec-tag"><div class="sec-num">02</div><div class="sec-line"></div></div>
+  <h2>60-Day Study Path</h2>
+  <p class="lead">You have 60 days — that's a huge advantage. Follow this 8-week plan at ~2 hours/day. 120 total hours of structured practice. See the full daily breakdown in the Strategy Overview.</p>
+  <div class="path">
+    <div class="path-phase">Week 1 (Days 1–7): Foundations</div>
+    <div class="path-items">
+      <a href="00-strategy-overview.html" class="path-item">Strategy & Golden Rules</a>
+      <a href="cat01-arrays-prefix-sums.html" class="path-item">Arrays & Prefix Sums</a>
+      <a href="codility-lessons-guide.html" class="path-item">Codility Lessons 1-5</a>
+    </div>
+    <div class="path-phase">Week 2–3 (Days 8–21): Core Patterns</div>
+    <div class="path-items">
+      <a href="cat04-hash-maps-sets.html" class="path-item">Hash Maps & Sets</a>
+      <a href="cat02-sliding-window-two-pointers.html" class="path-item">Sliding Window & Two Pointers</a>
+      <a href="cat03-sorting-binary-search.html" class="path-item">Sorting & Binary Search</a>
+      <a href="cat05-stacks-queues.html" class="path-item">Stacks & Queues</a>
+      <a href="mock-tests.html" class="path-item">Mock Test 1 (Day 21)</a>
+    </div>
+    <div class="path-phase">Week 4–5 (Days 22–35): Data Structures Deep Dive</div>
+    <div class="path-items">
+      <a href="cat11-linked-lists.html" class="path-item">Linked Lists</a>
+      <a href="cat09-trees-bst.html" class="path-item">Trees & BST</a>
+      <a href="cat06-graphs-bfs-dfs.html" class="path-item">Graphs & BFS/DFS</a>
+      <a href="codility-lessons-guide.html" class="path-item">Codility Lessons 6-17 (all 100%)</a>
+      <a href="mock-tests.html" class="path-item">Mock Test 2 (Day 35)</a>
+    </div>
+    <div class="path-phase">Week 6–7 (Days 36–49): Algorithm Paradigms</div>
+    <div class="path-items">
+      <a href="cat08-dynamic-programming.html" class="path-item">Dynamic Programming</a>
+      <a href="cat07-greedy-algorithms.html" class="path-item">Greedy Algorithms</a>
+      <a href="cat10-strings-pattern-matching.html" class="path-item">Strings & Pattern Matching</a>
+      <a href="cat12-bit-manipulation-math.html" class="path-item">Bit Manipulation & Math</a>
+      <a href="cat13-intervals-matrix.html" class="path-item">Intervals & Matrix</a>
+      <a href="mock-tests.html" class="path-item">Mock Test 3 (Day 49)</a>
+    </div>
+    <div class="path-phase">Week 8+ (Days 50–60): Polish, Mock Tests & All 4 Rounds</div>
+    <div class="path-items">
+      <a href="pattern-cheatsheet.html" class="path-item">Pattern Cheatsheet Review</a>
+      <a href="mock-tests.html" class="path-item">Mock Tests 4 & 5</a>
+      <a href="01-communication-round.html" class="path-item">Communication Round Prep</a>
+      <a href="round3-live-coding.html" class="path-item">Live Coding (REACTO)</a>
+      <a href="round4-take-home-project.html" class="path-item">Take-Home Project Guide</a>
+    </div>
+  </div>
+  <div class="callout warn"><div class="callout-icon">&#9888;</div><div><strong>Critical Rule:</strong> O(n) = 100% score. O(n²) on n=100,000 = timeout = 50% score. Always find the optimal complexity.</div></div>
+</div>
+
+<!-- All 4 Rounds -->
+<div class="section">
+  <div class="sec-tag"><div class="sec-num">03</div><div class="sec-line"></div></div>
+  <h2>All 4 Rounds</h2>
+  <p class="lead">Toptal has 4 sequential rounds. You must pass each to proceed.</p>
+  <div class="grid">
+    <a href="01-communication-round.html" class="card c-green">
+      <div class="card-tag">Round 1</div>
+      <div class="card-title">Communication Interview</div>
+      <div class="card-desc">15-30 min video call. English fluency, motivation, experience, hourly rate. Common questions with model answers.</div>
+      <div class="card-meta"><span><span class="badge b-green">26.4% pass</span></span><span>15-30 min</span></div>
+    </a>
+    <a href="00-strategy-overview.html" class="card c-red">
+      <div class="card-tag">Round 2</div>
+      <div class="card-title">Codility Test (90 min)</div>
+      <div class="card-desc">3 algorithmic problems, auto-graded. Need ~210/300. This is where 92.6% fail. The entire problem bank prepares for this.</div>
+      <div class="card-meta"><span><span class="badge b-red">7.4% pass</span></span><span>90 min</span></div>
+    </a>
+    <a href="round3-live-coding.html" class="card c-blue">
+      <div class="card-tag">Round 3</div>
+      <div class="card-title">Live Coding Interview</div>
+      <div class="card-desc">2 problems, 40 min, screen shared. REACTO method, communication matters as much as code.</div>
+      <div class="card-meta"><span><span class="badge b-blue">3.6% pass</span></span><span>40 min</span></div>
+    </a>
+    <a href="round4-take-home-project.html" class="card c-amber">
+      <div class="card-tag">Round 4</div>
+      <div class="card-title">Take-Home Project</div>
+      <div class="card-desc">Build a project in 2 weeks. Clean Architecture, DI, tests, Docker. Then code review with senior dev.</div>
+      <div class="card-meta"><span><span class="badge b-amber">3.2% pass</span></span><span>2 weeks</span></div>
+    </a>
+  </div>
+</div>
+
+<!-- Problem Categories -->
+<div class="section">
+  <div class="sec-tag"><div class="sec-num">04</div><div class="sec-line"></div></div>
+  <h2>13 Problem Categories</h2>
+  <p class="lead">150+ problems organized by technique. Each with full C# solution, step-by-step trace, edge cases, and complexity analysis.</p>
+  <div class="grid">
+    <a href="cat01-arrays-prefix-sums.html" class="card c-orange">
+      <div class="card-tag">Category 1</div>
+      <div class="card-title">Arrays & Prefix Sums</div>
+      <div class="card-desc">MissingInteger, GenomicRangeQuery, MaxCounters, Kadane's, Product Except Self, and more.</div>
+      <div class="card-meta"><span>15 problems</span><span><span class="badge b-orange">Most Tested</span></span></div>
+    </a>
+    <a href="cat02-sliding-window-two-pointers.html" class="card c-green">
+      <div class="card-tag">Category 2</div>
+      <div class="card-title">Sliding Window & Two Pointers</div>
+      <div class="card-desc">Longest Substring, Container With Water, 3Sum, Trapping Rain Water, MinAvgTwoSlice.</div>
+      <div class="card-meta"><span>15 problems</span><span><span class="badge b-green">High Frequency</span></span></div>
+    </a>
+    <a href="cat03-sorting-binary-search.html" class="card c-blue">
+      <div class="card-tag">Category 3</div>
+      <div class="card-title">Sorting & Binary Search</div>
+      <div class="card-desc">Rotated arrays, Merge Intervals, Kth Largest, MinMaxDivision, NailingPlanks.</div>
+      <div class="card-meta"><span>15 problems</span><span><span class="badge b-blue">Essential</span></span></div>
+    </a>
+    <a href="cat04-hash-maps-sets.html" class="card c-amber">
+      <div class="card-tag">Category 4</div>
+      <div class="card-title">Hash Maps & Sets</div>
+      <div class="card-desc">Group Anagrams, Top K Frequent, Longest Consecutive, LRU Cache, Subarray Sum K.</div>
+      <div class="card-meta"><span>15 problems</span><span><span class="badge b-amber">Go-To Optimization</span></span></div>
+    </a>
+    <a href="cat05-stacks-queues.html" class="card c-orange">
+      <div class="card-tag">Category 5</div>
+      <div class="card-title">Stacks & Queues</div>
+      <div class="card-desc">Brackets, Fish, StoneWall, Monotonic Stack, Largest Rectangle, Basic Calculator.</div>
+      <div class="card-meta"><span>15 problems</span><span><span class="badge b-orange">Codility Favorite</span></span></div>
+    </a>
+    <a href="cat06-graphs-bfs-dfs.html" class="card c-green">
+      <div class="card-tag">Category 6</div>
+      <div class="card-title">Graphs & BFS/DFS</div>
+      <div class="card-desc">Number of Islands, Course Schedule, Dijkstra, Word Ladder, Union-Find, Alien Dictionary.</div>
+      <div class="card-meta"><span>15 problems</span><span><span class="badge b-green">Advanced</span></span></div>
+    </a>
+    <a href="cat07-greedy-algorithms.html" class="card c-blue">
+      <div class="card-tag">Category 7</div>
+      <div class="card-title">Greedy Algorithms</div>
+      <div class="card-desc">Jump Game, Gas Station, Task Scheduler, Partition Labels, Interval scheduling.</div>
+      <div class="card-meta"><span>12 problems</span></div>
+    </a>
+    <a href="cat08-dynamic-programming.html" class="card c-amber">
+      <div class="card-tag">Category 8</div>
+      <div class="card-title">Dynamic Programming</div>
+      <div class="card-desc">Coin Change, LIS, Edit Distance, Knapsack, Stock with Cooldown, Palindromic Substring.</div>
+      <div class="card-meta"><span>15 problems</span><span><span class="badge b-red">Hardest Category</span></span></div>
+    </a>
+    <a href="cat09-trees-bst.html" class="card c-orange">
+      <div class="card-tag">Category 9</div>
+      <div class="card-title">Trees & BST</div>
+      <div class="card-desc">Validate BST, LCA, Level Order, Path Sum, Serialize/Deserialize, Kth Smallest.</div>
+      <div class="card-meta"><span>12 problems</span></div>
+    </a>
+    <a href="cat10-strings-pattern-matching.html" class="card c-green">
+      <div class="card-tag">Category 10</div>
+      <div class="card-title">Strings & Pattern Matching</div>
+      <div class="card-desc">Palindromes, KMP, Wildcard Matching, Decode Ways, Minimum Window Substring.</div>
+      <div class="card-meta"><span>12 problems</span></div>
+    </a>
+    <a href="cat11-linked-lists.html" class="card c-blue">
+      <div class="card-tag">Category 11</div>
+      <div class="card-title">Linked Lists</div>
+      <div class="card-desc">Reverse, Merge, Cycle Detection, Palindrome, Add Two Numbers, Merge K Lists.</div>
+      <div class="card-meta"><span>10 problems</span></div>
+    </a>
+    <a href="cat12-bit-manipulation-math.html" class="card c-amber">
+      <div class="card-tag">Category 12</div>
+      <div class="card-title">Bit Manipulation & Math</div>
+      <div class="card-desc">XOR tricks, Sieve of Eratosthenes, Fast Exponentiation, Brian Kernighan's.</div>
+      <div class="card-meta"><span>10 problems</span></div>
+    </a>
+    <a href="cat13-intervals-matrix.html" class="card c-orange">
+      <div class="card-tag">Category 13</div>
+      <div class="card-title">Intervals & Matrix</div>
+      <div class="card-desc">Merge Intervals, Spiral Matrix, Rotate Image, Flags, CountTriangles.</div>
+      <div class="card-meta"><span>10 problems</span></div>
+    </a>
+  </div>
+</div>
+
+<!-- Supplementary -->
+<div class="section">
+  <div class="sec-tag"><div class="sec-num">05</div><div class="sec-line"></div></div>
+  <h2>Supplementary Resources</h2>
+  <p class="lead">Essential guides for Codility mastery, mock testing, and interview preparation.</p>
+  <div class="grid">
+    <a href="codility-lessons-guide.html" class="card c-red">
+      <div class="card-tag">Must Complete</div>
+      <div class="card-title">Codility 17 Lessons Guide</div>
+      <div class="card-desc">All 17 Codility lessons with key techniques, optimal solutions, and 100% score checklist. Rule #1 of passing.</div>
+      <div class="card-meta"><span>17 lessons</span><span><span class="badge b-red">Critical</span></span></div>
+    </a>
+    <a href="mock-tests.html" class="card c-amber">
+      <div class="card-tag">Practice</div>
+      <div class="card-title">3 Mock Tests (90 min)</div>
+      <div class="card-desc">Timed simulations with Easy + Medium + Hard problems. Collapsible hints and full solutions.</div>
+      <div class="card-meta"><span>9 problems</span><span>270 min total</span></div>
+    </a>
+    <a href="pattern-cheatsheet.html" class="card c-green">
+      <div class="card-tag">Quick Reference</div>
+      <div class="card-title">Pattern Recognition Cheatsheet</div>
+      <div class="card-desc">35+ pattern signals, complexity lookup, edge cases, 10 copy-paste C# templates, test day checklist.</div>
+      <div class="card-meta"><span>35+ patterns</span><span>10 templates</span></div>
+    </a>
+    <a href="round3-live-coding.html" class="card c-blue">
+      <div class="card-tag">Round 3</div>
+      <div class="card-title">Live Coding — REACTO Method</div>
+      <div class="card-desc">Framework for live interviews: Repeat, Examples, Approach, Code, Test, Optimize. Communication templates.</div>
+      <div class="card-meta"><span>2 walkthroughs</span></div>
+    </a>
+    <a href="round4-take-home-project.html" class="card c-orange">
+      <div class="card-tag">Round 4</div>
+      <div class="card-title">Take-Home Project Guide</div>
+      <div class="card-desc">Clean Architecture, DI, Repository pattern, Unit Tests, Docker, Swagger. Full example project structure.</div>
+      <div class="card-meta"><span>Complete guide</span></div>
+    </a>
+  </div>
+</div>
+
+<div class="callout tip" style="margin-top:40px"><div class="callout-icon">&#9989;</div><div><strong>Your goal:</strong> Score 210/300 on the Codility test. That means 100 on Easy + 100 on Medium + at least 10 on Hard. Master Easy and Medium so you finish them in 40 minutes, leaving 50 minutes for Hard.</div></div>
+
+</div>
+
+<footer>
+<div class="footer-inner">
+  <p><strong>Toptal Problem Bank — Complete C# Screening Guide</strong></p>
+  <p>150+ problems across 13 categories, all 4 rounds covered, 17 Codility lessons, 3 mock tests.</p>
+  <p style="margin-top:14px;font-size:12px">Be in the 7.4%. Start today.</p>
+</div>
+</footer>
+</body>
+</html>

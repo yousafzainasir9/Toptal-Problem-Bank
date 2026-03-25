@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta name="keywords" content="Toptal interview, Toptal screening, Codility, coding test, C#, algorithms, problem solving, technical screening, remote developer interview, Toptal preparation">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat04-hash-maps-sets.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat04-hash-maps-sets.html">
+  <meta property="og:title" content="Category 4: Hash Maps & Sets — 15 Problems - Toptal Problem Bank">
+  <meta property="og:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat04-hash-maps-sets.html">
+  <meta name="twitter:title" content="Category 4: Hash Maps & Sets — 15 Problems - Toptal Problem Bank">
+  <meta name="twitter:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Category 4: Hash Maps & Sets \u2014 15 Problems - Toptal Problem Bank",
+  "description": "Complete Toptal screening preparation guide \u2014 coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat04-hash-maps-sets.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Category 4: Hash Maps & Sets — 15 Problems - Toptal Problem Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.toc{background:var(--white);border:1px solid var(--rule);border-radius:14px;padding:28px 32px;margin:44px 0}
+.toc-head{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:18px}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 36px}
+.toc-grid a{font-size:13.5px;color:var(--ink2);text-decoration:none;padding:8px 0;display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--rule);transition:color .15s}
+.toc-grid a:hover{color:var(--acc)}
+.toc-n{font-family:var(--mono);font-size:10px;color:var(--ink4);flex-shrink:0}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.algo{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px}
+.algo-head{padding:28px 32px 22px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.algo-idx{font-size:58px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em}
+.algo-name{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.algo-desc{font-family:var(--serif);font-size:14.5px;color:var(--ink2);line-height:1.72;max-width:580px}
+.algo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.algo-body{padding:28px 32px}
+.cx-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.cx{background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;min-width:110px}
+.cx-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cx-v{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink)}
+.steps{margin-bottom:26px}
+.step{display:flex}
+.step-left{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--acc-l);border:1.5px solid var(--acc-b);color:var(--acc);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono);flex-shrink:0}
+.step-vline{width:1.5px;flex:1;background:var(--rule);margin:4px 0}
+.step:last-child .step-vline{display:none}
+.step-body{padding:3px 0 22px 14px;font-size:14px;color:var(--ink2);line-height:1.68}
+.step-body strong{color:var(--ink);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:26px}
+.vs-box{border-radius:10px;padding:18px 20px;border:1px solid}
+.vs-box.good{background:var(--green-l);border-color:var(--green-b)}
+.vs-box.bad{background:var(--red-l);border-color:var(--red-b)}
+.vs-title{font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.vs-box.good .vs-title{color:var(--green)}.vs-box.bad .vs-title{color:var(--red)}
+.vs-item{font-size:13px;color:var(--ink2);padding:4px 0;display:flex;gap:8px;line-height:1.5}
+.vs-item::before{content:'—';color:var(--ink4);flex-shrink:0}
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:26px}
+.proof-card{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:20px 22px}
+.proof-title{font-size:15px;font-weight:700;margin-bottom:8px}
+.proof-body{font-size:13.5px;color:var(--ink2);line-height:1.7}
+.proof-note{margin-top:12px;font-size:12px;color:var(--ink3)}
+.proof-note strong{color:var(--ink2)}
+.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px}
+.tip-card{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:20px;position:relative;overflow:hidden}
+.tip-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--acc)}
+.tip-card.g::before{background:var(--green)}.tip-card.b::before{background:var(--blue)}.tip-card.a::before{background:var(--amber)}
+.tip-n{font-family:var(--mono);font-size:10px;color:var(--ink4);margin-bottom:8px}
+.tip-title{font-size:14px;font-weight:700;margin-bottom:6px}
+.tip-body{font-size:13px;color:var(--ink2);line-height:1.65}
+footer{margin-top:100px;padding:40px 0;border-top:1px solid var(--rule);text-align:center;background:var(--bg2)}
+.footer-inner{max-width:960px;margin:0 auto;padding:0 2rem}
+footer p{font-size:13px;color:var(--ink3)}
+footer p+p{font-size:12px;color:var(--ink4);margin-top:4px}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+@media(max-width:700px){
+  .algo-head{grid-template-columns:1fr}.algo-idx{display:none}
+  .vs,.proof-grid,.tips{grid-template-columns:1fr}
+  .toc-grid{grid-template-columns:1fr}
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Problem Bank
+        <span class="pill">v1</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#toc">Cat 4</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Category 4</div>
+      </div>
+      <h1>Hash Maps & <em>Sets</em></h1>
+      <p class="hero-sub">Master dictionary-based problem-solving patterns including frequency counting, bijection mapping, cycle detection, and complement strategies. Solve 15 essential LeetCode and Codility problems with complete C# implementations.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">15</div>
+          <div class="stat-l">Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">6</div>
+          <div class="stat-l">Core Patterns</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">⭐ ★★★</div>
+          <div class="stat-l">Difficulty Range</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">15+</div>
+          <div class="stat-l">Code Examples</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="toc fade">
+      <div class="toc-head">Table of Contents</div>
+      <div class="toc-grid">
+        <a href="#sec-theory"><span class="toc-n">Theory</span> Core Concepts</a>
+        <a href="#p1"><span class="toc-n">1</span> OddOccurrencesInArray</a>
+        <a href="#p2"><span class="toc-n">2</span> Dominator</a>
+        <a href="#p3"><span class="toc-n">3</span> Group Anagrams</a>
+        <a href="#p4"><span class="toc-n">4</span> Top K Frequent Elements</a>
+        <a href="#p5"><span class="toc-n">5</span> Longest Consecutive Sequence</a>
+        <a href="#p6"><span class="toc-n">6</span> Valid Anagram</a>
+        <a href="#p7"><span class="toc-n">7</span> Isomorphic Strings</a>
+        <a href="#p8"><span class="toc-n">8</span> First Non-Repeating Char</a>
+        <a href="#p9"><span class="toc-n">9</span> Subarray Sum Equals K</a>
+        <a href="#p10"><span class="toc-n">10</span> 4Sum II</a>
+        <a href="#p11"><span class="toc-n">11</span> LRU Cache</a>
+        <a href="#p12"><span class="toc-n">12</span> Word Pattern</a>
+        <a href="#p13"><span class="toc-n">13</span> Happy Number</a>
+        <a href="#p14"><span class="toc-n">14</span> Intersection of Two Arrays II</a>
+        <a href="#p15"><span class="toc-n">15</span> Find All Duplicates</a>
+      </div>
+    </section>
+
+    <!-- THEORY SECTION -->
+    <section class="section fade" id="sec-theory">
+      <div class="sec-tag">
+        <div class="sec-num">THEORY</div>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Core Concepts</h2>
+      <p class="lead">Hash maps and sets provide constant-time lookups and enable pattern-based solutions across counting, grouping, and relationship problems.</p>
+
+      <h3>Dictionary&lt;TKey,TValue&gt;</h3>
+      <p>Average O(1) lookup, insertion, deletion. TryGetValue pattern prevents exceptions and is idiomatic C#.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">C#</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><span class="kw">var</span> <span class="va">freq</span> = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">int</span>, <span class="kw">int</span>&gt;();
+<span class="kw">if</span> (!freq.<span class="fn">TryGetValue</span>(num, <span class="kw">out</span> <span class="kw">int</span> <span class="va">count</span>)) count = 0;
+freq[num] = count + 1;</pre>
+      </div>
+
+      <h3>HashSet&lt;T&gt;</h3>
+      <p>O(1) Contains, Add, Remove. No duplicates. Use for deduplication and membership testing.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">C#</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><span class="kw">var</span> <span class="va">seen</span> = <span class="kw">new</span> <span class="ty">HashSet</span>&lt;<span class="kw">int</span>&gt;();
+<span class="kw">if</span> (!seen.<span class="fn">Add</span>(num)) { <span class="cm">// Duplicate found</span> }</pre>
+      </div>
+
+      <h3>Core Patterns</h3>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <div class="proof-title">Frequency Counting</div>
+          <div class="proof-body">Store element counts in dict. Identify mode, outliers, or duplicates.</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-title">Complement Strategy</div>
+          <div class="proof-body">Preprocess all values into set, then iterate looking for target - current.</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-title">Grouping by Key</div>
+          <div class="proof-body">Sorted string as key. Group anagrams, transformations by signature.</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-title">Bijection Mapping</div>
+          <div class="proof-body">Two dicts for each direction. Validate one-to-one correspondence.</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-title">Cycle Detection</div>
+          <div class="proof-body">Track visited nodes. Loop exists if revisit before termination.</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-title">Prefix Sum + Map</div>
+          <div class="proof-body">Store cumulative sum → count. Find subarray sums matching target.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 1 -->
+    <section class="section fade" id="p1">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">1. Odd Occurrences In Array</div>
+            <p class="algo-desc">Find element appearing odd number of times. Codility ★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">XOR</span>
+              <span class="badge b-green">O(n)</span>
+              <span class="badge b-blue">O(1) space</span>
+            </div>
+          </div>
+          <div class="algo-idx">1</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given array where every element except one appears even times, return the single odd-occurrence element. All other integers appear even times.</p>
+
+          <h3>Approach: XOR Properties</h3>
+          <p><code class="il">a ^ a = 0</code> and <code class="il">a ^ 0 = a</code>. XOR all elements—pairs cancel, leaving the odd one.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">OddOccurrences</span>(<span class="kw">int</span>[] arr)
+{
+    <span class="kw">int</span> <span class="va">result</span> = 0;
+    <span class="kw">foreach</span> (<span class="kw">int</span> <span class="va">num</span> <span class="kw">in</span> arr)
+        result ^= num;
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h3>Trace: arr = [9, 3, 9, 3, 9, 7, 9]</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">result = 0 ^ 9 = 9</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">result = 9 ^ 3 = 10 (1010)</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">result = 10 ^ 9 = 3 (pairs cancel)</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">result = 3 ^ 3 = 0</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">5</div></div>
+              <div class="step-body">result = 0 ^ 9 = 9</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">6</div></div>
+              <div class="step-body">result = 9 ^ 7 = 14</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">7</div></div>
+              <div class="step-body">result = 14 ^ 9 = 7. Return 7.</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">Single element [5] → 5</div>
+              <div class="vs-item">All pairs [2,2,3,3,4] → 4</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Exactly one odd-occurrence element guaranteed</div>
+              <div class="vs-item">Array non-empty</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 2 -->
+    <section class="section fade" id="p2">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">2. Dominator</div>
+            <p class="algo-desc">Find element appearing &gt; n/2 times. Codility ★★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Boyer-Moore</span>
+              <span class="badge b-green">O(n)</span>
+              <span class="badge b-blue">O(1) space</span>
+            </div>
+          </div>
+          <div class="algo-idx">2</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Find majority element appearing &gt; n/2 times, or -1 if none exists.</p>
+
+          <h3>Approach: Boyer-Moore Voting</h3>
+          <p>Track candidate with a count. Increment for matches, decrement otherwise. When count hits 0, switch candidate. Verify the final candidate.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">Dominator</span>(<span class="kw">int</span>[] arr)
+{
+    <span class="kw">int</span> <span class="va">candidate</span> = -1, <span class="va">count</span> = 0;
+
+    <span class="cm">// Find candidate</span>
+    <span class="kw">foreach</span> (<span class="kw">int</span> <span class="va">num</span> <span class="kw">in</span> arr) {
+        <span class="kw">if</span> (count == 0) candidate = num;
+        count += (num == candidate) ? 1 : -1;
+    }
+
+    <span class="cm">// Verify candidate</span>
+    count = 0;
+    <span class="kw">foreach</span> (<span class="kw">int</span> <span class="va">num</span> <span class="kw">in</span> arr)
+        <span class="kw">if</span> (num == candidate) count++;
+
+    <span class="kw">return</span> (count * 2 > arr.Length) ? candidate : -1;
+}</pre>
+          </div>
+
+          <h3>Trace: arr = [3, 1, 3, 3, 2]</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">num=3, count=0 → candidate=3, count=1</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">num=1, count=1 → count=0 (mismatch)</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">num=3, count=0 → candidate=3, count=1</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">num=3, count=1 → count=2 (match)</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">5</div></div>
+              <div class="step-body">num=2, count=2 → count=1 (mismatch). Verify: 3 appears 3 times &gt; 5/2. Return 3.</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">Single element [5] → 5</div>
+              <div class="vs-item">No majority [1,2,3] → -1</div>
+              <div class="vs-item">Exact majority [1,1,2] → 1</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Must verify candidate (could be incorrect before count check)</div>
+              <div class="vs-item">Two-pass: find candidate, verify</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 3 -->
+    <section class="section fade" id="p3">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">3. Group Anagrams</div>
+            <p class="algo-desc">Partition strings into anagram groups. LeetCode 49 ★★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Sorting</span>
+              <span class="badge b-green">O(nk log k)</span>
+              <span class="badge b-blue">Grouping</span>
+            </div>
+          </div>
+          <div class="algo-idx">3</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given list of strings, group anagrams together. Return list of groups.</p>
+
+          <h3>Approach: Sorted Signature as Key</h3>
+          <p>Sort each string's characters. Identical anagrams have identical sorted forms. Use sorted form as dict key to group.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">IList</span>&lt;<span class="ty">IList</span>&lt;<span class="kw">string</span>&gt;&gt; <span class="fn">GroupAnagrams</span>(<span class="kw">string</span>[] strs)
+{
+    <span class="kw">var</span> <span class="va">groups</span> = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">string</span>, <span class="ty">List</span>&lt;<span class="kw">string</span>&gt;&gt;();
+
+    <span class="kw">foreach</span> (<span class="kw">string</span> <span class="va">s</span> <span class="kw">in</span> strs) {
+        <span class="kw">char</span>[] <span class="va">sorted</span> = s.<span class="fn">ToCharArray</span>();
+        <span class="ty">Array</span>.<span class="fn">Sort</span>(sorted);
+        <span class="kw">string</span> <span class="va">key</span> = <span class="kw">new</span> <span class="kw">string</span>(sorted);
+
+        <span class="kw">if</span> (!groups.<span class="fn">ContainsKey</span>(key))
+            groups[key] = <span class="kw">new</span> <span class="ty">List</span>&lt;<span class="kw">string</span>&gt;();
+        groups[key].<span class="fn">Add</span>(s);
+    }
+
+    <span class="kw">return</span> <span class="kw">new</span> <span class="ty">List</span>&lt;<span class="ty">IList</span>&lt;<span class="kw">string</span>&gt;&gt;(groups.<span class="fn">Values</span>);
+}</pre>
+          </div>
+
+          <h3>Trace: strs = ["eat","tea","ate","bat"]</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">"eat" → sorted "aet" → groups["aet"] = ["eat"]</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">"tea" → sorted "aet" → groups["aet"] = ["eat","tea"]</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">"ate" → sorted "aet" → groups["aet"] = ["eat","tea","ate"]</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">"bat" → sorted "abt" → groups["abt"] = ["bat"]. Return values.</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">Single word ["a"] → [["a"]]</div>
+              <div class="vs-item">No anagrams ["abc","def"] → [["abc"],["def"]]</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Empty strings treated as single group</div>
+              <div class="vs-item">Case-sensitive (eat ≠ Eat)</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n·k log k)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n·k)</div>
+            </div>
+          </div>
+          <p style="margin-top:12px;font-size:13px;color:var(--ink3)">n = number of strings, k = max string length</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 4 -->
+    <section class="section fade" id="p4">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">4. Top K Frequent Elements</div>
+            <p class="algo-desc">Return k most frequent elements. LeetCode 347 ★★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Bucket Sort</span>
+              <span class="badge b-green">O(n)</span>
+              <span class="badge b-blue">Best</span>
+            </div>
+          </div>
+          <div class="algo-idx">4</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given array and k, return k most frequent elements. Assume k ≤ unique elements.</p>
+
+          <h3>Approach: Bucket Sort</h3>
+          <p>Count frequencies. Create array of buckets indexed by frequency. Elements can appear 1 to n times. Collect from high-frequency buckets down.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public int</span>[] <span class="fn">TopKFrequent</span>(<span class="kw">int</span>[] nums, <span class="kw">int</span> k)
+{
+    <span class="kw">var</span> <span class="va">freq</span> = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">int</span>, <span class="kw">int</span>&gt;();
+    <span class="kw">foreach</span> (<span class="kw">int</span> <span class="va">n</span> <span class="kw">in</span> nums) {
+        <span class="kw">if</span> (!freq.<span class="fn">TryGetValue</span>(n, <span class="kw">out</span> <span class="kw">int</span> <span class="va">c</span>)) c = 0;
+        freq[n] = c + 1;
+    }
+
+    <span class="kw">var</span> <span class="va">buckets</span> = <span class="kw">new</span> <span class="ty">List</span>&lt;<span class="kw">int</span>&gt;[nums.Length + 1];
+    <span class="kw">for</span> (<span class="kw">int</span> <span class="va">i</span> = 0; <span class="va">i</span> &lt; buckets.Length; i++)
+        buckets[i] = <span class="kw">new</span> <span class="ty">List</span>&lt;<span class="kw">int</span>&gt;();
+
+    <span class="kw">foreach</span> (<span class="kw">var</span> <span class="va">pair</span> <span class="kw">in</span> freq)
+        buckets[pair.Value].<span class="fn">Add</span>(pair.Key);
+
+    <span class="kw">var</span> <span class="va">result</span> = <span class="kw">new</span> <span class="ty">List</span>&lt;<span class="kw">int</span>&gt;();
+    <span class="kw">for</span> (<span class="kw">int</span> <span class="va">i</span> = buckets.Length - 1; <span class="va">i</span> &gt;= 0 && result.Count &lt; k; <span class="va">i</span>--)
+        result.<span class="fn">AddRange</span>(buckets[i]);
+
+    <span class="kw">return</span> result.<span class="fn">ToArray</span>();
+}</pre>
+          </div>
+
+          <h3>Trace: nums = [1,1,1,2,2,3], k = 2</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">freq = {1:3, 2:2, 3:1}</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">buckets[3]=[1], buckets[2]=[2], buckets[1]=[3]</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">Iterate from buckets[6] down. Add 1 (count=1), then 2 (count=2). Return [1,2].</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">k = 1: return [top_freq_element]</div>
+              <div class="vs-item">All same frequency: any k work</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Bucket size = n+1 (frequencies 1 to n)</div>
+              <div class="vs-item">Tie-breaking arbitrary (order depends on dict iteration)</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 5 -->
+    <section class="section fade" id="p5">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">5. Longest Consecutive Sequence</div>
+            <p class="algo-desc">Find longest streak of consecutive numbers. LeetCode 128 ★★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Expand</span>
+              <span class="badge b-green">O(n)</span>
+              <span class="badge b-blue">HashSet</span>
+            </div>
+          </div>
+          <div class="algo-idx">5</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given unsorted array, return length of longest consecutive elements sequence. O(n) time.</p>
+
+          <h3>Approach: Expand from Sequence Start</h3>
+          <p>Store all nums in HashSet. For each number, if it's a sequence start (num-1 not in set), expand right counting consecutive numbers.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">LongestConsecutive</span>(<span class="kw">int</span>[] nums)
+{
+    <span class="kw">if</span> (nums.Length == 0) <span class="kw">return</span> 0;
+
+    <span class="kw">var</span> <span class="va">numSet</span> = <span class="kw">new</span> <span class="ty">HashSet</span>&lt;<span class="kw">int</span>&gt;(nums);
+    <span class="kw">int</span> <span class="va">maxLen</span> = 0;
+
+    <span class="kw">foreach</span> (<span class="kw">int</span> <span class="va">num</span> <span class="kw">in</span> numSet) {
+        <span class="cm">// Only start from sequence beginning</span>
+        <span class="kw">if</span> (!numSet.<span class="fn">Contains</span>(num - 1)) {
+            <span class="kw">int</span> <span class="va">current</span> = num;
+            <span class="kw">int</span> <span class="va">streak</span> = 1;
+
+            <span class="kw">while</span> (numSet.<span class="fn">Contains</span>(current + 1)) {
+                current++;
+                streak++;
+            }
+
+            maxLen = <span class="ty">Math</span>.<span class="fn">Max</span>(maxLen, streak);
+        }
+    }
+
+    <span class="kw">return</span> maxLen;
+}</pre>
+          </div>
+
+          <h3>Trace: nums = [100, 4, 200, 1, 3, 2]</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">numSet = {100, 4, 200, 1, 3, 2}</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">num=100: 99 not in set. Expand: 100→101? No. streak=1</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">num=4: 3 in set, skip (not start)</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">num=1: 0 not in set. Expand: 1→2→3→4. streak=4. maxLen=4</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">5</div></div>
+              <div class="step-body">num=200, 3, 2: already processed or not starts. Return 4.</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">Empty array [] → 0</div>
+              <div class="vs-item">Duplicates [1,2,0,1] → 3</div>
+              <div class="vs-item">Unordered [9,1,4,7,3,2,8,5,6] → 9</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Only process sequence starts (critical for O(n))</div>
+              <div class="vs-item">Each element visited once, not per sequence</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+          <p style="margin-top:12px;font-size:13px;color:var(--ink3)">Each element visited once during expansion (amortized)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 6 -->
+    <section class="section fade" id="p6">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">6. Valid Anagram</div>
+            <p class="algo-desc">Check if two strings are anagrams. LeetCode 242 ★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Frequency</span>
+              <span class="badge b-green">O(n)</span>
+              <span class="badge b-blue">Array</span>
+            </div>
+          </div>
+          <div class="algo-idx">6</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given two strings s and t, return true if t is anagram of s (same characters, different order).</p>
+
+          <h3>Approach: Frequency Array</h3>
+          <p>Count chars in s. Decrement counts for chars in t. If all counts are 0, they're anagrams.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public bool</span> <span class="fn">IsAnagram</span>(<span class="kw">string</span> <span class="va">s</span>, <span class="kw">string</span> <span class="va">t</span>)
+{
+    <span class="kw">if</span> (s.Length != t.Length) <span class="kw">return false</span>;
+
+    <span class="kw">int</span>[] <span class="va">freq</span> = <span class="kw">new int</span>[26];
+
+    <span class="kw">for</span> (<span class="kw">int</span> <span class="va">i</span> = 0; <span class="va">i</span> &lt; s.Length; <span class="va">i</span>++) {
+        freq[s[i] - 'a']++;
+        freq[t[i] - 'a']--;
+    }
+
+    <span class="kw">foreach</span> (<span class="kw">int</span> <span class="va">f</span> <span class="kw">in</span> freq)
+        <span class="kw">if</span> (f != 0) <span class="kw">return false</span>;
+
+    <span class="kw">return true</span>;
+}</pre>
+          </div>
+
+          <h3>Trace: s = "anagram", t = "nagaram"</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">Both length 7. freq = int[26]</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">i=0: 'a','n' → freq[0]=1, freq[13]=-1</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">Continue pairing s[i] and t[i]</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">After loop: freq[0]=3-3=0, freq[13]=2-2=0, all balanced. Return true.</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">s = "ab", t = "ba" → true</div>
+              <div class="vs-item">s = "ab", t = "a" → false (length)</div>
+              <div class="vs-item">s = "", t = "" → true</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Only lowercase a-z</div>
+              <div class="vs-item">Early return if length mismatch</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+          <p style="margin-top:12px;font-size:13px;color:var(--ink3)">Fixed array size 26 (alphabet)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 7 -->
+    <section class="section fade" id="p7">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">7. Isomorphic Strings</div>
+            <p class="algo-desc">Check if strings follow same character mapping. LeetCode 205 ★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Bijection</span>
+              <span class="badge b-green">O(n)</span>
+              <span class="badge b-blue">Two Maps</span>
+            </div>
+          </div>
+          <div class="algo-idx">7</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Two strings s and t are isomorphic if chars map one-to-one (bijection). E.g., "badc" and "baba" map a→b, b→a, d→b, c→a.</p>
+
+          <h3>Approach: Bidirectional Mapping</h3>
+          <p>Track s→t and t→s mappings. For each pair, check consistency in both directions. If conflict, return false.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public bool</span> <span class="fn">IsIsomorphic</span>(<span class="kw">string</span> <span class="va">s</span>, <span class="kw">string</span> <span class="va">t</span>)
+{
+    <span class="kw">var</span> <span class="va">sToT</span> = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">char</span>, <span class="kw">char</span>&gt;();
+    <span class="kw">var</span> <span class="va">tToS</span> = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">char</span>, <span class="kw">char</span>&gt;();
+
+    <span class="kw">for</span> (<span class="kw">int</span> <span class="va">i</span> = 0; <span class="va">i</span> &lt; s.Length; <span class="va">i</span>++) {
+        <span class="kw">char</span> <span class="va">c1</span> = s[i], <span class="va">c2</span> = t[i];
+
+        <span class="kw">if</span> (sToT.<span class="fn">ContainsKey</span>(c1)) {
+            <span class="kw">if</span> (sToT[c1] != c2) <span class="kw">return false</span>;
+        } <span class="kw">else</span> {
+            sToT[c1] = c2;
+        }
+
+        <span class="kw">if</span> (tToS.<span class="fn">ContainsKey</span>(c2)) {
+            <span class="kw">if</span> (tToS[c2] != c1) <span class="kw">return false</span>;
+        } <span class="kw">else</span> {
+            tToS[c2] = c1;
+        }
+    }
+
+    <span class="kw">return true</span>;
+}</pre>
+          </div>
+
+          <h3>Trace: s = "badc", t = "baba"</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">i=0: 'b'→'b'. sToT['b']='b', tToS['b']='b'</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">i=1: 'a'→'a'. sToT['a']='a', tToS['a']='a'</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">i=2: 'd'→'b'. sToT['d']='b', tToS['b'] exists, is 'b'≠'d'? tToS['b'] should be 'd'. Conflict! Return false.</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">s = "egg", t = "add" → true</div>
+              <div class="vs-item">s = "badc", t = "baba" → false</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Must check both directions (s→t and t→s)</div>
+              <div class="vs-item">One-many or many-one mappings invalid</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+          <p style="margin-top:12px;font-size:13px;color:var(--ink3)">Max 26 keys per dict (alphabet)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 8 -->
+    <section class="section fade" id="p8">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">8. First Non-Repeating Character</div>
+            <p class="algo-desc">Find first char appearing once. LeetCode 387 ★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Frequency</span>
+              <span class="badge b-green">O(n)</span>
+              <span class="badge b-blue">Two Pass</span>
+            </div>
+          </div>
+          <div class="algo-idx">8</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given string s, return index of first char appearing only once. Return -1 if none.</p>
+
+          <h3>Approach: Count, then Scan</h3>
+          <p>Pass 1: Count frequency of all chars. Pass 2: Scan left-to-right, return index of first char with frequency 1.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">FirstUniqChar</span>(<span class="kw">string</span> <span class="va">s</span>)
+{
+    <span class="kw">var</span> <span class="va">freq</span> = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">char</span>, <span class="kw">int</span>&gt;();
+
+    <span class="cm">// Count frequencies</span>
+    <span class="kw">foreach</span> (<span class="kw">char</span> <span class="va">c</span> <span class="kw">in</span> s) {
+        <span class="kw">if</span> (!freq.<span class="fn">TryGetValue</span>(c, <span class="kw">out</span> <span class="kw">int</span> <span class="va">count</span>)) count = 0;
+        freq[c] = count + 1;
+    }
+
+    <span class="cm">// Find first non-repeating</span>
+    <span class="kw">for</span> (<span class="kw">int</span> <span class="va">i</span> = 0; <span class="va">i</span> &lt; s.Length; <span class="va">i</span>++) {
+        <span class="kw">if</span> (freq[s[i]] == 1)
+            <span class="kw">return</span> i;
+    }
+
+    <span class="kw">return</span> -1;
+}</pre>
+          </div>
+
+          <h3>Trace: s = "leetcode"</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">freq = {l:1, e:3, t:1, c:1, o:1, d:1}</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">Scan: i=0 'l' freq=1. Return 0.</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">s = "aab" → 2 (b)</div>
+              <div class="vs-item">s = "aabb" → -1</div>
+              <div class="vs-item">s = "a" → 0</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Return index, not char</div>
+              <div class="vs-item">First occurrence (left-to-right scan matters)</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+          <p style="margin-top:12px;font-size:13px;color:var(--ink3)">Max 26 keys (lowercase letters)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 9 -->
+    <section class="section fade" id="p9">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">9. Subarray Sum Equals K</div>
+            <p class="algo-desc">Count subarrays with sum = k. LeetCode 560 ★★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Prefix Sum</span>
+              <span class="badge b-green">O(n)</span>
+              <span class="badge b-blue">Elegant</span>
+            </div>
+          </div>
+          <div class="algo-idx">9</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given array of integers and integer k, return count of contiguous subarrays with sum = k.</p>
+
+          <h3>Approach: Prefix Sum + Hash Map</h3>
+          <p>Track cumulative sums. For each position, check if (cumSum - k) exists in map. If yes, all subarrays ending here with that prefix sum have target sum.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">SubarraySum</span>(<span class="kw">int</span>[] nums, <span class="kw">int</span> k)
+{
+    <span class="kw">var</span> <span class="va">sumCount</span> = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">int</span>, <span class="kw">int</span>&gt;();
+    sumCount[0] = 1; <span class="cm">// Base case</span>
+
+    <span class="kw">int</span> <span class="va">cumSum</span> = 0, <span class="va">count</span> = 0;
+
+    <span class="kw">foreach</span> (<span class="kw">int</span> <span class="va">num</span> <span class="kw">in</span> nums) {
+        cumSum += num;
+        <span class="kw">int</span> <span class="va">target</span> = cumSum - k;
+
+        <span class="kw">if</span> (sumCount.<span class="fn">TryGetValue</span>(target, <span class="kw">out</span> <span class="kw">int</span> <span class="va">freq</span>))
+            count += freq;
+
+        <span class="kw">if</span> (!sumCount.<span class="fn">TryGetValue</span>(cumSum, <span class="kw">out</span> <span class="kw">int</span> <span class="va">c</span>)) c = 0;
+        sumCount[cumSum] = c + 1;
+    }
+
+    <span class="kw">return</span> count;
+}</pre>
+          </div>
+
+          <h3>Trace: nums = [1,1,1], k = 2</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">sumCount = {0:1}. cumSum = 0, count = 0</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">num=1: cumSum=1, target=1-2=-1. Not found. sumCount = {0:1, 1:1}</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">num=1: cumSum=2, target=2-2=0. Found! count += sumCount[0]=1. sumCount = {0:1, 1:1, 2:1}</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">num=1: cumSum=3, target=3-2=1. Found! count += sumCount[1]=1. count=2. Return 2.</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">k = sum of entire array → 1</div>
+              <div class="vs-item">Negative numbers work</div>
+              <div class="vs-item">No valid subarrays → 0</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Initialize sumCount[0]=1 (empty prefix)</div>
+              <div class="vs-item">Multiple subarrays can match (count all)</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 10 -->
+    <section class="section fade" id="p10">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">10. 4Sum II</div>
+            <p class="algo-desc">Count quadruplets with sum = 0. LeetCode 454 ★★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Two-Pair Hash</span>
+              <span class="badge b-green">O(n²)</span>
+              <span class="badge b-blue">Split</span>
+            </div>
+          </div>
+          <div class="algo-idx">10</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given 4 arrays nums1-4, count tuples (i,j,k,l) where nums1[i]+nums2[j]+nums3[k]+nums4[l]=0.</p>
+
+          <h3>Approach: Split into Two Pairs</h3>
+          <p>Compute all pair sums from nums1+nums2, store in map. For each pair from nums3+nums4, check if its negation exists in map.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">FourSumCount</span>(<span class="kw">int</span>[] nums1, <span class="kw">int</span>[] nums2, <span class="kw">int</span>[] nums3, <span class="kw">int</span>[] nums4)
+{
+    <span class="kw">var</span> <span class="va">sumMap</span> = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">int</span>, <span class="kw">int</span>&gt;();
+
+    <span class="cm">// Store all pair sums from nums1 + nums2</span>
+    <span class="kw">for</span> (<span class="kw">int</span> <span class="va">i</span> = 0; <span class="va">i</span> &lt; nums1.Length; <span class="va">i</span>++) {
+        <span class="kw">for</span> (<span class="kw">int</span> <span class="va">j</span> = 0; <span class="va">j</span> &lt; nums2.Length; <span class="va">j</span>++) {
+            <span class="kw">int</span> <span class="va">sum</span> = nums1[i] + nums2[j];
+            <span class="kw">if</span> (!sumMap.<span class="fn">TryGetValue</span>(sum, <span class="kw">out</span> <span class="kw">int</span> <span class="va">c</span>)) c = 0;
+            sumMap[sum] = c + 1;
+        }
+    }
+
+    <span class="kw">int</span> <span class="va">count</span> = 0;
+    <span class="kw">for</span> (<span class="kw">int</span> <span class="va">k</span> = 0; <span class="va">k</span> &lt; nums3.Length; <span class="va">k</span>++) {
+        <span class="kw">for</span> (<span class="kw">int</span> <span class="va">l</span> = 0; <span class="va">l</span> &lt; nums4.Length; <span class="va">l</span>++) {
+            <span class="kw">int</span> <span class="va">needed</span> = -(nums3[k] + nums4[l]);
+            <span class="kw">if</span> (sumMap.<span class="fn">TryGetValue</span>(needed, <span class="kw">out</span> <span class="kw">int</span> <span class="va">cnt</span>))
+                count += cnt;
+        }
+    }
+
+    <span class="kw">return</span> count;
+}</pre>
+          </div>
+
+          <h3>Trace: nums1=[1,0], nums2=[-1,0], nums3=[-1,0], nums4=[0,1]</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">Pair sums (nums1+nums2): 1-1=0, 1+0=1, 0-1=-1, 0+0=0. sumMap = {0:2, 1:1, -1:1}</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">nums3[0]+nums4[0]=-1+0=-1. needed=1. Found! count+=1</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">nums3[0]+nums4[1]=-1+1=0. needed=0. Found! count+=2</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">nums3[1]+nums4[0]=0+0=0. needed=0. Found! count+=2</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">5</div></div>
+              <div class="step-body">nums3[1]+nums4[1]=0+1=1. needed=-1. Found! count+=1. Return 6.</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">All zeros [0,0,0,0,0,0,0,0] → many</div>
+              <div class="vs-item">No valid quadruplets → 0</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Duplicates allowed in arrays</div>
+              <div class="vs-item">Need to count multiple occurrences</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n²)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n²)</div>
+            </div>
+          </div>
+          <p style="margin-top:12px;font-size:13px;color:var(--ink3)">n = array length (all same size)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 11 -->
+    <section class="section fade" id="p11">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">11. LRU Cache</div>
+            <p class="algo-desc">Implement Least-Recently-Used cache. LeetCode 146 ★★★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Dict + LinkedList</span>
+              <span class="badge b-green">O(1) per op</span>
+              <span class="badge b-blue">Hard</span>
+            </div>
+          </div>
+          <div class="algo-idx">11</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Design cache with get(key) and put(key,val). Both O(1). Evict least-recently-used when capacity exceeded.</p>
+
+          <h3>Approach: Hash Map + Doubly Linked List</h3>
+          <p>Dict maps key→node. LinkedList maintains LRU order (most recent at tail). On access, move to tail. On full, evict head.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public class</span> <span class="ty">LRUCache</span>
+{
+    <span class="kw">private class</span> <span class="ty">Node</span>
+    {
+        <span class="kw">public int</span> <span class="va">Key</span>, <span class="va">Val</span>;
+        <span class="kw">public</span> <span class="ty">Node</span> <span class="va">Prev</span>, <span class="va">Next</span>;
+    }
+
+    <span class="kw">private</span> <span class="ty">Node</span> <span class="va">head</span>, <span class="va">tail</span>;
+    <span class="kw">private</span> <span class="ty">Dictionary</span>&lt;<span class="kw">int</span>, <span class="ty">Node</span>&gt; <span class="va">cache</span>;
+    <span class="kw">private int</span> <span class="va">capacity</span>;
+
+    <span class="kw">public</span> <span class="fn">LRUCache</span>(<span class="kw">int</span> <span class="va">capacity</span>)
+    {
+        <span class="kw">this</span>.capacity = capacity;
+        cache = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">int</span>, <span class="ty">Node</span>&gt;();
+        head = <span class="kw">new</span> <span class="ty">Node</span>();
+        tail = <span class="kw">new</span> <span class="ty">Node</span>();
+        head.Next = tail;
+        tail.Prev = head;
+    }
+
+    <span class="kw">public int</span> <span class="fn">Get</span>(<span class="kw">int</span> <span class="va">key</span>)
+    {
+        <span class="kw">if</span> (!cache.<span class="fn">ContainsKey</span>(key)) <span class="kw">return</span> -1;
+        <span class="ty">Node</span> <span class="va">node</span> = cache[key];
+        <span class="fn">MoveToTail</span>(node);
+        <span class="kw">return</span> node.Val;
+    }
+
+    <span class="kw">public void</span> <span class="fn">Put</span>(<span class="kw">int</span> <span class="va">key</span>, <span class="kw">int</span> <span class="va">value</span>)
+    {
+        <span class="kw">if</span> (cache.<span class="fn">ContainsKey</span>(key)) {
+            <span class="ty">Node</span> <span class="va">node</span> = cache[key];
+            node.Val = value;
+            <span class="fn">MoveToTail</span>(node);
+        } <span class="kw">else</span> {
+            <span class="ty">Node</span> <span class="va">newNode</span> = <span class="kw">new</span> <span class="ty">Node</span> { Key = key, Val = value };
+            cache[key] = newNode;
+            <span class="fn">AddToTail</span>(newNode);
+
+            <span class="kw">if</span> (cache.Count > capacity) {
+                <span class="ty">Node</span> <span class="va">lru</span> = head.Next;
+                <span class="fn">Remove</span>(lru);
+                cache.<span class="fn">Remove</span>(lru.Key);
+            }
+        }
+    }
+
+    <span class="kw">private void</span> <span class="fn">MoveToTail</span>(<span class="ty">Node</span> <span class="va">node</span>)
+    {
+        <span class="fn">Remove</span>(node);
+        <span class="fn">AddToTail</span>(node);
+    }
+
+    <span class="kw">private void</span> <span class="fn">AddToTail</span>(<span class="ty">Node</span> <span class="va">node</span>)
+    {
+        <span class="va">node</span>.Prev = tail.Prev;
+        <span class="va">node</span>.Next = tail;
+        tail.Prev.Next = node;
+        tail.Prev = node;
+    }
+
+    <span class="kw">private void</span> <span class="fn">Remove</span>(<span class="ty">Node</span> <span class="va">node</span>)
+    {
+        <span class="va">node</span>.Prev.Next = node.Next;
+        <span class="va">node</span>.Next.Prev = node.Prev;
+    }
+}</pre>
+          </div>
+
+          <h3>Trace: Capacity 2, Put(1,1), Put(2,2), Get(1), Put(3,3), Get(2)</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">Put(1,1): cache={1}, list=[1]</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">Put(2,2): cache={1,2}, list=[1,2]</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">Get(1): found, move to tail. list=[2,1]. Return 1</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">Put(3,3): new node, full, evict 2. cache={1,3}, list=[1,3]</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">5</div></div>
+              <div class="step-body">Get(2): not found. Return -1</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">capacity=1: only one key at a time</div>
+              <div class="vs-item">repeated Get updates LRU</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Must maintain both forward/backward pointers</div>
+              <div class="vs-item">Dummy head/tail prevent edge case null checks</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Get/Put</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(capacity)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 12 -->
+    <section class="section fade" id="p12">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">12. Word Pattern</div>
+            <p class="algo-desc">Check if word sequence matches pattern bijection. LeetCode 290 ★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Bijection</span>
+              <span class="badge b-green">O(n)</span>
+              <span class="badge b-blue">Two Maps</span>
+            </div>
+          </div>
+          <div class="algo-idx">12</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given pattern and words, check if words follow pattern with bijection. E.g., pattern="abba", words=["redbluebluered"] should match.</p>
+
+          <h3>Approach: Two-Way Mapping</h3>
+          <p>Map pattern char→word and word→char. Ensure one-to-one correspondence. Reject if mapping conflicts arise.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public bool</span> <span class="fn">WordPattern</span>(<span class="kw">string</span> <span class="va">pattern</span>, <span class="kw">string</span> <span class="va">s</span>)
+{
+    <span class="kw">string</span>[] <span class="va">words</span> = s.<span class="fn">Split</span>(' ');
+
+    <span class="kw">if</span> (pattern.Length != words.Length) <span class="kw">return false</span>;
+
+    <span class="kw">var</span> <span class="va">patToWord</span> = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">char</span>, <span class="kw">string</span>&gt;();
+    <span class="kw">var</span> <span class="va">wordToPat</span> = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">string</span>, <span class="kw">char</span>&gt;();
+
+    <span class="kw">for</span> (<span class="kw">int</span> <span class="va">i</span> = 0; <span class="va">i</span> &lt; pattern.Length; <span class="va">i</span>++) {
+        <span class="kw">char</span> <span class="va">c</span> = pattern[i];
+        <span class="kw">string</span> <span class="va">w</span> = words[i];
+
+        <span class="kw">if</span> (patToWord.<span class="fn">ContainsKey</span>(c)) {
+            <span class="kw">if</span> (patToWord[c] != w) <span class="kw">return false</span>;
+        } <span class="kw">else</span> {
+            patToWord[c] = w;
+        }
+
+        <span class="kw">if</span> (wordToPat.<span class="fn">ContainsKey</span>(w)) {
+            <span class="kw">if</span> (wordToPat[w] != c) <span class="kw">return false</span>;
+        } <span class="kw">else</span> {
+            wordToPat[w] = c;
+        }
+    }
+
+    <span class="kw">return true</span>;
+}</pre>
+          </div>
+
+          <h3>Trace: pattern="abba", s="red blue blue red"</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">words = ["red","blue","blue","red"]. Lengths match.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">i=0: 'a'→"red", "red"→'a'</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">i=1: 'b'→"blue", "blue"→'b'</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">i=2: 'b'→"blue" (exists, matches), "blue"→'b' (exists, matches)</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">5</div></div>
+              <div class="step-body">i=3: 'a'→"red" (exists, matches), "red"→'a' (exists, matches). Return true.</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">pattern="a", s="dog" → true</div>
+              <div class="vs-item">pattern="ab", s="dog cat" → true</div>
+              <div class="vs-item">pattern="ab", s="dog dog" → false (collision)</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Length mismatch returns false early</div>
+              <div class="vs-item">Check both directions (two maps)</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+          <p style="margin-top:12px;font-size:13px;color:var(--ink3)">n = pattern length</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 13 -->
+    <section class="section fade" id="p13">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">13. Happy Number</div>
+            <p class="algo-desc">Detect if repeated sum-of-squares reaches 1 or cycles. LeetCode 202 ★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Cycle Detection</span>
+              <span class="badge b-green">O(log n)</span>
+              <span class="badge b-blue">HashSet</span>
+            </div>
+          </div>
+          <div class="algo-idx">13</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Repeat: replace number with sum of squares of digits. Return true if reaches 1, false if cycles.</p>
+
+          <h3>Approach: Cycle Detection with HashSet</h3>
+          <p>Track seen sums. If we revisit a sum, we're in a cycle (not happy). If reach 1, happy.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public bool</span> <span class="fn">IsHappy</span>(<span class="kw">int</span> <span class="va">n</span>)
+{
+    <span class="kw">var</span> <span class="va">seen</span> = <span class="kw">new</span> <span class="ty">HashSet</span>&lt;<span class="kw">int</span>&gt;();
+
+    <span class="kw">while</span> (n != 1 && !seen.<span class="fn">Contains</span>(n)) {
+        seen.<span class="fn">Add</span>(n);
+        n = <span class="fn">GetNext</span>(n);
+    }
+
+    <span class="kw">return</span> n == 1;
+}
+
+<span class="kw">private int</span> <span class="fn">GetNext</span>(<span class="kw">int</span> <span class="va">n</span>)
+{
+    <span class="kw">int</span> <span class="va">sum</span> = 0;
+    <span class="kw">while</span> (n > 0) {
+        <span class="kw">int</span> <span class="va">digit</span> = n % 10;
+        sum += digit * digit;
+        n /= 10;
+    }
+    <span class="kw">return</span> sum;
+}</pre>
+          </div>
+
+          <h3>Trace: n = 19</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">n=19: 1²+9²=82. seen={19}</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">n=82: 8²+2²=68. seen={19,82}</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">n=68: 6²+8²=100. seen={19,82,68}</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">n=100: 1²+0²+0²=1. Return true.</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">n=1 → true (already 1)</div>
+              <div class="vs-item">n=2 → false (cycle: 2→4→16→37→58→89→145→42→20→4)</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Must detect cycle to avoid infinite loop</div>
+              <div class="vs-item">GetNext computes digit sum correctly</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(log n)</div>
+            </div>
+          </div>
+          <p style="margin-top:12px;font-size:13px;color:var(--ink3)">Cycle size bounded by digit sum patterns</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 14 -->
+    <section class="section fade" id="p14">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">14. Intersection of Two Arrays II</div>
+            <p class="algo-desc">Find common elements in two arrays. LeetCode 350 ★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Frequency</span>
+              <span class="badge b-green">O(n+m)</span>
+              <span class="badge b-blue">Flexibility</span>
+            </div>
+          </div>
+          <div class="algo-idx">14</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given two arrays, return array of their intersection. Each element in result appears as many times as in both arrays.</p>
+
+          <h3>Approach: Frequency Counting</h3>
+          <p>Count freq of shorter array. Iterate longer array, matching and decrementing counts.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public int</span>[] <span class="fn">Intersect</span>(<span class="kw">int</span>[] nums1, <span class="kw">int</span>[] nums2)
+{
+    <span class="kw">if</span> (nums1.Length > nums2.Length)
+        <span class="kw">return</span> <span class="fn">Intersect</span>(nums2, nums1);
+
+    <span class="kw">var</span> <span class="va">freq</span> = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">int</span>, <span class="kw">int</span>&gt;();
+    <span class="kw">foreach</span> (<span class="kw">int</span> <span class="va">n</span> <span class="kw">in</span> nums1) {
+        <span class="kw">if</span> (!freq.<span class="fn">TryGetValue</span>(n, <span class="kw">out</span> <span class="kw">int</span> <span class="va">c</span>)) c = 0;
+        freq[n] = c + 1;
+    }
+
+    <span class="kw">var</span> <span class="va">result</span> = <span class="kw">new</span> <span class="ty">List</span>&lt;<span class="kw">int</span>&gt;();
+    <span class="kw">foreach</span> (<span class="kw">int</span> <span class="va">n</span> <span class="kw">in</span> nums2) {
+        <span class="kw">if</span> (freq.<span class="fn">TryGetValue</span>(n, <span class="kw">out</span> <span class="kw">int</span> <span class="va">cnt</span>) && cnt > 0) {
+            result.<span class="fn">Add</span>(n);
+            freq[n]--;
+        }
+    }
+
+    <span class="kw">return</span> result.<span class="fn">ToArray</span>();
+}</pre>
+          </div>
+
+          <h3>Trace: nums1 = [1,2,2,1], nums2 = [2,2]</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">nums1 is shorter, swap handled. freq from nums1 = {1:2, 2:2}</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">Iterate nums2: n=2, freq[2]=2>0, add 2, freq[2]=1</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">n=2, freq[2]=1>0, add 2, freq[2]=0</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">result = [2,2]. Return [2,2].</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">Duplicates: [1,2,2,1], [2] → [2]</div>
+              <div class="vs-item">No intersection: [] or empty</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Count must be decremented (avoid double-counting)</div>
+              <div class="vs-item">Order of result may vary</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n+m)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(min(n,m))</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 15 -->
+    <section class="section fade" id="p15">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">15. Find All Duplicates in Array</div>
+            <p class="algo-desc">Find all duplicates in 1-n array in-place. LeetCode 442 ★★</p>
+            <div class="algo-tags">
+              <span class="badge b-orange">Index Marking</span>
+              <span class="badge b-green">O(n)</span>
+              <span class="badge b-blue">O(1) space</span>
+            </div>
+          </div>
+          <div class="algo-idx">15</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given array of n integers [1,n], find all duplicates appearing twice. Use O(1) space (in-place).</p>
+
+          <h3>Approach: Index Marking Trick</h3>
+          <p>Use array indices as hash. For each num, mark arr[num-1] as negative. If already negative, num is duplicate.</p>
+
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">IList</span>&lt;<span class="kw">int</span>&gt; <span class="fn">FindDuplicates</span>(<span class="kw">int</span>[] nums)
+{
+    <span class="kw">var</span> <span class="va">result</span> = <span class="kw">new</span> <span class="ty">List</span>&lt;<span class="kw">int</span>&gt;();
+
+    <span class="kw">foreach</span> (<span class="kw">int</span> <span class="va">num</span> <span class="kw">in</span> nums) {
+        <span class="kw">int</span> <span class="va">idx</span> = <span class="ty">Math</span>.<span class="fn">Abs</span>(num) - 1;
+
+        <span class="kw">if</span> (nums[idx] < 0) {
+            <span class="cm">// Already marked, so num is duplicate</span>
+            result.<span class="fn">Add</span>(<span class="ty">Math</span>.<span class="fn">Abs</span>(num));
+        } <span class="kw">else</span> {
+            <span class="cm">// Mark as visited</span>
+            nums[idx] = -nums[idx];
+        }
+    }
+
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h3>Trace: nums = [4,3,2,7,8,2,3,1]</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div></div>
+              <div class="step-body">num=4: idx=3, nums[3]=7>0, mark nums[3]=-7</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div></div>
+              <div class="step-body">num=3: idx=2, nums[2]=2>0, mark nums[2]=-2</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body">num=2: idx=1, nums[1]=3>0, mark nums[1]=-3</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">num=7: idx=6, nums[6]=3>0, mark nums[6]=-3</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">5</div></div>
+              <div class="step-body">num=8: idx=7, nums[7]=1>0, mark nums[7]=-1</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">6</div></div>
+              <div class="step-body">num=2: idx=1, nums[1]=-3<0, add 2. result=[2]</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">7</div></div>
+              <div class="step-body">num=3: idx=2, nums[2]=-2<0, add 3. result=[2,3]</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">8</div></div>
+              <div class="step-body">num=1: idx=0, nums[0]=4>0, mark nums[0]=-4. Return [2,3].</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="vs">
+            <div class="vs-box good">
+              <div class="vs-title">Valid Cases</div>
+              <div class="vs-item">Single duplicate: [1,1] → [1]</div>
+              <div class="vs-item">Multiple: [4,3,2,7,8,2,3,1] → [2,3]</div>
+            </div>
+            <div class="vs-box bad">
+              <div class="vs-title">Constraints</div>
+              <div class="vs-item">Modifies array (in-place). Must use Abs() to recover num</div>
+              <div class="vs-item">Only works with [1,n] range</div>
+            </div>
+          </div>
+
+          <h3>Complexity</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+          <p style="margin-top:12px;font-size:13px;color:var(--ink3)">Excludes output list space</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <p>Category 4: Hash Maps & Sets — 15 Essential LeetCode & Codility Problems</p>
+      <p>Complete C# implementations with traces, complexity analysis, and edge case handling</p>
+    </div>
+  </footer>
+
+  <script>
+document.querySelectorAll('.fade').forEach((el, i) => {
+  setTimeout(() => el.classList.add('in'), i * 80);
+});
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const code = btn.nextElementSibling.textContent;
+    navigator.clipboard.writeText(code);
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 2000);
+  });
+});
+  </script>
+</body>
+</html>

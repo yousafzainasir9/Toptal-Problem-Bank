@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Codility lessons guide for Toptal screening — practice problems, time management, and C# solutions for common Codility challenges.">
+  <meta name="keywords" content="Codility, Toptal screening, Codility lessons, coding test, C#, online assessment">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/codility-lessons-guide.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/codility-lessons-guide.html">
+  <meta property="og:title" content="Codility 17 Lessons — Complete Guide to 100% Scores">
+  <meta property="og:description" content="Codility lessons guide for Toptal screening — practice problems, time management, and C# solutions for common Codility challenges.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/codility-lessons-guide.html">
+  <meta name="twitter:title" content="Codility 17 Lessons — Complete Guide to 100% Scores">
+  <meta name="twitter:description" content="Codility lessons guide for Toptal screening — practice problems, time management, and C# solutions for common Codility challenges.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Codility 17 Lessons \u2014 Complete Guide to 100% Scores",
+  "description": "Codility lessons guide for Toptal screening \u2014 practice problems, time management, and C# solutions for common Codility challenges.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/codility-lessons-guide.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Codility 17 Lessons — Complete Guide to 100% Scores</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.lesson{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px;padding:32px}
+.lesson-head{display:flex;align-items:baseline;gap:16px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--rule)}
+.lesson-num{font-size:48px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em;flex-shrink:0}
+.lesson-title{font-size:26px;font-weight:700;letter-spacing:-.02em}
+.lesson-subtitle{font-family:var(--serif);font-size:15px;color:var(--ink2);margin-bottom:20px;line-height:1.72}
+.lesson-content h4{font-size:16px;font-weight:700;margin-top:24px;margin-bottom:10px;color:var(--ink)}
+.lesson-content ul{margin-left:20px;margin-bottom:16px}
+.lesson-content li{margin-bottom:8px;color:var(--ink2)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8;margin:0}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap;margin-right:8px;margin-bottom:8px}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.problem-box{background:var(--bg2);border:1px solid var(--rule);border-radius:10px;padding:16px;margin:16px 0}
+.problem-name{font-weight:700;color:var(--ink);font-size:15px;margin-bottom:8px}
+.problem-desc{font-size:14px;color:var(--ink2);margin-bottom:8px}
+.complexity{font-size:13px;color:var(--acc);font-family:var(--mono);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.checklist{margin-top:40px;padding:20px;background:var(--white);border:1px solid var(--rule);border-radius:12px}
+.checklist h3{margin-bottom:16px}
+.checklist-item{display:flex;align-items:center;padding:10px;margin-bottom:8px}
+.checklist-item input[type="checkbox"]{margin-right:12px;width:18px;height:18px;cursor:pointer}
+.checklist-item label{cursor:pointer;flex:1;font-size:14px;color:var(--ink2)}
+.checklist-item input[type="checkbox"]:checked + label{color:var(--green);font-weight:600}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px;margin-top:16px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+@media(max-width:700px){
+  .lesson-head{flex-wrap:wrap}.lesson-num{font-size:36px}
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+  .nav-links{display:none}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Problem Bank
+        <span class="pill">v1</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#lessons">Lessons</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Codility Mastery</div>
+      </div>
+      <h1>17 Lessons — <em>Complete Guide</em> to 100%</h1>
+      <p class="hero-sub">Master all 17 Codility lessons with core techniques, complete C# solutions, and patterns for every problem type. This is the foundation Toptal requires: systematic coverage of iterations, arrays, time complexity, counting, prefix sums, sorting, stacks, leaders, slices, primes, sieves, GCD, Fibonacci, binary search, caterpillar, greedy, and dynamic programming.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">17</div>
+          <div class="stat-l">Lessons</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">60+</div>
+          <div class="stat-l">Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Complete Solutions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">All C#</div>
+          <div class="stat-l">Optimized Code</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade" id="lessons">
+      <div class="sec-tag">
+        <span class="sec-num">All Lessons</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Complete Codility Curriculum</h2>
+      <p class="lead">Each lesson builds on fundamental algorithms and data structures. Cover them in order; later lessons depend on earlier concepts.</p>
+
+      <!-- LESSON 1: ITERATIONS -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">1</div>
+          <div>
+            <div class="lesson-title">Iterations</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Binary gap: finding longest sequence of zeros in binary representation</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Find the longest sequence of consecutive 0 bits between two 1 bits in a binary representation. Time: O(log N), Space: O(1).</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">BinaryGap</div>
+            <div class="problem-desc">Given integer N, find longest binary gap</div>
+            <div class="complexity">O(log N) time | O(1) space</div>
+          </div>
+
+          <h4>C# Core Template</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span> BinaryGap(<span class="ty">int</span> N) {
+    <span class="ty">int</span> maxGap = <span class="num">0</span>, lastOne = -<span class="num">1</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; <span class="num">32</span>; i++) {
+        <span class="kw">if</span> ((N &amp; (<span class="num">1</span> &lt;&lt; i)) != <span class="num">0</span>) {
+            <span class="kw">if</span> (lastOne != -<span class="num">1</span>) {
+                maxGap = Math.Max(maxGap, i - lastOne);
+            }
+            lastOne = i;
+        }
+    }
+    <span class="kw">return</span> maxGap;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>Forgetting that N must have at least two 1-bits; return 0 if not</li>
+            <li>Using right-shift and checking LSB instead of checking bit at position i</li>
+            <li>32-bit overflow; use long if needed for larger numbers</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 2: ARRAYS -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">2</div>
+          <div>
+            <div class="lesson-title">Arrays</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Array rotation, odd occurrences, and basic array manipulation</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Master rotations, odd element detection using XOR, and simple array transformations. Most problems O(N) time, O(1) space.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">CyclicRotation</div>
+            <div class="problem-desc">Rotate array right by K positions</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">OddOccurrencesInArray</div>
+            <div class="problem-desc">Find element appearing odd number of times (rest appear even times)</div>
+            <div class="complexity">O(N) time | O(1) space</div>
+          </div>
+
+          <h4>C# Core Templates</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// OddOccurrencesInArray — XOR all elements</span>
+<span class="kw">public int</span> OddOccurrences(<span class="ty">int</span>[] A) {
+    <span class="ty">int</span> result = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> x <span class="kw">in</span> A) {
+        result ^= x;  <span class="cm">// XOR cancels pairs</span>
+    }
+    <span class="kw">return</span> result;
+}
+
+<span class="cm">// CyclicRotation</span>
+<span class="kw">public int</span>[] CyclicRotation(<span class="ty">int</span>[] A, <span class="ty">int</span> K) {
+    <span class="ty">int</span> n = A.Length;
+    <span class="kw">if</span> (n == <span class="num">0</span>) <span class="kw">return</span> A;
+    K = K % n;  <span class="cm">// Handle K > N</span>
+    <span class="ty">int</span>[] result = <span class="kw">new</span> <span class="ty">int</span>[n];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) {
+        result[(i + K) % n] = A[i];
+    }
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>Rotation: forgetting to handle K &gt; N with modulo</li>
+            <li>OddOccurrences: XOR properties (a^a=0, a^0=a, commutative)</li>
+            <li>Empty arrays: always check length before operations</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 3: TIME COMPLEXITY -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">3</div>
+          <div>
+            <div class="lesson-title">Time Complexity</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Frog jumps, missing elements, tape equilibrium — O(N) vs O(N²)</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Recognize when naive O(N²) approaches fail and switch to O(N) single-pass or prefix/suffix techniques.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">FrogJmp</div>
+            <div class="problem-desc">Minimum jumps to reach distance D, jump size J</div>
+            <div class="complexity">O(1) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">PermMissingElem</div>
+            <div class="problem-desc">Find missing element in array [1..N+1]</div>
+            <div class="complexity">O(N) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">TapeEquilibrium</div>
+            <div class="problem-desc">Minimize difference between left and right sums at split point</div>
+            <div class="complexity">O(N) time | O(1) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// FrogJmp</span>
+<span class="kw">public int</span> FrogJmp(<span class="ty">int</span> X, <span class="ty">int</span> Y, <span class="ty">int</span> D) {
+    <span class="kw">return</span> ((<span class="ty">int</span>)Math.Ceiling((<span class="kw">double</span>)(Y - X) / D));
+}
+
+<span class="cm">// PermMissingElem — XOR or math approach</span>
+<span class="kw">public int</span> PermMissing(<span class="ty">int</span>[] A) {
+    <span class="ty">long</span> n = A.Length + <span class="num">1</span>;
+    <span class="ty">long</span> expectedSum = n * (n + <span class="num">1</span>) / <span class="num">2</span>;
+    <span class="ty">long</span> actualSum = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> x <span class="kw">in</span> A) actualSum += x;
+    <span class="kw">return</span> (<span class="ty">int</span>)(expectedSum - actualSum);
+}
+
+<span class="cm">// TapeEquilibrium — single pass prefix sum</span>
+<span class="kw">public int</span> TapeEquilibrium(<span class="ty">int</span>[] A) {
+    <span class="ty">long</span> totalSum = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> x <span class="kw">in</span> A) totalSum += x;
+    <span class="ty">long</span> leftSum = <span class="num">0</span>, minDiff = <span class="kw">long</span>.MaxValue;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length - <span class="num">1</span>; i++) {
+        leftSum += A[i];
+        <span class="ty">long</span> rightSum = totalSum - leftSum;
+        minDiff = Math.Min(minDiff, Math.Abs(leftSum - rightSum));
+    }
+    <span class="kw">return</span> (<span class="ty">int</span>)minDiff;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>FrogJmp: integer division truncates; use Math.Ceiling and cast properly</li>
+            <li>PermMissing: sums can overflow; use long for intermediate calculations</li>
+            <li>TapeEquilibrium: split at N-1 positions; test first and last</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 4: COUNTING ELEMENTS -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">4</div>
+          <div>
+            <div class="lesson-title">Counting Elements</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Frog river one, perm check, max counters, missing integer</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Use arrays or sets to count occurrences and track membership. Efficient detection of missing/duplicate elements.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">FrogRiverOne</div>
+            <div class="problem-desc">Find earliest second when frog reaches position X (needs all leaves [1..X])</div>
+            <div class="complexity">O(N) time | O(X) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">PermCheck</div>
+            <div class="problem-desc">Check if array is permutation of [1..N]</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">MaxCounters</div>
+            <div class="problem-desc">Process increment/max operations on counters efficiently</div>
+            <div class="complexity">O(N+M) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">MissingInteger</div>
+            <div class="problem-desc">Find smallest positive integer not in array</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// FrogRiverOne</span>
+<span class="kw">public int</span> FrogRiverOne(<span class="ty">int</span> X, <span class="ty">int</span>[] A) {
+    var seen = <span class="kw">new</span> HashSet&lt;<span class="ty">int</span>&gt;();
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="kw">if</span> (A[i] &lt;= X) seen.Add(A[i]);
+        <span class="kw">if</span> (seen.Count == X) <span class="kw">return</span> i;
+    }
+    <span class="kw">return</span> -<span class="num">1</span>;
+}
+
+<span class="cm">// MaxCounters — efficient with lazy reset</span>
+<span class="kw">public int</span>[] MaxCounters(<span class="ty">int</span> N, <span class="ty">int</span>[] A) {
+    <span class="ty">int</span>[] counters = <span class="kw">new</span> <span class="ty">int</span>[N];
+    <span class="ty">int</span> maxVal = <span class="num">0</span>, baseLevel = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> op <span class="kw">in</span> A) {
+        <span class="kw">if</span> (op == N + <span class="num">1</span>) {
+            baseLevel = maxVal;  <span class="cm">// Lazy reset</span>
+        } <span class="kw">else</span> {
+            counters[op - <span class="num">1</span>] = Math.Max(counters[op - <span class="num">1</span>], baseLevel);
+            counters[op - <span class="num">1</span>]++;
+            maxVal = Math.Max(maxVal, counters[op - <span class="num">1</span>]);
+        }
+    }
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; N; i++) {
+        counters[i] = Math.Max(counters[i], baseLevel);
+    }
+    <span class="kw">return</span> counters;
+}
+
+<span class="cm">// MissingInteger</span>
+<span class="kw">public int</span> MissingInteger(<span class="ty">int</span>[] A) {
+    var seen = <span class="kw">new</span> HashSet&lt;<span class="ty">int</span>&gt;(A);
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt;= A.Length + <span class="num">1</span>; i++) {
+        <span class="kw">if</span> (!seen.Contains(i)) <span class="kw">return</span> i;
+    }
+    <span class="kw">return</span> <span class="num">1</span>;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>MaxCounters: naive approach resets all (O(N*M)); use lazy reset via baseLevel</li>
+            <li>FrogRiverOne: track count, not individual positions; early exit</li>
+            <li>Handling 1-indexed vs 0-indexed arrays consistently</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 5: PREFIX SUMS -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">5</div>
+          <div>
+            <div class="lesson-title">Prefix Sums</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Passing cars, genomic range query, min avg two slice, count div</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Build prefix arrays to answer range queries in O(1). Handle overflow with long[]. Multiple prefix strategies: cumulative sum, bit flags, modulo.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">PassingCars</div>
+            <div class="problem-desc">Count pairs (i, j) where i &lt; j, A[i]=0, A[j]=1 (cars passing)</div>
+            <div class="complexity">O(N) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">GenomicRangeQuery</div>
+            <div class="problem-desc">Minimum impact factor in range [L..R] for multiple queries</div>
+            <div class="complexity">O(N+M) time | O(4N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">MinAvgTwoSlice</div>
+            <div class="problem-desc">Find slice with minimum average value</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">CountDiv</div>
+            <div class="problem-desc">Count integers divisible by K in range [A..B]</div>
+            <div class="complexity">O(1) time | O(1) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// PassingCars</span>
+<span class="kw">public int</span> PassingCars(<span class="ty">int</span>[] A) {
+    <span class="kw">long</span> result = <span class="num">0</span>, zeros = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> x <span class="kw">in</span> A) {
+        <span class="kw">if</span> (x == <span class="num">0</span>) zeros++;
+        <span class="kw">else</span> result += zeros;
+        <span class="kw">if</span> (result &gt; <span class="num">1000000000</span>) <span class="kw">return</span> -<span class="num">1</span>;
+    }
+    <span class="kw">return</span> (<span class="ty">int</span>)result;
+}
+
+<span class="cm">// CountDiv</span>
+<span class="kw">public int</span> CountDiv(<span class="ty">int</span> A, <span class="ty">int</span> B, <span class="ty">int</span> K) {
+    <span class="kw">return</span> (B / K) - ((A - <span class="num">1</span>) / K);
+}
+
+<span class="cm">// MinAvgTwoSlice — check slices of length 2 and 3</span>
+<span class="kw">public int</span> MinAvgTwoSlice(<span class="ty">int</span>[] A) {
+    <span class="kw">double</span> minAvg = <span class="ty">double</span>.MaxValue;
+    <span class="ty">int</span> result = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length - <span class="num">1</span>; i++) {
+        <span class="kw">double</span> avg2 = (A[i] + A[i + <span class="num">1</span>]) / <span class="num">2.0</span>;
+        <span class="kw">if</span> (avg2 &lt; minAvg) { minAvg = avg2; result = i; }
+
+        <span class="kw">if</span> (i &lt; A.Length - <span class="num">2</span>) {
+            <span class="kw">double</span> avg3 = (A[i] + A[i + <span class="num">1</span>] + A[i + <span class="num">2</span>]) / <span class="num">3.0</span>;
+            <span class="kw">if</span> (avg3 &lt; minAvg) { minAvg = avg3; result = i; }
+        }
+    }
+    <span class="kw">return</span> result;
+}
+
+<span class="cm">// GenomicRangeQuery — 4 prefix arrays</span>
+<span class="kw">public int</span>[] GenomicRangeQuery(<span class="str">"string"</span> S, <span class="ty">int</span>[] P, <span class="ty">int</span>[] Q) {
+    <span class="ty">int</span> n = S.Length;
+    <span class="ty">int</span>[][] prefixes = <span class="kw">new</span> <span class="ty">int</span>[<span class="num">4</span>][];
+    <span class="kw">for</span> (<span class="ty">int</span> k = <span class="num">0</span>; k &lt; <span class="num">4</span>; k++) prefixes[k] = <span class="kw">new</span> <span class="ty">int</span>[n + <span class="num">1</span>];
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> k = <span class="num">0</span>; k &lt; <span class="num">4</span>; k++) {
+            prefixes[k][i + <span class="num">1</span>] = prefixes[k][i];
+        }
+        <span class="ty">int</span> idx = S[i] == <span class="str">'A'</span> ? <span class="num">0</span> : S[i] == <span class="str">'C'</span> ? <span class="num">1</span> : S[i] == <span class="str">'G'</span> ? <span class="num">2</span> : <span class="num">3</span>;
+        prefixes[idx][i + <span class="num">1</span>]++;
+    }
+
+    <span class="ty">int</span>[] result = <span class="kw">new</span> <span class="ty">int</span>[P.Length];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; P.Length; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> k = <span class="num">0</span>; k &lt; <span class="num">4</span>; k++) {
+            <span class="kw">if</span> (prefixes[k][Q[i] + <span class="num">1</span>] - prefixes[k][P[i]] &gt; <span class="num">0</span>) {
+                result[i] = k + <span class="num">1</span>;
+                <span class="kw">break</span>;
+            }
+        }
+    }
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>PassingCars: overflow; return -1 if result &gt; 10^9</li>
+            <li>MinAvgTwoSlice: optimal solution always has length 2 or 3 (mathematical property)</li>
+            <li>GenomicRangeQuery: 4 separate prefix arrays for ACGT; find first with count &gt; 0</li>
+            <li>CountDiv: formula (B/K) - (A-1)/K) works for any K and range</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 6: SORTING -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">6</div>
+          <div>
+            <div class="lesson-title">Sorting</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Distinct, max product of three, triangle, number of disc intersections</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Leverage sorting to simplify problems. After sort, use two pointers, greedy selection, or binary search.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">Distinct</div>
+            <div class="problem-desc">Count distinct elements in array</div>
+            <div class="complexity">O(N log N) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">MaxProductOfThree</div>
+            <div class="problem-desc">Find three elements with maximum product</div>
+            <div class="complexity">O(N log N) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">Triangle</div>
+            <div class="problem-desc">Check if three elements form valid triangle (P+Q &gt; R)</div>
+            <div class="complexity">O(N log N) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">NumberOfDiscIntersections</div>
+            <div class="problem-desc">Count intersecting pairs of discs</div>
+            <div class="complexity">O(N log N) time | O(N) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// Distinct</span>
+<span class="kw">public int</span> Distinct(<span class="ty">int</span>[] A) {
+    var set = <span class="kw">new</span> HashSet&lt;<span class="ty">int</span>&gt;(A);
+    <span class="kw">return</span> set.Count;
+}
+
+<span class="cm">// MaxProductOfThree</span>
+<span class="kw">public int</span> MaxProductOfThree(<span class="ty">int</span>[] A) {
+    System.Array.Sort(A);
+    <span class="kw">int</span> n = A.Length;
+    <span class="cm">// Two cases: largest three or two smallest (negatives) + largest</span>
+    <span class="kw">return</span> Math.Max(A[n-<span class="num">1</span>] * A[n-<span class="num">2</span>] * A[n-<span class="num">3</span>],
+                     A[<span class="num">0</span>] * A[<span class="num">1</span>] * A[n-<span class="num">1</span>]);
+}
+
+<span class="cm">// Triangle — check all consecutive triples</span>
+<span class="kw">public int</span> Triangle(<span class="ty">int</span>[] A) {
+    System.Array.Sort(A);
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length - <span class="num">2</span>; i++) {
+        <span class="kw">if</span> (((<span class="kw">long</span>)A[i] + A[i + <span class="num">1</span>] &gt; A[i + <span class="num">2</span>])) <span class="kw">return</span> <span class="num">1</span>;
+    }
+    <span class="kw">return</span> <span class="num">0</span>;
+}
+
+<span class="cm">// NumberOfDiscIntersections — sweep line</span>
+<span class="kw">public int</span> NumberOfDiscIntersections(<span class="ty">int</span>[] A) {
+    <span class="ty">int</span> n = A.Length;
+    var events = <span class="kw">new</span> List&lt;(<span class="kw">long</span>, <span class="ty">int</span>)&gt;();
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) {
+        events.Add((((<span class="kw">long</span>)i - A[i]), <span class="num">1</span>));  <span class="cm">// left</span>
+        events.Add((((<span class="kw">long</span>)i + A[i]) + <span class="num">1</span>, -<span class="num">1</span>));  <span class="cm">// right + 1</span>
+    }
+    events.Sort();
+    <span class="ty">long</span> count = <span class="num">0</span>, active = <span class="num">0</span>;
+    <span class="kw">foreach</span> (var (pos, delta) <span class="kw">in</span> events) {
+        count += active * delta;
+        active += delta;
+    }
+    <span class="kw">return</span> (<span class="ty">int</span>)(count / <span class="num">2</span>);
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>Triangle: need to check consecutive triples after sort (only adjacent need checking)</li>
+            <li>MaxProductOfThree: two smallest negatives might multiply to large positive</li>
+            <li>NumberOfDiscIntersections: sweep line with events; be careful with boundary conditions</li>
+            <li>Overflow when adding indices and radii; use long</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 7: STACKS AND QUEUES -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">7</div>
+          <div>
+            <div class="lesson-title">Stacks and Queues</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Brackets, fish, nesting, stone wall — LIFO/FIFO patterns</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Use stacks for matching problems, nesting validation, and height processing. Use queues for order-preserving traversal.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">Brackets</div>
+            <div class="problem-desc">Validate properly nested brackets</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">Fish</div>
+            <div class="problem-desc">Count surviving fish (downstream eat upstream if conditions met)</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">Nesting</div>
+            <div class="problem-desc">Check if array can be nested properly</div>
+            <div class="complexity">O(N) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">StoneWall</div>
+            <div class="problem-desc">Minimum blocks to build wall of varying height</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// Brackets</span>
+<span class="kw">public int</span> Brackets(<span class="str">"string"</span> S) {
+    var stack = <span class="kw">new</span> Stack&lt;<span class="ty">char</span>&gt;();
+    <span class="kw">foreach</span> (<span class="ty">char</span> c <span class="kw">in</span> S) {
+        <span class="kw">if</span> (c == <span class="str">'('</span> || c == <span class="str">'['</span> || c == <span class="str">'{'</span>) {
+            stack.Push(c);
+        } <span class="kw">else</span> {
+            <span class="kw">if</span> (stack.Count == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+            <span class="ty">char</span> open = stack.Pop();
+            <span class="kw">if</span> ((c == <span class="str">')'</span> &amp;&amp; open != <span class="str">'('</span>) ||
+                (c == <span class="str">']'</span> &amp;&amp; open != <span class="str">'['</span>) ||
+                (c == <span class="str">'}'</span> &amp;&amp; open != <span class="str">'{'</span>)) {
+                <span class="kw">return</span> <span class="num">0</span>;
+            }
+        }
+    }
+    <span class="kw">return</span> stack.Count == <span class="num">0</span> ? <span class="num">1</span> : <span class="num">0</span>;
+}
+
+<span class="cm">// StoneWall</span>
+<span class="kw">public int</span> StoneWall(<span class="ty">int</span>[] H) {
+    var stack = <span class="kw">new</span> Stack&lt;<span class="ty">int</span>&gt;();
+    <span class="ty">int</span> blocks = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> h <span class="kw">in</span> H) {
+        <span class="kw">while</span> (stack.Count &gt; <span class="num">0</span> &amp;&amp; stack.Peek() &gt; h) {
+            stack.Pop();
+        }
+        <span class="kw">if</span> (stack.Count == <span class="num">0</span> || stack.Peek() != h) {
+            stack.Push(h);
+            blocks++;
+        }
+    }
+    <span class="kw">return</span> blocks;
+}
+
+<span class="cm">// Fish</span>
+<span class="kw">public int</span> Fish(<span class="ty">int</span>[] A, <span class="ty">int</span>[] B) {
+    var stack = <span class="kw">new</span> Stack&lt;<span class="ty">int</span>&gt;();
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="ty">bool</span> eaten = <span class="kw">false</span>;
+        <span class="kw">while</span> (B[i] == <span class="num">1</span> &amp;&amp; stack.Count &gt; <span class="num">0</span> &amp;&amp; B[stack.Peek()] == <span class="num">0</span>) {
+            <span class="kw">if</span> (A[stack.Peek()] &gt; A[i]) {
+                eaten = <span class="kw">true</span>;
+                <span class="kw">break</span>;
+            }
+            stack.Pop();
+        }
+        <span class="kw">if</span> (!eaten) stack.Push(i);
+    }
+    <span class="kw">return</span> stack.Count;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>Brackets: empty stack check before pop; all closing brackets must have match</li>
+            <li>StoneWall: stack tracks "open" block heights; merge when possible</li>
+            <li>Fish: B[i]=1 means downstream, B[i]=0 means upstream; only they can collide</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 8: LEADER -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">8</div>
+          <div>
+            <div class="lesson-title">Leader</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Dominator, equileader — find and verify leaders</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>A leader is an element appearing &gt; N/2 times. Use Boyer-Moore majority vote algorithm (O(N) time, O(1) space).</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">Dominator</div>
+            <div class="problem-desc">Find index of element appearing &gt; N/2 times</div>
+            <div class="complexity">O(N) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">EquiLeader</div>
+            <div class="problem-desc">Count split points where leader is same on both sides with same frequency ratio</div>
+            <div class="complexity">O(N) time | O(1) space</div>
+          </div>
+
+          <h4>C# Solution</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// Dominator — Boyer-Moore majority vote</span>
+<span class="kw">public int</span> Dominator(<span class="ty">int</span>[] A) {
+    <span class="ty">int</span> candidate = <span class="num">0</span>, count = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="kw">if</span> (count == <span class="num">0</span>) {
+            candidate = A[i];
+            count = <span class="num">1</span>;
+        } <span class="kw">else</span> {
+            <span class="kw">if</span> (A[i] == candidate) count++;
+            <span class="kw">else</span> count--;
+        }
+    }
+    <span class="cm">// Verify candidate</span>
+    count = <span class="num">0</span>;
+    <span class="ty">int</span> result = -<span class="num">1</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="kw">if</span> (A[i] == candidate) {
+            count++;
+            <span class="kw">if</span> (result == -<span class="num">1</span>) result = i;
+        }
+    }
+    <span class="kw">return</span> count &gt; A.Length / <span class="num">2</span> ? result : -<span class="num">1</span>;
+}
+
+<span class="cm">// EquiLeader</span>
+<span class="kw">public int</span> EquiLeader(<span class="ty">int</span>[] A) {
+    <span class="cm">// Find global leader</span>
+    <span class="ty">int</span> candidate = <span class="num">0</span>, count = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="kw">if</span> (count == <span class="num">0</span>) { candidate = A[i]; count = <span class="num">1</span>; }
+        <span class="kw">else</span> { count = A[i] == candidate ? count + <span class="num">1</span> : count - <span class="num">1</span>; }
+    }
+    count = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="kw">if</span> (A[i] == candidate) count++;
+    }
+    <span class="kw">if</span> (count &lt;= A.Length / <span class="num">2</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="cm">// Count equileader split points</span>
+    <span class="ty">int</span> result = <span class="num">0</span>, leftCount = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length - <span class="num">1</span>; i++) {
+        <span class="kw">if</span> (A[i] == candidate) leftCount++;
+        <span class="ty">int</span> rightCount = count - leftCount;
+        <span class="kw">if</span> (leftCount &gt; (i + <span class="num">1</span>) / <span class="num">2</span> &amp;&amp; rightCount &gt; (A.Length - i - <span class="num">1</span>) / <span class="num">2</span>) {
+            result++;
+        }
+    }
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>Boyer-Moore: must verify candidate is actually leader (appears &gt; N/2)</li>
+            <li>EquiLeader: exact majority on each side; (i+1)/2 and (N-i-1)/2 floor division</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 9: MAXIMUM SLICE PROBLEM -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">9</div>
+          <div>
+            <div class="lesson-title">Maximum Slice Problem</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">MaxProfit, MaxSliceSum, MaxDoubleSliceSum — Kadane's algorithm variants</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Kadane's algorithm finds max subarray in O(N). Variants: cumulative, double slice (exclude middle element).</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">MaxProfit</div>
+            <div class="problem-desc">Max profit from buy/sell with price array</div>
+            <div class="complexity">O(N) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">MaxSliceSum</div>
+            <div class="problem-desc">Maximum sum contiguous subarray (Kadane)</div>
+            <div class="complexity">O(N) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">MaxDoubleSliceSum</div>
+            <div class="problem-desc">Max sum of two non-overlapping slices (exclude one element between)</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// MaxProfit</span>
+<span class="kw">public int</span> MaxProfit(<span class="ty">int</span>[] A) {
+    <span class="ty">int</span> maxProfit = <span class="num">0</span>, minPrice = A[<span class="num">0</span>];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; A.Length; i++) {
+        maxProfit = Math.Max(maxProfit, A[i] - minPrice);
+        minPrice = Math.Min(minPrice, A[i]);
+    }
+    <span class="kw">return</span> maxProfit;
+}
+
+<span class="cm">// MaxSliceSum — Kadane's algorithm</span>
+<span class="kw">public int</span> MaxSliceSum(<span class="ty">int</span>[] A) {
+    <span class="ty">int</span> maxEnding = A[<span class="num">0</span>], maxSoFar = A[<span class="num">0</span>];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; A.Length; i++) {
+        maxEnding = Math.Max(A[i], maxEnding + A[i]);
+        maxSoFar = Math.Max(maxSoFar, maxEnding);
+    }
+    <span class="kw">return</span> maxSoFar;
+}
+
+<span class="cm">// MaxDoubleSliceSum</span>
+<span class="kw">public int</span> MaxDoubleSliceSum(<span class="ty">int</span>[] A) {
+    <span class="ty">int</span> n = A.Length;
+    <span class="ty">int</span>[] maxLeft = <span class="kw">new</span> <span class="ty">int</span>[n];   <span class="cm">// max ending at i</span>
+    <span class="ty">int</span>[] maxRight = <span class="kw">new</span> <span class="ty">int</span>[n];  <span class="cm">// max starting at i</span>
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; n - <span class="num">1</span>; i++) {
+        maxLeft[i] = Math.Max(<span class="num">0</span>, maxLeft[i - <span class="num">1</span>] + A[i]);
+    }
+    <span class="kw">for</span> (<span class="ty">int</span> i = n - <span class="num">2</span>; i &gt;= <span class="num">1</span>; i--) {
+        maxRight[i] = Math.Max(<span class="num">0</span>, maxRight[i + <span class="num">1</span>] + A[i]);
+    }
+
+    <span class="ty">int</span> result = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; n - <span class="num">1</span>; i++) {
+        result = Math.Max(result, maxLeft[i] + maxRight[i + <span class="num">1</span>]);
+    }
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>MaxSliceSum: Kadane's handles negative numbers; initialize with A[0]</li>
+            <li>MaxDoubleSliceSum: slice cannot be empty; use Math.Max(0, ...) to allow zero-sum</li>
+            <li>Must exclude middle element between slices; two separate forward/backward passes</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 10: PRIME AND COMPOSITE NUMBERS -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">10</div>
+          <div>
+            <div class="lesson-title">Prime and Composite Numbers</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Factor counting, rectangle perimeter, flags, peaks — efficient integer factorization</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Factor a number up to sqrt(N) in O(sqrt(N)). Iterate divisors only up to sqrt.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">CountFactors</div>
+            <div class="problem-desc">Count all divisors of N</div>
+            <div class="complexity">O(sqrt N) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">MinPerimeterRectangle</div>
+            <div class="problem-desc">Rectangle with area N, minimum perimeter</div>
+            <div class="complexity">O(sqrt N) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">Flags</div>
+            <div class="problem-desc">Max flags on peaks with min distance between them</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">Peaks</div>
+            <div class="problem-desc">Divide array into blocks with equal peaks per block</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// CountFactors</span>
+<span class="kw">public int</span> CountFactors(<span class="ty">int</span> N) {
+    <span class="ty">int</span> count = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i * i &lt;= N; i++) {
+        <span class="kw">if</span> (N % i == <span class="num">0</span>) {
+            count += (i * i == N) ? <span class="num">1</span> : <span class="num">2</span>;
+        }
+    }
+    <span class="kw">return</span> count;
+}
+
+<span class="cm">// MinPerimeterRectangle</span>
+<span class="kw">public int</span> MinPerimeterRectangle(<span class="ty">int</span> N) {
+    <span class="ty">int</span> minPerim = <span class="ty">int</span>.MaxValue;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i * i &lt;= N; i++) {
+        <span class="kw">if</span> (N % i == <span class="num">0</span>) {
+            <span class="ty">int</span> j = N / i;
+            minPerim = Math.Min(minPerim, <span class="num">2</span> * (i + j));
+        }
+    }
+    <span class="kw">return</span> minPerim;
+}
+
+<span class="cm">// Flags — binary search on answer</span>
+<span class="kw">public int</span> Flags(<span class="ty">int</span>[] A) {
+    <span class="cm">// Find all peaks</span>
+    var peaks = <span class="kw">new</span> List&lt;<span class="ty">int</span>&gt;();
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; A.Length - <span class="num">1</span>; i++) {
+        <span class="kw">if</span> (A[i] &gt; A[i-<span class="num">1</span>] &amp;&amp; A[i] &gt; A[i+<span class="num">1</span>]) {
+            peaks.Add(i);
+        }
+    }
+    <span class="kw">if</span> (peaks.Count == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="cm">// Binary search on number of flags</span>
+    <span class="ty">int</span> left = <span class="num">1</span>, right = peaks.Count, ans = <span class="num">0</span>;
+    <span class="kw">while</span> (left &lt;= right) {
+        <span class="ty">int</span> mid = (left + right) / <span class="num">2</span>;
+        <span class="kw">if</span> (CanPlace(peaks, mid)) {
+            ans = mid;
+            left = mid + <span class="num">1</span>;
+        } <span class="kw">else</span> {
+            right = mid - <span class="num">1</span>;
+        }
+    }
+    <span class="kw">return</span> ans;
+}
+
+<span class="ty">bool</span> CanPlace(List&lt;<span class="ty">int</span>&gt; peaks, <span class="ty">int</span> numFlags) {
+    <span class="ty">int</span> placed = <span class="num">1</span>, lastPos = peaks[<span class="num">0</span>];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; peaks.Count; i++) {
+        <span class="kw">if</span> (peaks[i] - lastPos &gt;= <span class="num">2</span> * numFlags) {
+            placed++;
+            lastPos = peaks[i];
+        }
+    }
+    <span class="kw">return</span> placed &gt;= numFlags;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>CountFactors: if i*i == N, count once; otherwise count i and N/i</li>
+            <li>Flags: binary search on answer; greedy placement when possible</li>
+            <li>Peaks: array indexing; peaks must have at least one element on each side</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 11: SIEVE OF ERATOSTHENES -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">11</div>
+          <div>
+            <div class="lesson-title">Sieve of Eratosthenes</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Count semiprimes, count non-divisible — efficient prime sieve applications</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Sieve finds all primes up to N in O(N log log N). Use for factorization tasks and prime-based queries.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">CountSemiprimes</div>
+            <div class="problem-desc">Count numbers in [L..R] that are product of exactly two primes</div>
+            <div class="complexity">O(N log log N + M) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">CountNonDivisible</div>
+            <div class="problem-desc">For each element, count array elements it doesn't divide</div>
+            <div class="complexity">O(N sqrt N) time | O(N) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// CountSemiprimes</span>
+<span class="kw">public int</span>[] CountSemiprimes(<span class="ty">int</span> N, <span class="ty">int</span>[] P, <span class="ty">int</span>[] Q) {
+    <span class="cm">// Find smallest prime factor for each number</span>
+    <span class="ty">int</span>[] spf = <span class="kw">new</span> <span class="ty">int</span>[N + <span class="num">1</span>];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt;= N; i++) spf[i] = i;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">2</span>; i * i &lt;= N; i++) {
+        <span class="kw">if</span> (spf[i] == i) {  <span class="cm">// i is prime</span>
+            <span class="kw">for</span> (<span class="ty">int</span> j = i * i; j &lt;= N; j += i) {
+                <span class="kw">if</span> (spf[j] == j) spf[j] = i;
+            }
+        }
+    }
+
+    <span class="cm">// Check if each number is semiprime</span>
+    <span class="ty">bool</span>[] isSemi = <span class="kw">new</span> <span class="ty">bool</span>[N + <span class="num">1</span>];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">4</span>; i &lt;= N; i++) {
+        <span class="ty">int</span> num = i, factors = <span class="num">0</span>;
+        <span class="kw">while</span> (num &gt; <span class="num">1</span>) {
+            <span class="ty">int</span> p = spf[num];
+            factors++;
+            num /= p;
+        }
+        isSemi[i] = (factors == <span class="num">2</span>);
+    }
+
+    <span class="cm">// Build prefix sum</span>
+    <span class="ty">int</span>[] prefix = <span class="kw">new</span> <span class="ty">int</span>[N + <span class="num">1</span>];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt;= N; i++) {
+        prefix[i] = prefix[i - <span class="num">1</span>] + (isSemi[i] ? <span class="num">1</span> : <span class="num">0</span>);
+    }
+
+    <span class="ty">int</span>[] ans = <span class="kw">new</span> <span class="ty">int</span>[P.Length];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; P.Length; i++) {
+        ans[i] = prefix[Q[i]] - prefix[P[i] - <span class="num">1</span>];
+    }
+    <span class="kw">return</span> ans;
+}
+
+<span class="cm">// CountNonDivisible</span>
+<span class="kw">public int</span>[] CountNonDivisible(<span class="ty">int</span>[] A) {
+    <span class="ty">int</span> maxVal = <span class="ty">int</span>.MinValue;
+    <span class="kw">foreach</span> (<span class="ty">int</span> x <span class="kw">in</span> A) maxVal = Math.Max(maxVal, x);
+
+    <span class="ty">int</span>[] freq = <span class="kw">new</span> <span class="ty">int</span>[maxVal + <span class="num">1</span>];
+    <span class="kw">foreach</span> (<span class="ty">int</span> x <span class="kw">in</span> A) freq[x]++;
+
+    <span class="ty">int</span>[] ans = <span class="kw">new</span> <span class="ty">int</span>[A.Length];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="ty">int</span> divisors = <span class="num">0</span>;
+        <span class="kw">for</span> (<span class="ty">int</span> d = <span class="num">1</span>; d * d &lt;= A[i]; d++) {
+            <span class="kw">if</span> (A[i] % d == <span class="num">0</span>) {
+                divisors += freq[d];
+                <span class="kw">if</span> (d * d != A[i]) divisors += freq[A[i] / d];
+            }
+        }
+        ans[i] = A.Length - divisors;
+    }
+    <span class="kw">return</span> ans;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>CountSemiprimes: semiprime has exactly 2 prime factors (not distinct); count with multiplicity</li>
+            <li>Smallest Prime Factor (SPF) sieve; use spf to factorize quickly</li>
+            <li>CountNonDivisible: iterate divisors of A[i], not all numbers</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 12: EUCLIDEAN ALGORITHM -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">12</div>
+          <div>
+            <div class="lesson-title">Euclidean Algorithm</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">GCD, chocolates, common prime divisors — modular arithmetic</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>GCD(a, b) = GCD(b, a mod b). Efficient for finding greatest common divisor and LCM.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">ChocolatesByNumbers</div>
+            <div class="problem-desc">Distribute chocolates in circle, step size S. Count distribution points.</div>
+            <div class="complexity">O(log min(N, S)) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">CommonPrimeDivisors</div>
+            <div class="problem-desc">Check if GCD of each pair equals 1 after removing common divisors</div>
+            <div class="complexity">O(log min(A[i], B[i])) per pair</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// Euclidean GCD</span>
+<span class="kw">long</span> GCD(<span class="kw">long</span> a, <span class="kw">long</span> b) {
+    <span class="kw">while</span> (b != <span class="num">0</span>) {
+        <span class="kw">long</span> temp = b;
+        b = a % b;
+        a = temp;
+    }
+    <span class="kw">return</span> a;
+}
+
+<span class="cm">// ChocolatesByNumbers</span>
+<span class="kw">public int</span> ChocolatesByNumbers(<span class="ty">int</span> N, <span class="ty">int</span> S) {
+    <span class="cm">// Answer is N / GCD(N, S)</span>
+    <span class="kw">long</span> g = GCD(N, S);
+    <span class="kw">return</span> (<span class="ty">int</span>)(N / g);
+}
+
+<span class="cm">// CommonPrimeDivisors</span>
+<span class="kw">public int</span> CommonPrimeDivisors(<span class="ty">int</span>[] A, <span class="ty">int</span>[] B) {
+    <span class="ty">int</span> count = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="kw">long</span> a = A[i], b = B[i];
+        <span class="kw">long</span> g = GCD(a, b);
+        <span class="kw">while</span> (a &gt; <span class="num">1</span>) {
+            <span class="kw">long</span> p = GCD(a, g);
+            <span class="kw">if</span> (p == <span class="num">1</span>) <span class="kw">break</span>;
+            <span class="kw">while</span> (a % p == <span class="num">0</span>) a /= p;
+        }
+        <span class="kw">if</span> (a == <span class="num">1</span>) count++;
+    }
+    <span class="kw">return</span> count;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>ChocolatesByNumbers: lcm(N, S) = N*S/gcd(N,S); count = N/gcd</li>
+            <li>CommonPrimeDivisors: check if all prime divisors of A are also in B</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 13: FIBONACCI NUMBERS -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">13</div>
+          <div>
+            <div class="lesson-title">Fibonacci Numbers</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Fib frog, ladder — dynamic programming with Fibonacci</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Precompute Fibonacci sequence. Use for counting paths/jumps in O(log N) or O(N) depending on problem.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">FibFrog</div>
+            <div class="problem-desc">Minimum jumps to reach position N+1 (can jump Fibonacci distances)</div>
+            <div class="complexity">O(N log N) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">Ladder</div>
+            <div class="problem-desc">Count ways to climb ladder (1 or 2 steps, modulo 2^N)</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// FibFrog</span>
+<span class="kw">public int</span> FibFrog(<span class="ty">int</span>[] A) {
+    var fibs = <span class="kw">new</span> List&lt;<span class="ty">int</span>&gt;();
+    <span class="ty">int</span> a = <span class="num">1</span>, b = <span class="num">2</span>;
+    <span class="kw">while</span> (a &lt;= A.Length + <span class="num">1</span>) {
+        fibs.Add(a);
+        <span class="ty">int</span> temp = a + b;
+        a = b;
+        b = temp;
+    }
+
+    var reachable = <span class="kw">new</span> HashSet&lt;<span class="ty">int</span>&gt;();
+    var queue = <span class="kw">new</span> Queue&lt;(<span class="ty">int</span>, <span class="ty">int</span>)&gt;();  <span class="cm">// (position, jumps)</span>
+    queue.Enqueue((<span class="num">0</span>, <span class="num">0</span>));
+    reachable.Add(<span class="num">0</span>);
+
+    <span class="kw">while</span> (queue.Count &gt; <span class="num">0</span>) {
+        var (pos, jumps) = queue.Dequeue();
+
+        <span class="kw">foreach</span> (<span class="ty">int</span> fib <span class="kw">in</span> fibs) {
+            <span class="ty">int</span> nextPos = pos + fib;
+            <span class="kw">if</span> (nextPos == A.Length + <span class="num">1</span>) <span class="kw">return</span> jumps + <span class="num">1</span>;
+
+            <span class="kw">if</span> (nextPos &lt; A.Length &amp;&amp; A[nextPos] == <span class="num">1</span> &amp;&amp; !reachable.Contains(nextPos)) {
+                reachable.Add(nextPos);
+                queue.Enqueue((nextPos, jumps + <span class="num">1</span>));
+            }
+        }
+    }
+    <span class="kw">return</span> -<span class="num">1</span>;
+}
+
+<span class="cm">// Ladder</span>
+<span class="kw">public int</span>[] Ladder(<span class="ty">int</span>[] A) {
+    <span class="ty">int</span> maxN = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> n <span class="kw">in</span> A) maxN = Math.Max(maxN, n);
+
+    <span class="ty">long</span>[] dp = <span class="kw">new</span> <span class="kw">long</span>[maxN + <span class="num">1</span>];
+    dp[<span class="num">0</span>] = <span class="num">1</span>; dp[<span class="num">1</span>] = <span class="num">1</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">2</span>; i &lt;= maxN; i++) {
+        dp[i] = (dp[i-<span class="num">1</span>] + dp[i-<span class="num">2</span>]) & (((<span class="kw">long</span>)<span class="num">1</span> &lt;&lt; <span class="num">30</span>) - <span class="num">1</span>);  <span class="cm">// mod 2^30</span>
+    }
+
+    <span class="ty">int</span>[] result = <span class="kw">new</span> <span class="ty">int</span>[A.Length];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        result[i] = (<span class="ty">int</span>)(dp[A[i]] % ((<span class="kw">long</span>)<span class="num">1</span> &lt;&lt; A[i]));
+    }
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>FibFrog: BFS from position 0; target is position N+1</li>
+            <li>Ladder: modulo 2^N (not fixed); use bitwise AND to handle dynamic modulo</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 14: BINARY SEARCH -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">14</div>
+          <div>
+            <div class="lesson-title">Binary Search</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Min max division, nailing planks — binary search on answer</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Binary search on answer: check if a value is achievable, narrow bounds.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">MinMaxDivision</div>
+            <div class="problem-desc">Divide array into K subarrays, minimize max subarray sum</div>
+            <div class="complexity">O(N log(sum)) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">NailingPlanks</div>
+            <div class="problem-desc">Minimum nails to cover all planks (planks are ranges)</div>
+            <div class="complexity">O(N log N) time | O(N) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// MinMaxDivision</span>
+<span class="kw">public int</span> MinMaxDivision(<span class="ty">int</span> K, <span class="ty">int</span> M, <span class="ty">int</span>[] A) {
+    <span class="ty">long</span> left = <span class="num">0</span>, right = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> x <span class="kw">in</span> A) {
+        left = Math.Max(left, x);
+        right += x;
+    }
+
+    <span class="ty">long</span> ans = right;
+    <span class="kw">while</span> (left &lt;= right) {
+        <span class="kw">long</span> mid = (left + right) / <span class="num">2</span>;
+        <span class="kw">if</span> (CanDivide(A, K, mid)) {
+            ans = mid;
+            right = mid - <span class="num">1</span>;
+        } <span class="kw">else</span> {
+            left = mid + <span class="num">1</span>;
+        }
+    }
+    <span class="kw">return</span> (<span class="ty">int</span>)ans;
+}
+
+<span class="ty">bool</span> CanDivide(<span class="ty">int</span>[] A, <span class="ty">int</span> K, <span class="kw">long</span> maxSum) {
+    <span class="ty">int</span> parts = <span class="num">1</span>;
+    <span class="kw">long</span> sum = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> x <span class="kw">in</span> A) {
+        <span class="kw">if</span> (sum + x &gt; maxSum) {
+            parts++;
+            sum = x;
+            <span class="kw">if</span> (parts &gt; K) <span class="kw">return</span> <span class="kw">false</span>;
+        } <span class="kw">else</span> {
+            sum += x;
+        }
+    }
+    <span class="kw">return</span> <span class="kw">true</span>;
+}
+
+<span class="cm">// NailingPlanks</span>
+<span class="kw">public int</span> NailingPlanks(<span class="ty">int</span>[] A, <span class="ty">int</span>[] B, <span class="ty">int</span>[] C) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = C.Length - <span class="num">1</span>, ans = -<span class="num">1</span>;
+    <span class="kw">while</span> (left &lt;= right) {
+        <span class="ty">int</span> mid = (left + right) / <span class="num">2</span>;
+        <span class="kw">if</span> (CanNail(A, B, C, mid)) {
+            ans = mid + <span class="num">1</span>;
+            right = mid - <span class="num">1</span>;
+        } <span class="kw">else</span> {
+            left = mid + <span class="num">1</span>;
+        }
+    }
+    <span class="kw">return</span> ans;
+}
+
+<span class="ty">bool</span> CanNail(<span class="ty">int</span>[] A, <span class="ty">int</span>[] B, <span class="ty">int</span>[] C, <span class="ty">int</span> maxIdx) {
+    <span class="ty">int</span> lastNail = <span class="ty">int</span>.MinValue;
+    <span class="ty">int</span> nIdx = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="cm">// Find a nail covering [A[i], B[i]]</span>
+        <span class="kw">while</span> (nIdx &lt;= maxIdx &amp;&amp; C[nIdx] &lt; A[i]) nIdx++;
+        <span class="kw">if</span> (nIdx &gt; maxIdx || C[nIdx] &gt; B[i]) <span class="kw">return</span> <span class="kw">false</span>;
+    }
+    <span class="kw">return</span> <span class="kw">true</span>;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>MinMaxDivision: left bound is max single element, not 0</li>
+            <li>NailingPlanks: nails and planks must be sorted; use two pointers after sort</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 15: CATERPILLAR METHOD -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">15</div>
+          <div>
+            <div class="lesson-title">Caterpillar Method</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">AbsDistinct, CountDistinctSlices, CountTriangles, MinAbsSumOfTwo — two pointers on sorted data</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Two-pointer technique on sorted arrays. Move left/right pointer based on condition.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">AbsDistinct</div>
+            <div class="problem-desc">Count distinct absolute values in array</div>
+            <div class="complexity">O(N) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">CountDistinctSlices</div>
+            <div class="problem-desc">Count distinct slices (no repeating elements)</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">CountTriangles</div>
+            <div class="problem-desc">Count valid triangles from three elements</div>
+            <div class="complexity">O(N²) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">MinAbsSumOfTwo</div>
+            <div class="problem-desc">Minimize |A[i] + A[j]| for i != j</div>
+            <div class="complexity">O(N log N) time | O(1) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// AbsDistinct</span>
+<span class="kw">public int</span> AbsDistinct(<span class="ty">int</span>[] A) {
+    var set = <span class="kw">new</span> HashSet&lt;<span class="ty">int</span>&gt;();
+    <span class="kw">foreach</span> (<span class="ty">int</span> x <span class="kw">in</span> A) {
+        set.Add(Math.Abs(x));
+    }
+    <span class="kw">return</span> set.Count;
+}
+
+<span class="cm">// CountDistinctSlices</span>
+<span class="kw">public int</span> CountDistinctSlices(<span class="ty">int</span> M, <span class="ty">int</span>[] A) {
+    <span class="kw">long</span> count = <span class="num">0</span>;
+    <span class="ty">int</span> left = <span class="num">0</span>;
+    var seen = <span class="kw">new</span> Dictionary&lt;<span class="ty">int</span>, <span class="ty">int</span>&gt;();
+
+    <span class="kw">for</span> (<span class="ty">int</span> right = <span class="num">0</span>; right &lt; A.Length; right++) {
+        <span class="kw">if</span> (seen.ContainsKey(A[right])) {
+            left = Math.Max(left, seen[A[right]] + <span class="num">1</span>);
+        }
+        seen[A[right]] = right;
+        count += (right - left + <span class="num">1</span>);
+    }
+    <span class="kw">return</span> (<span class="ty">int</span>)Math.Min(count, <span class="num">1000000000</span>);
+}
+
+<span class="cm">// CountTriangles</span>
+<span class="kw">public int</span> CountTriangles(<span class="ty">int</span>[] A) {
+    System.Array.Sort(A);
+    <span class="ty">int</span> count = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = A.Length - <span class="num">1</span>; i &gt;= <span class="num">2</span>; i--) {
+        <span class="ty">int</span> left = <span class="num">0</span>, right = i - <span class="num">1</span>;
+        <span class="kw">while</span> (left &lt; right) {
+            <span class="kw">if</span> (((<span class="kw">long</span>)A[left] + A[right] &gt; A[i])) {
+                count += right - left;
+                right--;
+            } <span class="kw">else</span> {
+                left++;
+            }
+        }
+    }
+    <span class="kw">return</span> count;
+}
+
+<span class="cm">// MinAbsSumOfTwo</span>
+<span class="kw">public int</span> MinAbsSumOfTwo(<span class="ty">int</span>[] A) {
+    System.Array.Sort(A);
+    <span class="ty">int</span> minAbs = <span class="ty">int</span>.MaxValue;
+    <span class="ty">int</span> left = <span class="num">0</span>, right = A.Length - <span class="num">1</span>;
+
+    <span class="kw">while</span> (left &lt; right) {
+        <span class="ty">int</span> sum = A[left] + A[right];
+        minAbs = Math.Min(minAbs, Math.Abs(sum));
+
+        <span class="kw">if</span> (sum &lt; <span class="num">0</span>) {
+            left++;
+        } <span class="kw">else</span> {
+            right--;
+        }
+    }
+    <span class="kw">return</span> minAbs;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>CountDistinctSlices: overflow; cap at 10^9</li>
+            <li>CountTriangles: must check P+Q &gt; R; move pointers based on condition</li>
+            <li>MinAbsSumOfTwo: sum can be negative; track absolute value</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 16: GREEDY ALGORITHMS -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">16</div>
+          <div>
+            <div class="lesson-title">Greedy Algorithms</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Tie ropes, max non-overlapping segments — optimal local choices</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Greedy approach: make locally optimal choice at each step. Prove correctness or test thoroughly.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">TieRopes</div>
+            <div class="problem-desc">Maximum number of knots combining ropes of minimum length K</div>
+            <div class="complexity">O(N) time | O(1) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">MaxNonoverlappingSegments</div>
+            <div class="problem-desc">Maximum non-overlapping segments from list of ranges</div>
+            <div class="complexity">O(N log N) time | O(1) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// TieRopes</span>
+<span class="kw">public int</span> TieRopes(<span class="ty">int</span> K, <span class="ty">int</span>[] A) {
+    <span class="ty">int</span> knots = <span class="num">0</span>, sum = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> length <span class="kw">in</span> A) {
+        sum += length;
+        <span class="kw">if</span> (sum &gt;= K) {
+            knots++;
+            sum = <span class="num">0</span>;
+        }
+    }
+    <span class="kw">return</span> knots;
+}
+
+<span class="cm">// MaxNonoverlappingSegments</span>
+<span class="kw">public int</span> MaxNonoverlappingSegments(<span class="ty">int</span>[] A, <span class="ty">int</span>[] B) {
+    <span class="cm">// Pair and sort by end point</span>
+    var segs = <span class="kw">new</span> List&lt;(<span class="ty">int</span>, <span class="ty">int</span>)&gt;();
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        segs.Add((A[i], B[i]));
+    }
+    segs.Sort((a, b) =&gt; a.<span class="prop">Item2</span>.CompareTo(b.<span class="prop">Item2</span>));
+
+    <span class="ty">int</span> count = <span class="num">0</span>, lastEnd = <span class="ty">int</span>.MinValue;
+    <span class="kw">foreach</span> (var (start, end) <span class="kw">in</span> segs) {
+        <span class="kw">if</span> (start &gt; lastEnd) {
+            count++;
+            lastEnd = end;
+        }
+    }
+    <span class="kw">return</span> count;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>TieRopes: greedy works—combine greedily as soon as sum &gt;= K</li>
+            <li>MaxNonoverlappingSegments: sort by end point, not start; earliest finish first</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- LESSON 17: DYNAMIC PROGRAMMING -->
+      <div class="lesson">
+        <div class="lesson-head">
+          <div class="lesson-num">17</div>
+          <div>
+            <div class="lesson-title">Dynamic Programming</div>
+          </div>
+        </div>
+        <div class="lesson-subtitle">Number solitaire, min abs sum — DP on decision/value spaces</div>
+        <div class="lesson-content">
+          <h4>Core Concept</h4>
+          <p>Overlapping subproblems + optimal substructure = DP. Memoization or bottom-up tabulation.</p>
+
+          <h4>Key Problems</h4>
+          <div class="problem-box">
+            <div class="problem-name">NumberSolitaire</div>
+            <div class="problem-desc">Maximize final score jumping 1-6 steps at a time</div>
+            <div class="complexity">O(N) time | O(N) space</div>
+          </div>
+          <div class="problem-box">
+            <div class="problem-name">MinAbsSum</div>
+            <div class="problem-desc">Partition array into +/- groups, minimize absolute sum</div>
+            <div class="complexity">O(N * sum) time | O(N * sum) space</div>
+          </div>
+
+          <h4>C# Solutions</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// NumberSolitaire</span>
+<span class="kw">public int</span> NumberSolitaire(<span class="ty">int</span>[] A) {
+    <span class="ty">int</span>[] dp = <span class="kw">new</span> <span class="ty">int</span>[A.Length];
+    dp[<span class="num">0</span>] = A[<span class="num">0</span>];
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; A.Length; i++) {
+        dp[i] = <span class="ty">int</span>.MinValue;
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">1</span>; j &lt;= <span class="num">6</span> &amp;&amp; i - j &gt;= <span class="num">0</span>; j++) {
+            dp[i] = Math.Max(dp[i], dp[i - j] + A[i]);
+        }
+    }
+    <span class="kw">return</span> dp[A.Length - <span class="num">1</span>];
+}
+
+<span class="cm">// MinAbsSum</span>
+<span class="kw">public int</span> MinAbsSum(<span class="ty">int</span>[] A) {
+    <span class="ty">long</span> sum = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> x <span class="kw">in</span> A) sum += Math.Abs(x);
+
+    <span class="ty">long</span> target = sum / <span class="num">2</span>;
+    var dp = <span class="kw">new</span> <span class="ty">bool</span>[target + <span class="num">1</span>];
+    dp[<span class="num">0</span>] = <span class="kw">true</span>;
+
+    <span class="kw">foreach</span> (<span class="ty">int</span> x <span class="kw">in</span> A) {
+        <span class="ty">int</span> absX = Math.Abs(x);
+        <span class="kw">for</span> (<span class="kw">long</span> j = target; j &gt;= absX; j--) {
+            dp[j] = dp[j] || dp[j - absX];
+        }
+    }
+
+    <span class="kw">for</span> (<span class="kw">long</span> i = target; i &gt;= <span class="num">0</span>; i--) {
+        <span class="kw">if</span> (dp[i]) {
+            <span class="kw">return</span> (<span class="ty">int</span>)(sum - <span class="num">2</span> * i);
+        }
+    }
+    <span class="kw">return</span> <span class="num">0</span>;
+}</pre>
+          </div>
+
+          <h4>Key Pitfalls</h4>
+          <ul>
+            <li>NumberSolitaire: dp[i] = max(dp[i-1..i-6]) + A[i]; boundary check</li>
+            <li>MinAbsSum: partition into two groups minimizing |S1 - S2|; 0/1 knapsack variant</li>
+            <li>Work backwards in inner loop for MinAbsSum (avoid using updated values)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CHECKLIST -->
+      <section class="section">
+        <div class="sec-tag">
+          <span class="sec-num">Track</span>
+          <div class="sec-line"></div>
+        </div>
+        <h2>Completion Checklist — 100% Mastery</h2>
+        <p class="lead">Check off each lesson as you complete all problems with full solutions and deep understanding.</p>
+
+        <div class="checklist">
+          <h3>All 17 Lessons</h3>
+          <div class="checklist-item">
+            <input type="checkbox" id="L1">
+            <label for="L1">Lesson 1: Iterations (BinaryGap)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L2">
+            <label for="L2">Lesson 2: Arrays (CyclicRotation, OddOccurrencesInArray)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L3">
+            <label for="L3">Lesson 3: Time Complexity (FrogJmp, PermMissingElem, TapeEquilibrium)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L4">
+            <label for="L4">Lesson 4: Counting Elements (FrogRiverOne, PermCheck, MaxCounters, MissingInteger)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L5">
+            <label for="L5">Lesson 5: Prefix Sums (PassingCars, GenomicRangeQuery, MinAvgTwoSlice, CountDiv)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L6">
+            <label for="L6">Lesson 6: Sorting (Distinct, MaxProductOfThree, Triangle, NumberOfDiscIntersections)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L7">
+            <label for="L7">Lesson 7: Stacks and Queues (Brackets, Fish, Nesting, StoneWall)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L8">
+            <label for="L8">Lesson 8: Leader (Dominator, EquiLeader)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L9">
+            <label for="L9">Lesson 9: Maximum Slice (MaxProfit, MaxSliceSum, MaxDoubleSliceSum)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L10">
+            <label for="L10">Lesson 10: Prime and Composite (CountFactors, MinPerimeterRectangle, Flags, Peaks)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L11">
+            <label for="L11">Lesson 11: Sieve of Eratosthenes (CountSemiprimes, CountNonDivisible)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L12">
+            <label for="L12">Lesson 12: Euclidean Algorithm (ChocolatesByNumbers, CommonPrimeDivisors)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L13">
+            <label for="L13">Lesson 13: Fibonacci Numbers (FibFrog, Ladder)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L14">
+            <label for="L14">Lesson 14: Binary Search (MinMaxDivision, NailingPlanks)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L15">
+            <label for="L15">Lesson 15: Caterpillar Method (AbsDistinct, CountDistinctSlices, CountTriangles, MinAbsSumOfTwo)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L16">
+            <label for="L16">Lesson 16: Greedy Algorithms (TieRopes, MaxNonoverlappingSegments)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="L17">
+            <label for="L17">Lesson 17: Dynamic Programming (NumberSolitaire, MinAbsSum)</label>
+          </div>
+        </div>
+
+        <div class="callout tip" style="margin-top:40px">
+          <span class="callout-icon">✓</span>
+          <div><strong>Mastery Strategy:</strong> Work through lessons sequentially. For each, code the solutions from scratch without references. Test edge cases, understand time/space complexity, and explain the algorithm aloud. When all 17 checkboxes are ticked and you can code each problem in &lt;5 minutes, you are ready for Toptal's technical screening.</div>
+        </div>
+      </section>
+
+    </section>
+  </div>
+</body>
+</html>

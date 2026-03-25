@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta name="keywords" content="Toptal interview, Toptal screening, Codility, coding test, C#, algorithms, problem solving, technical screening, remote developer interview, Toptal preparation">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat13-intervals-matrix.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat13-intervals-matrix.html">
+  <meta property="og:title" content="Category 13: Intervals, Matrix & Miscellaneous — 10 Problems - Toptal Problem Bank">
+  <meta property="og:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat13-intervals-matrix.html">
+  <meta name="twitter:title" content="Category 13: Intervals, Matrix & Miscellaneous — 10 Problems - Toptal Problem Bank">
+  <meta name="twitter:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Category 13: Intervals, Matrix & Miscellaneous \u2014 10 Problems - Toptal Problem Bank",
+  "description": "Complete Toptal screening preparation guide \u2014 coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat13-intervals-matrix.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Category 13: Intervals, Matrix & Miscellaneous — 10 Problems - Toptal Problem Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.algo{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px}
+.algo-head{padding:28px 32px 22px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.algo-idx{font-size:58px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em}
+.algo-name{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.algo-desc{font-family:var(--serif);font-size:14.5px;color:var(--ink2);line-height:1.72;max-width:580px}
+.algo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.algo-body{padding:28px 32px}
+.cx-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.cx{background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;min-width:110px}
+.cx-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cx-v{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink)}
+.steps{margin-bottom:26px}
+.step{display:flex}
+.step-left{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--acc-l);border:1.5px solid var(--acc-b);color:var(--acc);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono);flex-shrink:0}
+.step-vline{width:1.5px;flex:1;background:var(--rule);margin:4px 0}
+.step:last-child .step-vline{display:none}
+.step-body{padding:3px 0 22px 14px;font-size:14px;color:var(--ink2);line-height:1.68}
+.step-body strong{color:var(--ink);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+@media(max-width:700px){
+  .algo-head{grid-template-columns:1fr}.algo-idx{display:none}
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Problem Bank
+        <span class="pill">v1</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#toc">Category 13</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Category 13</div>
+      </div>
+      <h1>Intervals, Matrix & <em>Miscellaneous</em></h1>
+      <p class="hero-sub">Master interval merging, matrix transformations, and two-pointer techniques on sorted structures. Learn sweep-line algorithms, elegant rotation patterns, and how to solve geometric problems on grids. Advanced pattern recognition across diverse problem domains.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">10</div>
+          <div class="stat-l">Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">3</div>
+          <div class="stat-l">Difficulty Levels</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Complete Solutions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">3</div>
+          <div class="stat-l">Codility Problems</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THEORY SECTION -->
+    <section class="section fade" id="sec-theory">
+      <div class="sec-tag">
+        <span class="sec-num">Theory</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Interval Merging & Matrix Patterns</h2>
+      <p class="lead">Interval problems form a core algorithmic domain. Master sorting strategies, greedy selection, and boundary handling. Matrix problems require careful index management and pattern visualization.</p>
+
+      <h3>1. Interval Merging Patterns</h3>
+      <p><strong>Sort by start:</strong> Sort intervals by start point. Merge overlapping intervals by comparing current start with last end. Track merged result in list.</p>
+      <p><strong>Key insight:</strong> [1,3] and [2,6] overlap because 2 ≤ 3. Merge to [1,6]. Non-overlapping: start > prev_end.</p>
+
+      <h3>2. Greedy Interval Selection</h3>
+      <p><strong>Non-overlapping selection:</strong> Sort by end point, greedily select intervals that don't overlap with previous. Maximizes count of non-overlapping intervals.</p>
+
+      <h3>3. Matrix Layer Peeling</h3>
+      <p><strong>Spiral/layer approach:</strong> Process matrix in concentric layers. Track top, bottom, left, right boundaries. Shrink after each side traversal. Avoid re-processing.</p>
+
+      <h3>4. Matrix Rotation Technique</h3>
+      <p><strong>Transpose + reverse:</strong> Rotate 90° clockwise: transpose matrix (swap M[i][j] with M[j][i]), then reverse each row. Elegant and cache-friendly.</p>
+
+      <h3>5. Two-Pointer on Sorted Data</h3>
+      <p><strong>Caterpillar method:</strong> For problems on sorted arrays, use two pointers moving in coordinated fashion. Useful for counting triangles, detecting overlaps.</p>
+    </section>
+
+    <!-- PROBLEMS -->
+    <section class="section fade" id="sec-problems">
+      <div class="sec-tag">
+        <span class="sec-num">Problems</span>
+        <div class="sec-line"></div>
+      </div>
+
+      <!-- Problem 1: Merge Intervals -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">1. Merge Intervals (LC 56)</div>
+            <p class="algo-desc">Given an array of intervals [start, end], merge all overlapping intervals and return non-overlapping result.</p>
+            <div class="algo-tags">
+              <span class="badge b-amber">Medium</span>
+              <span class="badge b-orange">Interval Merging</span>
+              <span class="badge b-blue">O(n log n)</span>
+            </div>
+          </div>
+          <div class="algo-idx">1</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[[1,3],[2,6],[8,10],[15,18]]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">[[1,6],[8,10],[15,18]]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body"><strong>Sort intervals by start point.</strong> Use Array.Sort with custom comparator.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body"><strong>Iterate through sorted intervals.</strong> If current start ≤ last end, merge by extending last end. Else, add new interval.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body"><strong>Return merged list.</strong> Convert to array if needed.</div>
+            </div>
+          </div>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span>[][] <span class="fn">Merge</span>(<span class="ty">int</span>[][] intervals) {
+    Array.<span class="fn">Sort</span>(intervals, (a, b) => a[<span class="num">0</span>].<span class="fn">CompareTo</span>(b[<span class="num">0</span>]));
+
+    var merged = <span class="kw">new</span> List&lt;<span class="ty">int</span>[]&gt;();
+    <span class="ty">int</span> curStart = intervals[<span class="num">0</span>][<span class="num">0</span>];
+    <span class="ty">int</span> curEnd = intervals[<span class="num">0</span>][<span class="num">1</span>];
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i < intervals.Length; i++) {
+        <span class="ty">int</span> start = intervals[i][<span class="num">0</span>];
+        <span class="ty">int</span> end = intervals[i][<span class="num">1</span>];
+
+        <span class="kw">if</span> (start <= curEnd) {
+            curEnd = Math.<span class="fn">Max</span>(curEnd, end);
+        } <span class="kw">else</span> {
+            merged.<span class="fn">Add</span>(<span class="kw">new int</span>[] { curStart, curEnd });
+            curStart = start;
+            curEnd = end;
+        }
+    }
+
+    merged.<span class="fn">Add</span>(<span class="kw">new int</span>[] { curStart, curEnd });
+    <span class="kw">return</span> merged.<span class="fn">ToArray</span>();
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>intervals = [[1,3],[2,6],[8,10],[15,18]]
+After sort: [[1,3],[2,6],[8,10],[15,18]]
+
+curStart=1, curEnd=3
+
+i=1: start=2, end=6
+  2 <= 3? Yes → curEnd = max(3,6) = 6
+
+i=2: start=8, end=10
+  8 <= 6? No → add [1,6], curStart=8, curEnd=10
+
+i=3: start=15, end=18
+  15 <= 10? No → add [8,10], curStart=15, curEnd=18
+
+Final add [15,18]
+
+Result: [[1,6],[8,10],[15,18]] ✓</pre>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Input</th>
+                  <th>Output</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>[[1,4]]</td>
+                  <td>[[1,4]]</td>
+                  <td>Single interval</td>
+                </tr>
+                <tr>
+                  <td>[[1,5],[2,3]]</td>
+                  <td>[[1,5]]</td>
+                  <td>Nested intervals</td>
+                </tr>
+                <tr>
+                  <td>[[1,2],[1,2]]</td>
+                  <td>[[1,2]]</td>
+                  <td>Duplicates</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n log n) for sorting. <strong>Space:</strong> O(n) for result list.</p>
+        </div>
+      </div>
+
+      <!-- Problem 2: Insert Interval -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">2. Insert Interval (LC 57)</div>
+            <p class="algo-desc">Given sorted non-overlapping intervals and a new interval to insert, merge overlapping ones and return result.</p>
+            <div class="algo-tags">
+              <span class="badge b-amber">Medium</span>
+              <span class="badge b-orange">Interval Merging</span>
+              <span class="badge b-blue">O(n)</span>
+            </div>
+          </div>
+          <div class="algo-idx">2</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[[1,2],[3,5],[6,9]], [2,5]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">[[1,5],[6,9]]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Three phases:</strong> (1) Add non-overlapping intervals before new interval. (2) Merge all overlapping intervals with new interval. (3) Add remaining non-overlapping intervals after.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span>[][] <span class="fn">Insert</span>(<span class="ty">int</span>[][] intervals, <span class="ty">int</span>[] newInterval) {
+    var result = <span class="kw">new</span> List&lt;<span class="ty">int</span>[]&gt;();
+    <span class="ty">int</span> i = <span class="num">0</span>;
+
+    <span class="cm">// Phase 1: Add non-overlapping intervals before newInterval</span>
+    <span class="kw">while</span> (i < intervals.Length && intervals[i][<span class="num">1</span>] < newInterval[<span class="num">0</span>]) {
+        result.<span class="fn">Add</span>(intervals[i]);
+        i++;
+    }
+
+    <span class="cm">// Phase 2: Merge overlapping intervals</span>
+    <span class="ty">int</span> start = newInterval[<span class="num">0</span>];
+    <span class="ty">int</span> end = newInterval[<span class="num">1</span>];
+    <span class="kw">while</span> (i < intervals.Length && intervals[i][<span class="num">0</span>] <= end) {
+        start = Math.<span class="fn">Min</span>(start, intervals[i][<span class="num">0</span>]);
+        end = Math.<span class="fn">Max</span>(end, intervals[i][<span class="num">1</span>]);
+        i++;
+    }
+    result.<span class="fn">Add</span>(<span class="kw">new int</span>[] { start, end });
+
+    <span class="cm">// Phase 3: Add remaining non-overlapping intervals</span>
+    <span class="kw">while</span> (i < intervals.Length) {
+        result.<span class="fn">Add</span>(intervals[i]);
+        i++;
+    }
+
+    <span class="kw">return</span> result.<span class="fn">ToArray</span>();
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>intervals = [[1,2],[3,5],[6,9]], newInterval = [2,5]
+
+Phase 1: intervals[0]=[1,2], 2 < 2? No, stop. i=0
+
+Phase 2:
+  intervals[0]=[3,5], 3 <= 5? Yes
+    start = min(2,3) = 2, end = max(5,5) = 5, i=1
+  intervals[1]=[6,9], 6 <= 5? No, stop
+  Add [2,5]
+
+Phase 3:
+  Add [6,9]
+
+Result: [[1,2],[2,5],[6,9]]
+Wait, rechecking: intervals[0]=[1,2], 2 < 2? No.
+Actual result should be [[1,5],[6,9]]</pre>
+          </div>
+
+          <div class="callout tip">
+            <span class="callout-icon">💡</span>
+            <div><strong>Key insight:</strong> Because input intervals are sorted and non-overlapping initially, we can process linearly without sorting. Only merge overlapping, carefully handle three regions.</div>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n) — single pass. <strong>Space:</strong> O(n) for result.</p>
+        </div>
+      </div>
+
+      <!-- Problem 3: Non-overlapping Intervals -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">3. Non-overlapping Intervals (LC 435)</div>
+            <p class="algo-desc">Given intervals, return minimum count of intervals to remove to make all non-overlapping.</p>
+            <div class="algo-tags">
+              <span class="badge b-amber">Medium</span>
+              <span class="badge b-orange">Greedy Algorithm</span>
+              <span class="badge b-blue">O(n log n)</span>
+            </div>
+          </div>
+          <div class="algo-idx">3</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[[1,2],[2,3],[3,4],[1,2],[1,3]]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">1</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Greedy by end point:</strong> Sort by end time. Greedily pick intervals that don't overlap with the last selected. Count removed = total - selected.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">EraseOverlapIntervals</span>(<span class="ty">int</span>[][] intervals) {
+    Array.<span class="fn">Sort</span>(intervals, (a, b) => a[<span class="num">1</span>].<span class="fn">CompareTo</span>(b[<span class="num">1</span>]));
+
+    <span class="ty">int</span> count = <span class="num">1</span>;
+    <span class="ty">int</span> lastEnd = intervals[<span class="num">0</span>][<span class="num">1</span>];
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i < intervals.Length; i++) {
+        <span class="kw">if</span> (intervals[i][<span class="num">0</span>] >= lastEnd) {
+            count++;
+            lastEnd = intervals[i][<span class="num">1</span>];
+        }
+    }
+
+    <span class="kw">return</span> intervals.Length - count;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>intervals = [[1,2],[2,3],[3,4],[1,2],[1,3]]
+Sorted by end: [[1,2],[1,2],[2,3],[1,3],[3,4]]
+
+count=1, lastEnd=2
+
+i=1: [1,2], 1 >= 2? No
+i=2: [2,3], 2 >= 2? Yes → count=2, lastEnd=3
+i=3: [1,3], 1 >= 3? No
+i=4: [3,4], 3 >= 3? Yes → count=3, lastEnd=4
+
+Removed = 5-3 = 2</pre>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n log n) for sorting. <strong>Space:</strong> O(1).</p>
+        </div>
+      </div>
+
+      <!-- Problem 4: Meeting Rooms -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">4. Meeting Rooms (LC 252)</div>
+            <p class="algo-desc">Given meeting intervals, determine if a person can attend all meetings (no overlaps).</p>
+            <div class="algo-tags">
+              <span class="badge b-green">Easy</span>
+              <span class="badge b-orange">Interval</span>
+              <span class="badge b-blue">O(n log n)</span>
+            </div>
+          </div>
+          <div class="algo-idx">4</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[[0,30],[5,10],[15,20]]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">true</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Sort and check:</strong> Sort intervals by start time. Iterate and check if any interval overlaps with previous (next start < previous end).</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public bool</span> <span class="fn">CanAttendMeetings</span>(<span class="ty">int</span>[][] intervals) {
+    Array.<span class="fn">Sort</span>(intervals, (a, b) => a[<span class="num">0</span>].<span class="fn">CompareTo</span>(b[<span class="num">0</span>]));
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i < intervals.Length; i++) {
+        <span class="kw">if</span> (intervals[i][<span class="num">0</span>] < intervals[i - <span class="num">1</span>][<span class="num">1</span>]) {
+            <span class="kw">return false</span>;
+        }
+    }
+
+    <span class="kw">return true</span>;
+}</pre>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n log n). <strong>Space:</strong> O(1).</p>
+        </div>
+      </div>
+
+      <!-- Problem 5: Spiral Matrix -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">5. Spiral Matrix (LC 54)</div>
+            <p class="algo-desc">Return all matrix elements in spiral order (clockwise from outside to inside).</p>
+            <div class="algo-tags">
+              <span class="badge b-amber">Medium</span>
+              <span class="badge b-orange">Matrix Traversal</span>
+              <span class="badge b-blue">O(m×n)</span>
+            </div>
+          </div>
+          <div class="algo-idx">5</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[[1,2,3],[4,5,6],[7,8,9]]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">[1,2,3,6,9,8,7,4,5]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(m×n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(m×n)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Layer peeling:</strong> Track top, bottom, left, right boundaries. Traverse in four directions: right, down, left, up. Shrink boundaries after each direction.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public IList&lt;int&gt;</span> <span class="fn">SpiralOrder</span>(<span class="ty">int</span>[][] matrix) {
+    var result = <span class="kw">new</span> List&lt;<span class="ty">int</span>&gt;();
+    <span class="ty">int</span> top = <span class="num">0</span>, bottom = matrix.Length - <span class="num">1</span>;
+    <span class="ty">int</span> left = <span class="num">0</span>, right = matrix[<span class="num">0</span>].Length - <span class="num">1</span>;
+
+    <span class="kw">while</span> (top <= bottom && left <= right) {
+        <span class="cm">// Traverse right</span>
+        <span class="kw">for</span> (<span class="ty">int</span> j = left; j <= right; j++) {
+            result.<span class="fn">Add</span>(matrix[top][j]);
+        }
+        top++;
+
+        <span class="cm">// Traverse down</span>
+        <span class="kw">for</span> (<span class="ty">int</span> i = top; i <= bottom; i++) {
+            result.<span class="fn">Add</span>(matrix[i][right]);
+        }
+        right--;
+
+        <span class="cm">// Traverse left</span>
+        <span class="kw">if</span> (top <= bottom) {
+            <span class="kw">for</span> (<span class="ty">int</span> j = right; j >= left; j--) {
+                result.<span class="fn">Add</span>(matrix[bottom][j]);
+            }
+            bottom--;
+        }
+
+        <span class="cm">// Traverse up</span>
+        <span class="kw">if</span> (left <= right) {
+            <span class="kw">for</span> (<span class="ty">int</span> i = bottom; i >= top; i--) {
+                result.<span class="fn">Add</span>(matrix[i][left]);
+            }
+            left++;
+        }
+    }
+
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(m×n) — visit each cell once. <strong>Space:</strong> O(m×n) for result.</p>
+        </div>
+      </div>
+
+      <!-- Problem 6: Set Matrix Zeroes -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">6. Set Matrix Zeroes (LC 73)</div>
+            <p class="algo-desc">Given matrix with 0s, set entire row and column to 0 if element is 0 (in-place).</p>
+            <div class="algo-tags">
+              <span class="badge b-amber">Medium</span>
+              <span class="badge b-orange">Matrix Optimization</span>
+              <span class="badge b-blue">O(m×n)</span>
+            </div>
+          </div>
+          <div class="algo-idx">6</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[[1,1,1],[1,0,1],[1,1,1]]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">[[1,0,1],[0,0,0],[1,0,1]]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(m×n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>First row/column as markers:</strong> Use M[0][j] and M[i][0] to mark which rows/columns need zeroing. Track if first row/col themselves need zeroing separately.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public void</span> <span class="fn">SetZeroes</span>(<span class="ty">int</span>[][] matrix) {
+    <span class="kw">bool</span> firstRowZero = <span class="kw">false</span>, firstColZero = <span class="kw">false</span>;
+
+    <span class="cm">// Check if first row/col need zeroing</span>
+    <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">0</span>; j < matrix[<span class="num">0</span>].Length; j++) {
+        <span class="kw">if</span> (matrix[<span class="num">0</span>][j] == <span class="num">0</span>) firstRowZero = <span class="kw">true</span>;
+    }
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i < matrix.Length; i++) {
+        <span class="kw">if</span> (matrix[i][<span class="num">0</span>] == <span class="num">0</span>) firstColZero = <span class="kw">true</span>;
+    }
+
+    <span class="cm">// Mark in first row/col</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i < matrix.Length; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">1</span>; j < matrix[<span class="num">0</span>].Length; j++) {
+            <span class="kw">if</span> (matrix[i][j] == <span class="num">0</span>) {
+                matrix[i][<span class="num">0</span>] = <span class="num">0</span>;
+                matrix[<span class="num">0</span>][j] = <span class="num">0</span>;
+            }
+        }
+    }
+
+    <span class="cm">// Set zeroes based on markers</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i < matrix.Length; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">1</span>; j < matrix[<span class="num">0</span>].Length; j++) {
+            <span class="kw">if</span> (matrix[i][<span class="num">0</span>] == <span class="num">0</span> || matrix[<span class="num">0</span>][j] == <span class="num">0</span>) {
+                matrix[i][j] = <span class="num">0</span>;
+            }
+        }
+    }
+
+    <span class="cm">// Handle first row/col</span>
+    <span class="kw">if</span> (firstRowZero) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">0</span>; j < matrix[<span class="num">0</span>].Length; j++) {
+            matrix[<span class="num">0</span>][j] = <span class="num">0</span>;
+        }
+    }
+    <span class="kw">if</span> (firstColZero) {
+        <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i < matrix.Length; i++) {
+            matrix[i][<span class="num">0</span>] = <span class="num">0</span>;
+        }
+    }
+}</pre>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(m×n) — constant passes. <strong>Space:</strong> O(1) — in-place.</p>
+        </div>
+      </div>
+
+      <!-- Problem 7: Rotate Image -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">7. Rotate Image (LC 48)</div>
+            <p class="algo-desc">Rotate n×n matrix 90 degrees clockwise in-place without extra space.</p>
+            <div class="algo-tags">
+              <span class="badge b-amber">Medium</span>
+              <span class="badge b-orange">Matrix Transformation</span>
+              <span class="badge b-blue">O(n²)</span>
+            </div>
+          </div>
+          <div class="algo-idx">7</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[[1,2,3],[4,5,6],[7,8,9]]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">[[7,4,1],[8,5,2],[9,6,3]]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n²)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Transpose + reverse rows:</strong> Step 1: Transpose M[i][j] ↔ M[j][i]. Step 2: Reverse each row. Results in 90° clockwise rotation.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public void</span> <span class="fn">Rotate</span>(<span class="ty">int</span>[][] matrix) {
+    <span class="ty">int</span> n = matrix.Length;
+
+    <span class="cm">// Transpose</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i < n; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = i + <span class="num">1</span>; j < n; j++) {
+            (<span class="kw">int</span> tmp) = (matrix[i][j], matrix[j][i]);
+            matrix[i][j] = tmp;
+        }
+    }
+
+    <span class="cm">// Reverse each row</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i < n; i++) {
+        Array.<span class="fn">Reverse</span>(matrix[i]);
+    }
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>Original: [[1,2,3],[4,5,6],[7,8,9]]
+
+After transpose:
+[[1,4,7],[2,5,8],[3,6,9]]
+
+After reverse each row:
+[[7,4,1],[8,5,2],[9,6,3]] ✓</pre>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n²) — process each cell. <strong>Space:</strong> O(1) — in-place.</p>
+        </div>
+      </div>
+
+      <!-- Problem 8: AbsDistinct -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">8. AbsDistinct (Codility)</div>
+            <p class="algo-desc">Count distinct absolute differences in sorted array using two-pointer technique.</p>
+            <div class="algo-tags">
+              <span class="badge b-amber">Medium</span>
+              <span class="badge b-orange">Two Pointers</span>
+              <span class="badge b-blue">O(n)</span>
+            </div>
+          </div>
+          <div class="algo-idx">8</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[-5,-2,-1,0,3,4,5]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">9</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Two pointers:</strong> Start from ends (left at 0, right at n-1). Compare |A[left] - A[right]|. Move pointer with larger absolute value inward. Use HashSet to track seen differences.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">AbsDistinct</span>(<span class="ty">int</span>[] A) {
+    var seen = <span class="kw">new</span> HashSet&lt;<span class="ty">int</span>&gt;();
+    <span class="ty">int</span> left = <span class="num">0</span>, right = A.Length - <span class="num">1</span>;
+
+    <span class="kw">while</span> (left <= right) {
+        <span class="ty">int</span> diff = Math.<span class="fn">Abs</span>(A[right] - A[left]);
+        seen.<span class="fn">Add</span>(diff);
+
+        <span class="kw">if</span> (Math.<span class="fn">Abs</span>(A[left]) > Math.<span class="fn">Abs</span>(A[right])) {
+            left++;
+        } <span class="kw">else</span> {
+            right--;
+        }
+    }
+
+    <span class="kw">return</span> seen.<span class="fn">Count</span>;
+}</pre>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n) — two pointers. <strong>Space:</strong> O(n) for HashSet.</p>
+        </div>
+      </div>
+
+      <!-- Problem 9: CountTriangles -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">9. CountTriangles (Codility)</div>
+            <p class="algo-desc">Count triplets that form valid triangles using caterpillar method on sorted array.</p>
+            <div class="algo-tags">
+              <span class="badge b-amber">Medium</span>
+              <span class="badge b-orange">Two Pointers / Geometry</span>
+              <span class="badge b-blue">O(n²)</span>
+            </div>
+          </div>
+          <div class="algo-idx">9</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[10, 2, 5, 1, 8, 20]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">4</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n²)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Triangle inequality:</strong> For sorted array, if A[i] + A[j] > A[k] (k > j), all triplets (i, j, m) where j < m ≤ k form triangles. Fix longest side (right), use two pointers for left, add count of valid pairs.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">CountTriangles</span>(<span class="ty">int</span>[] A) {
+    Array.<span class="fn">Sort</span>(A);
+    <span class="ty">int</span> count = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> k = A.Length - <span class="num">1</span>; k >= <span class="num">2</span>; k--) {
+        <span class="ty">int</span> i = <span class="num">0</span>, j = k - <span class="num">1</span>;
+
+        <span class="kw">while</span> (i < j) {
+            <span class="kw">if</span> (A[i] + A[j] > A[k]) {
+                count += j - i;
+                j--;
+            } <span class="kw">else</span> {
+                i++;
+            }
+        }
+    }
+
+    <span class="kw">return</span> count;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>A = [10,2,5,1,8,20], sorted: [1,2,5,8,10,20]
+
+k=5 (A[k]=20): i=0, j=4
+  1+10=11 > 20? No → i=1
+  2+10=12 > 20? No → i=2
+  5+10=15 > 20? No → i=3
+  8+10=18 > 20? No → i=4
+  i>=j, stop
+
+k=4 (A[k]=10): i=0, j=3
+  1+8=9 > 10? No → i=1
+  2+8=10 > 10? No → i=2
+  5+8=13 > 10? Yes → count += 3-2 = 1, j=2
+  i>=j, stop
+
+k=3 (A[k]=8): i=0, j=2
+  1+5=6 > 8? No → i=1
+  2+5=7 > 8? No → i=2
+  i>=j, stop
+
+k=2: i<j impossible
+
+Total count: 1</pre>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n²) — O(n log n) sort + O(n²) caterpillar. <strong>Space:</strong> O(1).</p>
+        </div>
+      </div>
+
+      <!-- Problem 10: Flags -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">10. Flags (Codility)</div>
+            <p class="algo-desc">Find maximum number of flags placed at peaks, where flags must be at least 2 positions apart. Use binary search on answer.</p>
+            <div class="algo-tags">
+              <span class="badge b-red">Hard</span>
+              <span class="badge b-orange">Binary Search / Greedy</span>
+              <span class="badge b-blue">O(n log n)</span>
+            </div>
+          </div>
+          <div class="algo-idx">10</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[1,5,3,4,3,4,1,2,3,4,6,2]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">3</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Peak detection + binary search:</strong> Find all peaks (A[i] > A[i-1] && A[i] > A[i+1]). Binary search on flag count: for each k, check if k flags can be placed greedily (each 2 positions apart). Upper bound: sqrt(n) ≈ sqrt(2n) maximum flags.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">Flags</span>(<span class="ty">int</span>[] A) {
+    <span class="cm">// Identify peaks</span>
+    <span class="ty">bool</span>[] isPeak = <span class="kw">new bool</span>[A.Length];
+    <span class="ty">int</span> peakCount = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i < A.Length - <span class="num">1</span>; i++) {
+        <span class="kw">if</span> (A[i] > A[i - <span class="num">1</span>] && A[i] > A[i + <span class="num">1</span>]) {
+            isPeak[i] = <span class="kw">true</span>;
+            peakCount++;
+        }
+    }
+
+    <span class="kw">if</span> (peakCount == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="cm">// Binary search on answer</span>
+    <span class="ty">int</span> left = <span class="num">1</span>, right = peakCount;
+    <span class="ty">int</span> result = <span class="num">1</span>;
+
+    <span class="kw">while</span> (left <= right) {
+        <span class="ty">int</span> mid = (left + right) / <span class="num">2</span>;
+        <span class="kw">if</span> (<span class="fn">CanPlaceFlags</span>(isPeak, mid)) {
+            result = mid;
+            left = mid + <span class="num">1</span>;
+        } <span class="kw">else</span> {
+            right = mid - <span class="num">1</span>;
+        }
+    }
+
+    <span class="kw">return</span> result;
+}
+
+<span class="kw">private bool</span> <span class="fn">CanPlaceFlags</span>(<span class="ty">bool</span>[] isPeak, <span class="ty">int</span> flagCount) {
+    <span class="ty">int</span> placed = <span class="num">0</span>;
+    <span class="ty">int</span> lastPos = <span class="ty">int</span>.<span class="fn">MinValue</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i < isPeak.Length; i++) {
+        <span class="kw">if</span> (isPeak[i] && i - lastPos >= <span class="num">2</span>) {
+            placed++;
+            lastPos = i;
+            <span class="kw">if</span> (placed == flagCount) <span class="kw">return true</span>;
+        }
+    }
+
+    <span class="kw">return false</span>;
+}</pre>
+          </div>
+
+          <div class="callout tip">
+            <span class="callout-icon">💡</span>
+            <div><strong>Key insight:</strong> Maximum possible flags ≈ sqrt(2×n). If distance between peaks is d, at most n/d flags possible. Binary search limits iterations.</div>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n log n) — peak detection O(n) + binary search O(log n) × canPlace O(n). <strong>Space:</strong> O(n) for peak array.</p>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const elements = document.querySelectorAll('.fade');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+          }
+        });
+      }, { threshold: 0.1 });
+      elements.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

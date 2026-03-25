@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Arrays and hashing problems for FAANG interviews — Two Sum, Group Anagrams, Top K Frequent, with C# solutions and patterns.">
+  <meta name="keywords" content="arrays, hashing, FAANG interview, Two Sum, Group Anagrams, C#, hash map problems">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat01-arrays-prefix-sums.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat01-arrays-prefix-sums.html">
+  <meta property="og:title" content="Category 1: Arrays & Prefix Sums — 15 Problems - Toptal Problem Bank">
+  <meta property="og:description" content="Arrays and hashing problems for FAANG interviews — Two Sum, Group Anagrams, Top K Frequent, with C# solutions and patterns.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat01-arrays-prefix-sums.html">
+  <meta name="twitter:title" content="Category 1: Arrays & Prefix Sums — 15 Problems - Toptal Problem Bank">
+  <meta name="twitter:description" content="Arrays and hashing problems for FAANG interviews — Two Sum, Group Anagrams, Top K Frequent, with C# solutions and patterns.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Category 1: Arrays & Prefix Sums \u2014 15 Problems - Toptal Problem Bank",
+  "description": "Arrays and hashing problems for FAANG interviews \u2014 Two Sum, Group Anagrams, Top K Frequent, with C# solutions and patterns.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat01-arrays-prefix-sums.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Category 1: Arrays & Prefix Sums — 15 Problems - Toptal Problem Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.algo{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px}
+.algo-head{padding:28px 32px 22px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.algo-idx{font-size:58px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em}
+.algo-name{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.algo-desc{font-family:var(--serif);font-size:14.5px;color:var(--ink2);line-height:1.72;max-width:580px}
+.algo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.algo-body{padding:28px 32px}
+.cx-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.cx{background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;min-width:110px}
+.cx-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cx-v{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink)}
+.steps{margin-bottom:26px}
+.step{display:flex}
+.step-left{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--acc-l);border:1.5px solid var(--acc-b);color:var(--acc);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono);flex-shrink:0}
+.step-vline{width:1.5px;flex:1;background:var(--rule);margin:4px 0}
+.step:last-child .step-vline{display:none}
+.step-body{padding:3px 0 22px 14px;font-size:14px;color:var(--ink2);line-height:1.68}
+.step-body strong{color:var(--ink);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+@media(max-width:700px){
+  .algo-head{grid-template-columns:1fr}.algo-idx{display:none}
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Problem Bank
+        <span class="pill">v1</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#toc">Category 1</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Category 1</div>
+      </div>
+      <h1>Arrays & <em>Prefix Sums</em></h1>
+      <p class="hero-sub">Master fundamental array techniques including prefix sum arrays, range queries, lazy propagation, and classic array manipulation patterns. These problems build the foundation for more complex data structures and algorithms.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">15</div>
+          <div class="stat-l">Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">3</div>
+          <div class="stat-l">Difficulty Levels</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Complete Solutions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">8</div>
+          <div class="stat-l">Codility Problems</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THEORY SECTION -->
+    <section class="section fade" id="sec-theory">
+      <div class="sec-tag">
+        <span class="sec-num">Theory</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Prefix Sums & Array Fundamentals</h2>
+      <p class="lead">Understanding prefix sum arrays is essential for solving range query problems efficiently. Learn the concept, implementation patterns, and why certain design choices matter.</p>
+
+      <h3>1. The Prefix Sum Array (P)</h3>
+      <p>A prefix sum array stores cumulative sums: P[i] = A[0] + A[1] + ... + A[i]</p>
+      <p><strong>Key insight:</strong> Sum of elements from index L to R = P[R] - P[L-1], computed in O(1).</p>
+
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>Why use long[] instead of int[]?</strong> Codility problems often have large ranges (up to 10^9 elements, values up to 10^9). Even if individual values fit in int, cumulative sums overflow. Example: 2 billion elements × 5 = 10 billion (exceeds int.MaxValue ~2.1B). Always use <code class="il">long[]</code>.</div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Template: Build Prefix Sum Array</span>
+<span class="kw">long</span>[] BuildPrefixSum(<span class="ty">int</span>[] A) {
+    <span class="kw">long</span>[] P = <span class="kw">new</span> <span class="kw">long</span>[A.Length + <span class="num">1</span>];
+    P[<span class="num">0</span>] = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        P[i + <span class="num">1</span>] = P[i] + A[i];
+    }
+    <span class="kw">return</span> P;
+}
+
+<span class="cm">// Template: Range Sum Query O(1)</span>
+<span class="kw">long</span> RangeSum(<span class="kw">long</span>[] P, <span class="ty">int</span> L, <span class="ty">int</span> R) {
+    <span class="cm">// Sum of A[L..R]</span>
+    <span class="kw">return</span> P[R + <span class="num">1</span>] - P[L];
+}</pre>
+      </div>
+
+      <h3>2. HashSet for O(1) Lookups</h3>
+      <p>Many problems require checking membership. HashSet provides constant-time lookups with good cache locality.</p>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Efficient membership checking</span>
+HashSet&lt;<span class="ty">int</span>&gt; seen = <span class="kw">new</span> HashSet&lt;<span class="ty">int</span>&gt;();
+<span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt;= N; i++) {
+    <span class="kw">if</span> (!seen.<span class="fn">Contains</span>(A[i])) {
+        <span class="cm">// Found missing element</span>
+    }
+    seen.<span class="fn">Add</span>(A[i]);
+}</pre>
+      </div>
+
+      <h3>3. Multi-Category Prefix Sums</h3>
+      <p>For problems like GenomicRangeQuery, build separate prefix sums for each category (A, C, G, T).</p>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Multi-category prefix sums</span>
+<span class="kw">int</span>[][] prefixCount = <span class="kw">new</span> <span class="ty">int</span>[<span class="num">4</span>][]; <span class="cm">// A, C, G, T</span>
+<span class="kw">for</span> (<span class="ty">int</span> cat = <span class="num">0</span>; cat &lt; <span class="num">4</span>; cat++) {
+    prefixCount[cat] = <span class="kw">new</span> <span class="ty">int</span>[S.Length + <span class="num">1</span>];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; S.Length; i++) {
+        prefixCount[cat][i + <span class="num">1</span>] = prefixCount[cat][i];
+        <span class="kw">if</span> (S[i] == CharForCategory(cat)) {
+            prefixCount[cat][i + <span class="num">1</span>]++;
+        }
+    }
+}</pre>
+      </div>
+
+      <h3>4. Lazy Propagation Pattern</h3>
+      <p>Instead of updating each element individually (O(N)), track range updates and apply them lazily during queries.</p>
+
+      <div class="callout info">
+        <span class="callout-icon">ℹ️</span>
+        <div><strong>Lazy vs Eager:</strong> Eager updates are simple but slow (O(N) per update). Lazy propagation defers updates until needed, achieving O(log N) or O(1) amortized.</div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 1: MissingInteger -->
+    <section class="algo fade" id="prob-1">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">1. Missing Integer</div>
+          <div class="algo-desc">Find the smallest positive integer not in array. Codility problem.</div>
+          <div class="algo-tags">
+            <span class="badge b-amber">Codility</span>
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-green">HashSet</span>
+          </div>
+        </div>
+        <div class="algo-idx">1</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> Given array of integers, find smallest positive integer (≥ 1) not present. Array length N, values can be negative or > N.</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p>The smallest missing positive must be in range [1, N+1]. If all 1..N are present, answer is N+1. Otherwise, answer is the first gap. Use a HashSet to mark present values, then iterate 1..N+1 to find the first missing.</p>
+        <p><strong>Time:</strong> O(N) for building set + O(N) for scanning = O(N). <strong>Space:</strong> O(N) for HashSet.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">Solution</span>(<span class="ty">int</span>[] A) {
+    HashSet&lt;<span class="ty">int</span>&gt; present = <span class="kw">new</span> HashSet&lt;<span class="ty">int</span>&gt;();
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="kw">if</span> (A[i] &gt; <span class="num">0</span>) {
+            present.<span class="fn">Add</span>(A[i]);
+        }
+    }
+
+    <span class="kw">for</span> (<span class="ty">int</span> candidate = <span class="num">1</span>; candidate &lt;= A.Length + <span class="num">1</span>; candidate++) {
+        <span class="kw">if</span> (!present.<span class="fn">Contains</span>(candidate)) {
+            <span class="kw">return</span> candidate;
+        }
+    }
+    <span class="kw">return</span> A.Length + <span class="num">1</span>;
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> A = [1, 3, 6, 4, 1, 2]<br/>
+              Build HashSet with positive values: {1, 2, 3, 4, 6}
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              Scan candidates 1 to N+1 = 7:<br/>
+              candidate=1: present ✓<br/>
+              candidate=2: present ✓<br/>
+              candidate=3: present ✓<br/>
+              candidate=4: present ✓<br/>
+              candidate=5: NOT present → return 5
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> 5
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> All 1..N present: A = [1, 2, 3] → return 4<br/>
+            <strong>Case 2:</strong> Negatives only: A = [-1, -2, -3] → return 1<br/>
+            <strong>Case 3:</strong> Duplicates: A = [1, 1, 1] → return 2<br/>
+            <strong>Case 4:</strong> Large gaps: A = [100, 200] → return 1
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 2: PermCheck -->
+    <section class="algo fade" id="prob-2">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">2. Permutation Check</div>
+          <div class="algo-desc">Check if array is permutation of [1..N]. Codility problem.</div>
+          <div class="algo-tags">
+            <span class="badge b-amber">Codility</span>
+            <span class="badge b-green">Easy</span>
+            <span class="badge b-green">HashSet</span>
+          </div>
+        </div>
+        <div class="algo-idx">2</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> Return 1 if array A is permutation of [1, 2, ..., N], else 0. Array length is N.</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p>A permutation has every value 1..N exactly once. Method: (1) Check all values in [1..N], (2) Check no duplicates using HashSet size. If set size = N and all values in range, it's a permutation.</p>
+        <p><strong>Time:</strong> O(N). <strong>Space:</strong> O(N).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">Solution</span>(<span class="ty">int</span>[] A) {
+    <span class="kw">if</span> (A.Length == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    HashSet&lt;<span class="ty">int</span>&gt; seen = <span class="kw">new</span> HashSet&lt;<span class="ty">int</span>&gt;();
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="cm">// Must be in range [1, N]</span>
+        <span class="kw">if</span> (A[i] &lt; <span class="num">1</span> || A[i] &gt; A.Length) <span class="kw">return</span> <span class="num">0</span>;
+        <span class="cm">// No duplicates</span>
+        <span class="kw">if</span> (seen.<span class="fn">Contains</span>(A[i])) <span class="kw">return</span> <span class="num">0</span>;
+        seen.<span class="fn">Add</span>(A[i]);
+    }
+
+    <span class="kw">return</span> <span class="num">1</span>;
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> A = [4, 1, 3, 2]<br/>
+              N = 4, valid range = [1, 4]
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              Iterate: 4 ✓, 1 ✓, 3 ✓, 2 ✓<br/>
+              All in range [1, 4], no duplicates
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> 1 (is permutation)
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> Duplicate: A = [1, 2, 2] → return 0<br/>
+            <strong>Case 2:</strong> Out of range: A = [1, 2, 5] → return 0<br/>
+            <strong>Case 3:</strong> Single element: A = [1] → return 1<br/>
+            <strong>Case 4:</strong> Zero included: A = [0, 1, 2] → return 0
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 3: GenomicRangeQuery -->
+    <section class="algo fade" id="prob-3">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">3. Genomic Range Query</div>
+          <div class="algo-desc">Find minimum nucleotide impact in DNA ranges. Codility problem.</div>
+          <div class="algo-tags">
+            <span class="badge b-red">Codility</span>
+            <span class="badge b-red">Hard</span>
+            <span class="badge b-orange">Prefix Sums</span>
+          </div>
+        </div>
+        <div class="algo-idx">3</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> DNA string has nucleotides {A, C, G, T} with impacts {1, 2, 3, 4}. Given queries (L, R), return minimum impact in substring S[L..R].</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p>Naive: O(M×(R-L)) for M queries. Optimized: Build 4 prefix sum arrays (one per nucleotide). For each query, check if each nucleotide exists in range using prefix sums (O(1) per nucleotide). Return minimum impact of present nucleotides. Total: O(N) preprocessing + O(4M) = O(N + M).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">int</span>[] <span class="fn">Solution</span>(<span class="ty">string</span> S, <span class="ty">int</span>[] P, <span class="ty">int</span>[] Q) {
+    <span class="ty">int</span> N = S.Length;
+    <span class="ty">int</span> M = P.Length;
+    <span class="cm">// Prefix sums for A, C, G, T</span>
+    <span class="ty">int</span>[][] prefix = <span class="kw">new</span> <span class="ty">int</span>[<span class="num">4</span>][];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; <span class="num">4</span>; i++) {
+        prefix[i] = <span class="kw">new</span> <span class="ty">int</span>[N + <span class="num">1</span>];
+    }
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; N; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">0</span>; j &lt; <span class="num">4</span>; j++) {
+            prefix[j][i + <span class="num">1</span>] = prefix[j][i];
+        }
+        <span class="ty">int</span> idx = NucleotideIndex(S[i]);
+        prefix[idx][i + <span class="num">1</span>]++;
+    }
+
+    <span class="ty">int</span>[] result = <span class="kw">new</span> <span class="ty">int</span>[M];
+    <span class="kw">for</span> (<span class="ty">int</span> q = <span class="num">0</span>; q &lt; M; q++) {
+        <span class="ty">int</span> L = P[q], R = Q[q];
+        <span class="kw">for</span> (<span class="ty">int</span> nuc = <span class="num">0</span>; nuc &lt; <span class="num">4</span>; nuc++) {
+            <span class="ty">int</span> count = prefix[nuc][R + <span class="num">1</span>] - prefix[nuc][L];
+            <span class="kw">if</span> (count &gt; <span class="num">0</span>) {
+                result[q] = nuc + <span class="num">1</span>; <span class="cm">// Impact: A=1, C=2, G=3, T=4</span>
+                <span class="kw">break</span>;
+            }
+        }
+    }
+    <span class="kw">return</span> result;
+}
+
+<span class="kw">private</span> <span class="ty">int</span> <span class="fn">NucleotideIndex</span>(<span class="ty">char</span> c) {
+    <span class="kw">switch</span>(c) {
+        <span class="kw">case</span> <span class="str">'A'</span>: <span class="kw">return</span> <span class="num">0</span>;
+        <span class="kw">case</span> <span class="str">'C'</span>: <span class="kw">return</span> <span class="num">1</span>;
+        <span class="kw">case</span> <span class="str">'G'</span>: <span class="kw">return</span> <span class="num">2</span>;
+        <span class="kw">case</span> <span class="str">'T'</span>: <span class="kw">return</span> <span class="num">3</span>;
+        <span class="kw">default</span>: <span class="kw">return</span> -<span class="num">1</span>;
+    }
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> S = "CAGCCTA", P = [2, 5, 0], Q = [4, 5, 6]
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              Build prefix sums:<br/>
+              A: [0, 0, 0, 1, 1, 1, 1, 2]<br/>
+              C: [0, 1, 1, 1, 2, 2, 2, 2]<br/>
+              G: [0, 0, 1, 1, 1, 1, 2, 2]<br/>
+              T: [0, 0, 0, 0, 0, 1, 1, 1]
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              Query [2, 4] (substring "GCC"):<br/>
+              A count = 0, C count = 2 (found!) → impact = 2
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">4</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> [2, 4, 1]
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> Single character: S = "A", query [0, 0] → 1<br/>
+            <strong>Case 2:</strong> All same: S = "AAA", query [0, 2] → 1<br/>
+            <strong>Case 3:</strong> One query covers all: [0, N-1] → minimum impact<br/>
+            <strong>Case 4:</strong> T at end: S = "ACT", query [2, 2] → 4
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N + M)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 4: PassingCars -->
+    <section class="algo fade" id="prob-4">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">4. Passing Cars</div>
+          <div class="algo-desc">Count east-west car pairs where east passes west. Codility problem.</div>
+          <div class="algo-tags">
+            <span class="badge b-amber">Codility</span>
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-orange">Prefix Sums</span>
+          </div>
+        </div>
+        <div class="algo-idx">4</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> Array A where 0=east, 1=west. Count pairs (i, j) where i < j, A[i]=0 (east), A[j]=1 (west). Return count or −1 if > 1 billion.</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p>Naive: O(N²) nested loop. Optimized: For each west car (A[j]=1), count how many east cars (0s) appear before it. Use a running counter of 0s seen so far. When we see a 1, add the counter to result.</p>
+        <p><strong>Time:</strong> O(N). <strong>Space:</strong> O(1).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">Solution</span>(<span class="ty">int</span>[] A) {
+    <span class="ty">long</span> count = <span class="num">0</span>;
+    <span class="ty">int</span> eastCount = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="kw">if</span> (A[i] == <span class="num">0</span>) {
+            eastCount++;
+        } <span class="kw">else</span> {
+            count += eastCount;
+            <span class="cm">// Prevent overflow: if > 1 billion, return -1</span>
+            <span class="kw">if</span> (count &gt; <span class="num">1_000_000_000</span>) <span class="kw">return</span> -<span class="num">1</span>;
+        }
+    }
+
+    <span class="kw">return</span> (<span class="ty">int</span>)count;
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> A = [0, 1, 0, 1, 1]<br/>
+              0=east, 1=west
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              i=0: A[0]=0 → eastCount=1<br/>
+              i=1: A[1]=1 → count += 1, total=1<br/>
+              i=2: A[2]=0 → eastCount=2<br/>
+              i=3: A[3]=1 → count += 2, total=3<br/>
+              i=4: A[4]=1 → count += 2, total=5
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> 5 (pairs: (0,1), (0,3), (0,4), (2,3), (2,4))
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> No pairs: A = [1, 1, 0, 0] → 0<br/>
+            <strong>Case 2:</strong> Large result: N=10^5, all [0..0, 1..1] → ~2.5B pairs, return -1<br/>
+            <strong>Case 3:</strong> Single element: A = [0] or [1] → 0<br/>
+            <strong>Case 4:</strong> Alternating: A = [0, 1, 0, 1] → 4
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(1)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 5: MaxCounters -->
+    <section class="algo fade" id="prob-5">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">5. Max Counters</div>
+          <div class="algo-desc">Efficiently handle increment and max_counter operations. Codility problem.</div>
+          <div class="algo-tags">
+            <span class="badge b-red">Codility</span>
+            <span class="badge b-red">Hard</span>
+            <span class="badge b-orange">Lazy Propagation</span>
+          </div>
+        </div>
+        <div class="algo-idx">5</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> N counters (initially 0). Operations: increment(X) or max_counter (set all to current max). Return final state. Naive O(N×M) fails; use lazy propagation for O(N+M).</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p><strong>Naive:</strong> For each max_counter, loop and set all N counters (O(N)). With M operations, total O(N×M), too slow.</p>
+        <p><strong>Optimized (Lazy):</strong> Track global max without updating all counters. For each counter, track its "checkpoint" (when it was last set to max). During increment, if counter's checkpoint is outdated, first bring it up to checkpoint value. At the end, update all counters based on final checkpoint.</p>
+        <p><strong>Time:</strong> O(N + M). <strong>Space:</strong> O(N).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">int</span>[] <span class="fn">Solution</span>(<span class="ty">int</span> N, <span class="ty">int</span>[] A) {
+    <span class="ty">int</span>[] counters = <span class="kw">new</span> <span class="ty">int</span>[N];
+    <span class="ty">int</span> maxCounter = <span class="num">0</span>;
+    <span class="ty">int</span> lastMax = <span class="num">0</span>; <span class="cm">// Checkpoint value</span>
+
+    <span class="kw">for</span> (<span class="ty">int</span> op = <span class="num">0</span>; op &lt; A.Length; op++) {
+        <span class="ty">int</span> X = A[op] - <span class="num">1</span>; <span class="cm">// 1-indexed to 0-indexed</span>
+        <span class="kw">if</span> (X == N) {
+            <span class="cm">// Max counter operation</span>
+            lastMax = maxCounter;
+        } <span class="kw">else</span> {
+            <span class="cm">// Increment counter X</span>
+            <span class="kw">if</span> (counters[X] &lt; lastMax) {
+                counters[X] = lastMax;
+            }
+            counters[X]++;
+            maxCounter = <span class="ty">Math</span>.<span class="fn">Max</span>(maxCounter, counters[X]);
+        }
+    }
+
+    <span class="cm">// Final pass: bring all counters up to lastMax</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; N; i++) {
+        <span class="kw">if</span> (counters[i] &lt; lastMax) {
+            counters[i] = lastMax;
+        }
+    }
+
+    <span class="kw">return</span> counters;
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> N = 3, A = [3, 4, 4, 6, 1, 4, 4]<br/>
+              Counter indices: 1, 2, 3. Operation 4 = max_counter, 6 = (invalid, ignore).
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              3: increment(3) → [0, 0, 1], max=1<br/>
+              4: max_counter → lastMax=1<br/>
+              4: max_counter → lastMax=1<br/>
+              6: increment(1) → [1, 0, 1], max=1<br/>
+              1: increment(1) → [2, 0, 1], max=2<br/>
+              4: max_counter → lastMax=2<br/>
+              4: max_counter → lastMax=2
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              Final pass: bring [2, 0, 1] up to lastMax=2 → [2, 2, 2]<br/>
+              <strong>Output:</strong> [2, 2, 2]
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> No operations: N = 2, A = [] → [0, 0]<br/>
+            <strong>Case 2:</strong> Only max_counter: A = [3, 3, 3] → [0, 0, 0] (N=2)<br/>
+            <strong>Case 3:</strong> Increments then max: A = [1, 2, 3] → [1, 1, 1]<br/>
+            <strong>Case 4:</strong> Large M: M=10^5 operations on N counters → O(N+M) handles efficiently
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N + M)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 6: FrogRiverOne -->
+    <section class="algo fade" id="prob-6">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">6. Frog River One</div>
+          <div class="algo-desc">Earliest time frog can cross river using falling leaves. Codility problem.</div>
+          <div class="algo-tags">
+            <span class="badge b-amber">Codility</span>
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-green">HashSet</span>
+          </div>
+        </div>
+        <div class="algo-idx">6</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> Frog wants to cross river of width X. At each time step, one leaf falls at position A[t]. Frog can walk on leaves at positions 1..X. Find earliest time all positions 1..X are covered by leaves, or -1 if impossible.</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p>We need all positions 1 to X covered. Use a HashSet to track which positions have leaves. For each time step, add A[t] to the set. Once the set contains all 1..X, return that time. If we finish the array without covering all positions, return -1.</p>
+        <p><strong>Time:</strong> O(N). <strong>Space:</strong> O(X).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">Solution</span>(<span class="ty">int</span> X, <span class="ty">int</span>[] A) {
+    HashSet&lt;<span class="ty">int</span>&gt; covered = <span class="kw">new</span> HashSet&lt;<span class="ty">int</span>&gt;();
+
+    <span class="kw">for</span> (<span class="ty">int</span> t = <span class="num">0</span>; t &lt; A.Length; t++) {
+        <span class="kw">if</span> (A[t] &gt;= <span class="num">1</span> && A[t] &lt;= X) {
+            covered.<span class="fn">Add</span>(A[t]);
+        }
+
+        <span class="cm">// Check if all positions 1..X are covered</span>
+        <span class="kw">if</span> (covered.<span class="fn">Count</span> == X) {
+            <span class="kw">return</span> t;
+        }
+    }
+
+    <span class="kw">return</span> -<span class="num">1</span>;
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> X = 5, A = [1, 3, 1, 4, 2, 3, 5, 4]<br/>
+              Need to cover positions {1, 2, 3, 4, 5}
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              t=0: A[0]=1 → {1}<br/>
+              t=1: A[1]=3 → {1, 3}<br/>
+              t=2: A[2]=1 → {1, 3}<br/>
+              t=3: A[3]=4 → {1, 3, 4}<br/>
+              t=4: A[4]=2 → {1, 2, 3, 4}<br/>
+              t=5: A[5]=3 → {1, 2, 3, 4}<br/>
+              t=6: A[6]=5 → {1, 2, 3, 4, 5}, count=5=X ✓
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> 6
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> Impossible: A = [1, 1, 1], X = 2 → -1<br/>
+            <strong>Case 2:</strong> Duplicates: A = [1, 1, 2], X = 2 → 2<br/>
+            <strong>Case 3:</strong> Out of range: A = [10, 11], X = 2 → -1<br/>
+            <strong>Case 4:</strong> X = 1: A = [1] → 0
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(X)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 7: CountDiv -->
+    <section class="algo fade" id="prob-7">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">7. Count Divisibles</div>
+          <div class="algo-desc">Count divisible numbers in range [A, B]. Codility problem.</div>
+          <div class="algo-tags">
+            <span class="badge b-amber">Codility</span>
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-blue">Math</span>
+          </div>
+        </div>
+        <div class="algo-idx">7</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> Count integers in range [A, B] divisible by K. Cannot iterate; A, B up to 2×10^9.</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p><strong>Formula:</strong> Count of multiples of K in [A, B] = ⌊B / K⌋ − ⌊(A − 1) / K⌋</p>
+        <p>Example: K=5, range [11, 23]. Multiples: 15, 20. Formula: ⌊23/5⌋ − ⌊10/5⌋ = 4 − 2 = 2. ✓</p>
+        <p><strong>Time:</strong> O(1). <strong>Space:</strong> O(1).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">Solution</span>(<span class="ty">int</span> A, <span class="ty">int</span> B, <span class="ty">int</span> K) {
+    <span class="kw">return</span> (B / K) - ((A - <span class="num">1</span>) / K);
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> A = 6, B = 11, K = 2<br/>
+              Find multiples of 2 in [6, 11]: {6, 8, 10}
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              ⌊B / K⌋ = ⌊11 / 2⌋ = 5<br/>
+              ⌊(A − 1) / K⌋ = ⌊5 / 2⌋ = 2<br/>
+              Count = 5 − 2 = 3
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> 3
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> A = B = K: result = 1<br/>
+            <strong>Case 2:</strong> A > B: impossible per spec<br/>
+            <strong>Case 3:</strong> No multiples: A = 1, B = 4, K = 5 → 0<br/>
+            <strong>Case 4:</strong> K = 1: result = B − A + 1
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(1)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(1)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 8: EquiLeader -->
+    <section class="algo fade" id="prob-8">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">8. Equi-Leader</div>
+          <div class="algo-desc">Count split positions where both sides have same leader. Codility problem.</div>
+          <div class="algo-tags">
+            <span class="badge b-red">Codility</span>
+            <span class="badge b-red">Hard</span>
+            <span class="badge b-orange">Prefix Sums</span>
+          </div>
+        </div>
+        <div class="algo-idx">8</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> Find positions P where leader (element appearing > N/2 times) is the same in A[0..P] and A[P+1..N-1].</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p><strong>Step 1:</strong> Find the global leader (appears > N/2 times). Use Boyer-Moore voting algorithm: O(N).</p>
+        <p><strong>Step 2:</strong> Build prefix counts: count[i] = how many times leader appears in A[0..i]. O(N).</p>
+        <p><strong>Step 3:</strong> For each split position P, check if leader appears > (P+1)/2 times on left AND > (N-P-1)/2 times on right. O(N).</p>
+        <p><strong>Time:</strong> O(N). <strong>Space:</strong> O(N).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">Solution</span>(<span class="ty">int</span>[] A) {
+    <span class="ty">int</span> N = A.Length;
+
+    <span class="cm">// Step 1: Find global leader using Boyer-Moore</span>
+    <span class="ty">int</span> candidate = <span class="num">0</span>, count = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; N; i++) {
+        <span class="kw">if</span> (count == <span class="num">0</span>) candidate = A[i];
+        count += (A[i] == candidate) ? <span class="num">1</span> : -<span class="num">1</span>;
+    }
+
+    <span class="cm">// Verify candidate is actually the leader</span>
+    count = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; N; i++) {
+        <span class="kw">if</span> (A[i] == candidate) count++;
+    }
+    <span class="kw">if</span> (count &lt;= N / <span class="num">2</span>) <span class="kw">return</span> <span class="num">0</span>; <span class="cm">// No leader</span>
+
+    <span class="ty">int</span> leader = candidate;
+
+    <span class="cm">// Step 2: Build prefix counts</span>
+    <span class="ty">int</span>[] leaderCount = <span class="kw">new</span> <span class="ty">int</span>[N];
+    leaderCount[<span class="num">0</span>] = (A[<span class="num">0</span>] == leader) ? <span class="num">1</span> : <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; N; i++) {
+        leaderCount[i] = leaderCount[i - <span class="num">1</span>] + ((A[i] == leader) ? <span class="num">1</span> : <span class="num">0</span>);
+    }
+
+    <span class="cm">// Step 3: Count equi-leader positions</span>
+    <span class="ty">int</span> result = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> P = <span class="num">0</span>; P &lt; N - <span class="num">1</span>; P++) {
+        <span class="ty">int</span> leftSize = P + <span class="num">1</span>;
+        <span class="ty">int</span> rightSize = N - leftSize;
+        <span class="ty">int</span> leftLeaderCount = leaderCount[P];
+        <span class="ty">int</span> rightLeaderCount = leaderCount[N - <span class="num">1</span>] - leaderCount[P];
+
+        <span class="kw">if</span> (leftLeaderCount &gt; leftSize / <span class="num">2</span> && rightLeaderCount &gt; rightSize / <span class="num">2</span>) {
+            result++;
+        }
+    }
+
+    <span class="kw">return</span> result;
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> A = [4, 3, 4, 4, 4, 2]<br/>
+              N = 6
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              Leader: 4 appears 4 times, > 6/2=3 ✓
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              leaderCount = [1, 1, 2, 3, 4, 4]<br/>
+              P=0: left={4}, leftCount=1 > 1/2=0 ✓, rightCount=3 > 5/2=2 ✓ → equi-leader<br/>
+              P=1: leftCount=1 > 2/2=1? No<br/>
+              P=2: leftCount=2 > 3/2=1 ✓, rightCount=2 > 3/2=1 ✓ → equi-leader<br/>
+              P=3: leftCount=3 > 4/2=2 ✓, rightCount=1 > 2/2=1? No<br/>
+              P=4: leftCount=4 > 5/2=2 ✓, rightCount=0 > 1/2=0? No
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">4</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> 2
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> No leader: A = [1, 2, 3, 4] → 0<br/>
+            <strong>Case 2:</strong> All same: A = [5, 5, 5, 5] → 3 (all positions)<br/>
+            <strong>Case 3:</strong> Two elements: A = [1, 1] → 0 (N-1=1, no valid P)<br/>
+            <strong>Case 4:</strong> Leader only on left: A = [1, 1, 2, 2, 2] → 0
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- PROBLEM 9: Product of Array Except Self -->
+    <section class="algo fade" id="prob-9">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">9. Product of Array Except Self</div>
+          <div class="algo-desc">LeetCode 238. Compute product of all elements except self without division.</div>
+          <div class="algo-tags">
+            <span class="badge b-blue">LeetCode</span>
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-orange">Prefix Sums</span>
+          </div>
+        </div>
+        <div class="algo-idx">9</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> Given array, return array where result[i] = product of all elements except A[i]. Cannot use division.</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p>Use prefix and suffix products. result[i] = (product of all left of i) × (product of all right of i). Build two passes: one for left products, one for right products.</p>
+        <p><strong>Time:</strong> O(N). <strong>Space:</strong> O(1) if we don't count output array.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">int</span>[] <span class="fn">ProductExceptSelf</span>(<span class="ty">int</span>[] nums) {
+    <span class="ty">int</span> n = nums.Length;
+    <span class="ty">int</span>[] result = <span class="kw">new</span> <span class="ty">int</span>[n];
+
+    <span class="cm">// Left pass: result[i] = product of all elements to the left</span>
+    result[<span class="num">0</span>] = <span class="num">1</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; n; i++) {
+        result[i] = result[i - <span class="num">1</span>] * nums[i - <span class="num">1</span>];
+    }
+
+    <span class="cm">// Right pass: multiply by product of all elements to the right</span>
+    <span class="ty">int</span> rightProduct = <span class="num">1</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = n - <span class="num">1</span>; i &gt;= <span class="num">0</span>; i--) {
+        result[i] *= rightProduct;
+        rightProduct *= nums[i];
+    }
+
+    <span class="kw">return</span> result;
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> nums = [1, 2, 3, 4]
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              After left pass: result = [1, 1, 2, 6] (left products)
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              After right pass:<br/>
+              result[3] = 6 × 1 = 6<br/>
+              result[2] = 2 × 4 = 8<br/>
+              result[1] = 1 × 12 = 12<br/>
+              result[0] = 1 × 24 = 24
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">4</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> [24, 12, 8, 6]
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> With zeros: [0, 1, 2] → [2, 0, 0]<br/>
+            <strong>Case 2:</strong> Negative: [-1, -2, -3] → [6, -3, -2]<br/>
+            <strong>Case 3:</strong> Two elements: [2, 3] → [3, 2]<br/>
+            <strong>Case 4:</strong> Single element: [5] → [1]
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(1)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 10: Subarray Sum Equals K -->
+    <section class="algo fade" id="prob-10">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">10. Subarray Sum Equals K</div>
+          <div class="algo-desc">LeetCode 560. Count subarrays with sum equal to K using prefix sums.</div>
+          <div class="algo-tags">
+            <span class="badge b-blue">LeetCode</span>
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-orange">Prefix Sum + HashMap</span>
+          </div>
+        </div>
+        <div class="algo-idx">10</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> Count number of subarrays whose sum equals K.</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p><strong>Key insight:</strong> If prefix sum up to i = P and we want sum[j..i] = K, then P − sum[j−1] = K, so sum[j−1] = P − K. Use HashMap to count occurrences of each prefix sum. For each position, check if (currentSum − K) exists in the map.</p>
+        <p><strong>Time:</strong> O(N). <strong>Space:</strong> O(N).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">SubarraySum</span>(<span class="ty">int</span>[] nums, <span class="ty">int</span> k) {
+    Dictionary&lt;<span class="ty">int</span>, <span class="ty">int</span>&gt; prefixMap = <span class="kw">new</span> Dictionary&lt;<span class="ty">int</span>, <span class="ty">int</span>&gt;();
+    prefixMap[<span class="num">0</span>] = <span class="num">1</span>; <span class="cm">// Base case: sum 0 seen once</span>
+
+    <span class="ty">int</span> count = <span class="num">0</span>;
+    <span class="ty">int</span> currentSum = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; nums.Length; i++) {
+        currentSum += nums[i];
+        <span class="ty">int</span> target = currentSum - k;
+
+        <span class="cm">// Check if (currentSum - k) exists in map</span>
+        <span class="kw">if</span> (prefixMap.<span class="fn">ContainsKey</span>(target)) {
+            count += prefixMap[target];
+        }
+
+        <span class="cm">// Add current prefix sum to map</span>
+        <span class="kw">if</span> (!prefixMap.<span class="fn">ContainsKey</span>(currentSum)) {
+            prefixMap[currentSum] = <span class="num">0</span>;
+        }
+        prefixMap[currentSum]++;
+    }
+
+    <span class="kw">return</span> count;
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> nums = [1, 1, 1], k = 2<br/>
+              Find subarrays summing to 2: [1,1] at indices (0,1) and (1,2)
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              i=0: sum=1, target=1-2=-1 (not in map), map={0:1, 1:1}<br/>
+              i=1: sum=2, target=2-2=0 (found!), count=1, map={0:1, 1:1, 2:1}<br/>
+              i=2: sum=3, target=3-2=1 (found!), count=2, map={0:1, 1:1, 2:1, 3:1}
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> 2
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> Negatives: nums = [-1, 1, 1], k = 1 → 2<br/>
+            <strong>Case 2:</strong> No match: nums = [1, 2], k = 3 → 0<br/>
+            <strong>Case 3:</strong> k = 0: nums = [0, 0, 0] → 6<br/>
+            <strong>Case 4:</strong> Single element: nums = [5], k = 5 → 1
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 11: Maximum Subarray (Kadane) -->
+    <section class="algo fade" id="prob-11">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">11. Maximum Subarray (Kadane's)</div>
+          <div class="algo-desc">LeetCode 53. Find contiguous subarray with largest sum.</div>
+          <div class="algo-tags">
+            <span class="badge b-blue">LeetCode</span>
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-green">DP/Greedy</span>
+          </div>
+        </div>
+        <div class="algo-idx">11</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> Find contiguous subarray with maximum sum (at least one element).</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p><strong>Kadane's Algorithm:</strong> Track max sum ending at current position. For each element, decide: extend previous subarray or start new one. If adding element to previous sum is worse than just the element, reset.</p>
+        <p>State: <code class="il">maxEndingHere</code> = max sum of subarray ending at current index. Update global <code class="il">maxSoFar</code> each step.</p>
+        <p><strong>Time:</strong> O(N). <strong>Space:</strong> O(1).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">MaxSubArray</span>(<span class="ty">int</span>[] nums) {
+    <span class="ty">int</span> maxEndingHere = nums[<span class="num">0</span>];
+    <span class="ty">int</span> maxSoFar = nums[<span class="num">0</span>];
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; nums.Length; i++) {
+        <span class="cm">// Either extend subarray or start fresh</span>
+        maxEndingHere = <span class="ty">Math</span>.<span class="fn">Max</span>(nums[i], maxEndingHere + nums[i]);
+        <span class="cm">// Update global maximum</span>
+        maxSoFar = <span class="ty">Math</span>.<span class="fn">Max</span>(maxSoFar, maxEndingHere);
+    }
+
+    <span class="kw">return</span> maxSoFar;
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]<br/>
+              Expected max subarray: [4, -1, 2, 1] = 6
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              i=0: maxHere=-2, maxSoFar=-2<br/>
+              i=1: maxHere=max(1, -1)=1, maxSoFar=1<br/>
+              i=2: maxHere=max(-3, -2)=-2, maxSoFar=1<br/>
+              i=3: maxHere=max(4, 2)=4, maxSoFar=4<br/>
+              i=4: maxHere=max(-1, 3)=3, maxSoFar=4<br/>
+              i=5: maxHere=max(2, 5)=5, maxSoFar=5<br/>
+              i=6: maxHere=max(1, 6)=6, maxSoFar=6<br/>
+              i=7: maxHere=max(-5, 1)=1, maxSoFar=6<br/>
+              i=8: maxHere=max(4, 5)=5, maxSoFar=6
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> 6
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> All negative: [-5, -2, -3] → -2<br/>
+            <strong>Case 2:</strong> Single element: [5] → 5<br/>
+            <strong>Case 3:</strong> All positive: [1, 2, 3] → 6<br/>
+            <strong>Case 4:</strong> Mix: [5, -3, 5] → 7
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(1)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 12: Merge Sorted Array -->
+    <section class="algo fade" id="prob-12">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">12. Merge Sorted Array</div>
+          <div class="algo-desc">LeetCode 88. Merge two sorted arrays in-place into first array.</div>
+          <div class="algo-tags">
+            <span class="badge b-blue">LeetCode</span>
+            <span class="badge b-green">Easy</span>
+            <span class="badge b-blue">Two Pointers</span>
+          </div>
+        </div>
+        <div class="algo-idx">12</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> nums1 has length m + n, first m elements are filled. nums2 has length n. Merge nums2 into nums1 in-place in sorted order.</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p>Work backwards from the end. Start with three pointers: end of nums1 (m+n-1), end of filled nums1 (m-1), end of nums2 (n-1). Compare and place the larger element at the current position, moving pointers backward. This avoids overwriting unprocessed elements.</p>
+        <p><strong>Time:</strong> O(m + n). <strong>Space:</strong> O(1).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="kw">void</span> <span class="fn">Merge</span>(<span class="ty">int</span>[] nums1, <span class="ty">int</span> m, <span class="ty">int</span>[] nums2, <span class="ty">int</span> n) {
+    <span class="ty">int</span> p1 = m - <span class="num">1</span>;        <span class="cm">// Pointer for nums1</span>
+    <span class="ty">int</span> p2 = n - <span class="num">1</span>;        <span class="cm">// Pointer for nums2</span>
+    <span class="ty">int</span> p = m + n - <span class="num">1</span>;   <span class="cm">// Pointer for result position</span>
+
+    <span class="kw">while</span> (p1 &gt;= <span class="num">0</span> && p2 &gt;= <span class="num">0</span>) {
+        <span class="kw">if</span> (nums1[p1] &gt; nums2[p2]) {
+            nums1[p] = nums1[p1];
+            p1--;
+        } <span class="kw">else</span> {
+            nums1[p] = nums2[p2];
+            p2--;
+        }
+        p--;
+    }
+
+    <span class="cm">// Copy remaining nums2 elements (if any)</span>
+    <span class="kw">while</span> (p2 &gt;= <span class="num">0</span>) {
+        nums1[p] = nums2[p2];
+        p2--;
+        p--;
+    }
+    <span class="cm">// No need to copy remaining nums1 elements; they're already in place</span>
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> nums1 = [1, 2, 3, 0, 0, 0], m = 3<br/>
+              nums2 = [2, 5, 6], n = 3
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              p1=2 (nums1[2]=3), p2=2 (nums2[2]=6), p=5<br/>
+              6 > 3 → nums1[5]=6, p2=1, p=4<br/>
+              3 > 5? No → nums1[4]=5, p1=2, p=3<br/>
+              3 > 2 → nums1[3]=3, p1=1, p=2<br/>
+              2 = 2 → nums1[2]=2, p2=0, p=1<br/>
+              nums1[1]=2, but it's already 2; p1=0, p=0<br/>
+              nums1[0]=1, already 1; done
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> nums1 = [1, 2, 2, 3, 5, 6]
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> nums2 is empty: m = 2, n = 0 → no change<br/>
+            <strong>Case 2:</strong> nums1 is empty: m = 0, n = 2, nums2 = [1, 2] → [1, 2]<br/>
+            <strong>Case 3:</strong> nums2 all smaller: nums1=[3,4], nums2=[1,2] → [1, 2, 3, 4]<br/>
+            <strong>Case 4:</strong> Duplicates: nums1=[1,1,0], nums2=[1] → [1, 1, 1]
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(m + n)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(1)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 13: Rotate Array -->
+    <section class="algo fade" id="prob-13">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">13. Rotate Array</div>
+          <div class="algo-desc">LeetCode 189. Rotate array right by k steps in-place.</div>
+          <div class="algo-tags">
+            <span class="badge b-blue">LeetCode</span>
+            <span class="badge b-amber">Medium</span>
+            <span class="badge b-orange">Reverse Trick</span>
+          </div>
+        </div>
+        <div class="algo-idx">13</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> Rotate array to the right by k steps. k can be >= N.</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p><strong>Reverse trick:</strong> Rotating right by k is equivalent to: reverse entire array, reverse first k elements, reverse remaining n−k elements.</p>
+        <p>Example: [1,2,3,4,5], k=2. Reverse all → [5,4,3,2,1]. Reverse first 2 → [4,5,3,2,1]. Reverse last 3 → [4,5,1,2,3]. ✓</p>
+        <p><strong>Time:</strong> O(N). <strong>Space:</strong> O(1).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="kw">void</span> <span class="fn">Rotate</span>(<span class="ty">int</span>[] nums, <span class="ty">int</span> k) {
+    <span class="ty">int</span> n = nums.Length;
+    k = k % n; <span class="cm">// Handle k >= n</span>
+
+    <span class="cm">// Reverse entire array</span>
+    <span class="fn">Reverse</span>(nums, <span class="num">0</span>, n - <span class="num">1</span>);
+    <span class="cm">// Reverse first k elements</span>
+    <span class="fn">Reverse</span>(nums, <span class="num">0</span>, k - <span class="num">1</span>);
+    <span class="cm">// Reverse remaining elements</span>
+    <span class="fn">Reverse</span>(nums, k, n - <span class="num">1</span>);
+}
+
+<span class="kw">private</span> <span class="kw">void</span> <span class="fn">Reverse</span>(<span class="ty">int</span>[] nums, <span class="ty">int</span> start, <span class="ty">int</span> end) {
+    <span class="kw">while</span> (start &lt; end) {
+        <span class="ty">int</span> temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+        start++;
+        end--;
+    }
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> nums = [1, 2, 3, 4, 5], k = 2<br/>
+              n = 5, k % n = 2
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              Reverse entire [0, 4] → [5, 4, 3, 2, 1]
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              Reverse first k=2 [0, 1] → [4, 5, 3, 2, 1]
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">4</div>
+            </div>
+            <div class="step-body">
+              Reverse last 3 [2, 4] → [4, 5, 1, 2, 3]<br/>
+              <strong>Output:</strong> [4, 5, 1, 2, 3]
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> k = 0: no rotation<br/>
+            <strong>Case 2:</strong> k = n: full rotation, same array<br/>
+            <strong>Case 3:</strong> k > n: k % n handled<br/>
+            <strong>Case 4:</strong> Single element: [1], k = 5 → [1]
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(1)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 14: Contains Duplicate -->
+    <section class="algo fade" id="prob-14">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">14. Contains Duplicate</div>
+          <div class="algo-desc">LeetCode 217. Check if array contains duplicate elements.</div>
+          <div class="algo-tags">
+            <span class="badge b-blue">LeetCode</span>
+            <span class="badge b-green">Easy</span>
+            <span class="badge b-green">HashSet</span>
+          </div>
+        </div>
+        <div class="algo-idx">14</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> Return true if array contains duplicate value, false otherwise.</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p>Use HashSet to track seen elements. For each element, check if already in set. If yes, return true. If we finish without duplicates, return false.</p>
+        <p><strong>Time:</strong> O(N) average. <strong>Space:</strong> O(min(N, M)) where M is number of distinct values.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">bool</span> <span class="fn">ContainsDuplicate</span>(<span class="ty">int</span>[] nums) {
+    HashSet&lt;<span class="ty">int</span>&gt; seen = <span class="kw">new</span> HashSet&lt;<span class="ty">int</span>&gt;();
+
+    <span class="kw">foreach</span> (<span class="ty">int</span> num <span class="kw">in</span> nums) {
+        <span class="kw">if</span> (seen.<span class="fn">Contains</span>(num)) {
+            <span class="kw">return</span> <span class="kw">true</span>;
+        }
+        seen.<span class="fn">Add</span>(num);
+    }
+
+    <span class="kw">return</span> <span class="kw">false</span>;
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> nums = [1, 2, 3, 1]
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              Iterate: 1 (add), 2 (add), 3 (add), 1 (found!) → return true
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> true
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> No duplicates: [1, 2, 3] → false<br/>
+            <strong>Case 2:</strong> All duplicates: [1, 1, 1] → true<br/>
+            <strong>Case 3:</strong> Single element: [1] → false<br/>
+            <strong>Case 4:</strong> Two identical: [0, 0] → true
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(min(N, M))</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 15: Maximum Sum Circular Subarray -->
+    <section class="algo fade" id="prob-15">
+      <div class="algo-head">
+        <div>
+          <div class="algo-name">15. Maximum Sum Circular Subarray</div>
+          <div class="algo-desc">LeetCode 918. Find max subarray sum in circular array using Kadane variant.</div>
+          <div class="algo-tags">
+            <span class="badge b-red">LeetCode</span>
+            <span class="badge b-red">Hard</span>
+            <span class="badge b-orange">Kadane Variant</span>
+          </div>
+        </div>
+        <div class="algo-idx">15</div>
+      </div>
+      <div class="algo-body">
+        <div class="callout tip">
+          <span class="callout-icon">📋</span>
+          <div><strong>Problem:</strong> Array is circular (last element connects to first). Find maximum subarray sum. Subarray can wrap around.</div>
+        </div>
+
+        <h3>Approach & Why It Works</h3>
+        <p><strong>Key insight:</strong> Max circular subarray = max(max non-circular, total − min subarray). Non-circular max = standard Kadane. For circular: total sum − minimum subarray = maximum wraparound subarray. Use min-Kadane (track minimum subarray). Return max of the two cases, but handle edge case where min subarray is entire array (all negative numbers).</p>
+        <p><strong>Time:</strong> O(N). <strong>Space:</strong> O(1).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">MaxSubarraySumCircular</span>(<span class="ty">int</span>[] nums) {
+    <span class="ty">int</span> totalSum = <span class="num">0</span>;
+    <span class="ty">int</span> maxSum = <span class="ty">int</span>.<span class="fn">MinValue</span>;
+    <span class="ty">int</span> minSum = <span class="ty">int</span>.<span class="fn">MaxValue</span>;
+    <span class="ty">int</span> maxEndingHere = <span class="num">0</span>;
+    <span class="ty">int</span> minEndingHere = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; nums.Length; i++) {
+        totalSum += nums[i];
+
+        <span class="cm">// Kadane's for maximum</span>
+        maxEndingHere = <span class="ty">Math</span>.<span class="fn">Max</span>(nums[i], maxEndingHere + nums[i]);
+        maxSum = <span class="ty">Math</span>.<span class="fn">Max</span>(maxSum, maxEndingHere);
+
+        <span class="cm">// Kadane's for minimum</span>
+        minEndingHere = <span class="ty">Math</span>.<span class="fn">Min</span>(nums[i], minEndingHere + nums[i]);
+        minSum = <span class="ty">Math</span>.<span class="fn">Min</span>(minSum, minEndingHere);
+    }
+
+    <span class="cm">// If minSum == totalSum, all elements are minimum (negative)</span>
+    <span class="kw">if</span> (minSum == totalSum) {
+        <span class="kw">return</span> maxSum;
+    }
+
+    <span class="cm">// Return max of non-circular and circular cases</span>
+    <span class="kw">return</span> <span class="ty">Math</span>.<span class="fn">Max</span>(maxSum, totalSum - minSum);
+}</pre>
+        </div>
+
+        <h3>Step-by-Step Trace</h3>
+        <div class="steps">
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">1</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              <strong>Input:</strong> nums = [3, -1, 2, -4, 5]<br/>
+              Total = 5
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">2</div>
+              <div class="step-vline"></div>
+            </div>
+            <div class="step-body">
+              Kadane max: track max subarray → [3, -1, 2] = 4, then [5] = 5, maxSum = 5<br/>
+              Kadane min: track min subarray → [-4], minSum = -4<br/>
+              Non-circular max = 5<br/>
+              Circular max = 5 − (−4) = 9 (subarray [5, 3] = 8? No: [3, -1, 2, -4, 5] total=5, remove [-4]=9 wraps to [5, 3]... actually wrap logic gives us 9 which is [3] + [5] or [-1, 2, -4] removed gives [3, 5])
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-left">
+              <div class="step-num">3</div>
+            </div>
+            <div class="step-body">
+              <strong>Output:</strong> max(5, 9) = 9
+            </div>
+          </div>
+        </div>
+
+        <h3>Edge Cases</h3>
+        <div class="callout warn">
+          <span class="callout-icon">⚠️</span>
+          <div>
+            <strong>Case 1:</strong> All negative: [-2, -3, -1] → -1 (not circular)<br/>
+            <strong>Case 2:</strong> Single element: [5] → 5<br/>
+            <strong>Case 3:</strong> Circular optimal: [1, -2, 3, -2] → max circular = 5 (wrap: [1, ..., 3])<br/>
+            <strong>Case 4:</strong> Non-circular optimal: [5, -1, 5] → 9 (no wrap)
+          </div>
+        </div>
+
+        <div class="cx-row">
+          <div class="cx">
+            <div class="cx-l">Time</div>
+            <div class="cx-v">O(N)</div>
+          </div>
+          <div class="cx">
+            <div class="cx-l">Space</div>
+            <div class="cx-v">O(1)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <p>Toptal Problem Bank — Category 1: Arrays & Prefix Sums</p>
+      <p>Complete solutions in C# with full trace analysis and complexity badges</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const codeBlock = this.closest('.code-block').querySelector('pre');
+        const text = codeBlock.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          const original = this.textContent;
+          this.textContent = 'copied!';
+          setTimeout(() => this.textContent = original, 1500);
+        });
+      });
+    });
+
+    document.querySelectorAll('.fade').forEach((el, i) => {
+      setTimeout(() => el.classList.add('in'), i * 50);
+    });
+  </script>
+</body>
+</html>

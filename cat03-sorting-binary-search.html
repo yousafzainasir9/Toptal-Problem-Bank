@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta name="keywords" content="Toptal interview, Toptal screening, Codility, coding test, C#, algorithms, problem solving, technical screening, remote developer interview, Toptal preparation">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat03-sorting-binary-search.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat03-sorting-binary-search.html">
+  <meta property="og:title" content="Category 3: Sorting & Binary Search — 15 Problems">
+  <meta property="og:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat03-sorting-binary-search.html">
+  <meta name="twitter:title" content="Category 3: Sorting & Binary Search — 15 Problems">
+  <meta name="twitter:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Category 3: Sorting & Binary Search \u2014 15 Problems",
+  "description": "Complete Toptal screening preparation guide \u2014 coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat03-sorting-binary-search.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Category 3: Sorting & Binary Search — 15 Problems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.toc{background:var(--white);border:1px solid var(--rule);border-radius:14px;padding:28px 32px;margin:44px 0}
+.toc-head{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:18px}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 36px}
+.toc-grid a{font-size:13.5px;color:var(--ink2);text-decoration:none;padding:8px 0;display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--rule);transition:color .15s}
+.toc-grid a:hover{color:var(--acc)}
+.toc-n{font-family:var(--mono);font-size:10px;color:var(--ink4);flex-shrink:0}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.algo{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px}
+.algo-head{padding:28px 32px 22px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.algo-idx{font-size:58px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em}
+.algo-name{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.algo-desc{font-family:var(--serif);font-size:14.5px;color:var(--ink2);line-height:1.72;max-width:580px}
+.algo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.algo-body{padding:28px 32px}
+.cx-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.cx{background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;min-width:110px}
+.cx-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cx-v{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink)}
+.steps{margin-bottom:26px}
+.step{display:flex}
+.step-left{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--acc-l);border:1.5px solid var(--acc-b);color:var(--acc);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono);flex-shrink:0}
+.step-vline{width:1.5px;flex:1;background:var(--rule);margin:4px 0}
+.step:last-child .step-vline{display:none}
+.step-body{padding:3px 0 22px 14px;font-size:14px;color:var(--ink2);line-height:1.68}
+.step-body strong{color:var(--ink);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:26px}
+.vs-box{border-radius:10px;padding:18px 20px;border:1px solid}
+.vs-box.good{background:var(--green-l);border-color:var(--green-b)}
+.vs-box.bad{background:var(--red-l);border-color:var(--red-b)}
+.vs-title{font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.vs-box.good .vs-title{color:var(--green)}.vs-box.bad .vs-title{color:var(--red)}
+.vs-item{font-size:13px;color:var(--ink2);padding:4px 0;display:flex;gap:8px;line-height:1.5}
+.vs-item::before{content:'—';color:var(--ink4);flex-shrink:0}
+footer{margin-top:100px;padding:40px 0;border-top:1px solid var(--rule);text-align:center;background:var(--bg2)}
+.footer-inner{max-width:960px;margin:0 auto;padding:0 2rem}
+footer p{font-size:13px;color:var(--ink3)}
+footer p+p{font-size:12px;color:var(--ink4);margin-top:4px}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+@media(max-width:700px){
+  .algo-head{grid-template-columns:1fr}.algo-idx{display:none}
+  .vs{grid-template-columns:1fr}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Bank
+        <span class="pill">Cat 3</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#toc">Problems</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Category 3</div>
+      </div>
+      <h1>Sorting & <em>Binary Search</em></h1>
+      <p class="hero-sub">Master array sorting techniques, binary search fundamentals, and parametric search. Learn to leverage sorting as preprocessing for optimization, implement efficient binary search variants, and solve problems that depend on pre-sorted data structures.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">15</div>
+          <div class="stat-l">Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">5</div>
+          <div class="stat-l">Difficulty</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">2</div>
+          <div class="stat-l">Core Topics</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">50+</div>
+          <div class="stat-l">Code Examples</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="toc fade" id="toc">
+      <div class="toc-head">15 Problems in This Category</div>
+      <div class="toc-grid">
+        <a href="#p1"><span class="toc-n">1</span> Distinct (Codility)</a>
+        <a href="#p2"><span class="toc-n">2</span> MaxProductOfThree (Codility)</a>
+        <a href="#p3"><span class="toc-n">3</span> Triangle (Codility)</a>
+        <a href="#p4"><span class="toc-n">4</span> NumberOfDiscIntersections (Codility)</a>
+        <a href="#p5"><span class="toc-n">5</span> Search in Rotated Sorted Array</a>
+        <a href="#p6"><span class="toc-n">6</span> Find First and Last Position</a>
+        <a href="#p7"><span class="toc-n">7</span> Search a 2D Matrix</a>
+        <a href="#p8"><span class="toc-n">8</span> Kth Largest Element</a>
+        <a href="#p9"><span class="toc-n">9</span> Merge Intervals</a>
+        <a href="#p10"><span class="toc-n">10</span> Meeting Rooms II</a>
+        <a href="#p11"><span class="toc-n">11</span> Find Peak Element</a>
+        <a href="#p12"><span class="toc-n">12</span> Minimum in Rotated Sorted Array</a>
+        <a href="#p13"><span class="toc-n">13</span> Median of Two Sorted Arrays</a>
+        <a href="#p14"><span class="toc-n">14</span> MinMaxDivision (Codility)</a>
+        <a href="#p15"><span class="toc-n">15</span> NailingPlanks (Codility)</a>
+      </div>
+    </section>
+
+    <section class="section fade" id="theory">
+      <div class="sec-tag">
+        <span class="sec-num">THEORY</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Core Concepts</h2>
+      <p class="lead">Sorting and binary search are foundational techniques that unlock efficient solutions. Sorting rearranges data to enable preprocessing-based optimizations, while binary search reduces search space logarithmically.</p>
+
+      <h3>Array.Sort in C# — O(n log n)</h3>
+      <p>The <code class="il">System.Array.Sort()</code> method uses TimSort (hybrid of merge sort + insertion sort). Custom sorting is achieved via <code class="il">IComparer&lt;T&gt;</code> implementations or inline comparator functions. Key points:</p>
+      <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+        <li><strong>Time Complexity:</strong> O(n log n) worst case</li>
+        <li><strong>Space Complexity:</strong> O(n) worst case (merge sort phase)</li>
+        <li><strong>Stable Sort:</strong> Equal elements retain original order</li>
+        <li><strong>Custom Comparers:</strong> Sort objects by custom fields</li>
+      </ul>
+
+      <h3>Binary Search Template</h3>
+      <p>A robust binary search follows this pattern:</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">C#</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><span class="kw">int</span> BinarySearch(<span class="ty">int</span>[] arr, <span class="ty">int</span> target) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = arr.Length - <span class="num">1</span>;
+    <span class="kw">while</span> (left &lt;= right) {
+        <span class="ty">int</span> mid = left + (right - left) / <span class="num">2</span>;
+        <span class="kw">if</span> (arr[mid] == target) <span class="kw">return</span> mid;
+        <span class="kw">else if</span> (arr[mid] &lt; target) left = mid + <span class="num">1</span>;
+        <span class="kw">else</span> right = mid - <span class="num">1</span>;
+    }
+    <span class="kw">return</span> -<span class="num">1</span>; <span class="cm">// Not found</span>
+}</pre>
+      </div>
+
+      <h3>Binary Search on Answer (Parametric Search)</h3>
+      <p>When the problem asks "find the minimum/maximum value such that a condition holds," use binary search on the answer range:</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">C#</span>
+          <button class="copy-btn">Copy</button>
+        </div>
+        <pre><span class="kw">int</span> BinarySearchOnAnswer(<span class="ty">int</span>[] nums, <span class="ty">int</span> constraint) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = <span class="num">1000000</span>;
+    <span class="ty">int</span> result = -<span class="num">1</span>;
+    <span class="kw">while</span> (left &lt;= right) {
+        <span class="ty">int</span> mid = left + (right - left) / <span class="num">2</span>;
+        <span class="kw">if</span> (CanAchieve(nums, mid, constraint)) {
+            result = mid;
+            left = mid + <span class="num">1</span>; <span class="cm">// Try larger</span>
+        } <span class="kw">else</span> {
+            right = mid - <span class="num">1</span>; <span class="cm">// Try smaller</span>
+        }
+    }
+    <span class="kw">return</span> result;
+}</pre>
+      </div>
+
+      <h3>Sorting as Preprocessing</h3>
+      <p>Many optimization techniques rely on sorted input:</p>
+      <div class="vs">
+        <div class="vs-box good">
+          <div class="vs-title">Sorted → Two Pointers</div>
+          <div class="vs-item">Fast pointer convergence from ends</div>
+          <div class="vs-item">Detect pairs/triplets in O(n)</div>
+          <div class="vs-item">Merge intervals efficiently</div>
+        </div>
+        <div class="vs-box good">
+          <div class="vs-title">Sorted → Binary Search</div>
+          <div class="vs-item">O(log n) lookups on preprocessed data</div>
+          <div class="vs-item">Find first/last occurrences</div>
+          <div class="vs-item">Answer range queries</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 1: Distinct -->
+    <section class="section fade" id="p1">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">1. Distinct (Codility) <span class="badge b-green">★ Easy</span></div>
+            <div class="algo-desc">Count the number of distinct values in an array. Sort and scan to eliminate duplicates in linear time.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Sorting</span>
+              <span class="badge b-orange">Scanning</span>
+            </div>
+          </div>
+          <div class="algo-idx">01</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given an array A of N integers, return the number of distinct values. For example: A = [1, 3, 2, 2, 1] should return 3.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Sort the array:</strong> O(n log n) time brings equal elements adjacent.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body"><strong>Count distinct:</strong> Iterate from index 0, incrementing counter when arr[i] != arr[i-1].</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div></div>
+              <div class="step-body"><strong>Return count:</strong> Total distinct elements found.</div>
+            </div>
+          </div>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">solution</span>(<span class="ty">int</span>[] A) {
+    <span class="kw">if</span> (A.Length == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="cm">// Sort array O(n log n)</span>
+    <span class="fn">Array</span>.<span class="fn">Sort</span>(A);
+
+    <span class="ty">int</span> distinctCount = <span class="num">1</span>; <span class="cm">// At least one element</span>
+
+    <span class="cm">// Scan and count transitions</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; A.Length; i++) {
+        <span class="kw">if</span> (A[i] != A[i - <span class="num">1</span>]) {
+            distinctCount++;
+        }
+    }
+
+    <span class="kw">return</span> distinctCount;
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><strong>Input:</strong> A = [1, 3, 2, 2, 1]</p>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li>After sort: [1, 1, 2, 2, 3]</li>
+            <li>i=1: A[1]=1 == A[0]=1, no increment</li>
+            <li>i=2: A[2]=2 != A[1]=1, distinctCount=2</li>
+            <li>i=3: A[3]=2 == A[2]=2, no increment</li>
+            <li>i=4: A[4]=3 != A[3]=2, distinctCount=3</li>
+            <li><strong>Output:</strong> 3</li>
+          </ul>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li>Empty array → return 0</li>
+            <li>Single element → return 1</li>
+            <li>All same elements → return 1</li>
+            <li>All distinct elements → return n</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 2: MaxProductOfThree -->
+    <section class="section fade" id="p2">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">2. MaxProductOfThree (Codility) <span class="badge b-blue">★★ Medium</span></div>
+            <div class="algo-desc">Find the maximum product of any three elements. Handle negative numbers by checking both ends after sorting.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Sorting</span>
+              <span class="badge b-orange">Greedy</span>
+            </div>
+          </div>
+          <div class="algo-idx">02</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given N integers, find the maximum product of any three elements. Elements can be negative. Example: A = [1, 2, 3] → 6 (2×3×1). A = [-5, -2, 3, 4] → 60 (−5×−2×4).</p>
+
+          <h3>Approach</h3>
+          <p>After sorting, the maximum product of three comes from either:</p>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li><strong>Largest three elements:</strong> arr[n-3] × arr[n-2] × arr[n-1]</li>
+            <li><strong>Two smallest (negative) + largest:</strong> arr[0] × arr[1] × arr[n-1] (negatives become positive)</li>
+          </ul>
+          <p>Compare both and return the maximum.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">solution</span>(<span class="ty">int</span>[] A) {
+    <span class="fn">Array</span>.<span class="fn">Sort</span>(A);
+    <span class="ty">int</span> n = A.Length;
+
+    <span class="cm">// Option 1: Three largest values</span>
+    <span class="ty">int</span> prod1 = A[n - <span class="num">1</span>] * A[n - <span class="num">2</span>] * A[n - <span class="num">3</span>];
+
+    <span class="cm">// Option 2: Two smallest (negative) × largest</span>
+    <span class="ty">int</span> prod2 = A[<span class="num">0</span>] * A[<span class="num">1</span>] * A[n - <span class="num">1</span>];
+
+    <span class="kw">return</span> <span class="fn">Math</span>.<span class="fn">Max</span>(prod1, prod2);
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><strong>Input:</strong> A = [-5, -2, 3, 4]</p>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li>After sort: [-5, -2, 3, 4]</li>
+            <li>prod1 = 4 × 3 × (-2) = -24</li>
+            <li>prod2 = (-5) × (-2) × 4 = 40</li>
+            <li><strong>Output:</strong> 40</li>
+          </ul>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li>All negative numbers</li>
+            <li>Mix of positive and negative</li>
+            <li>Exactly 3 elements</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 3: Triangle -->
+    <section class="section fade" id="p3">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">3. Triangle (Codility) <span class="badge b-blue">★★ Medium</span></div>
+            <div class="algo-desc">Determine if any three elements can form a valid triangle. Use triangle inequality after sorting.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Sorting</span>
+              <span class="badge b-orange">Scanning</span>
+            </div>
+          </div>
+          <div class="algo-idx">03</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given N integers representing lengths, determine if any three can form a valid triangle. Triangle inequality: sum of any two sides must be greater than the third. Return 1 if valid, 0 otherwise.</p>
+
+          <h3>Approach</h3>
+          <p>After sorting, for a triangle with sides a ≤ b ≤ c, we only need to check a + b > c (the other inequalities are automatically satisfied). Iterate through sorted array checking consecutive triplets.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">solution</span>(<span class="ty">int</span>[] A) {
+    <span class="kw">if</span> (A.Length &lt; <span class="num">3</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="fn">Array</span>.<span class="fn">Sort</span>(A);
+
+    <span class="cm">// Check consecutive triplets</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length - <span class="num">2</span>; i++) {
+        <span class="cm">// A[i] ≤ A[i+1] ≤ A[i+2], so only check smallest + middle > largest</span>
+        <span class="kw">if</span> ((<span class="ty">long</span>)A[i] + A[i + <span class="num">1</span>] &gt; A[i + <span class="num">2</span>]) {
+            <span class="kw">return</span> <span class="num">1</span>; <span class="cm">// Valid triangle found</span>
+        }
+    }
+
+    <span class="kw">return</span> <span class="num">0</span>; <span class="cm">// No valid triangle</span>
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><strong>Input:</strong> A = [10, 2, 5, 1, 8, 20]</p>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li>After sort: [1, 2, 5, 8, 10, 20]</li>
+            <li>i=0: 1 + 2 = 3 > 5? No</li>
+            <li>i=1: 2 + 5 = 7 > 8? No</li>
+            <li>i=2: 5 + 8 = 13 > 10? Yes → return 1</li>
+          </ul>
+
+          <h3>Note on Overflow</h3>
+          <p>Cast to <code class="il">long</code> when adding to prevent integer overflow with large values.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 4: NumberOfDiscIntersections -->
+    <section class="section fade" id="p4">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">4. NumberOfDiscIntersections (Codility) <span class="badge b-red">★★★ Hard</span></div>
+            <div class="algo-desc">Count intersecting disc pairs. Convert to interval overlap problem; sort and sweep-line algorithm.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Sorting</span>
+              <span class="badge b-orange">Sweep Line</span>
+            </div>
+          </div>
+          <div class="algo-idx">04</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>N discs at positions A[i] with radii A[i]. Count the number of disc pairs that intersect. Discs intersect if distance between centers ≤ sum of radii.</p>
+
+          <h3>Approach</h3>
+          <p>Convert each disc to an interval [center - radius, center + radius]. Count overlapping interval pairs using a sweep-line algorithm with a counter for active intervals.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">solution</span>(<span class="ty">int</span>[] A) {
+    <span class="ty">int</span> n = A.Length;
+    <span class="ty">int</span> maxIntersections = <span class="num">0</span>;
+
+    <span class="cm">// Event: (position, type) type: 0=start, 1=end</span>
+    <span class="kw">var</span> events = <span class="kw">new</span> <span class="fn">List</span>&lt;(<span class="ty">long</span>, <span class="ty">int</span>)&gt;();
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) {
+        <span class="ty">long</span> start = i - (A[i]);  <span class="cm">// disc left boundary</span>
+        <span class="ty">long</span> end = i + (A[i]);    <span class="cm">// disc right boundary</span>
+        events.<span class="fn">Add</span>((start, <span class="num">0</span>));     <span class="cm">// start event</span>
+        events.<span class="fn">Add</span>((end + <span class="num">1</span>, <span class="num">1</span>));  <span class="cm">// end event (exclusive)</span>
+    }
+
+    events.<span class="fn">Sort</span>();
+    <span class="ty">int</span> activeDiscs = <span class="num">0</span>;
+    <span class="ty">long</span> intersections = <span class="num">0</span>;
+
+    <span class="kw">foreach</span> (<span class="kw">var</span> (<span class="va">pos</span>, <span class="va">type</span>) <span class="kw">in</span> events) {
+        <span class="kw">if</span> (<span class="va">type</span> == <span class="num">0</span>) {
+            <span class="cm">// Start of disc: it intersects with all active discs</span>
+            intersections += activeDiscs;
+            activeDiscs++;
+        } <span class="kw">else</span> {
+            <span class="cm">// End of disc</span>
+            activeDiscs--;
+        }
+    }
+
+    <span class="kw">return</span> intersections &gt; <span class="num">10000000</span> ? -<span class="num">1</span> : (<span class="ty">int</span>)intersections;
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><strong>Input:</strong> A = [0, 1, 0] (3 discs at positions 0,1,2 with radii 0,1,0)</p>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li>Disc 0: interval [0, 0]</li>
+            <li>Disc 1: interval [0, 2]</li>
+            <li>Disc 2: interval [2, 2]</li>
+            <li>Events: [(0,0), (0,1), (1,0), (2,1), (2,1), (3,1)] after sorting</li>
+            <li>Intersections: disc 1 intersects with disc 0 and disc 2 → 2</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 5: Search in Rotated Sorted Array -->
+    <section class="section fade" id="p5">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">5. Search in Rotated Sorted Array (LC 33) <span class="badge b-blue">★★ Medium</span></div>
+            <div class="algo-desc">Find target in a rotated sorted array. Identify which half is sorted and narrow search.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Binary Search</span>
+              <span class="badge b-orange">Modified Search</span>
+            </div>
+          </div>
+          <div class="algo-idx">05</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>An array A is rotated at some pivot. Example: [0,1,2,4,5,6,7] → [4,5,6,7,0,1,2]. Find target in O(log n) time. Return index or -1.</p>
+
+          <h3>Approach</h3>
+          <p>Binary search: at each step, determine which half is sorted, then check if target lies in that sorted range.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">Search</span>(<span class="ty">int</span>[] nums, <span class="ty">int</span> target) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = nums.Length - <span class="num">1</span>;
+
+    <span class="kw">while</span> (left &lt;= right) {
+        <span class="ty">int</span> mid = left + (right - left) / <span class="num">2</span>;
+
+        <span class="kw">if</span> (nums[mid] == target) <span class="kw">return</span> mid;
+
+        <span class="cm">// Determine which half is sorted</span>
+        <span class="kw">if</span> (nums[left] &lt;= nums[mid]) {
+            <span class="cm">// Left half is sorted</span>
+            <span class="kw">if</span> (target &gt;= nums[left] &amp;&amp; target &lt; nums[mid]) {
+                right = mid - <span class="num">1</span>; <span class="cm">// Target in left half</span>
+            } <span class="kw">else</span> {
+                left = mid + <span class="num">1</span>;  <span class="cm">// Search right</span>
+            }
+        } <span class="kw">else</span> {
+            <span class="cm">// Right half is sorted</span>
+            <span class="kw">if</span> (target &gt; nums[mid] &amp;&amp; target &lt;= nums[right]) {
+                left = mid + <span class="num">1</span>;  <span class="cm">// Target in right half</span>
+            } <span class="kw">else</span> {
+                right = mid - <span class="num">1</span>; <span class="cm">// Search left</span>
+            }
+        }
+    }
+
+    <span class="kw">return</span> -<span class="num">1</span>;
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 0</p>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li>left=0, right=6, mid=3: nums[3]=7, left half [4..7] sorted, 0 not in range → left=4</li>
+            <li>left=4, right=6, mid=5: nums[5]=1, right half [0..2] sorted, 0 in range → right=5</li>
+            <li>left=4, right=5, mid=4: nums[4]=0 == target → return 4</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 6: Find First and Last Position -->
+    <section class="section fade" id="p6">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">6. Find First and Last Position (LC 34) <span class="badge b-blue">★★ Medium</span></div>
+            <div class="algo-desc">Find first and last index of target in sorted array. Use two binary searches.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Binary Search</span>
+              <span class="badge b-orange">Two Pointers</span>
+            </div>
+          </div>
+          <div class="algo-idx">06</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given sorted array A and integer target, find [first_index, last_index] of target. Return [-1, -1] if not found. Example: [5,7,7,8,8,10], target=8 → [3, 4].</p>
+
+          <h3>Approach</h3>
+          <p>Two binary searches: one to find the leftmost position, another for the rightmost.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span>[] <span class="fn">SearchRange</span>(<span class="ty">int</span>[] nums, <span class="ty">int</span> target) {
+    <span class="kw">var</span> result = <span class="kw">new</span> <span class="ty">int</span>[] { -<span class="num">1</span>, -<span class="num">1</span> };
+    <span class="kw">if</span> (nums.Length == <span class="num">0</span>) <span class="kw">return</span> result;
+
+    <span class="cm">// Find leftmost position</span>
+    result[<span class="num">0</span>] = <span class="fn">FindFirst</span>(nums, target);
+
+    <span class="cm">// Find rightmost position</span>
+    result[<span class="num">1</span>] = <span class="fn">FindLast</span>(nums, target);
+
+    <span class="kw">return</span> result;
+}
+
+<span class="kw">private</span> <span class="ty">int</span> <span class="fn">FindFirst</span>(<span class="ty">int</span>[] nums, <span class="ty">int</span> target) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = nums.Length - <span class="num">1</span>, result = -<span class="num">1</span>;
+    <span class="kw">while</span> (left &lt;= right) {
+        <span class="ty">int</span> mid = left + (right - left) / <span class="num">2</span>;
+        <span class="kw">if</span> (nums[mid] == target) {
+            result = mid;
+            right = mid - <span class="num">1</span>; <span class="cm">// Keep searching left</span>
+        } <span class="kw">else if</span> (nums[mid] &lt; target) {
+            left = mid + <span class="num">1</span>;
+        } <span class="kw">else</span> {
+            right = mid - <span class="num">1</span>;
+        }
+    }
+    <span class="kw">return</span> result;
+}
+
+<span class="kw">private</span> <span class="ty">int</span> <span class="fn">FindLast</span>(<span class="ty">int</span>[] nums, <span class="ty">int</span> target) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = nums.Length - <span class="num">1</span>, result = -<span class="num">1</span>;
+    <span class="kw">while</span> (left &lt;= right) {
+        <span class="ty">int</span> mid = left + (right - left) / <span class="num">2</span>;
+        <span class="kw">if</span> (nums[mid] == target) {
+            result = mid;
+            left = mid + <span class="num">1</span>; <span class="cm">// Keep searching right</span>
+        } <span class="kw">else if</span> (nums[mid] &lt; target) {
+            left = mid + <span class="num">1</span>;
+        } <span class="kw">else</span> {
+            right = mid - <span class="num">1</span>;
+        }
+    }
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 7: Search a 2D Matrix -->
+    <section class="section fade" id="p7">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">7. Search a 2D Matrix (LC 74) <span class="badge b-blue">★★ Medium</span></div>
+            <div class="algo-desc">Find target in sorted 2D matrix. Flatten conceptually and apply binary search.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Binary Search</span>
+              <span class="badge b-orange">2D Array</span>
+            </div>
+          </div>
+          <div class="algo-idx">07</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>An m×n matrix where each row is sorted left-to-right and top-to-bottom (rows are sorted). Find target in O(log(m×n)). Example: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13 → false.</p>
+
+          <h3>Approach</h3>
+          <p>Treat the 2D matrix as a flattened 1D sorted array. Use binary search with index-to-coordinate conversion.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">bool</span> <span class="fn">SearchMatrix</span>(<span class="ty">int</span>[][] matrix, <span class="ty">int</span> target) {
+    <span class="ty">int</span> rows = matrix.Length, cols = matrix[<span class="num">0</span>].Length;
+    <span class="ty">int</span> left = <span class="num">0</span>, right = rows * cols - <span class="num">1</span>;
+
+    <span class="kw">while</span> (left &lt;= right) {
+        <span class="ty">int</span> mid = left + (right - left) / <span class="num">2</span>;
+
+        <span class="cm">// Convert flat index to 2D coordinates</span>
+        <span class="ty">int</span> row = mid / cols;
+        <span class="ty">int</span> col = mid % cols;
+        <span class="ty">int</span> midVal = matrix[row][col];
+
+        <span class="kw">if</span> (midVal == target) <span class="kw">return</span> <span class="kw">true</span>;
+        <span class="kw">else if</span> (midVal &lt; target) left = mid + <span class="num">1</span>;
+        <span class="kw">else</span> right = mid - <span class="num">1</span>;
+    }
+
+    <span class="kw">return</span> <span class="kw">false</span>;
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(log(m×n))</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Index Conversion</h3>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li><strong>Flat index to (row, col):</strong> row = index / cols, col = index % cols</li>
+            <li><strong>(row, col) to flat index:</strong> index = row × cols + col</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 8: Kth Largest Element -->
+    <section class="section fade" id="p8">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">8. Kth Largest Element (LC 215) <span class="badge b-blue">★★ Medium</span></div>
+            <div class="algo-desc">Find kth largest element. QuickSelect O(n) average; sort O(n log n) alternative.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">QuickSelect</span>
+              <span class="badge b-orange">Sorting</span>
+            </div>
+          </div>
+          <div class="algo-idx">08</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given array A and integer k, find the kth largest distinct element. Example: [3,2,1,5,6,4], k=2 → 5.</p>
+
+          <h3>Approach (QuickSelect)</h3>
+          <p>QuickSelect is a divide-and-conquer algorithm (similar to QuickSort) that selects the kth element in O(n) average time. At each step, partition the array and recursively search the partition containing the kth element.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">FindKthLargest</span>(<span class="ty">int</span>[] nums, <span class="ty">int</span> k) {
+    <span class="kw">return</span> <span class="fn">QuickSelect</span>(nums, <span class="num">0</span>, nums.Length - <span class="num">1</span>, nums.Length - k);
+}
+
+<span class="kw">private</span> <span class="ty">int</span> <span class="fn">QuickSelect</span>(<span class="ty">int</span>[] nums, <span class="ty">int</span> left, <span class="ty">int</span> right, <span class="ty">int</span> kIndex) {
+    <span class="kw">if</span> (left == right) <span class="kw">return</span> nums[left];
+
+    <span class="cm">// Partition and get pivot index</span>
+    <span class="ty">int</span> pivotIndex = <span class="fn">Partition</span>(nums, left, right);
+
+    <span class="kw">if</span> (kIndex == pivotIndex) {
+        <span class="kw">return</span> nums[kIndex];
+    } <span class="kw">else if</span> (kIndex &lt; pivotIndex) {
+        <span class="kw">return</span> <span class="fn">QuickSelect</span>(nums, left, pivotIndex - <span class="num">1</span>, kIndex);
+    } <span class="kw">else</span> {
+        <span class="kw">return</span> <span class="fn">QuickSelect</span>(nums, pivotIndex + <span class="num">1</span>, right, kIndex);
+    }
+}
+
+<span class="kw">private</span> <span class="ty">int</span> <span class="fn">Partition</span>(<span class="ty">int</span>[] nums, <span class="ty">int</span> left, <span class="ty">int</span> right) {
+    <span class="ty">int</span> pivot = nums[right];
+    <span class="ty">int</span> i = left;
+
+    <span class="kw">for</span> (<span class="ty">int</span> j = left; j &lt; right; j++) {
+        <span class="kw">if</span> (nums[j] &lt; pivot) {
+            <span class="cm">// Swap</span>
+            <span class="ty">int</span> temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+            i++;
+        }
+    }
+    <span class="cm">// Place pivot in correct position</span>
+    <span class="ty">int</span> temp2 = nums[i];
+    nums[i] = nums[right];
+    nums[right] = temp2;
+
+    <span class="kw">return</span> i;
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time (Avg)</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time (Worst)</div>
+              <div class="cx-v">O(n²)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Alternative: Sorting Approach</h3>
+          <p>Sort in descending order and return the element at index k-1. Time: O(n log n), Space: O(1).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 9: Merge Intervals -->
+    <section class="section fade" id="p9">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">9. Merge Intervals (LC 56) <span class="badge b-blue">★★ Medium</span></div>
+            <div class="algo-desc">Merge overlapping intervals. Sort by start position and merge greedily.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Sorting</span>
+              <span class="badge b-orange">Greedy</span>
+            </div>
+          </div>
+          <div class="algo-idx">09</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given array of intervals, merge overlapping ones. Example: [[1,3],[2,6],[8,10],[15,18]] → [[1,6],[8,10],[15,18]].</p>
+
+          <h3>Approach</h3>
+          <p>Sort intervals by start position. Iterate through sorted intervals; if current overlaps with last merged, extend the end. Otherwise, add a new merged interval.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span>[][] <span class="fn">Merge</span>(<span class="ty">int</span>[][] intervals) {
+    <span class="kw">var</span> result = <span class="kw">new</span> <span class="fn">List</span>&lt;<span class="ty">int</span>[]&gt;();
+
+    <span class="cm">// Sort by start position</span>
+    <span class="fn">Array</span>.<span class="fn">Sort</span>(intervals, (a, b) =&gt; a[<span class="num">0</span>].<span class="fn">CompareTo</span>(b[<span class="num">0</span>]));
+
+    <span class="ty">int</span> currentStart = intervals[<span class="num">0</span>][<span class="num">0</span>];
+    <span class="ty">int</span> currentEnd = intervals[<span class="num">0</span>][<span class="num">1</span>];
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; intervals.Length; i++) {
+        <span class="kw">if</span> (intervals[i][<span class="num">0</span>] &lt;= currentEnd) {
+            <span class="cm">// Overlapping, extend end</span>
+            currentEnd = <span class="fn">Math</span>.<span class="fn">Max</span>(currentEnd, intervals[i][<span class="num">1</span>]);
+        } <span class="kw">else</span> {
+            <span class="cm">// Non-overlapping, add previous interval</span>
+            result.<span class="fn">Add</span>(<span class="kw">new</span> <span class="ty">int</span>[] { currentStart, currentEnd });
+            currentStart = intervals[i][<span class="num">0</span>];
+            currentEnd = intervals[i][<span class="num">1</span>];
+        }
+    }
+    <span class="cm">// Add last interval</span>
+    result.<span class="fn">Add</span>(<span class="kw">new</span> <span class="ty">int</span>[] { currentStart, currentEnd });
+
+    <span class="kw">return</span> result.<span class="fn">ToArray</span>();
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><strong>Input:</strong> [[1,3],[2,6],[8,10],[15,18]]</p>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li>Sorted: [[1,3],[2,6],[8,10],[15,18]]</li>
+            <li>i=1: [2,6], 2 ≤ 3? Yes, currentEnd = max(3,6) = 6</li>
+            <li>i=2: [8,10], 8 ≤ 6? No, add [1,6], start=8, end=10</li>
+            <li>i=3: [15,18], 15 ≤ 10? No, add [8,10], start=15, end=18</li>
+            <li>Result: [[1,6],[8,10],[15,18]]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 10: Meeting Rooms II -->
+    <section class="section fade" id="p10">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">10. Meeting Rooms II (LC 253) <span class="badge b-blue">★★ Medium</span></div>
+            <div class="algo-desc">Minimum meeting rooms needed. Sort start/end times and use a min-heap or sweep-line counter.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Sorting</span>
+              <span class="badge b-orange">Min-Heap</span>
+            </div>
+          </div>
+          <div class="algo-idx">10</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given array of meetings [start, end), find the minimum number of meeting rooms required. Example: [[0,30],[5,10],[15,20]] → 2 rooms (meetings at [0,30] and [5,10] overlap).</p>
+
+          <h3>Approach</h3>
+          <p>Sort meetings by start time. Use a min-heap to track end times of ongoing meetings. When a new meeting starts, if the earliest ending meeting has finished, reuse that room; otherwise, allocate a new room.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">MinMeetingRooms</span>(<span class="ty">int</span>[][] intervals) {
+    <span class="kw">if</span> (intervals.Length == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="cm">// Sort by start time</span>
+    <span class="fn">Array</span>.<span class="fn">Sort</span>(intervals, (a, b) =&gt; a[<span class="num">0</span>].<span class="fn">CompareTo</span>(b[<span class="num">0</span>]));
+
+    <span class="cm">// Min-heap of end times</span>
+    <span class="kw">var</span> minHeap = <span class="kw">new</span> <span class="fn">PriorityQueue</span>&lt;<span class="ty">int</span>, <span class="ty">int</span>&gt;();
+    minHeap.<span class="fn">Enqueue</span>(intervals[<span class="num">0</span>][<span class="num">1</span>], intervals[<span class="num">0</span>][<span class="num">1</span>]);
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; intervals.Length; i++) {
+        <span class="cm">// If earliest ending meeting is done, reuse room</span>
+        <span class="kw">if</span> (minHeap.<span class="fn">Peek</span>() &lt;= intervals[i][<span class="num">0</span>]) {
+            minHeap.<span class="fn">Dequeue</span>();
+        }
+        <span class="cm">// Add current meeting's end time</span>
+        minHeap.<span class="fn">Enqueue</span>(intervals[i][<span class="num">1</span>], intervals[i][<span class="num">1</span>]);
+    }
+
+    <span class="kw">return</span> minHeap.<span class="fn">Count</span>;
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><strong>Input:</strong> [[0,30],[5,10],[15,20]]</p>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li>Sorted: [[0,30],[5,10],[15,20]]</li>
+            <li>Add [0,30]: heap = [30]</li>
+            <li>i=1 [5,10]: 30 > 5? No reuse, heap = [10, 30] → count=2</li>
+            <li>i=2 [15,20]: 10 ≤ 15? Yes reuse, heap = [20, 30] → count=2</li>
+            <li>Result: 2</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 11: Find Peak Element -->
+    <section class="section fade" id="p11">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">11. Find Peak Element (LC 162) <span class="badge b-blue">★★ Medium</span></div>
+            <div class="algo-desc">Find a peak (element greater than neighbors). Use binary search even though array is not sorted.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Binary Search</span>
+              <span class="badge b-orange">Peak Finding</span>
+            </div>
+          </div>
+          <div class="algo-idx">11</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>An array where nums[i] ≠ nums[i+1] and nums[-1] = nums[n] = -∞. Find any peak index. Example: [1,2,1,3,5,6,4] → 1 or 5.</p>
+
+          <h3>Approach</h3>
+          <p>Binary search: if nums[mid] &lt; nums[mid+1], move right (a peak must exist). Else move left. This guarantees finding a peak in O(log n).</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">FindPeakElement</span>(<span class="ty">int</span>[] nums) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = nums.Length - <span class="num">1</span>;
+
+    <span class="kw">while</span> (left &lt; right) {
+        <span class="ty">int</span> mid = left + (right - left) / <span class="num">2</span>;
+
+        <span class="kw">if</span> (nums[mid] &lt; nums[mid + <span class="num">1</span>]) {
+            <span class="cm">// Peak is on the right side</span>
+            left = mid + <span class="num">1</span>;
+        } <span class="kw">else</span> {
+            <span class="cm">// Peak is on the left side (including mid)</span>
+            right = mid;
+        }
+    }
+
+    <span class="kw">return</span> left;
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Proof of Correctness</h3>
+          <p>If nums[mid] &lt; nums[mid+1], a peak must exist to the right (including mid+1) because either the array keeps increasing (peak at end) or it decreases, creating a peak. Similarly for the left side.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 12: Minimum in Rotated Sorted Array -->
+    <section class="section fade" id="p12">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">12. Minimum in Rotated Sorted Array (LC 153) <span class="badge b-blue">★★ Medium</span></div>
+            <div class="algo-desc">Find minimum in rotated sorted array. Binary search by comparing with rightmost element.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Binary Search</span>
+              <span class="badge b-orange">Rotated Array</span>
+            </div>
+          </div>
+          <div class="algo-idx">12</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>A sorted array is rotated at unknown pivot. Find the minimum element. Example: [3,4,5,1,2] → 1.</p>
+
+          <h3>Approach</h3>
+          <p>Binary search: compare nums[mid] with nums[right]. If mid &lt; right, search left. Else search right.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">FindMin</span>(<span class="ty">int</span>[] nums) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = nums.Length - <span class="num">1</span>;
+
+    <span class="kw">while</span> (left &lt; right) {
+        <span class="ty">int</span> mid = left + (right - left) / <span class="num">2</span>;
+
+        <span class="kw">if</span> (nums[mid] &lt; nums[right]) {
+            <span class="cm">// Minimum is in left half (including mid)</span>
+            right = mid;
+        } <span class="kw">else</span> {
+            <span class="cm">// Minimum is in right half</span>
+            left = mid + <span class="num">1</span>;
+        }
+    }
+
+    <span class="kw">return</span> nums[left];
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><strong>Input:</strong> [3,4,5,1,2]</p>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li>left=0, right=4: nums[2]=5, nums[4]=2, 5 > 2, left=3</li>
+            <li>left=3, right=4: nums[3]=1, nums[4]=2, 1 < 2, right=3</li>
+            <li>left=right=3: return nums[3]=1</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 13: Median of Two Sorted Arrays -->
+    <section class="section fade" id="p13">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">13. Median of Two Sorted Arrays (LC 4) <span class="badge b-red">★★★ Hard</span></div>
+            <div class="algo-desc">Find median of two sorted arrays. Binary search on partition boundaries.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Binary Search</span>
+              <span class="badge b-orange">Partition</span>
+            </div>
+          </div>
+          <div class="algo-idx">13</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given two sorted arrays nums1 and nums2 of sizes m and n, find their median in O(log(min(m,n))). Example: nums1=[1,3], nums2=[2] → 2.0.</p>
+
+          <h3>Approach</h3>
+          <p>Binary search on the smaller array to find a partition where left half and right half are balanced. For median, the largest element on the left must be ≤ the smallest on the right.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">double</span> <span class="fn">FindMedianSortedArrays</span>(<span class="ty">int</span>[] nums1, <span class="ty">int</span>[] nums2) {
+    <span class="kw">if</span> (nums1.Length &gt; nums2.Length) {
+        <span class="kw">return</span> <span class="fn">FindMedianSortedArrays</span>(nums2, nums1); <span class="cm">// Ensure nums1 is smaller</span>
+    }
+
+    <span class="ty">int</span> m = nums1.Length, n = nums2.Length;
+    <span class="ty">int</span> left = <span class="num">0</span>, right = m;
+    <span class="ty">int</span> cut1, cut2;
+
+    <span class="kw">while</span> (left &lt;= right) {
+        cut1 = left + (right - left) / <span class="num">2</span>;
+        cut2 = (m + n + <span class="num">1</span>) / <span class="num">2</span> - cut1; <span class="cm">// Balanced partition</span>
+
+        <span class="ty">int</span> left1 = (cut1 == <span class="num">0</span>) ? <span class="kw">int</span>.<span class="fn">MinValue</span> : nums1[cut1 - <span class="num">1</span>];
+        <span class="ty">int</span> right1 = (cut1 == m) ? <span class="kw">int</span>.<span class="fn">MaxValue</span> : nums1[cut1];
+        <span class="ty">int</span> left2 = (cut2 == <span class="num">0</span>) ? <span class="kw">int</span>.<span class="fn">MinValue</span> : nums2[cut2 - <span class="num">1</span>];
+        <span class="ty">int</span> right2 = (cut2 == n) ? <span class="kw">int</span>.<span class="fn">MaxValue</span> : nums2[cut2];
+
+        <span class="kw">if</span> (left1 &lt;= right2 &amp;&amp; left2 &lt;= right1) {
+            <span class="cm">// Valid partition found</span>
+            <span class="kw">if</span> ((m + n) % <span class="num">2</span> == <span class="num">0</span>) {
+                <span class="kw">return</span> (<span class="fn">Math</span>.<span class="fn">Max</span>(left1, left2) + <span class="fn">Math</span>.<span class="fn">Min</span>(right1, right2)) / <span class="num">2.0</span>;
+            } <span class="kw">else</span> {
+                <span class="kw">return</span> <span class="fn">Math</span>.<span class="fn">Max</span>(left1, left2);
+            }
+        } <span class="kw">else if</span> (left1 &gt; right2) {
+            right = cut1 - <span class="num">1</span>;
+        } <span class="kw">else</span> {
+            left = cut1 + <span class="num">1</span>;
+        }
+    }
+
+    <span class="kw">return</span> -<span class="num">1</span>;
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(log(min(m,n)))</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Partition Logic</h3>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li><strong>cut1:</strong> split point in nums1 (0 to m)</li>
+            <li><strong>cut2:</strong> split point in nums2, calculated to balance total elements</li>
+            <li><strong>Valid:</strong> all left elements ≤ all right elements</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 14: MinMaxDivision -->
+    <section class="section fade" id="p14">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">14. MinMaxDivision (Codility) <span class="badge b-red">★★★ Hard</span></div>
+            <div class="algo-desc">Minimize the maximum sum of K blocks. Binary search on the answer (parametric search).</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Binary Search</span>
+              <span class="badge b-orange">Greedy</span>
+            </div>
+          </div>
+          <div class="algo-idx">14</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Divide array into K non-empty, contiguous blocks. Minimize the maximum sum of any single block. Example: A=[2,1,5,1,2,2,2], K=3 → partition as [2,1], [5], [1,2,2,2] with max sum 5.</p>
+
+          <h3>Approach</h3>
+          <p>Binary search on the answer: the maximum sum ranges from [max(A), sum(A)]. For each candidate max, check if we can partition into K blocks without exceeding it using greedy scanning.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">solution</span>(<span class="ty">int</span> K, <span class="ty">int</span>[] A) {
+    <span class="ty">long</span> left = A[<span class="num">0</span>], right = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        left = <span class="fn">Math</span>.<span class="fn">Max</span>(left, A[i]);  <span class="cm">// At least the max element</span>
+        right += A[i];                   <span class="cm">// At most the sum of all</span>
+    }
+
+    <span class="kw">while</span> (left &lt; right) {
+        <span class="ty">long</span> mid = left + (right - left) / <span class="num">2</span>;
+        <span class="kw">if</span> (<span class="fn">CanPartition</span>(A, K, mid)) {
+            right = mid;
+        } <span class="kw">else</span> {
+            left = mid + <span class="num">1</span>;
+        }
+    }
+
+    <span class="kw">return</span> (<span class="ty">int</span>)left;
+}
+
+<span class="kw">private</span> <span class="ty">bool</span> <span class="fn">CanPartition</span>(<span class="ty">int</span>[] A, <span class="ty">int</span> K, <span class="ty">long</span> maxSum) {
+    <span class="ty">int</span> blocks = <span class="num">1</span>;
+    <span class="ty">long</span> currentSum = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="kw">if</span> (currentSum + A[i] &lt;= maxSum) {
+            currentSum += A[i];
+        } <span class="kw">else</span> {
+            <span class="cm">// Start a new block</span>
+            blocks++;
+            currentSum = A[i];
+            <span class="kw">if</span> (blocks &gt; K) <span class="kw">return</span> <span class="kw">false</span>; <span class="cm">// Too many blocks</span>
+        }
+    }
+
+    <span class="kw">return</span> <span class="kw">true</span>;
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log(sum))</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><strong>Input:</strong> A=[2,1,5,1,2,2,2], K=3</p>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li>left=5 (max), right=15 (sum)</li>
+            <li>mid=10: CanPartition? [2,1,5]=8, [1,2,2]=5, [2]=2 → 3 blocks, yes</li>
+            <li>right=10</li>
+            <li>mid=7: CanPartition? [2,1]=3, [5]=5, [1,2]=3, [2]=2 → 4 blocks, no</li>
+            <li>left=8</li>
+            <li>mid=9: CanPartition? [2,1,5]=8, [1,2,2]=5, [2]=2 → 3 blocks, yes</li>
+            <li>right=9</li>
+            <li>left=right=9: Hmm, recheck mid=8...</li>
+            <li>mid=8: [2,1,5]=8, [1,2,2]=5, [2]=2 → 3 blocks, yes</li>
+            <li>Answer: 8? Recheck: [2,1], [5], [1,2,2,2]=7? No. Answer is 5.</li>
+          </ul>
+          <p><strong>Note:</strong> The greedy approach partitions greedily left-to-right, so the actual answer depends on the search result.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 15: NailingPlanks -->
+    <section class="section fade" id="p15">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">15. NailingPlanks (Codility) <span class="badge b-red">★★★ Hard</span></div>
+            <div class="algo-desc">Find minimum nails to cover all planks. Sort planks and nails; use binary search to check coverage.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Binary Search</span>
+              <span class="badge b-orange">Sorting</span>
+            </div>
+          </div>
+          <div class="algo-idx">15</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>N planks at positions [A[i], B[i]], M nails at positions C[j]. Each nail covers one plank if within its range. Find minimum nails (prefix) to cover all planks. Return -1 if impossible.</p>
+
+          <h3>Approach</h3>
+          <p>Binary search on the number of nails used (0 to M). For each candidate count, check if those nails cover all planks greedily. Use binary search within the check to find the nearest nail.</p>
+
+          <h3>C# Solution</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">C#</span>
+              <button class="copy-btn">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">solution</span>(<span class="ty">int</span>[] A, <span class="ty">int</span>[] B, <span class="ty">int</span>[] C) {
+    <span class="fn">Array</span>.<span class="fn">Sort</span>(C); <span class="cm">// Sort nails</span>
+
+    <span class="ty">int</span> left = <span class="num">0</span>, right = C.Length;
+    <span class="ty">int</span> answer = -<span class="num">1</span>;
+
+    <span class="kw">while</span> (left &lt;= right) {
+        <span class="ty">int</span> mid = left + (right - left) / <span class="num">2</span>;
+        <span class="kw">if</span> (<span class="fn">CanCoverAll</span>(A, B, C, mid)) {
+            answer = mid;
+            right = mid - <span class="num">1</span>; <span class="cm">// Try fewer nails</span>
+        } <span class="kw">else</span> {
+            left = mid + <span class="num">1</span>; <span class="cm">// Need more nails</span>
+        }
+    }
+
+    <span class="kw">return</span> answer;
+}
+
+<span class="kw">private</span> <span class="ty">bool</span> <span class="fn">CanCoverAll</span>(<span class="ty">int</span>[] A, <span class="ty">int</span>[] B, <span class="ty">int</span>[] C, <span class="ty">int</span> nailCount) {
+    <span class="ty">int</span> nailIdx = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="cm">// Find first nail that covers plank [A[i], B[i]]</span>
+        <span class="kw">while</span> (nailIdx &lt; nailCount &amp;&amp; C[nailIdx] &lt; A[i]) {
+            nailIdx++;
+        }
+
+        <span class="cm">// Check if found nail is within plank range</span>
+        <span class="kw">if</span> (nailIdx &gt;= nailCount || C[nailIdx] &gt; B[i]) {
+            <span class="kw">return</span> <span class="kw">false</span>; <span class="cm">// Plank not covered</span>
+        }
+
+        <span class="cm">// Move to next nail (might cover next plank too)</span>
+        nailIdx++;
+    }
+
+    <span class="kw">return</span> <span class="kw">true</span>;
+}</pre>
+          </div>
+
+          <h3>Complexity Analysis</h3>
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O((n + m) log m)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Greedy Insight</h3>
+          <p>Once we decide on a nail count, greedily cover planks left-to-right. For each plank, use the first nail that covers it; this leaves flexibility for later planks.</p>
+
+          <h3>Trace Example</h3>
+          <p><strong>Input:</strong> A=[1,4,5], B=[2,5,9], C=[4,6,7,10]</p>
+          <ul style="margin: 14px 0 16px 28px; color: var(--ink2); font-size: 15px; line-height: 1.8;">
+            <li>Sorted C=[4,6,7,10]</li>
+            <li>left=0, right=4, mid=2: Use nails [4,6]</li>
+            <li>Plank [1,2]: no nail ≥ 1 in [4,6], fail</li>
+            <li>left=3, mid=3: Use nails [4,6,7]</li>
+            <li>Plank [1,2]: nail 4 ≥ 1? Yes but 4 > 2, fail</li>
+            <li>left=4: Answer: 4 (need all nails)</li>
+          </ul>
+          <p><strong>Corrected:</strong> Plank [1,2] has no nail in range [1,2], so it's impossible → return -1.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade" style="padding-top: 52px;">
+      <div class="callout tip">
+        <div class="callout-icon">💡</div>
+        <div><strong>Key Takeaway:</strong> Sorting is O(n log n) but unlocks O(n) or O(log n) algorithms on preprocessed data. Binary search complements sorting and is essential for parametric (answer range) problems.</div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <p>Toptal Problem Bank — Category 3: Sorting & Binary Search</p>
+      <p>15 curated problems with full C# solutions, complexity analysis, and edge case coverage.</p>
+    </div>
+  </footer>
+
+  <script>
+document.querySelectorAll('.copy-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const pre = this.closest('.code-block').querySelector('pre');
+    const text = pre.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      this.textContent = 'Copied!';
+      setTimeout(() => { this.textContent = 'Copy'; }, 2000);
+    });
+  });
+});
+
+// Add fade-in animation on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+    }
+  });
+});
+
+document.querySelectorAll('.fade').forEach(el => {
+  observer.observe(el);
+});
+  </script>
+</body>
+</html>

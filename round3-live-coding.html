@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Toptal live coding round preparation — what to expect, communication tips, and strategies for coding under pressure.">
+  <meta name="keywords" content="Toptal live coding, round 3, pair programming, coding interview, communication">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/round3-live-coding.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/round3-live-coding.html">
+  <meta property="og:title" content="Round 3: Live Coding Interview — REACTO Method - Toptal Interview Prep">
+  <meta property="og:description" content="Toptal live coding round preparation — what to expect, communication tips, and strategies for coding under pressure.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/round3-live-coding.html">
+  <meta name="twitter:title" content="Round 3: Live Coding Interview — REACTO Method - Toptal Interview Prep">
+  <meta name="twitter:description" content="Toptal live coding round preparation — what to expect, communication tips, and strategies for coding under pressure.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Round 3: Live Coding Interview \u2014 REACTO Method - Toptal Interview Prep",
+  "description": "Toptal live coding round preparation \u2014 what to expect, communication tips, and strategies for coding under pressure.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/round3-live-coding.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Round 3: Live Coding Interview — REACTO Method - Toptal Interview Prep</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section h4{font-size:16px;font-weight:700;margin-bottom:10px;margin-top:20px;color:var(--ink)}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.algo{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px}
+.algo-head{padding:28px 32px 22px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.algo-idx{font-size:58px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em}
+.algo-name{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.algo-desc{font-family:var(--serif);font-size:14.5px;color:var(--ink2);line-height:1.72;max-width:580px}
+.algo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.algo-body{padding:28px 32px}
+.cx-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.cx{background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;min-width:110px}
+.cx-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cx-v{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink)}
+.steps{margin-bottom:26px}
+.step{display:flex}
+.step-left{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--acc-l);border:1.5px solid var(--acc-b);color:var(--acc);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono);flex-shrink:0}
+.step-vline{width:1.5px;flex:1;background:var(--rule);margin:4px 0}
+.step:last-child .step-vline{display:none}
+.step-body{padding:3px 0 22px 14px;font-size:14px;color:var(--ink2);line-height:1.68}
+.step-body strong{color:var(--ink);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+.details-summary{cursor:pointer;user-select:none;font-weight:600;color:var(--acc);padding:12px 0;border-bottom:1px solid var(--rule);display:flex;align-items:center;gap:8px}
+.details-summary:hover{color:#a85a15}
+.details-summary::marker{color:var(--acc)}
+details[open]>.details-summary{border-bottom:1px solid var(--acc);margin-bottom:16px}
+.template-box{background:var(--bg2);border:1px solid var(--rule);border-radius:12px;padding:16px;margin:16px 0;font-family:var(--mono);font-size:13px;color:var(--ink2);line-height:1.7;overflow-x:auto}
+.phrase-callout{background:var(--white);border:2px solid var(--acc-b);border-radius:10px;padding:16px;margin:16px 0}
+.phrase-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:8px}
+.phrase-text{font-family:var(--serif);font-size:15px;font-style:italic;color:var(--ink);line-height:1.7}
+@media(max-width:700px){
+  .algo-head{grid-template-columns:1fr}.algo-idx{display:none}
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Interview Prep
+        <span class="pill">ROUND 3</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#expectations">What to Expect</a>
+        <a href="#reacto">REACTO</a>
+        <a href="#examples">Examples</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Interview Round 3</div>
+      </div>
+      <h1>Live Coding <em>Interview</em></h1>
+      <p class="hero-sub">Master the REACTO framework for thinking out loud, handling real-time problem-solving, and impressing your interviewer. These practices and templates will guide you through a live 40-minute coding session with screen sharing.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">40 min</div>
+          <div class="stat-l">Duration</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">2</div>
+          <div class="stat-l">Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">REACTO</div>
+          <div class="stat-l">Framework</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Communication</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPECTATIONS -->
+    <section class="section fade" id="expectations">
+      <div class="sec-tag">
+        <span class="sec-num">ROUND 3</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>What to Expect</h2>
+      <p class="lead">Round 3 is a live, timed coding interview with screen sharing. The interviewer watches you code in real time and evaluates both your solution and your thought process.</p>
+
+      <h3>Session Format</h3>
+      <div class="cx-row">
+        <div class="cx">
+          <div class="cx-l">Duration</div>
+          <div class="cx-v">40 minutes</div>
+        </div>
+        <div class="cx">
+          <div class="cx-l">Problem Count</div>
+          <div class="cx-v">2 problems</div>
+        </div>
+        <div class="cx">
+          <div class="cx-l">Difficulty</div>
+          <div class="cx-v">Medium–Hard</div>
+        </div>
+        <div class="cx">
+          <div class="cx-l">Setup</div>
+          <div class="cx-v">Screen share + IDE</div>
+        </div>
+      </div>
+
+      <h3>What the Interviewer Evaluates</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">1</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body"><strong>Problem understanding:</strong> Do you ask clarifying questions? Do you restate the problem in your own words?</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">2</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body"><strong>Approach clarity:</strong> Can you explain your algorithm before coding? Do you discuss trade-offs?</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">3</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body"><strong>Code quality:</strong> Is your code clean, readable, properly formatted? Do you handle edge cases?</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">4</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body"><strong>Testing discipline:</strong> Do you trace through examples? Do you identify and fix bugs?</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">5</div>
+          </div>
+          <div class="step-body"><strong>Communication:</strong> Are you silent and heads-down? Or do you explain decisions as you code? The latter is strongly preferred.</div>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <span class="callout-icon">⚠️</span>
+        <div><strong>Critical reminder:</strong> The interviewer is not just checking if your solution works. They want to understand how you think. A working solution with poor communication is worse than a partially-working solution with excellent communication and clear thinking.</div>
+      </div>
+
+      <h3>Time Allocation (40 minutes for 2 problems)</h3>
+      <p>Allocate roughly 18–20 minutes per problem to account for overlap and final discussion:</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Phase</th>
+              <th>Duration</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Clarify</td>
+              <td>2–3 min</td>
+              <td>Ask questions, restate problem, confirm understanding with interviewer</td>
+            </tr>
+            <tr>
+              <td>Examples</td>
+              <td>2 min</td>
+              <td>Write 2–3 test cases including edge cases</td>
+            </tr>
+            <tr>
+              <td>Approach</td>
+              <td>3–4 min</td>
+              <td>Discuss algorithm, complexity, get buy-in from interviewer</td>
+            </tr>
+            <tr>
+              <td>Code</td>
+              <td>8–10 min</td>
+              <td>Write clean, readable solution; narrate as you type</td>
+            </tr>
+            <tr>
+              <td>Test</td>
+              <td>2–3 min</td>
+              <td>Trace through examples, find and fix bugs</td>
+            </tr>
+            <tr>
+              <td>Optimize</td>
+              <td>1–2 min</td>
+              <td>Discuss further improvements (if time permits)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- REACTO FRAMEWORK -->
+    <section class="section fade" id="reacto">
+      <div class="sec-tag">
+        <span class="sec-num">FRAMEWORK</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>The REACTO Method</h2>
+      <p class="lead">REACTO is a structured approach to live coding interviews. It stands for Repeat, Examples, Approach, Code, Test, Optimize. Follow it step-by-step, and you'll impress any interviewer.</p>
+
+      <!-- R: REPEAT -->
+      <h3>R — Repeat</h3>
+      <p>Restate the problem in your own words. Clarify inputs, outputs, and constraints. Ask for confirmation.</p>
+      <div class="phrase-callout">
+        <div class="phrase-label">Your opening line:</div>
+        <div class="phrase-text">"Let me make sure I understand the problem correctly. We're given [description], and we need to return [description]. Is that right?"</div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">1</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body">Restate the problem as you understand it (in 1–2 sentences).</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">2</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body">Clarify: "What are the input types and size? Any constraints I should know?"</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">3</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body">Confirm: "Is it OK if I assume [common assumption]?" (e.g., "inputs are always valid")</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">4</div>
+          </div>
+          <div class="step-body">Wait for feedback before moving on. Clarification now prevents mistakes later.</div>
+        </div>
+      </div>
+
+      <!-- E: EXAMPLES -->
+      <h3>E — Examples</h3>
+      <p>Write 2–3 concrete examples on the whiteboard or in comments. Include at least one edge case.</p>
+      <div class="phrase-callout">
+        <div class="phrase-label">Your phrase:</div>
+        <div class="phrase-text">"Let me work through a few examples to make sure I understand this correctly."</div>
+      </div>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Example 1: Typical case</span>
+<span class="cm">// Input: arr = [1, 2, 3], target = 5</span>
+<span class="cm">// Output: [0, 2] (arr[0] + arr[2] = 1 + 3 = 4... wait, that's wrong)</span>
+<span class="cm">// Let me reconsider...</span>
+<span class="cm">// Output should be indices where sum equals target</span>
+
+<span class="cm">// Example 2: Edge case — single pair</span>
+<span class="cm">// Input: arr = [2, 3], target = 5</span>
+<span class="cm">// Output: [0, 1]</span>
+
+<span class="cm">// Example 3: Edge case — no solution</span>
+<span class="cm">// Input: arr = [1, 1, 1], target = 5</span>
+<span class="cm">// Output: [] or error indicator</span></pre>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>Why examples first?</strong> Writing examples forces you to deeply understand the problem and catches misunderstandings early. It's easier to fix a wrong assumption at the examples stage than after coding 10 minutes of wrong logic.</div>
+      </div>
+
+      <!-- A: APPROACH -->
+      <h3>A — Approach</h3>
+      <p>Describe your algorithm before coding. Discuss time/space complexity. Get the interviewer's buy-in.</p>
+      <div class="phrase-callout">
+        <div class="phrase-label">Your phrase:</div>
+        <div class="phrase-text">"I'm thinking of using [data structure / algorithm] because [reason]. This would give us O(n) time and O(n) space. Does that sound reasonable to you?"</div>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">1</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body">Outline your approach in plain English (not code).</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">2</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body">State time complexity and why. Example: "Hash map lookup is O(1), so we do N lookups = O(N) total."</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">3</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body">State space complexity.</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">4</div>
+          </div>
+          <div class="step-body">Mention any trade-offs: "A sorting approach would be O(n log n) but use no extra space, whereas my approach is O(n) time with O(n) space. I prefer speed here."</div>
+        </div>
+      </div>
+
+      <!-- C: CODE -->
+      <h3>C — Code</h3>
+      <p>Write clean, readable code. Narrate as you go. Use meaningful variable names. Leave comments for complex logic.</p>
+      <div class="phrase-callout">
+        <div class="phrase-label">Your phrase:</div>
+        <div class="phrase-text">"Now I'll write the code. First, I'll initialize a hash map to store seen values..."</div>
+      </div>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="kw">public int</span>[] <span class="fn">TwoSum</span>(<span class="ty">int</span>[] nums, <span class="ty">int</span> target) {
+    <span class="cm">// Map: value → index</span>
+    <span class="kw">var</span> seen = <span class="kw">new</span> Dictionary&lt;<span class="ty">int</span>, <span class="ty">int</span>&gt;();
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; nums.Length; i++) {
+        <span class="ty">int</span> complement = target - nums[i];
+
+        <span class="cm">// Check if we've seen the complement</span>
+        <span class="kw">if</span> (seen.<span class="fn">ContainsKey</span>(complement)) {
+            <span class="kw">return</span> <span class="kw">new</span> <span class="ty">int</span>[] { seen[complement], i };
+        }
+
+        <span class="cm">// Store this number if not seen</span>
+        <span class="kw">if</span> (!seen.<span class="fn">ContainsKey</span>(nums[i])) {
+            seen[nums[i]] = i;
+        }
+    }
+
+    <span class="kw">return</span> <span class="kw">new</span> <span class="ty">int</span>[<span class="num">0</span>];  <span class="cm">// No pair found</span>
+}</pre>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>Narration matters:</strong> As you type, explain what you're doing. "I'm iterating through each number and checking if we've seen its complement in the map..." This shows the interviewer you're thinking clearly and aren't just copy-pasting muscle memory.</div>
+      </div>
+
+      <!-- T: TEST -->
+      <h3>T — Test</h3>
+      <p>Manually trace through your examples. Find bugs. Fix them on the spot.</p>
+      <div class="phrase-callout">
+        <div class="phrase-label">Your phrase:</div>
+        <div class="phrase-text">"Let me trace through my first example to verify this works..."</div>
+      </div>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">text</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Trace Example 1: nums = [2, 7, 11, 15], target = 9</span>
+<span class="cm">// i=0: nums[0]=2, complement=9-2=7, seen={}, 7 not found</span>
+<span class="cm">//      seen[2]=0 → seen={2→0}</span>
+<span class="cm">// i=1: nums[1]=7, complement=9-7=2, seen={2→0}, found!</span>
+<span class="cm">//      return [0, 1]</span>
+<span class="cm">// Expected: [0, 1] ✓</span>
+
+<span class="cm">// Trace Example 2 (edge case): nums = [3, 3], target = 6</span>
+<span class="cm">// i=0: nums[0]=3, complement=3, seen={}, 3 not found</span>
+<span class="cm">//      seen[3]=0 → seen={3→0}</span>
+<span class="cm">// i=1: nums[1]=3, complement=3, seen={3→0}, found!</span>
+<span class="cm">//      return [0, 1]</span>
+<span class="cm">// Expected: [0, 1] ✓</span></pre>
+      </div>
+
+      <!-- O: OPTIMIZE -->
+      <h3>O — Optimize</h3>
+      <p>If time remains, discuss improvements. Could you use less space? Faster algorithm? Handle more edge cases?</p>
+      <div class="phrase-callout">
+        <div class="phrase-label">Your phrase:</div>
+        <div class="phrase-text">"The solution is O(n) time and O(n) space. We could potentially optimize space by using a sorted two-pointer approach (O(n log n) time, O(1) space), but I think the hash map is better here since we want the indices, not just a true/false answer."</div>
+      </div>
+      <div class="callout warn">
+        <span class="callout-icon">⚠️</span>
+        <div><strong>Don't optimize prematurely:</strong> Only discuss optimization if your initial solution works and you have time. A working O(n) solution beats an unfinished O(n log n) attempt.</div>
+      </div>
+    </section>
+
+    <!-- ENVIRONMENT SETUP -->
+    <section class="section fade" id="environment">
+      <div class="sec-tag">
+        <span class="sec-num">SETUP</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Environment & Tools</h2>
+      <p class="lead">Be prepared with a familiar IDE and template. Seconds matter in a 40-minute interview.</p>
+
+      <h3>Recommended IDEs for Live Interviews</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>IDE</th>
+              <th>Pros</th>
+              <th>Cons</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>VS Code</strong></td>
+              <td>Lightweight, quick to load, great C# support (with OmniSharp)</td>
+              <td>Requires extensions, occasional IntelliSense lag</td>
+            </tr>
+            <tr>
+              <td><strong>JetBrains Rider</strong></td>
+              <td>Best C# support, excellent debugging, fast refactoring</td>
+              <td>Heavier, may be slower on weak machines</td>
+            </tr>
+            <tr>
+              <td><strong>LINQPad</strong></td>
+              <td>Minimal setup, instant feedback, great for quick C# scripts</td>
+              <td>Less IDE-like, no project structure</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Pre-Interview Checklist</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">1</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body"><strong>Test your IDE:</strong> Launch it, write a simple "Hello World" in C#, compile, run. Verify it's fast.</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">2</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body"><strong>Have a template ready:</strong> Create a boilerplate file with a class and blank method signature. Copy-paste it at interview start to save 30 seconds.</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">3</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body"><strong>Learn keyboard shortcuts:</strong> Ctrl+Shift+I (format), Ctrl+/ (comment), Ctrl+X (delete line), etc. Your speed matters.</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">4</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body"><strong>Test screen sharing:</strong> Share your IDE with a friend or colleague beforehand. Verify code is readable at the shared resolution.</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">5</div>
+          </div>
+          <div class="step-body"><strong>Clean desk:</strong> Minimize distractions. Close email, Slack, etc. Have only the IDE and whiteboard/paper visible.</div>
+        </div>
+      </div>
+
+      <h3>C# Template for Quick Start</h3>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="kw">using</span> System;
+<span class="kw">using</span> System.Collections.Generic;
+<span class="kw">using</span> System.Linq;
+
+<span class="kw">public class</span> <span class="ty">Solution</span> {
+    <span class="kw">public int</span> <span class="fn">SolveProblem</span>(<span class="ty">int</span>[] input) {
+        <span class="cm">// Your code here</span>
+        <span class="kw">return</span> <span class="num">0</span>;
+    }
+
+    <span class="cm">// Test locally</span>
+    <span class="kw">public static void</span> <span class="fn">Main</span>() {
+        <span class="ty">var</span> sol = <span class="kw">new</span> <span class="ty">Solution</span>();
+        <span class="cm">// Add test cases</span>
+    }
+}</pre>
+      </div>
+    </section>
+
+    <!-- COMMUNICATION TEMPLATES -->
+    <section class="section fade" id="communication">
+      <div class="sec-tag">
+        <span class="sec-num">TEMPLATES</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Communication Templates</h2>
+      <p class="lead">Use these exact phrases and templates to guide your interviews. They sound natural while keeping you on track.</p>
+
+      <h3>At the Start</h3>
+      <div class="phrase-callout">
+        <div class="phrase-label">Opening statement:</div>
+        <div class="phrase-text">"I'll start by understanding the problem, write a few examples, discuss my approach, code it up, and then test it with the examples. Does that sound good?"</div>
+      </div>
+
+      <h3>Problem Understanding</h3>
+      <div class="phrase-callout">
+        <div class="phrase-label">Restating:</div>
+        <div class="phrase-text">"Let me make sure I understand. We're given [input], and we need to return [output]. The constraint is [constraint]. Is that correct?"</div>
+      </div>
+      <div class="phrase-callout">
+        <div class="phrase-label">Clarifying:</div>
+        <div class="phrase-text">"A couple of questions: Can the input be empty? Are there negative numbers? Is the input always sorted?"</div>
+      </div>
+
+      <h3>Algorithm Discussion</h3>
+      <div class="phrase-callout">
+        <div class="phrase-label">Proposing approach:</div>
+        <div class="phrase-text">"I'm thinking of using a two-pointer approach because it lets us solve this in one pass. Time complexity would be O(n) and space O(1). What do you think?"</div>
+      </div>
+      <div class="phrase-callout">
+        <div class="phrase-label">Discussing trade-offs:</div>
+        <div class="phrase-text">"We could also use a hash map (O(n) time, O(n) space) or sorting (O(n log n) time, O(1) space). I prefer the hash map because it's faster and this problem doesn't require us to preserve order."</div>
+      </div>
+
+      <h3>While Coding</h3>
+      <div class="phrase-callout">
+        <div class="phrase-label">Narrating logic:</div>
+        <div class="phrase-text">"I'll initialize a hash map to store values I've seen. Then I iterate through the array. For each element, I check if the complement is in the map. If yes, we found our pair. If not, I store this element."</div>
+      </div>
+      <div class="phrase-callout">
+        <div class="phrase-label">Handling edge cases:</div>
+        <div class="phrase-text">"Let me add a check for empty input here at the top."</div>
+      </div>
+      <div class="phrase-callout">
+        <div class="phrase-label">When stuck:</div>
+        <div class="phrase-text">"Let me think through this for a second... I'm getting stuck on [specific issue]. Can I think out loud? [Explain your reasoning]. What do you think?"</div>
+      </div>
+
+      <h3>Testing & Debugging</h3>
+      <div class="phrase-callout">
+        <div class="phrase-label">Before testing:</div>
+        <div class="phrase-text">"Let me trace through my first example to make sure this logic is sound."</div>
+      </div>
+      <div class="phrase-callout">
+        <div class="phrase-label">Found a bug:</div>
+        <div class="phrase-text">"Oh, I see the issue. I'm not handling [edge case]. Let me fix that." (Then fix it.)</div>
+      </div>
+      <div class="phrase-callout">
+        <div class="phrase-label">All tests pass:</div>
+        <div class="phrase-text">"Great, the solution passes all my test cases. Let me review it once more for any potential bugs... Looks good to me!"</div>
+      </div>
+
+      <h3>Complexity Analysis</h3>
+      <div class="phrase-callout">
+        <div class="phrase-label">Explaining time:</div>
+        <div class="phrase-text">"The time complexity is O(n) because we iterate through the array once, and each hash map lookup/insert is O(1)."</div>
+      </div>
+      <div class="phrase-callout">
+        <div class="phrase-label">Explaining space:</div>
+        <div class="phrase-text">"The space complexity is O(n) in the worst case, because we might store all elements in the hash map."</div>
+      </div>
+
+      <h3>Finishing Up</h3>
+      <div class="phrase-callout">
+        <div class="phrase-label">Offering optimizations:</div>
+        <div class="phrase-text">"If we wanted to optimize further, we could [idea], but I think this solution is solid for the given constraints. Do you have any questions about the approach?"</div>
+      </div>
+    </section>
+
+    <!-- PRACTICE PROBLEMS -->
+    <section class="section fade" id="examples">
+      <div class="sec-tag">
+        <span class="sec-num">PRACTICE</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>2 Practice Problems with Full REACTO Walkthrough</h2>
+      <p class="lead">Work through these problems using the REACTO framework. This is where you practice the communication patterns.</p>
+
+      <!-- PROBLEM A -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem A: Merge Intervals</div>
+            <div class="algo-desc">Given a collection of intervals, merge overlapping ones and return the result.</div>
+            <div class="algo-tags">
+              <span class="badge b-amber">Medium</span>
+              <span class="badge b-blue">LeetCode 56</span>
+            </div>
+          </div>
+          <div class="algo-idx">A</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given an array of intervals <code class="il">intervals[i] = [start_i, end_i]</code>, merge all overlapping intervals and return an array of non-overlapping intervals.</p>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Example 1</div>
+              <div class="cx-v">[[1,3],[2,6],[8,10],[15,18]]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">[[1,6],[8,10],[15,18]]</div>
+            </div>
+          </div>
+
+          <h3>Full REACTO Walkthrough</h3>
+
+          <h4>R — Repeat</h4>
+          <p>"So we have an array of intervals, and we need to merge the ones that overlap. An overlap means one interval's end is at or after another's start. We return a new array with the merged intervals. Right?"</p>
+
+          <h4>E — Examples</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">text</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// Example 1: Overlapping intervals</span>
+<span class="cm">// Input: [[1,3],[2,6],[8,10],[15,18]]</span>
+<span class="cm">// [1,3] and [2,6] overlap → merge to [1,6]</span>
+<span class="cm">// [8,10] doesn't overlap with [1,6]</span>
+<span class="cm">// [15,18] doesn't overlap with [8,10]</span>
+<span class="cm">// Output: [[1,6],[8,10],[15,18]]</span>
+
+<span class="cm">// Example 2: One interval contains another</span>
+<span class="cm">// Input: [[1,4],[4,5]]</span>
+<span class="cm">// [1,4] and [4,5] overlap at 4 → merge to [1,5]</span>
+<span class="cm">// Output: [[1,5]]</span>
+
+<span class="cm">// Example 3: Edge case — empty input</span>
+<span class="cm">// Input: []</span>
+<span class="cm">// Output: []</span></pre>
+          </div>
+
+          <h4>A — Approach</h4>
+          <p>"I'll sort the intervals by start time. Then I'll iterate through and merge overlapping ones. Sorting gives us O(n log n), and merging is O(n), so overall O(n log n) time. Space is O(n) for the output. Does that work?"</p>
+
+          <h4>C — Code</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span>[][] <span class="fn">Merge</span>(<span class="ty">int</span>[][] intervals) {
+    <span class="kw">if</span> (intervals.Length == <span class="num">0</span>) <span class="kw">return</span> <span class="kw">new int</span>[<span class="num">0</span>][];
+
+    <span class="cm">// Sort by start time</span>
+    Array.<span class="fn">Sort</span>(intervals, (a, b) => a[<span class="num">0</span>].<span class="fn">CompareTo</span>(b[<span class="num">0</span>]));
+
+    <span class="kw">var</span> result = <span class="kw">new</span> List&lt;<span class="ty">int</span>[]&gt;();
+    <span class="ty">int</span>[] current = intervals[<span class="num">0</span>];
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; intervals.Length; i++) {
+        <span class="kw">if</span> (intervals[i][<span class="num">0</span>] &lt;= current[<span class="num">1</span>]) {
+            <span class="cm">// Overlapping: merge</span>
+            current[<span class="num">1</span>] = Math.<span class="fn">Max</span>(current[<span class="num">1</span>], intervals[i][<span class="num">1</span>]);
+        } <span class="kw">else</span> {
+            <span class="cm">// No overlap: add current to result, start new</span>
+            result.<span class="fn">Add</span>(current);
+            current = intervals[i];
+        }
+    }
+
+    result.<span class="fn">Add</span>(current);  <span class="cm">// Don't forget the last one</span>
+    <span class="kw">return</span> result.<span class="fn">ToArray</span>();
+}</pre>
+          </div>
+
+          <h4>T — Test</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">text</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// Trace Example 1: [[1,3],[2,6],[8,10],[15,18]]</span>
+<span class="cm">// After sort: [[1,3],[2,6],[8,10],[15,18]] (already sorted)</span>
+<span class="cm">// current = [1,3]</span>
+<span class="cm">// i=1: [2,6], 2 <= 3? yes, merge → current=[1,6]</span>
+<span class="cm">// i=2: [8,10], 8 <= 6? no, add [1,6], current=[8,10]</span>
+<span class="cm">// i=3: [15,18], 15 <= 10? no, add [8,10], current=[15,18]</span>
+<span class="cm">// End: add [15,18]</span>
+<span class="cm">// Result: [[1,6],[8,10],[15,18]] ✓</span></pre>
+          </div>
+
+          <h4>O — Optimize</h4>
+          <p>"The solution is already O(n log n) due to sorting, which is optimal. We could use a different data structure (like a tree), but sorting is the simplest approach here."</p>
+        </div>
+      </div>
+
+      <!-- PROBLEM B -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem B: Validate Binary Search Tree</div>
+            <div class="algo-desc">Given a binary tree, determine if it is a valid BST.</div>
+            <div class="algo-tags">
+              <span class="badge b-amber">Medium</span>
+              <span class="badge b-blue">LeetCode 98</span>
+            </div>
+          </div>
+          <div class="algo-idx">B</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given the root of a binary tree, determine if it is a valid binary search tree (BST). A valid BST must satisfy:</p>
+          <ul style="margin:12px 0 16px 20px">
+            <li>The left subtree of a node contains only nodes with values less than the node's value</li>
+            <li>The right subtree of a node contains only nodes with values greater than the node's value</li>
+            <li>Both left and right subtrees must also be valid BSTs</li>
+          </ul>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Example 1</div>
+              <div class="cx-v">Tree: [2,1,3] → true</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Example 2</div>
+              <div class="cx-v">Tree: [5,1,4,null,null,3,6] → false</div>
+            </div>
+          </div>
+
+          <h3>Full REACTO Walkthrough</h3>
+
+          <h4>R — Repeat</h4>
+          <p>"We have a binary tree, and we need to check if it's a valid BST. That means each node's value must be greater than all values in its left subtree and less than all values in its right subtree. Is that right?"</p>
+
+          <h4>E — Examples</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">text</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// Example 1: Valid BST</span>
+<span class="cm">//     2</span>
+<span class="cm">//    / \</span>
+<span class="cm">//   1   3</span>
+<span class="cm">// 1 < 2 < 3? Yes, valid BST</span>
+
+<span class="cm">// Example 2: Invalid BST</span>
+<span class="cm">//     5</span>
+<span class="cm">//    / \</span>
+<span class="cm">//   1   4</span>
+<span class="cm">//      / \</span>
+<span class="cm">//     3   6</span>
+<span class="cm">// Right subtree of 5 is [1,4,3,6]</span>
+<span class="cm">// Node 3 (left child of 4) is in right subtree of 5, so must be > 5</span>
+<span class="cm">// But 3 < 5, so it's invalid</span>
+
+<span class="cm">// Example 3: Edge case — single node</span>
+<span class="cm">// Single node is always a valid BST</span></pre>
+          </div>
+
+          <h4>A — Approach</h4>
+          <p>"I'll use a recursive approach with min/max bounds. For each node, I track the valid range [min, max]. The node's value must be within this range. For the left child, the max becomes the parent's value. For the right child, the min becomes the parent's value. Time: O(n), Space: O(h) for recursion stack."</p>
+
+          <h4>C — Code</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public class</span> <span class="ty">TreeNode</span> {
+    <span class="kw">public int</span> val;
+    <span class="kw">public</span> TreeNode left;
+    <span class="kw">public</span> TreeNode right;
+}
+
+<span class="kw">public bool</span> <span class="fn">IsValidBST</span>(TreeNode root) {
+    <span class="kw">return</span> <span class="fn">IsValidBSTHelper</span>(root, <span class="kw">long</span>.MinValue, <span class="kw">long</span>.MaxValue);
+}
+
+<span class="kw">private bool</span> <span class="fn">IsValidBSTHelper</span>(TreeNode node, <span class="kw">long</span> min, <span class="kw">long</span> max) {
+    <span class="kw">if</span> (node == <span class="kw">null</span>) <span class="kw">return true</span>;
+
+    <span class="cm">// Check if current node is within bounds</span>
+    <span class="kw">if</span> (node.val &lt;= min || node.val &gt;= max) {
+        <span class="kw">return false</span>;
+    }
+
+    <span class="cm">// Recursively check left and right subtrees</span>
+    <span class="cm">// Left subtree: max becomes node.val</span>
+    <span class="cm">// Right subtree: min becomes node.val</span>
+    <span class="kw">return</span> <span class="fn">IsValidBSTHelper</span>(node.left, min, node.val) &&
+           <span class="fn">IsValidBSTHelper</span>(node.right, node.val, max);
+}</pre>
+          </div>
+
+          <h4>T — Test</h4>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">text</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="cm">// Trace Example 1: [2,1,3]</span>
+<span class="cm">// IsValidBSTHelper(2, -∞, +∞)</span>
+<span class="cm">//   2 in (-∞, +∞)? yes</span>
+<span class="cm">//   Left: IsValidBSTHelper(1, -∞, 2)</span>
+<span class="cm">//         1 in (-∞, 2)? yes</span>
+<span class="cm">//         Left: null → true</span>
+<span class="cm">//         Right: null → true</span>
+<span class="cm">//         return true</span>
+<span class="cm">//   Right: IsValidBSTHelper(3, 2, +∞)</span>
+<span class="cm">//          3 in (2, +∞)? yes</span>
+<span class="cm">//          Left: null → true</span>
+<span class="cm">//          Right: null → true</span>
+<span class="cm">//          return true</span>
+<span class="cm">//   return true && true = true ✓</span></pre>
+          </div>
+
+          <h4>O — Optimize</h4>
+          <p>"This solution is already optimal. In-order traversal could work too (track the last value and check if current is greater), but the min/max approach is clearer and equally efficient."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMON MISTAKES -->
+    <section class="section fade" id="mistakes">
+      <div class="sec-tag">
+        <span class="sec-num">PITFALLS</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Common Mistakes & How to Avoid Them</h2>
+      <p class="lead">These are the most frequent errors candidates make in live coding interviews. Learn from them.</p>
+
+      <h3>1. Jumping to Code Without a Plan</h3>
+      <div class="callout danger">
+        <span class="callout-icon">❌</span>
+        <div><strong>Mistake:</strong> Interviewer asks a question, and you immediately start typing code without discussing approach first.</div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Fix:</strong> Always follow REACTO. Spend 3–4 minutes on R, E, and A before writing a single line of code. The interviewer wants to see your thinking, not your typing speed.</div>
+      </div>
+
+      <h3>2. Silence While Coding</h3>
+      <div class="callout danger">
+        <span class="callout-icon">❌</span>
+        <div><strong>Mistake:</strong> You code for 10 minutes without saying anything, then say "Done!" The interviewer has no idea if you're thinking clearly or just randomly guessing.</div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Fix:</strong> Narrate constantly. "I'm initializing a hash map... Now I'm looping through the array... For each element, I check if the complement exists..." This shows your reasoning and lets the interviewer catch misunderstandings early.</div>
+      </div>
+
+      <h3>3. Not Testing Your Code</h3>
+      <div class="callout danger">
+        <span class="callout-icon">❌</span>
+        <div><strong>Mistake:</strong> You finish coding, and the interviewer asks "Can you test this with an example?" You realize there's a bug you missed.</div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Fix:</strong> After coding, immediately trace through your examples by hand. Catch bugs before the interviewer points them out. You get partial credit for finding and fixing your own bugs; you lose points for bugs the interviewer finds.</div>
+      </div>
+
+      <h3>4. Ignoring Edge Cases</h3>
+      <div class="callout danger">
+        <span class="callout-icon">❌</span>
+        <div><strong>Mistake:</strong> Your solution works for typical cases but fails on empty arrays, single elements, or negative numbers.</div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Fix:</strong> In your examples, always include at least one edge case. Then check your code handles it. Add explicit edge-case handling if needed (e.g., "if (arr.Length == 0) return ...").</div>
+      </div>
+
+      <h3>5. Incorrect Complexity Analysis</h3>
+      <div class="callout danger">
+        <span class="callout-icon">❌</span>
+        <div><strong>Mistake:</strong> You claim O(n) time, but there's a nested loop making it O(n²).</div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">✓</div>
+        <div><strong>Fix:</strong> After coding, count the loops and operations carefully. Say "I have one loop through n elements, and each operation (dict lookup) is O(1), so O(n) total." Double-check before saying it confidently.</div>
+      </div>
+
+      <h3>6. Overthinking or Underthinking</h3>
+      <div class="callout danger">
+        <span class="callout-icon">❌</span>
+        <div><strong>Mistake:</strong> You implement a complex DP solution when a simple greedy approach works. Or vice versa.</div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">✓</div>
+        <div><strong>Fix:</strong> In the "Approach" step, propose a solution, state its complexity, and ask the interviewer if it's acceptable. If they say "That works, but can we do better?", then optimize. Otherwise, code it up.</div>
+      </div>
+
+      <h3>7. Panicking When Stuck</h3>
+      <div class="callout danger">
+        <span class="callout-icon">❌</span>
+        <div><strong>Mistake:</strong> You get stuck on a detail (e.g., how to initialize a 2D array) and freeze. Interview time evaporates.</div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">✓</div>
+        <div><strong>Fix:</strong> Say it out loud: "I'm stuck on [detail]. Let me think for a moment..." or "Can you remind me the syntax for [thing]?" Asking for syntax help is fine; not thinking clearly is not.</div>
+      </div>
+    </section>
+
+    <!-- BODY LANGUAGE & COMMUNICATION -->
+    <section class="section fade" id="body-language">
+      <div class="sec-tag">
+        <span class="sec-num">PRESENCE</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Body Language & Non-Verbal Communication</h2>
+      <p class="lead">Even over video, your body language and tone matter. You want to project confidence and clarity.</p>
+
+      <h3>What to Do</h3>
+      <div class="steps">
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">1</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body"><strong>Look at the camera:</strong> When speaking, look at the camera, not the screen. It feels more natural for the interviewer.</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">2</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body"><strong>Nod and confirm:</strong> When the interviewer speaks, nod occasionally to show you're engaged. Say "Got it" or "I understand" to confirm you're following.</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">3</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body"><strong>Speak clearly:</strong> Don't rush. Speak at a pace the interviewer can follow. Avoid "um," "uh," and filler words.</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">4</div>
+            <div class="step-vline"></div>
+          </div>
+          <div class="step-body"><strong>Use your hands:</strong> Gesture naturally while explaining. It makes you sound more confident and engaged.</div>
+        </div>
+        <div class="step">
+          <div class="step-left">
+            <div class="step-num">5</div>
+          </div>
+          <div class="step-body"><strong>Smile occasionally:</strong> A subtle smile shows you're relaxed and confident, not panicked.</div>
+        </div>
+      </div>
+
+      <h3>What NOT to Do</h3>
+      <div class="callout danger">
+        <span class="callout-icon">❌</span>
+        <div><strong>Don't:</strong> Slouch, avoid eye contact, type frantically, sigh heavily, or tap your fingers. These signal stress or disengagement.</div>
+      </div>
+      <div class="callout danger">
+        <span class="callout-icon">❌</span>
+        <div><strong>Don't:</strong> Go silent for long stretches. If you need to think, say "Let me think about this for a moment" instead of 30 seconds of awkward silence.</div>
+      </div>
+      <div class="callout danger">
+        <span class="callout-icon">❌</span>
+        <div><strong>Don't:</strong> Blame the problem or the interviewer. If something is unclear, say "I might be misunderstanding; can you clarify?" not "This problem is confusing."</div>
+      </div>
+
+      <h3>Managing Your Energy</h3>
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>Before the interview:</strong> Do a quick 5-minute exercise (stretch, walk, push-ups). It boosts your energy and calms nerves. Eat a light snack and drink water. Don't drink too much caffeine (jitters). Get a good night's sleep the night before.</div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>During the interview:</strong> Remember: the interviewer wants you to succeed. They're rooting for you. You've prepared. Trust yourself. If you make a mistake, stay calm and fix it. One bug doesn't fail you.</div>
+      </div>
+    </section>
+
+    <!-- FINAL TIPS -->
+    <section class="section fade" style="margin-bottom:52px">
+      <div class="sec-tag">
+        <span class="sec-num">FINAL TIPS</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Summary & Last Reminders</h2>
+
+      <div class="callout info">
+        <span class="callout-icon">✓</span>
+        <div><strong>DO:</strong> Follow REACTO. Spend time on planning. Explain your thinking. Test your code. Ask for help if stuck. Communicate clearly.</div>
+      </div>
+
+      <div class="callout danger">
+        <span class="callout-icon">✗</span>
+        <div><strong>DON'T:</strong> Rush to code. Stay silent. Skip testing. Ignore edge cases. Assume the interviewer knows what you're thinking.</div>
+      </div>
+
+      <h3>The Golden Rule</h3>
+      <p style="font-size:16px; color:var(--ink2); line-height:1.8; max-width:640px; margin:20px 0">
+        <strong>A partially correct solution with excellent communication beats a fully correct solution with zero explanation.</strong> The interviewer cares about your process and reasoning, not just the final answer. If you think clearly out loud and test carefully, you'll succeed even if the first approach has minor bugs.
+      </p>
+
+      <h3>The Day Before</h3>
+      <ul style="margin:16px 0 16px 20px; font-size:15px; color:var(--ink2); line-height:1.78">
+        <li style="margin-bottom:12px">Do a light practice run. Don't cram; you'll be tired and make mistakes.</li>
+        <li style="margin-bottom:12px">Test your IDE, camera, and internet connection.</li>
+        <li style="margin-bottom:12px">Prepare your environment: clean desk, good lighting, quiet room.</li>
+        <li style="margin-bottom:12px">Get 8+ hours of sleep.</li>
+      </ul>
+
+      <h3>The Day Of</h3>
+      <ul style="margin:16px 0 16px 20px; font-size:15px; color:var(--ink2); line-height:1.78">
+        <li style="margin-bottom:12px">Eat a good breakfast. Stay hydrated.</li>
+        <li style="margin-bottom:12px">Log in 5–10 minutes early. Test your audio/video.</li>
+        <li style="margin-bottom:12px">Take a few deep breaths. Remind yourself: you've prepared, you know REACTO, you can do this.</li>
+        <li style="margin-bottom:12px">Listen carefully to the first problem. Write down key points.</li>
+      </ul>
+
+      <div class="callout tip" style="margin-top:28px">
+        <span class="callout-icon">🚀</span>
+        <div><strong>You've got this!</strong> Toptal interviews test your problem-solving and communication. You're prepared. The REACTO method will guide you through any problem. Trust the process, think out loud, and code cleanly. Best of luck!</div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Fade-in on load
+    document.addEventListener('DOMContentLoaded', function() {
+      const fades = document.querySelectorAll('.fade');
+      fades.forEach((el, idx) => {
+        setTimeout(() => {
+          el.classList.add('in');
+        }, idx * 80);
+      });
+
+      // Copy button functionality
+      const copyBtns = document.querySelectorAll('.copy-btn');
+      copyBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const codeBlock = this.closest('.code-block');
+          const pre = codeBlock.querySelector('pre');
+          const text = pre.innerText;
+          navigator.clipboard.writeText(text).then(() => {
+            const originalText = this.innerText;
+            this.innerText = 'copied!';
+            setTimeout(() => {
+              this.innerText = originalText;
+            }, 1500);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

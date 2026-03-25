@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta name="keywords" content="Toptal interview, Toptal screening, Codility, coding test, C#, algorithms, problem solving, technical screening, remote developer interview, Toptal preparation">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat05-stacks-queues.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat05-stacks-queues.html">
+  <meta property="og:title" content="Category 5: Stacks & Queues — 15 Problems - Toptal Problem Bank">
+  <meta property="og:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat05-stacks-queues.html">
+  <meta name="twitter:title" content="Category 5: Stacks & Queues — 15 Problems - Toptal Problem Bank">
+  <meta name="twitter:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Category 5: Stacks & Queues \u2014 15 Problems - Toptal Problem Bank",
+  "description": "Complete Toptal screening preparation guide \u2014 coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat05-stacks-queues.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Category 5: Stacks & Queues — 15 Problems - Toptal Problem Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.toc{background:var(--white);border:1px solid var(--rule);border-radius:14px;padding:28px 32px;margin:44px 0}
+.toc-head{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);margin-bottom:18px}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 36px}
+.toc-grid a{font-size:13.5px;color:var(--ink2);text-decoration:none;padding:8px 0;display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--rule);transition:color .15s}
+.toc-grid a:hover{color:var(--acc)}
+.toc-n{font-family:var(--mono);font-size:10px;color:var(--ink4);flex-shrink:0}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.algo{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px}
+.algo-head{padding:28px 32px 22px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.algo-idx{font-size:58px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em}
+.algo-name{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.algo-desc{font-family:var(--serif);font-size:14.5px;color:var(--ink2);line-height:1.72;max-width:580px}
+.algo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.algo-body{padding:28px 32px}
+.cx-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.cx{background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;min-width:110px}
+.cx-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cx-v{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink)}
+.steps{margin-bottom:26px}
+.step{display:flex}
+.step-left{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--acc-l);border:1.5px solid var(--acc-b);color:var(--acc);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono);flex-shrink:0}
+.step-vline{width:1.5px;flex:1;background:var(--rule);margin:4px 0}
+.step:last-child .step-vline{display:none}
+.step-body{padding:3px 0 22px 14px;font-size:14px;color:var(--ink2);line-height:1.68}
+.step-body strong{color:var(--ink);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:26px}
+.vs-box{border-radius:10px;padding:18px 20px;border:1px solid}
+.vs-box.good{background:var(--green-l);border-color:var(--green-b)}
+.vs-box.bad{background:var(--red-l);border-color:var(--red-b)}
+.vs-title{font-size:13px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.vs-box.good .vs-title{color:var(--green)}.vs-box.bad .vs-title{color:var(--red)}
+.vs-item{font-size:13px;color:var(--ink2);padding:4px 0;display:flex;gap:8px;line-height:1.5}
+.vs-item::before{content:'—';color:var(--ink4);flex-shrink:0}
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:26px}
+.proof-card{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:20px 22px}
+.proof-title{font-size:15px;font-weight:700;margin-bottom:8px}
+.proof-body{font-size:13.5px;color:var(--ink2);line-height:1.7}
+.proof-note{margin-top:12px;font-size:12px;color:var(--ink3)}
+.proof-note strong{color:var(--ink2)}
+.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:26px}
+.tip-card{background:var(--white);border:1px solid var(--rule);border-radius:10px;padding:20px;position:relative;overflow:hidden}
+.tip-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--acc)}
+.tip-card.g::before{background:var(--green)}.tip-card.b::before{background:var(--blue)}.tip-card.a::before{background:var(--amber)}
+.tip-n{font-family:var(--mono);font-size:10px;color:var(--ink4);margin-bottom:8px}
+.tip-title{font-size:14px;font-weight:700;margin-bottom:6px}
+.tip-body{font-size:13px;color:var(--ink2);line-height:1.65}
+footer{margin-top:100px;padding:40px 0;border-top:1px solid var(--rule);text-align:center;background:var(--bg2)}
+.footer-inner{max-width:960px;margin:0 auto;padding:0 2rem}
+footer p{font-size:13px;color:var(--ink3)}
+footer p+p{font-size:12px;color:var(--ink4);margin-top:4px}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+@media(max-width:700px){
+  .algo-head{grid-template-columns:1fr}.algo-idx{display:none}
+  .vs,.proof-grid,.tips{grid-template-columns:1fr}
+  .toc-grid{grid-template-columns:1fr}
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Bank
+        <span class="pill">CAT5</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#toc">Category 5</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Category 5</div>
+      </div>
+      <h1>Stacks & <em>Queues</em></h1>
+      <p class="hero-sub">Master LIFO and FIFO data structures with monotonic stack patterns, expression evaluation, and real-world simulations. 15 canonical problems from Codility and LeetCode with complete C# implementations and complexity analysis.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">15</div>
+          <div class="stat-l">Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">5</div>
+          <div class="stat-l">Core Patterns</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Code Coverage</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">8+</div>
+          <div class="stat-l">Difficulty Levels</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="toc fade">
+      <div class="toc-head">Table of Contents</div>
+      <div class="toc-grid">
+        <a href="#theory"><span class="toc-n">T</span> Theory & Patterns</a>
+        <a href="#p1"><span class="toc-n">1</span> Brackets (Codility)</a>
+        <a href="#p2"><span class="toc-n">2</span> Nesting (Codility)</a>
+        <a href="#p3"><span class="toc-n">3</span> StoneWall (Codility)</a>
+        <a href="#p4"><span class="toc-n">4</span> Fish (Codility)</a>
+        <a href="#p5"><span class="toc-n">5</span> Valid Parentheses (LC 20)</a>
+        <a href="#p6"><span class="toc-n">6</span> Min Stack (LC 155)</a>
+        <a href="#p7"><span class="toc-n">7</span> Daily Temperatures (LC 739)</a>
+        <a href="#p8"><span class="toc-n">8</span> Next Greater Element (LC 496)</a>
+        <a href="#p9"><span class="toc-n">9</span> Reverse Polish Notation (LC 150)</a>
+        <a href="#p10"><span class="toc-n">10</span> Largest Rectangle (LC 84)</a>
+        <a href="#p11"><span class="toc-n">11</span> Queue via Stacks (LC 232)</a>
+        <a href="#p12"><span class="toc-n">12</span> Decode String (LC 394)</a>
+        <a href="#p13"><span class="toc-n">13</span> Calculator II (LC 227)</a>
+        <a href="#p14"><span class="toc-n">14</span> Asteroid Collision (LC 735)</a>
+        <a href="#p15"><span class="toc-n">15</span> Trapping Rain Water (LC 42)</a>
+      </div>
+    </section>
+
+    <!-- THEORY SECTION -->
+    <section class="section fade" id="theory">
+      <div class="sec-tag">
+        <div class="sec-num">THEORY</div>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Core Concepts & Patterns</h2>
+      <p class="lead">Stacks and queues are fundamental linear data structures that enforce specific ordering semantics. Understanding their properties and recognizing problem patterns is essential for efficient algorithm design.</p>
+
+      <h3>Stack (LIFO - Last In First Out)</h3>
+      <p>A stack restricts insertion and deletion to one end (the top). Common operations:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+          <div class="step-body"><strong>Push(T)</strong> — Add element to top. O(1) time.</div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+          <div class="step-body"><strong>Pop()</strong> — Remove and return top element. O(1) time. Throws if empty.</div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-num">3</div><div class="step-vline"></div></div>
+          <div class="step-body"><strong>Peek()</strong> — Return top element without removing. O(1) time.</div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-num">4</div></div>
+          <div class="step-body"><strong>IsEmpty()</strong> — Check if stack contains no elements. O(1) time.</div>
+        </div>
+      </div>
+
+      <h3>Queue (FIFO - First In First Out)</h3>
+      <p>A queue restricts insertion at one end (rear) and deletion at the other (front). Common operations:</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+          <div class="step-body"><strong>Enqueue(T)</strong> — Add element to rear. O(1) amortized time.</div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+          <div class="step-body"><strong>Dequeue()</strong> — Remove and return front element. O(1) amortized time. Throws if empty.</div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-num">3</div><div class="step-vline"></div></div>
+          <div class="step-body"><strong>Peek()</strong> — Return front element without removing. O(1) time.</div>
+        </div>
+        <div class="step">
+          <div class="step-left"><div class="step-num">4</div></div>
+          <div class="step-body"><strong>IsEmpty()</strong> — Check if queue contains no elements. O(1) time.</div>
+        </div>
+      </div>
+
+      <h3>Monotonic Stack Pattern</h3>
+      <p>A powerful technique for finding the next/previous greater/smaller element in O(n) time. Maintains a stack of indices in either increasing or decreasing order.</p>
+      <div class="callout tip">
+        <div class="callout-icon">💡</div>
+        <div><strong>Key insight:</strong> When iterating through elements, popping from the stack establishes relationships (e.g., current element is the next greater for all popped elements). This single-pass O(n) approach beats naive O(n²) comparisons.</div>
+      </div>
+
+      <h3>Stack for Expression Evaluation</h3>
+      <p>Stacks excel at evaluating expressions where operator precedence or parentheses create nesting. Two common approaches:</p>
+      <ul style="margin-left:16px;margin-bottom:16px;">
+        <li><strong>Reverse Polish Notation (RPN):</strong> Operators follow operands. Stack processes operands, pushes operators' results.</li>
+        <li><strong>Infix notation:</strong> Traditional form. Use two stacks (operators and operands) or convert to postfix via shunting-yard algorithm.</li>
+      </ul>
+
+      <h3>Stack for Bracket Matching</h3>
+      <p>Parentheses, braces, and brackets matching is a canonical stack application. Push opening brackets; when closing bracket encountered, check if it matches the top of the stack.</p>
+
+      <h3>Two-Stack Simulation</h3>
+      <p>Queues can be implemented using two stacks: one for enqueue, one for dequeue. Amortized O(1) per operation by batch-transferring elements during dequeue.</p>
+    </section>
+
+    <!-- PROBLEM 1: BRACKETS -->
+    <section class="section fade" id="p1">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 1: Brackets</div>
+            <div class="algo-desc">Given a string of brackets: (, [, {, ), ], }. Determine if brackets are properly matched and nested.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Stack Matching</span>
+              <span class="badge b-blue">Codility</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">1</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>A string consisting of characters: (, [, {, ), ], }. Return 1 if all brackets are properly matched and correctly nested, 0 otherwise.</p>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left"><div class="step-num">1</div><div class="step-vline"></div></div>
+              <div class="step-body">Use a stack to track opening brackets.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">2</div><div class="step-vline"></div></div>
+              <div class="step-body">For each character: if opening, push to stack; if closing, check if it matches the top of stack.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">3</div><div class="step-vline"></div></div>
+              <div class="step-body">At end, stack must be empty for valid nesting.</div>
+            </div>
+            <div class="step">
+              <div class="step-left"><div class="step-num">4</div></div>
+              <div class="step-body">If any mismatch or unmatched brackets, return 0. Else return 1.</div>
+            </div>
+          </div>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">int</span> <span class="fn">Solution</span>(<span class="kw">string</span> S)
+{
+    <span class="ty">Stack</span>&lt;<span class="kw">char</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">char</span>&gt;();
+
+    <span class="kw">foreach</span> (<span class="kw">char</span> c <span class="kw">in</span> S)
+    {
+        <span class="kw">if</span> (c == <span class="str">'('</span> || c == <span class="str">'['</span> || c == <span class="str">'{'</span>)
+        {
+            stack.Push(c);
+        }
+        <span class="kw">else</span>
+        {
+            <span class="kw">if</span> (stack.Count == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+            <span class="kw">char</span> top = stack.Pop();
+            <span class="kw">if</span> ((c == <span class="str">')'</span> && top != <span class="str">'('</span>) ||
+                (c == <span class="str">']'</span> && top != <span class="str">'['</span>) ||
+                (c == <span class="str">'}'</span> && top != <span class="str">'{'</span>))
+            {
+                <span class="kw">return</span> <span class="num">0</span>;
+            }
+        }
+    }
+
+    <span class="kw">return</span> stack.Count == <span class="num">0</span> ? <span class="num">1</span> : <span class="num">0</span>;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p>Input: <code class="il">"({[]})"</code></p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Char</th><th>Type</th><th>Stack</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td>(</td><td>Open</td><td>( </td><td>Push (</td></tr>
+                <tr><td>{</td><td>Open</td><td>( {</td><td>Push {</td></tr>
+                <tr><td>[</td><td>Open</td><td>( { [</td><td>Push [</td></tr>
+                <tr><td>]</td><td>Close</td><td>( {</td><td>Pop [, matches</td></tr>
+                <tr><td>}</td><td>Close</td><td>(</td><td>Pop {, matches</td></tr>
+                <tr><td>)</td><td>Close</td><td>empty</td><td>Pop (, matches</td></tr>
+                <tr><td>End</td><td>—</td><td>empty</td><td>Return 1</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>Empty string → return 1 (vacuously true)</li>
+            <li>Single closing bracket → return 0</li>
+            <li>Mismatched types: <code class="il">"{)"</code> → return 0</li>
+            <li>Extra opening: <code class="il">"(("</code> → return 0</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 2: NESTING -->
+    <section class="section fade" id="p2">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 2: Nesting</div>
+            <div class="algo-desc">Check if a string of parentheses is properly nested (can be arbitrary depth, but each ) must match a preceding ().</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Stack Matching</span>
+              <span class="badge b-blue">Codility</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">2</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>A string of only ( and ) characters. Proper nesting means: each ) has a matching (, and no ) appears before its corresponding (.</p>
+
+          <h3>Approach</h3>
+          <p>Track the balance of open parentheses. Increment on (, decrement on ). Balance must never go negative, and must end at 0.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">int</span> <span class="fn">Solution</span>(<span class="kw">string</span> S)
+{
+    <span class="kw">int</span> balance = <span class="num">0</span>;
+
+    <span class="kw">foreach</span> (<span class="kw">char</span> c <span class="kw">in</span> S)
+    {
+        <span class="kw">if</span> (c == <span class="str">'('</span>)
+        {
+            balance++;
+        }
+        <span class="kw">else</span> <span class="cm">// c == ')'</span>
+        {
+            balance--;
+            <span class="kw">if</span> (balance < <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+        }
+    }
+
+    <span class="kw">return</span> balance == <span class="num">0</span> ? <span class="num">1</span> : <span class="num">0</span>;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p>Input: <code class="il">"(()(()()))"</code></p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Char</th><th>Balance</th><th>Valid</th></tr></thead>
+              <tbody>
+                <tr><td>(</td><td>1</td><td>✓</td></tr>
+                <tr><td>(</td><td>2</td><td>✓</td></tr>
+                <tr><td>)</td><td>1</td><td>✓</td></tr>
+                <tr><td>(</td><td>2</td><td>✓</td></tr>
+                <tr><td>(</td><td>3</td><td>✓</td></tr>
+                <tr><td>)</td><td>2</td><td>✓</td></tr>
+                <tr><td>(</td><td>3</td><td>✓</td></tr>
+                <tr><td>)</td><td>2</td><td>✓</td></tr>
+                <tr><td>)</td><td>1</td><td>✓</td></tr>
+                <tr><td>)</td><td>0</td><td>✓</td></tr>
+                <tr><td>End</td><td>0</td><td>Return 1</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>Empty string → return 1</li>
+            <li>Starts with closing: <code class="il">")()"</code> → return 0 (balance goes negative)</li>
+            <li>Unclosed: <code class="il">"(()"</code> → return 0 (balance != 0 at end)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 3: STONEWALL -->
+    <section class="section fade" id="p3">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 3: StoneWall</div>
+            <div class="algo-desc">Build a wall with the minimum number of stone blocks. A stone can be placed at any height on top of the wall so far.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Stack Height Tracking</span>
+              <span class="badge b-blue">Codility</span>
+              <span class="badge b-amber">★★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">3</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given array H where H[i] is the required height at position i. Each stone placed must have maximum height H[j] for some j. Stones cannot extend beyond position i. Find the minimum number of stones needed.</p>
+
+          <h3>Approach</h3>
+          <p>Use a stack to maintain heights. When height increases, push. When height decreases, pop and count. When heights are equal at different positions, we can reuse stone layers.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">int</span> <span class="fn">Solution</span>(<span class="kw">int</span>[] H)
+{
+    <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt;();
+    <span class="kw">int</span> stones = <span class="num">0</span>;
+
+    <span class="kw">foreach</span> (<span class="kw">int</span> height <span class="kw">in</span> H)
+    {
+        <span class="kw">while</span> (stack.Count > <span class="num">0</span> && stack.Peek() > height)
+        {
+            stack.Pop();
+            stones++;
+        }
+
+        <span class="kw">if</span> (stack.Count == <span class="num">0</span> || stack.Peek() < height)
+        {
+            stack.Push(height);
+        }
+    }
+
+    stones += stack.Count;
+    <span class="kw">return</span> stones;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p>Input: <code class="il">H = [8, 8, 5, 7, 1, 7, 1, 4, 2]</code></p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>i</th><th>H[i]</th><th>Stack</th><th>Stones Added</th><th>Total</th></tr></thead>
+              <tbody>
+                <tr><td>0</td><td>8</td><td>[8]</td><td>0</td><td>0</td></tr>
+                <tr><td>1</td><td>8</td><td>[8]</td><td>0</td><td>0</td></tr>
+                <tr><td>2</td><td>5</td><td>[5]</td><td>1 (pop 8)</td><td>1</td></tr>
+                <tr><td>3</td><td>7</td><td>[5, 7]</td><td>0</td><td>1</td></tr>
+                <tr><td>4</td><td>1</td><td>[1]</td><td>2 (pop 7, 5)</td><td>3</td></tr>
+                <tr><td>5</td><td>7</td><td>[1, 7]</td><td>0</td><td>3</td></tr>
+                <tr><td>6</td><td>1</td><td>[1]</td><td>1 (pop 7)</td><td>4</td></tr>
+                <tr><td>7</td><td>4</td><td>[1, 4]</td><td>0</td><td>4</td></tr>
+                <tr><td>8</td><td>2</td><td>[1, 2]</td><td>0</td><td>4</td></tr>
+                <tr><td>End</td><td>—</td><td>—</td><td>2 (stack count)</td><td>6</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>All same height: <code class="il">[5, 5, 5]</code> → 1 stone</li>
+            <li>Monotonic increasing: <code class="il">[1, 2, 3]</code> → 3 stones</li>
+            <li>Monotonic decreasing: <code class="il">[3, 2, 1]</code> → 3 stones</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 4: FISH -->
+    <section class="section fade" id="p4">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 4: Fish</div>
+            <div class="algo-desc">Fish swimming in a stream. A fish eats another if they swim toward each other and the first is bigger. Count survivors.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Stack Simulation</span>
+              <span class="badge b-blue">Codility</span>
+              <span class="badge b-amber">★★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">4</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Fish[i] is the size, Direction[i] is 0 (upstream) or 1 (downstream). Fish moving in opposite directions collide. Larger fish eats smaller. Fish moving same direction never collide. Count survivors.</p>
+
+          <h3>Approach</h3>
+          <p>Use stack to track downstream fish. When encountering upstream fish, it eats downstream fish until no more or meets a larger downstream fish.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">int</span> <span class="fn">Solution</span>(<span class="kw">int</span>[] A, <span class="kw">int</span>[] B)
+{
+    <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt; downstream = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt;();
+    <span class="kw">int</span> alive = <span class="num">0</span>;
+
+    <span class="kw">foreach</span> (<span class="kw">int</span> i = <span class="num">0</span>; i < A.Length; i++)
+    {
+        <span class="kw">int</span> fish = A[i];
+        <span class="kw">int</span> dir = B[i];
+        <span class="kw">bool</span> eaten = <span class="kw">false</span>;
+
+        <span class="kw">if</span> (dir == <span class="num">1</span>) <span class="cm">// downstream</span>
+        {
+            downstream.Push(fish);
+        }
+        <span class="kw">else</span> <span class="cm">// dir == 0, upstream</span>
+        {
+            <span class="kw">while</span> (downstream.Count > <span class="num">0</span> && !eaten)
+            {
+                <span class="kw">int</span> top = downstream.Pop();
+                <span class="kw">if</span> (top > fish)
+                {
+                    downstream.Push(top);
+                    eaten = <span class="kw">true</span>;
+                }
+            }
+        }
+
+        <span class="kw">if</span> (!eaten)
+        {
+            alive++;
+        }
+    }
+
+    alive += downstream.Count;
+    <span class="kw">return</span> alive;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p>Input: <code class="il">A = [4, 3, 2, 1, 5], B = [0, 1, 0, 0, 0]</code> (0=upstream, 1=downstream)</p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>i</th><th>Fish</th><th>Dir</th><th>Action</th><th>Downstream</th><th>Alive</th></tr></thead>
+              <tbody>
+                <tr><td>0</td><td>4</td><td>0</td><td>Upstream, no collide</td><td>[]</td><td>1</td></tr>
+                <tr><td>1</td><td>3</td><td>1</td><td>Downstream, push</td><td>[3]</td><td>1</td></tr>
+                <tr><td>2</td><td>2</td><td>0</td><td>Upstream, eats 3</td><td>[]</td><td>2</td></tr>
+                <tr><td>3</td><td>1</td><td>0</td><td>Upstream, no collide</td><td>[]</td><td>3</td></tr>
+                <tr><td>4</td><td>5</td><td>0</td><td>Upstream, no collide</td><td>[]</td><td>4</td></tr>
+                <tr><td>End</td><td>—</td><td>—</td><td>Count stack</td><td>[]</td><td>4</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>All downstream: <code class="il">[1, 2, 3], [1, 1, 1]</code> → 3 survivors</li>
+            <li>All upstream: <code class="il">[1, 2, 3], [0, 0, 0]</code> → 3 survivors</li>
+            <li>Alternating: <code class="il">[1, 2, 1], [1, 0, 1]</code> → 2 survivors (1st: 1d, eaten by 2u; 2nd: 2u survives; 3rd: 1d survives)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 5: VALID PARENTHESES (LC 20) -->
+    <section class="section fade" id="p5">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 5: Valid Parentheses</div>
+            <div class="algo-desc">Classic LeetCode problem. Given string with (){}[], determine if valid.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Stack Matching</span>
+              <span class="badge b-blue">LeetCode 20</span>
+              <span class="badge b-green">★</span>
+            </div>
+          </div>
+          <div class="algo-idx">5</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given string containing just characters (){}[]. Determine if input string is valid: all brackets must be closed by the same type, and brackets must be closed in correct order.</p>
+
+          <h3>Approach</h3>
+          <p>Use dictionary to map closing brackets to opening brackets. Push opening brackets; pop and match on closing brackets.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">bool</span> <span class="fn">IsValid</span>(<span class="kw">string</span> s)
+{
+    <span class="ty">Dictionary</span>&lt;<span class="kw">char</span>, <span class="kw">char</span>&gt; pairs = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">char</span>, <span class="kw">char</span>&gt;
+    {
+        { <span class="str">')'</span>, <span class="str">'('</span> },
+        { <span class="str">']'</span>, <span class="str">'['</span> },
+        { <span class="str">'}'</span>, <span class="str">'{'</span> }
+    };
+
+    <span class="ty">Stack</span>&lt;<span class="kw">char</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">char</span>&gt;();
+
+    <span class="kw">foreach</span> (<span class="kw">char</span> c <span class="kw">in</span> s)
+    {
+        <span class="kw">if</span> (pairs.ContainsKey(c))
+        {
+            <span class="kw">if</span> (stack.Count == <span class="num">0</span> || stack.Pop() != pairs[c])
+                <span class="kw">return</span> <span class="kw">false</span>;
+        }
+        <span class="kw">else</span>
+        {
+            stack.Push(c);
+        }
+    }
+
+    <span class="kw">return</span> stack.Count == <span class="num">0</span>;
+}</pre>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>Empty string → true</li>
+            <li>Single character → false</li>
+            <li>Mismatched: <code class="il">"([)]"</code> → false</li>
+            <li>Extra closing: <code class="il">"([)]"</code> → false</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 6: MIN STACK (LC 155) -->
+    <section class="section fade" id="p6">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 6: Min Stack</div>
+            <div class="algo-desc">Design a stack with O(1) push, pop, top, and getMin operations.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Stack Design</span>
+              <span class="badge b-blue">LeetCode 155</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">6</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Implement MinStack class supporting push(val), pop(), top(), and getMin() in O(1) time.</p>
+
+          <h3>Approach</h3>
+          <p>Use two stacks: one for values, one for minimum values. Sync pushes and pops.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">class</span> <span class="ty">MinStack</span>
+{
+    <span class="kw">private</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt; stack;
+    <span class="kw">private</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt; minStack;
+
+    <span class="kw">public</span> <span class="fn">MinStack</span>()
+    {
+        stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt;();
+        minStack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt;();
+    }
+
+    <span class="kw">public</span> <span class="kw">void</span> <span class="fn">Push</span>(<span class="kw">int</span> val)
+    {
+        stack.Push(val);
+        <span class="kw">int</span> min = minStack.Count == <span class="num">0</span> ? val : <span class="kw">Math</span>.Min(minStack.Peek(), val);
+        minStack.Push(min);
+    }
+
+    <span class="kw">public</span> <span class="kw">void</span> <span class="fn">Pop</span>()
+    {
+        stack.Pop();
+        minStack.Pop();
+    }
+
+    <span class="kw">public</span> <span class="kw">int</span> <span class="fn">Top</span>()
+    {
+        <span class="kw">return</span> stack.Peek();
+    }
+
+    <span class="kw">public</span> <span class="kw">int</span> <span class="fn">GetMin</span>()
+    {
+        <span class="kw">return</span> minStack.Peek();
+    }
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p>Operations: <code class="il">push(3), push(1), push(2), getMin(), pop(), getMin()</code></p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Op</th><th>Stack</th><th>MinStack</th><th>Result</th></tr></thead>
+              <tbody>
+                <tr><td>push(3)</td><td>[3]</td><td>[3]</td><td>—</td></tr>
+                <tr><td>push(1)</td><td>[3, 1]</td><td>[3, 1]</td><td>—</td></tr>
+                <tr><td>push(2)</td><td>[3, 1, 2]</td><td>[3, 1, 1]</td><td>—</td></tr>
+                <tr><td>getMin()</td><td>[3, 1, 2]</td><td>[3, 1, 1]</td><td>1</td></tr>
+                <tr><td>pop()</td><td>[3, 1]</td><td>[3, 1]</td><td>—</td></tr>
+                <tr><td>getMin()</td><td>[3, 1]</td><td>[3, 1]</td><td>1</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Push/Pop Time</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>Duplicate values: <code class="il">push(1), push(1), getMin()</code> → 1</li>
+            <li>Negative numbers: <code class="il">push(-1), push(-2), getMin()</code> → -2</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 7: DAILY TEMPERATURES (LC 739) -->
+    <section class="section fade" id="p7">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 7: Daily Temperatures</div>
+            <div class="algo-desc">Given array of daily temperatures, return array where each element is days until warmer temperature.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Monotonic Stack</span>
+              <span class="badge b-blue">LeetCode 739</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">7</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given temperatures[i], for each day, find number of days until a warmer day. Return answer array where answer[i] is the days to wait. If no warmer day, answer[i] = 0.</p>
+
+          <h3>Approach</h3>
+          <p>Use monotonic decreasing stack of indices. Iterate from right to left. When current temp > stack top temp, pop and record distance. Push current index.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">int</span>[] <span class="fn">DailyTemperatures</span>(<span class="kw">int</span>[] temperatures)
+{
+    <span class="kw">int</span> n = temperatures.Length;
+    <span class="kw">int</span>[] answer = <span class="kw">new</span> <span class="kw">int</span>[n];
+    <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt;();
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = n - <span class="num">1</span>; i >= <span class="num">0</span>; i--)
+    {
+        <span class="kw">while</span> (stack.Count > <span class="num">0</span> && temperatures[i] >= temperatures[stack.Peek()])
+        {
+            stack.Pop();
+        }
+
+        <span class="kw">if</span> (stack.Count > <span class="num">0</span>)
+        {
+            answer[i] = stack.Peek() - i;
+        }
+
+        stack.Push(i);
+    }
+
+    <span class="kw">return</span> answer;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p>Input: <code class="il">temperatures = [73, 74, 75, 71, 69, 72, 76, 73]</code></p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>i</th><th>Temp</th><th>Stack (indices)</th><th>Answer[i]</th></tr></thead>
+              <tbody>
+                <tr><td>7</td><td>73</td><td>[7]</td><td>0</td></tr>
+                <tr><td>6</td><td>76</td><td>[6]</td><td>0</td></tr>
+                <tr><td>5</td><td>72</td><td>[6, 5]</td><td>1 (6-5)</td></tr>
+                <tr><td>4</td><td>69</td><td>[6, 5, 4]</td><td>1 (5-4)</td></tr>
+                <tr><td>3</td><td>71</td><td>[6, 5, 3]</td><td>2 (5-3)</td></tr>
+                <tr><td>2</td><td>75</td><td>[6, 2]</td><td>4 (6-2)</td></tr>
+                <tr><td>1</td><td>74</td><td>[6, 2, 1]</td><td>1 (2-1)</td></tr>
+                <tr><td>0</td><td>73</td><td>[6, 2, 1, 0]</td><td>1 (1-0)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>Monotonic decreasing: <code class="il">[5, 4, 3, 2, 1]</code> → [0, 0, 0, 0, 0]</li>
+            <li>Monotonic increasing: <code class="il">[1, 2, 3, 4, 5]</code> → [1, 1, 1, 1, 0]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 8: NEXT GREATER ELEMENT (LC 496) -->
+    <section class="section fade" id="p8">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 8: Next Greater Element I</div>
+            <div class="algo-desc">Given two arrays nums1 and nums2, for each element in nums1, find its next greater element in nums2.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Monotonic Stack</span>
+              <span class="badge b-blue">LeetCode 496</span>
+              <span class="badge b-green">★</span>
+            </div>
+          </div>
+          <div class="algo-idx">8</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>nums1 is a subset of nums2 (all unique). For each nums1[i], find the next greater element in nums2 (in order). Return result array or -1 if no greater element.</p>
+
+          <h3>Approach</h3>
+          <p>Build map from element to next greater using monotonic stack on nums2. Then lookup each nums1 element in the map.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">int</span>[] <span class="fn">NextGreaterElement</span>(<span class="kw">int</span>[] nums1, <span class="kw">int</span>[] nums2)
+{
+    <span class="ty">Dictionary</span>&lt;<span class="kw">int</span>, <span class="kw">int</span>&gt; map = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="kw">int</span>, <span class="kw">int</span>&gt;();
+    <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt;();
+
+    <span class="cm">// Build map: element -> next greater</span>
+    <span class="kw">foreach</span> (<span class="kw">int</span> num <span class="kw">in</span> nums2)
+    {
+        <span class="kw">while</span> (stack.Count > <span class="num">0</span> && stack.Peek() < num)
+        {
+            map[stack.Pop()] = num;
+        }
+        stack.Push(num);
+    }
+
+    <span class="kw">int</span>[] result = <span class="kw">new</span> <span class="kw">int</span>[nums1.Length];
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i < nums1.Length; i++)
+    {
+        result[i] = map.ContainsKey(nums1[i]) ? map[nums1[i]] : <span class="num">-1</span>;
+    }
+
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p>Input: <code class="il">nums1 = [4, 1, 2], nums2 = [1, 3, 4, 2]</code></p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Process nums2</th><th>Stack</th><th>Map</th></tr></thead>
+              <tbody>
+                <tr><td>num=1</td><td>[1]</td><td>{}</td></tr>
+                <tr><td>num=3 (>1)</td><td>[3]</td><td>{1: 3}</td></tr>
+                <tr><td>num=4 (>3)</td><td>[4]</td><td>{1: 3, 3: 4}</td></tr>
+                <tr><td>num=2 (<4)</td><td>[4, 2]</td><td>{1: 3, 3: 4}</td></tr>
+                <tr><td colspan="3">nums1[0]=4: map[4] undefined → -1</td></tr>
+                <tr><td colspan="3">nums1[1]=1: map[1]=3</td></tr>
+                <tr><td colspan="3">nums1[2]=2: map[2] undefined → -1</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n + m)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(m)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>No greater elements: <code class="il">nums1=[2,4], nums2=[1,2,3,4]</code> → [-1, -1]</li>
+            <li>Single element: <code class="il">nums1=[1], nums2=[1,2]</code> → [2]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 9: REVERSE POLISH NOTATION (LC 150) -->
+    <section class="section fade" id="p9">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 9: Evaluate Reverse Polish Notation</div>
+            <div class="algo-desc">Evaluate an expression in RPN (postfix) format where operators follow operands.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Stack Evaluation</span>
+              <span class="badge b-blue">LeetCode 150</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">9</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given array of strings tokens representing RPN expression. Operators are +, -, *, /. Evaluate and return result. Integer division truncates toward zero.</p>
+
+          <h3>Approach</h3>
+          <p>Push operands onto stack. On operator, pop two operands, apply operator, push result. Final stack top is answer.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">int</span> <span class="fn">EvalRPN</span>(<span class="kw">string</span>[] tokens)
+{
+    <span class="ty">Stack</span>&lt;<span class="kw">long</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">long</span>&gt;();
+
+    <span class="kw">foreach</span> (<span class="kw">string</span> token <span class="kw">in</span> tokens)
+    {
+        <span class="kw">if</span> (token == <span class="str">"+"</span> || token == <span class="str">"-"</span> || token == <span class="str">"*"</span> || token == <span class="str">"/"</span>)
+        {
+            <span class="kw">long</span> b = stack.Pop();
+            <span class="kw">long</span> a = stack.Pop();
+
+            <span class="kw">switch</span> (token)
+            {
+                <span class="kw">case</span> <span class="str">"+"</span>: stack.Push(a + b); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="str">"-"</span>: stack.Push(a - b); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="str">"*"</span>: stack.Push(a * b); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="str">"/"</span>: stack.Push(a / b); <span class="kw">break</span>;
+            }
+        }
+        <span class="kw">else</span>
+        {
+            stack.Push(<span class="kw">long</span>.<span class="fn">Parse</span>(token));
+        }
+    }
+
+    <span class="kw">return</span> (<span class="kw">int</span>)stack.Pop();
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p>Input: <code class="il">tokens = ["2","1","+","3","*"]</code> which is (2+1)*3 = 9</p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Token</th><th>Type</th><th>Stack</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td>2</td><td>Operand</td><td>[2]</td><td>Push</td></tr>
+                <tr><td>1</td><td>Operand</td><td>[2, 1]</td><td>Push</td></tr>
+                <tr><td>+</td><td>Op</td><td>[3]</td><td>Pop 1,2; Push 2+1</td></tr>
+                <tr><td>3</td><td>Operand</td><td>[3, 3]</td><td>Push</td></tr>
+                <tr><td>*</td><td>Op</td><td>[9]</td><td>Pop 3,3; Push 3*3</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>Single operand: <code class="il">["42"]</code> → 42</li>
+            <li>Negative division: <code class="il">["6","4","/"]</code> → 1 (truncate toward zero)</li>
+            <li>Complex nesting: <code class="il">["15","7","1","1","+","-","/","3","*","2","1","1","+","+","-"]</code> → 5</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 10: LARGEST RECTANGLE IN HISTOGRAM (LC 84) -->
+    <section class="section fade" id="p10">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 10: Largest Rectangle in Histogram</div>
+            <div class="algo-desc">Given array of heights, find the area of the largest rectangle that can be formed.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Monotonic Stack</span>
+              <span class="badge b-blue">LeetCode 84</span>
+              <span class="badge b-amber">★★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">10</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given heights array representing histogram bars. Calculate maximum rectangular area that can fit in the histogram.</p>
+
+          <h3>Approach</h3>
+          <p>Use monotonic increasing stack of indices. When height decreases, pop from stack and calculate area for each popped bar. The width extends from current position back to the index before the remaining top of stack.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">int</span> <span class="fn">LargestRectangleArea</span>(<span class="kw">int</span>[] heights)
+{
+    <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt;();
+    <span class="kw">int</span> maxArea = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i < heights.Length; i++)
+    {
+        <span class="kw">while</span> (stack.Count > <span class="num">0</span> && heights[stack.Peek()] > heights[i])
+        {
+            <span class="kw">int</span> h = heights[stack.Pop()];
+            <span class="kw">int</span> w = stack.Count == <span class="num">0</span> ? i : i - stack.Peek() - <span class="num">1</span>;
+            maxArea = <span class="kw">Math</span>.Max(maxArea, h * w);
+        }
+        stack.Push(i);
+    }
+
+    <span class="kw">while</span> (stack.Count > <span class="num">0</span>)
+    {
+        <span class="kw">int</span> h = heights[stack.Pop()];
+        <span class="kw">int</span> w = stack.Count == <span class="num">0</span> ? heights.Length : heights.Length - stack.Peek() - <span class="num">1</span>;
+        maxArea = <span class="kw">Math</span>.Max(maxArea, h * w);
+    }
+
+    <span class="kw">return</span> maxArea;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p>Input: <code class="il">heights = [2, 1, 5, 6, 2, 3]</code></p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>i</th><th>h[i]</th><th>Stack</th><th>Calc Area</th><th>MaxArea</th></tr></thead>
+              <tbody>
+                <tr><td>0</td><td>2</td><td>[0]</td><td>—</td><td>0</td></tr>
+                <tr><td>1</td><td>1</td><td>[1]</td><td>2*1=2 (pop 0)</td><td>2</td></tr>
+                <tr><td>2</td><td>5</td><td>[1, 2]</td><td>—</td><td>2</td></tr>
+                <tr><td>3</td><td>6</td><td>[1, 2, 3]</td><td>—</td><td>2</td></tr>
+                <tr><td>4</td><td>2</td><td>[1, 4]</td><td>6*1=6, 5*2=10 (pop 3,2)</td><td>10</td></tr>
+                <tr><td>5</td><td>3</td><td>[1, 4, 5]</td><td>—</td><td>10</td></tr>
+                <tr><td>End</td><td>—</td><td>—</td><td>3*1=3, 2*5=10, 1*6=6</td><td>10</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>Single bar: <code class="il">[5]</code> → 5</li>
+            <li>Monotonic increasing: <code class="il">[1, 2, 3, 4, 5]</code> → 9 (height 4, width 2)</li>
+            <li>All same: <code class="il">[5, 5, 5]</code> → 15</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 11: QUEUE USING STACKS (LC 232) -->
+    <section class="section fade" id="p11">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 11: Implement Queue using Stacks</div>
+            <div class="algo-desc">Implement a queue using two stacks with amortized O(1) operations.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Stack Design</span>
+              <span class="badge b-blue">LeetCode 232</span>
+              <span class="badge b-green">★</span>
+            </div>
+          </div>
+          <div class="algo-idx">11</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Implement MyQueue class with push(x), pop(), peek(), and empty() using only two stacks. Operations should have amortized O(1) time.</p>
+
+          <h3>Approach</h3>
+          <p>Use stack1 for enqueue operations, stack2 for dequeue. When dequeueing and stack2 is empty, transfer all from stack1 to stack2 (reverse order).</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">class</span> <span class="ty">MyQueue</span>
+{
+    <span class="kw">private</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt; s1;
+    <span class="kw">private</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt; s2;
+
+    <span class="kw">public</span> <span class="fn">MyQueue</span>()
+    {
+        s1 = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt;();
+        s2 = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt;();
+    }
+
+    <span class="kw">public</span> <span class="kw">void</span> <span class="fn">Push</span>(<span class="kw">int</span> x)
+    {
+        s1.Push(x);
+    }
+
+    <span class="kw">public</span> <span class="kw">int</span> <span class="fn">Pop</span>()
+    {
+        <span class="fn">Peek</span>();
+        <span class="kw">return</span> s2.Pop();
+    }
+
+    <span class="kw">public</span> <span class="kw">int</span> <span class="fn">Peek</span>()
+    {
+        <span class="kw">if</span> (s2.Count == <span class="num">0</span>)
+        {
+            <span class="kw">while</span> (s1.Count > <span class="num">0</span>)
+            {
+                s2.Push(s1.Pop());
+            }
+        }
+        <span class="kw">return</span> s2.Peek();
+    }
+
+    <span class="kw">public</span> <span class="kw">bool</span> <span class="fn">Empty</span>()
+    {
+        <span class="kw">return</span> s1.Count == <span class="num">0</span> && s2.Count == <span class="num">0</span>;
+    }
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p>Operations: <code class="il">push(1), push(2), pop(), push(3), peek()</code></p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Op</th><th>S1</th><th>S2</th><th>Result</th></tr></thead>
+              <tbody>
+                <tr><td>push(1)</td><td>[1]</td><td>[]</td><td>—</td></tr>
+                <tr><td>push(2)</td><td>[1,2]</td><td>[]</td><td>—</td></tr>
+                <tr><td>pop()</td><td>[]</td><td>[2]</td><td>Return 1</td></tr>
+                <tr><td>push(3)</td><td>[3]</td><td>[2]</td><td>—</td></tr>
+                <tr><td>peek()</td><td>[3]</td><td>[2]</td><td>Return 2</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Push Time</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Pop Amortized</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>All push: <code class="il">push(1), push(2), empty()</code> → false</li>
+            <li>Empty check: <code class="il">pop on empty</code> → Exception</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 12: DECODE STRING (LC 394) -->
+    <section class="section fade" id="p12">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 12: Decode String</div>
+            <div class="algo-desc">Decode string with pattern k[encoded_string] where k is a number multiplying the string inside brackets.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Nested Brackets</span>
+              <span class="badge b-blue">LeetCode 394</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">12</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>String pattern: k[encoded_string] where k is a positive integer, brackets can be nested. Decode the string. Example: "3[a2[c]]" = "accaccacc".</p>
+
+          <h3>Approach</h3>
+          <p>Use stack to track characters and numbers. On closing bracket, pop characters, pop number, repeat characters, push back. On opening bracket, push it for grouping.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">string</span> <span class="fn">DecodeString</span>(<span class="kw">string</span> s)
+{
+    <span class="ty">Stack</span>&lt;<span class="kw">object</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">object</span>&gt;();
+    <span class="kw">int</span> num = <span class="num">0</span>;
+    <span class="ty">StringBuilder</span> sb = <span class="kw">new</span> <span class="ty">StringBuilder</span>();
+
+    <span class="kw">foreach</span> (<span class="kw">char</span> c <span class="kw">in</span> s)
+    {
+        <span class="kw">if</span> (<span class="kw">char</span>.<span class="fn">IsDigit</span>(c))
+        {
+            num = num * <span class="num">10</span> + (<span class="kw">int</span>)(c - <span class="str">'0'</span>);
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (c == <span class="str">'['</span>)
+        {
+            stack.Push(sb.ToString());
+            stack.Push(num);
+            sb = <span class="kw">new</span> <span class="ty">StringBuilder</span>();
+            num = <span class="num">0</span>;
+        }
+        <span class="kw">else</span> <span class="kw">if</span> (c == <span class="str">']'</span>)
+        {
+            <span class="kw">int</span> k = (<span class="kw">int</span>)stack.Pop();
+            <span class="kw">string</span> prev = ((<span class="kw">string</span>)stack.Pop());
+            <span class="kw">string</span> decoded = <span class="str">""</span>;
+            <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i < k; i++)
+            {
+                decoded += sb.ToString();
+            }
+            sb = <span class="kw">new</span> <span class="ty">StringBuilder</span>(prev + decoded);
+        }
+        <span class="kw">else</span>
+        {
+            sb.Append(c);
+        }
+    }
+
+    <span class="kw">return</span> sb.ToString();
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p>Input: <code class="il">"3[a2[c]]"</code></p>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Char</th><th>Action</th><th>Stack</th><th>SB</th><th>Num</th></tr></thead>
+              <tbody>
+                <tr><td>3</td><td>Digit</td><td>[]</td><td></td><td>3</td></tr>
+                <tr><td>[</td><td>Open</td><td>["", 3]</td><td></td><td>0</td></tr>
+                <tr><td>a</td><td>Char</td><td>["", 3]</td><td>a</td><td>0</td></tr>
+                <tr><td>2</td><td>Digit</td><td>["", 3]</td><td>a</td><td>2</td></tr>
+                <tr><td>[</td><td>Open</td><td>["", 3, "a", 2]</td><td></td><td>0</td></tr>
+                <tr><td>c</td><td>Char</td><td>["", 3, "a", 2]</td><td>c</td><td>0</td></tr>
+                <tr><td>]</td><td>Close</td><td>["", 3]</td><td>acc</td><td>0</td></tr>
+                <tr><td>]</td><td>Close</td><td>[]</td><td>accaccacc</td><td>0</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>No brackets: <code class="il">"abc"</code> → "abc"</li>
+            <li>Nested multiple levels: <code class="il">"2[abc]3[cd]ef"</code> → "abcabccdcdcdef"</li>
+            <li>Multi-digit number: <code class="il">"10[a]"</code> → "aaaaaaaaaa"</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 13: CALCULATOR II (LC 227) -->
+    <section class="section fade" id="p13">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 13: Basic Calculator II</div>
+            <div class="algo-desc">Evaluate expression string with +, -, *, / (no parentheses, operator precedence applies).</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Expression Evaluation</span>
+              <span class="badge b-blue">LeetCode 227</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">13</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given string expression with +, -, *, /. No parentheses. Evaluate respecting operator precedence. Integer division truncates toward zero.</p>
+
+          <h3>Approach</h3>
+          <p>Use stack. For +/-, push operand/negative. For *,/, pop, apply, push result. Finally sum all in stack.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">int</span> <span class="fn">Calculate</span>(<span class="kw">string</span> s)
+{
+    <span class="ty">Stack</span>&lt;<span class="kw">long</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">long</span>&gt;();
+    <span class="kw">long</span> num = <span class="num">0</span>;
+    <span class="kw">char</span> op = <span class="str">'+'</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i < s.Length; i++)
+    {
+        <span class="kw">char</span> c = s[i];
+
+        <span class="kw">if</span> (<span class="kw">char</span>.<span class="fn">IsDigit</span>(c))
+        {
+            num = num * <span class="num">10</span> + (c - <span class="str">'0'</span>);
+        }
+
+        <span class="kw">if</span> (!<span class="kw">char</span>.<span class="fn">IsDigit</span>(c) && c != <span class="str">' '</span> || i == s.Length - <span class="num">1</span>)
+        {
+            <span class="kw">switch</span> (op)
+            {
+                <span class="kw">case</span> <span class="str">'+'</span>: stack.Push(num); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="str">'-'</span>: stack.Push(-num); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="str">'*'</span>: stack.Push(stack.Pop() * num); <span class="kw">break</span>;
+                <span class="kw">case</span> <span class="str">'/'</span>: stack.Push(stack.Pop() / num); <span class="kw">break</span>;
+            }
+            op = c;
+            num = <span class="num">0</span>;
+        }
+    }
+
+    <span class="kw">long</span> result = <span class="num">0</span>;
+    <span class="kw">while</span> (stack.Count > <span class="num">0</span>)
+    {
+        result += stack.Pop();
+    }
+
+    <span class="kw">return</span> (<span class="kw">int</span>)result;
+}</pre>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>Spaces: <code class="il">" 3+5 / 2"</code> → 4</li>
+            <li>Negative division: <code class="il">"6/2"</code> → 3</li>
+            <li>Single digit: <code class="il">"42"</code> → 42</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 14: ASTEROID COLLISION (LC 735) -->
+    <section class="section fade" id="p14">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 14: Asteroid Collision</div>
+            <div class="algo-desc">Asteroids on a line collide if moving toward each other. Right-moving in stack, left-moving collide with them.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Stack Simulation</span>
+              <span class="badge b-blue">LeetCode 735</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">14</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Asteroids represented by int array. Positive = moving right, negative = moving left. If two collide, smaller explodes. Return list of surviving asteroids.</p>
+
+          <h3>Approach</h3>
+          <p>Use stack to track right-moving asteroids. For each left-moving, collide with stack top. Survivors added to stack or result.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">int</span>[] <span class="fn">AsteroidCollision</span>(<span class="kw">int</span>[] asteroids)
+{
+    <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt;();
+
+    <span class="kw">foreach</span> (<span class="kw">int</span> ast <span class="kw">in</span> asteroids)
+    {
+        <span class="kw">bool</span> alive = <span class="kw">true</span>;
+
+        <span class="kw">while</span> (alive && ast < <span class="num">0</span> && stack.Count > <span class="num">0</span> && stack.Peek() > <span class="num">0</span>)
+        {
+            <span class="kw">int</span> top = stack.Pop();
+            <span class="kw">if</span> (top < -ast)
+            {
+                <span class="cm">// top explodes, ast continues</span>
+            }
+            <span class="kw">else</span> <span class="kw">if</span> (top == -ast)
+            {
+                <span class="cm">// both explode</span>
+                alive = <span class="kw">false</span>;
+            }
+            <span class="kw">else</span>
+            {
+                <span class="cm">// ast explodes, top survives</span>
+                alive = <span class="kw">false</span>;
+                stack.Push(top);
+            }
+        }
+
+        <span class="kw">if</span> (alive)
+        {
+            stack.Push(ast);
+        }
+    }
+
+    <span class="kw">return</span> stack.ToArray();
+}</pre>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>All right: <code class="il">[5, 10, -5]</code> → [5, 10] (can't catch up)</li>
+            <li>Head-on: <code class="il">[1, 2, -1, -2]</code> → [-2] (all but last collide)</li>
+            <li>Same size: <code class="il">[1, -1]</code> → [] (both explode)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM 15: TRAPPING RAIN WATER (LC 42) -->
+    <section class="section fade" id="p15">
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">Problem 15: Trapping Rain Water</div>
+            <div class="algo-desc">Given elevation map, calculate how much rainwater can be trapped after raining. Stack-based approach.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Monotonic Stack</span>
+              <span class="badge b-blue">LeetCode 42</span>
+              <span class="badge b-amber">★★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">15</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given array height representing elevation map. Calculate total water trapped after it rains.</p>
+
+          <h3>Approach (Stack-based)</h3>
+          <p>Use monotonic decreasing stack of indices. When height increases, pop bars and calculate trapped water between them. Water depth = min(current, popped) - empty space height.</p>
+
+          <h3>C# Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <div class="code-lang">csharp</div>
+              <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">int</span> <span class="fn">Trap</span>(<span class="kw">int</span>[] height)
+{
+    <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="kw">int</span>&gt;();
+    <span class="kw">int</span> water = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i < height.Length; i++)
+    {
+        <span class="kw">while</span> (stack.Count > <span class="num">0</span> && height[i] > height[stack.Peek()])
+        {
+            <span class="kw">int</span> top = stack.Pop();
+            <span class="kw">if</span> (stack.Count == <span class="num">0</span>) <span class="kw">break</span>;
+
+            <span class="kw">int</span> left = stack.Peek();
+            <span class="kw">int</span> w = i - left - <span class="num">1</span>;
+            <span class="kw">int</span> h = <span class="kw">Math</span>.Min(height[i], height[left]) - height[top];
+            water += w * h;
+        }
+        stack.Push(i);
+    }
+
+    <span class="kw">return</span> water;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p>Input: <code class="il">height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]</code></p>
+          <p>Expected: 6 units of water trapped.</p>
+          <div class="callout tip">
+            <div class="callout-icon">💡</div>
+            <div><strong>Visualization:</strong> Stack maintains indices of decreasing heights. When we find a taller bar, trapped water is calculated by popping valleys. Width × depth calculations accumulate total trapped water.</div>
+          </div>
+
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Time Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space Complexity</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin-left:16px;margin-bottom:16px;">
+            <li>Flat: <code class="il">[5, 5, 5]</code> → 0</li>
+            <li>Decreasing: <code class="il">[5, 4, 3]</code> → 0</li>
+            <li>Valley: <code class="il">[3, 0, 2]</code> → 2 (width 1, height 2)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <p><strong>Category 5: Stacks & Queues</strong> — 15 canonical problems with complete solutions</p>
+      <p>Toptal Problem Bank • DSA Mastery Series • 2025</p>
+    </div>
+  </footer>
+
+  <script>
+function copyCode(btn) {
+  const code = btn.parentElement.nextElementSibling.innerText;
+  navigator.clipboard.writeText(code).then(() => {
+    btn.innerText = 'Copied!';
+    setTimeout(() => btn.innerText = 'Copy', 2000);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.fade').forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), i * 100);
+  });
+});
+  </script>
+</body>
+</html>

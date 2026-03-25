@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Dynamic programming FAANG problems — climbing stairs, longest subsequence, knapsack variations, with C# solutions.">
+  <meta name="keywords" content="dynamic programming, FAANG interview, climbing stairs, LCS, knapsack, C#">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat08-dynamic-programming.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat08-dynamic-programming.html">
+  <meta property="og:title" content="Category 8: Dynamic Programming — 15 Problems - Toptal Problem Bank">
+  <meta property="og:description" content="Dynamic programming FAANG problems — climbing stairs, longest subsequence, knapsack variations, with C# solutions.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat08-dynamic-programming.html">
+  <meta name="twitter:title" content="Category 8: Dynamic Programming — 15 Problems - Toptal Problem Bank">
+  <meta name="twitter:description" content="Dynamic programming FAANG problems — climbing stairs, longest subsequence, knapsack variations, with C# solutions.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Category 8: Dynamic Programming \u2014 15 Problems - Toptal Problem Bank",
+  "description": "Dynamic programming FAANG problems \u2014 climbing stairs, longest subsequence, knapsack variations, with C# solutions.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat08-dynamic-programming.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Category 8: Dynamic Programming — 15 Problems - Toptal Problem Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.algo{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px}
+.algo-head{padding:28px 32px 22px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.algo-idx{font-size:58px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em}
+.algo-name{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.algo-desc{font-family:var(--serif);font-size:14.5px;color:var(--ink2);line-height:1.72;max-width:580px}
+.algo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.algo-body{padding:28px 32px}
+.cx-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.cx{background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;min-width:110px}
+.cx-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cx-v{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink)}
+.steps{margin-bottom:26px}
+.step{display:flex}
+.step-left{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--acc-l);border:1.5px solid var(--acc-b);color:var(--acc);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono);flex-shrink:0}
+.step-vline{width:1.5px;flex:1;background:var(--rule);margin:4px 0}
+.step:last-child .step-vline{display:none}
+.step-body{padding:3px 0 22px 14px;font-size:14px;color:var(--ink2);line-height:1.68}
+.step-body strong{color:var(--ink);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+@media(max-width:700px){
+  .algo-head{grid-template-columns:1fr}.algo-idx{display:none}
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Problem Bank
+        <span class="pill">v1</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#sec-theory">Theory</a>
+        <a href="#sec-problems">Problems</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Category 8</div>
+      </div>
+      <h1>Dynamic <em>Programming</em></h1>
+      <p class="hero-sub">Master the art of breaking complex problems into overlapping subproblems and combining optimal solutions. Learn top-down memoization, bottom-up tabulation, and space-optimized state transitions across 15 essential problems.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">15</div>
+          <div class="stat-l">Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">3</div>
+          <div class="stat-l">Difficulty Levels</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Complete Solutions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">5</div>
+          <div class="stat-l">Codility Problems</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THEORY SECTION -->
+    <section class="section fade" id="sec-theory">
+      <div class="sec-tag">
+        <span class="sec-num">Theory</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Dynamic Programming Fundamentals</h2>
+      <p class="lead">Dynamic programming solves complex problems by breaking them into overlapping subproblems, caching results, and combining optimal solutions. Two implementation styles exist: top-down (memoization) and bottom-up (tabulation).</p>
+
+      <h3>1. Core Principles of DP</h3>
+      <p><strong>Overlapping Subproblems:</strong> The same subproblem is solved multiple times. Instead of recomputing, cache results in a dictionary (memoization) or array (tabulation).</p>
+      <p><strong>Optimal Substructure:</strong> An optimal solution can be constructed from optimal solutions to its subproblems. This allows recurrence relations.</p>
+      <p><strong>State Definition:</strong> Clearly define what dp[i] or dp[i][j] represents. Common patterns: longest sequence ending at i, minimum cost to reach state i, count of ways to achieve state i.</p>
+      <p><strong>Recurrence Relation:</strong> Express the current state in terms of previous states.</p>
+      <p><strong>Base Cases:</strong> Identify initial conditions that require no computation.</p>
+      <p><strong>Fill Order:</strong> In tabulation, process states in dependency order (usually left-to-right or bottom-up for 2D).</p>
+
+      <h3>2. Top-Down (Memoization) vs Bottom-Up (Tabulation)</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Top-Down (Memoization)</th>
+              <th>Bottom-Up (Tabulation)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Approach</td>
+              <td>Recursive with caching</td>
+              <td>Iterative DP array</td>
+            </tr>
+            <tr>
+              <td>When to use</td>
+              <td>Natural recursive structure, not all states needed</td>
+              <td>All states needed, clear iteration order</td>
+            </tr>
+            <tr>
+              <td>Implementation</td>
+              <td>Dictionary + recursion</td>
+              <td>Array + loops</td>
+            </tr>
+            <tr>
+              <td>Space</td>
+              <td>O(depth of recursion) + O(states)</td>
+              <td>O(states)</td>
+            </tr>
+            <tr>
+              <td>Typical overhead</td>
+              <td>Recursion stack, hash lookups</td>
+              <td>Cleaner, cache-friendly</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>3. Identifying DP Problems</h3>
+      <p><strong>Keywords that suggest DP:</strong></p>
+      <ul style="margin:0 0 26px 20px;color:var(--ink2)">
+        <li><strong>"Count ways"</strong> → Number of distinct paths/combinations</li>
+        <li><strong>"Min/Max"</strong> → Minimum cost, maximum profit, shortest distance</li>
+        <li><strong>"Can you reach"</strong> → Boolean reachability, existence check</li>
+        <li><strong>"Longest/Shortest"</strong> → Optimal subsequences, substrings</li>
+        <li><strong>"Optimal partition"</strong> → Divide problem into best segments</li>
+      </ul>
+
+      <h3>4. Common DP Patterns</h3>
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>1D DP (Linear):</strong> dp[i] depends on dp[i-1], dp[i-2], etc. Examples: Fibonacci, climbing stairs, longest increasing subsequence.</div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>2D DP (Grid/String):</strong> dp[i][j] depends on neighbors. Examples: LCS, edit distance, unique paths in grid.</div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>Knapsack:</strong> dp[i][w] = max value using first i items with capacity w. Variants: 0/1, unbounded, multidimensional.</div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>Interval/Range DP:</strong> dp[i][j] = optimal for subarray/substring from i to j. Build up from small intervals to large.</div>
+      </div>
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>Space Optimization:</strong> If dp[i] only depends on previous row/column, use rolling arrays (two arrays instead of full 2D). Reduces space from O(n*m) to O(m).</div>
+      </div>
+
+      <h3>5. Space Optimization Techniques</h3>
+      <p><strong>Rolling Array:</strong> Keep only the last two rows instead of entire 2D array.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Example: Optimize 2D DP to O(n) space using rolling array</span>
+<span class="kw">int</span>[] prev = <span class="kw">new</span> <span class="kw">int</span>[m];
+<span class="kw">int</span>[] curr = <span class="kw">new</span> <span class="kw">int</span>[m];
+<span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) {
+    <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">0</span>; j &lt; m; j++) {
+        curr[j] = <span class="fn">Math</span>.<span class="fn">Max</span>(prev[j], curr[j-<span class="num">1</span>]);
+    }
+    <span class="va">prev</span> = curr;
+}</pre>
+      </div>
+    </section>
+
+    <!-- PROBLEMS SECTION -->
+    <section class="section fade" id="sec-problems">
+      <div class="sec-tag">
+        <span class="sec-num">Problems</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>15 Essential DP Problems</h2>
+
+      <!-- PROBLEM 1 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">1. NumberSolitaire (Codility)</div>
+            <div class="algo-desc">Find the maximum sum achievable in a path from position 0 to n-1, where each step can be 1 to 6 positions forward.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">1D DP</span>
+              <span class="badge b-green">Codility</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">01</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>You have an array A of size N. Start at position 0. At each step, you can move forward by 1 to 6 positions and add A[next_pos] to your sum. Reach position N-1 with maximum sum.</p>
+
+          <h3>State Definition</h3>
+          <p><code class="il">dp[i]</code> = maximum sum achievable when reaching position i.</p>
+
+          <h3>Recurrence Relation</h3>
+          <p><code class="il">dp[i] = A[i] + max(dp[i-1], dp[i-2], ..., dp[i-6])</code> (for all valid previous positions)</p>
+
+          <h3>Base Case</h3>
+          <p><code class="il">dp[0] = A[0]</code></p>
+
+          <h3>Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">NumberSolitaire</span>(<span class="ty">int</span>[] A) {
+    <span class="ty">int</span> N = A.Length;
+    <span class="ty">int</span>[] dp = <span class="kw">new</span> <span class="ty">int</span>[N];
+    dp[<span class="num">0</span>] = A[<span class="num">0</span>];
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; N; i++) {
+        dp[i] = <span class="ty">int</span>.MinValue;
+        <span class="cm">// Try moves from 1 to 6 steps back</span>
+        <span class="kw">for</span> (<span class="ty">int</span> jump = <span class="num">1</span>; jump &lt;= <span class="num">6</span> &amp;&amp; jump &lt;= i; jump++) {
+            dp[i] = <span class="fn">Math</span>.<span class="fn">Max</span>(dp[i], dp[i - jump] + A[i]);
+        }
+    }
+
+    <span class="kw">return</span> dp[N - <span class="num">1</span>];
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">A = [1, -2, 0, 9, 2, -4, 4]</code></p>
+          <p>dp[0]=1, dp[1]=max(1-2)=-1, dp[2]=max(-1+0, 1+0)=1, dp[3]=max(1+9, -1+9, 1+9)=10, dp[4]=max(1+2)=3, dp[5]=max(1-4)=-3, dp[6]=max(10+4)=14</p>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(N × 6) = O(N) | <strong>Space:</strong> O(N)</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:0 0 16px 20px;color:var(--ink2)">
+            <li>N = 1: Return A[0]</li>
+            <li>Negative values in array: DP still finds maximum reachable</li>
+            <li>Large sums: Use long if needed</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PROBLEM 2 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">2. MinAbsSum (Codility)</div>
+            <div class="algo-desc">Find the minimum absolute value of any sum of elements from array A (can use all, some, or none).</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Subset Sum</span>
+              <span class="badge b-green">Codility</span>
+              <span class="badge b-red">★★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">02</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Given array A of integers (can be negative). Find subset such that the absolute value of the sum is minimized. Return this minimum absolute value.</p>
+
+          <h3>Key Insight</h3>
+          <p>This is a variant of partition problem. For total sum S, partition array into two subsets P and N such that sum(P) - sum(N) = S - 2*sum(N). To minimize |result|, we want sum(P) and sum(N) as close as possible.</p>
+
+          <h3>State Definition</h3>
+          <p><code class="il">dp[i]</code> = true if sum i is achievable. Track all reachable sums, find closest to 0.</p>
+
+          <h3>Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">MinAbsSum</span>(<span class="ty">int</span>[] A) {
+    <span class="kw">int</span> sumPos = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        sumPos += <span class="fn">Math</span>.<span class="fn">Abs</span>(A[i]);
+    }
+
+    <span class="cm">// DP: track which sums are achievable</span>
+    <span class="kw">bool</span>[] dp = <span class="kw">new</span> <span class="kw">bool</span>[sumPos + <span class="num">1</span>];
+    dp[<span class="num">0</span>] = <span class="kw">true</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; A.Length; i++) {
+        <span class="ty">int</span> val = <span class="fn">Math</span>.<span class="fn">Abs</span>(A[i]);
+        <span class="cm">// Traverse backwards to avoid using same element twice</span>
+        <span class="kw">for</span> (<span class="ty">int</span> s = sumPos; s &gt;= val; s--) {
+            <span class="kw">if</span> (dp[s - val]) dp[s] = <span class="kw">true</span>;
+        }
+    }
+
+    <span class="cm">// Find closest achievable sum to 0</span>
+    <span class="ty">int</span> minAbs = sumPos;
+    <span class="kw">for</span> (<span class="ty">int</span> s = <span class="num">0</span>; s &lt;= sumPos; s++) {
+        <span class="kw">if</span> (dp[s]) {
+            minAbs = <span class="fn">Math</span>.<span class="fn">Min</span>(minAbs, <span class="fn">Math</span>.<span class="fn">Min</span>(s, sumPos - <span class="num">2</span> * s));
+        }
+    }
+
+    <span class="kw">return</span> minAbs;
+}</pre>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(N × SUM) where SUM is sum of absolute values | <strong>Space:</strong> O(SUM)</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:0 0 16px 20px;color:var(--ink2)">
+            <li>All positive or all negative: minimum is single smallest element</li>
+            <li>Mixed signs: partition optimally</li>
+            <li>Large absolute values: SUM can be large; time may be high</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PROBLEM 3 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">3. Climbing Stairs (LC 70)</div>
+            <div class="algo-desc">Count ways to climb N stairs when each step covers 1 or 2 stairs.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Fibonacci</span>
+              <span class="badge b-green">LeetCode</span>
+              <span class="badge b-amber">★</span>
+            </div>
+          </div>
+          <div class="algo-idx">03</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>You are climbing a staircase with N stairs. Each time you can climb 1 or 2 stairs. How many distinct ways can you climb to the top?</p>
+
+          <h3>State Definition</h3>
+          <p><code class="il">dp[i]</code> = number of ways to reach stair i.</p>
+
+          <h3>Recurrence Relation</h3>
+          <p><code class="il">dp[i] = dp[i-1] + dp[i-2]</code> (either step from i-1 or i-2)</p>
+
+          <h3>Base Cases</h3>
+          <p><code class="il">dp[0] = 1 (one way to stay at start), dp[1] = 1 (one way to reach first stair)</code></p>
+
+          <h3>Implementation (Space-Optimized)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">ClimbStairs</span>(<span class="ty">int</span> n) {
+    <span class="kw">if</span> (n &lt;= <span class="num">1</span>) <span class="kw">return</span> <span class="num">1</span>;
+
+    <span class="ty">int</span> prev2 = <span class="num">1</span>; <span class="cm">// dp[0]</span>
+    <span class="ty">int</span> prev1 = <span class="num">1</span>; <span class="cm">// dp[1]</span>
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">2</span>; i &lt;= n; i++) {
+        <span class="ty">int</span> curr = prev1 + prev2;
+        prev2 = prev1;
+        prev1 = curr;
+    }
+
+    <span class="kw">return</span> prev1;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">n = 5</code></p>
+          <p>dp[0]=1, dp[1]=1, dp[2]=2, dp[3]=3, dp[4]=5, dp[5]=8 → Answer: 8</p>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(N) | <strong>Space:</strong> O(1) optimized, O(N) with full array</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:0 0 16px 20px;color:var(--ink2)">
+            <li>n = 1: return 1</li>
+            <li>n = 2: return 2</li>
+            <li>Large n: may overflow int (use long)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PROBLEM 4 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">4. House Robber (LC 198)</div>
+            <div class="algo-desc">Maximize money robbed from houses in a line, where adjacent houses cannot be robbed.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">1D DP</span>
+              <span class="badge b-green">LeetCode</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">04</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Array of house values. Rob houses to maximize total, but cannot rob two adjacent houses. Return maximum money.</p>
+
+          <h3>State Definition</h3>
+          <p><code class="il">dp[i]</code> = maximum money robbed up to house i.</p>
+
+          <h3>Recurrence Relation</h3>
+          <p><code class="il">dp[i] = max(dp[i-1], dp[i-2] + A[i])</code> (skip house or rob it)</p>
+
+          <h3>Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">Rob</span>(<span class="ty">int</span>[] nums) {
+    <span class="kw">if</span> (nums.Length == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+    <span class="kw">if</span> (nums.Length == <span class="num">1</span>) <span class="kw">return</span> nums[<span class="num">0</span>];
+
+    <span class="ty">int</span> prev2 = nums[<span class="num">0</span>];
+    <span class="ty">int</span> prev1 = <span class="fn">Math</span>.<span class="fn">Max</span>(nums[<span class="num">0</span>], nums[<span class="num">1</span>]);
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">2</span>; i &lt; nums.Length; i++) {
+        <span class="ty">int</span> curr = <span class="fn">Math</span>.<span class="fn">Max</span>(prev1, prev2 + nums[i]);
+        prev2 = prev1;
+        prev1 = curr;
+    }
+
+    <span class="kw">return</span> prev1;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">nums = [1, 3, 1, 3, 100]</code></p>
+          <p>dp[0]=1, dp[1]=3, dp[2]=max(3,1+1)=3, dp[3]=max(3,3+3)=6, dp[4]=max(6,3+100)=103 → Answer: 103</p>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(N) | <strong>Space:</strong> O(1)</p>
+        </div>
+      </div>
+
+      <!-- PROBLEM 5 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">5. Coin Change (LC 322)</div>
+            <div class="algo-desc">Find minimum number of coins needed to make a target amount.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Unbounded Knapsack</span>
+              <span class="badge b-green">LeetCode</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">05</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Array of coin denominations. Find minimum number of coins to make amount. Unlimited supply of each coin. Return -1 if impossible.</p>
+
+          <h3>State Definition</h3>
+          <p><code class="il">dp[i]</code> = minimum coins needed to make amount i.</p>
+
+          <h3>Recurrence Relation</h3>
+          <p><code class="il">dp[i] = 1 + min(dp[i - coin]) for all coins where coin <= i</code></p>
+
+          <h3>Base Case</h3>
+          <p><code class="il">dp[0] = 0 (zero coins for zero amount)</code></p>
+
+          <h3>Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">CoinChange</span>(<span class="ty">int</span>[] coins, <span class="ty">int</span> amount) {
+    <span class="ty">int</span>[] dp = <span class="kw">new</span> <span class="ty">int</span>[amount + <span class="num">1</span>];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt;= amount; i++) {
+        dp[i] = <span class="ty">int</span>.MaxValue;
+    }
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt;= amount; i++) {
+        <span class="kw">foreach</span> (<span class="ty">int</span> coin <span class="kw">in</span> coins) {
+            <span class="kw">if</span> (coin &lt;= i &amp;&amp; dp[i - coin] != <span class="ty">int</span>.MaxValue) {
+                dp[i] = <span class="fn">Math</span>.<span class="fn">Min</span>(dp[i], dp[i - coin] + <span class="num">1</span>);
+            }
+        }
+    }
+
+    <span class="kw">return</span> dp[amount] == <span class="ty">int</span>.MaxValue ? <span class="num">-1</span> : dp[amount];
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">coins = [1, 2, 5], amount = 5</code></p>
+          <p>dp[0]=0, dp[1]=1, dp[2]=1, dp[3]=2, dp[4]=2, dp[5]=1 → Answer: 1 (one coin of value 5)</p>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(amount × |coins|) | <strong>Space:</strong> O(amount)</p>
+
+          <h3>Edge Cases</h3>
+          <ul style="margin:0 0 16px 20px;color:var(--ink2)">
+            <li>amount = 0: return 0</li>
+            <li>Impossible to make amount: return -1</li>
+            <li>Single coin: can make only multiples of that coin</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PROBLEM 6 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">6. Longest Increasing Subsequence (LC 300)</div>
+            <div class="algo-desc">Find length of longest strictly increasing subsequence. Includes O(n²) and O(n log n) solutions.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">1D DP / Binary Search</span>
+              <span class="badge b-green">LeetCode</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">06</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Array of integers. Find length of longest strictly increasing subsequence (not necessarily contiguous).</p>
+
+          <h3>State Definition (O(n²) DP)</h3>
+          <p><code class="il">dp[i]</code> = length of LIS ending at index i.</p>
+
+          <h3>Recurrence</h3>
+          <p><code class="il">dp[i] = 1 + max(dp[j]) for all j < i where A[j] < A[i]</code></p>
+
+          <h3>O(n²) Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">LengthOfLIS_DP</span>(<span class="ty">int</span>[] nums) {
+    <span class="ty">int</span>[] dp = <span class="kw">new</span> <span class="ty">int</span>[nums.Length];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; nums.Length; i++) {
+        dp[i] = <span class="num">1</span>;
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">0</span>; j &lt; i; j++) {
+            <span class="kw">if</span> (nums[j] &lt; nums[i]) {
+                dp[i] = <span class="fn">Math</span>.<span class="fn">Max</span>(dp[i], dp[j] + <span class="num">1</span>);
+            }
+        }
+    }
+    <span class="ty">int</span> maxLen = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> len <span class="kw">in</span> dp) {
+        maxLen = <span class="fn">Math</span>.<span class="fn">Max</span>(maxLen, len);
+    }
+    <span class="kw">return</span> maxLen;
+}</pre>
+          </div>
+
+          <h3>O(n log n) Implementation (Binary Search)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">LengthOfLIS</span>(<span class="ty">int</span>[] nums) {
+    <span class="kw">if</span> (nums.Length == <span class="num">0</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="ty">List</span>&lt;<span class="ty">int</span>&gt; tails = <span class="kw">new</span> <span class="ty">List</span>&lt;<span class="ty">int</span>&gt;();
+    <span class="kw">foreach</span> (<span class="ty">int</span> num <span class="kw">in</span> nums) {
+        <span class="ty">int</span> pos = tails.<span class="fn">BinarySearch</span>(num);
+        <span class="kw">if</span> (pos &lt; <span class="num">0</span>) pos = ~pos;
+
+        <span class="kw">if</span> (pos == tails.Count) {
+            tails.<span class="fn">Add</span>(num);
+        } <span class="kw">else</span> {
+            tails[pos] = num;
+        }
+    }
+    <span class="kw">return</span> tails.Count;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">nums = [10, 9, 2, 5, 3, 7, 101, 18]</code></p>
+          <p>O(n²): dp = [1,1,1,2,2,3,4,4] → max = 4 ([2,3,7,101] or [2,5,7,101])</p>
+          <p>O(n log n): tails evolves as [10], [9], [2], [2,5], [2,3], [2,3,7], [2,3,7,101], [2,3,7,18]</p>
+
+          <h3>Complexity</h3>
+          <p><strong>O(n²) Time:</strong> O(N²) | <strong>Space:</strong> O(N)</p>
+          <p><strong>O(n log n) Time:</strong> O(N log N) | <strong>Space:</strong> O(N)</p>
+        </div>
+      </div>
+
+      <!-- PROBLEM 7 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">7. Word Break (LC 139)</div>
+            <div class="algo-desc">Determine if a string can be segmented using words from a dictionary.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">String DP + HashSet</span>
+              <span class="badge b-green">LeetCode</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">07</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>String s and word dictionary. Check if s can be segmented as concatenation of dictionary words (each word used at most once per position).</p>
+
+          <h3>State Definition</h3>
+          <p><code class="il">dp[i]</code> = true if substring s[0..i-1] can be segmented.</p>
+
+          <h3>Recurrence</h3>
+          <p><code class="il">dp[i] = true if there exists j < i where dp[j] is true and s[j..i-1] is in dictionary</code></p>
+
+          <h3>Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">bool</span> <span class="fn">WordBreak</span>(<span class="ty">string</span> s, <span class="ty">IList</span>&lt;<span class="ty">string</span>&gt; wordDict) {
+    <span class="ty">var</span> dict = <span class="kw">new</span> <span class="fn">HashSet</span>&lt;<span class="ty">string</span>&gt;(wordDict);
+    <span class="kw">bool</span>[] dp = <span class="kw">new</span> <span class="kw">bool</span>[s.Length + <span class="num">1</span>];
+    dp[<span class="num">0</span>] = <span class="kw">true</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt;= s.Length; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">0</span>; j &lt; i; j++) {
+            <span class="kw">if</span> (dp[j] &amp;&amp; dict.<span class="fn">Contains</span>(s.<span class="fn">Substring</span>(j, i - j))) {
+                dp[i] = <span class="kw">true</span>;
+                <span class="kw">break</span>;
+            }
+        }
+    }
+    <span class="kw">return</span> dp[s.Length];
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">s = "applepenapple", dict = ["apple", "pen"]</code></p>
+          <p>dp[0]=T, dp[5]=T (apple), dp[8]=T (apple+pen), dp[13]=T (apple+pen+apple) → true</p>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(N² × M) where N = len(s), M = avg word length (substring creation) | <strong>Space:</strong> O(N)</p>
+
+          <h3>Optimization Tip</h3>
+          <p>If word lengths are bounded, prune j iterations: <code class="il">for (int j = Math.Max(0, i - maxWordLen); ...)</code></p>
+        </div>
+      </div>
+
+      <!-- PROBLEM 8 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">8. Unique Paths (LC 62)</div>
+            <div class="algo-desc">Count distinct paths in m×n grid from top-left to bottom-right (move right or down only).</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">2D Grid DP</span>
+              <span class="badge b-green">LeetCode</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">08</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>m×n grid. Start at (0,0), end at (m-1,n-1). Each move is either right or down. Count distinct paths.</p>
+
+          <h3>State Definition</h3>
+          <p><code class="il">dp[i][j]</code> = number of ways to reach cell (i,j).</p>
+
+          <h3>Recurrence</h3>
+          <p><code class="il">dp[i][j] = dp[i-1][j] + dp[i][j-1]</code></p>
+
+          <h3>Base Cases</h3>
+          <p><code class="il">dp[0][0] = 1</code>, first row and column all 1 (only one way)</p>
+
+          <h3>Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">UniquePaths</span>(<span class="ty">int</span> m, <span class="ty">int</span> n) {
+    <span class="ty">int</span>[][] dp = <span class="kw">new</span> <span class="ty">int</span>[m][];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; m; i++) {
+        dp[i] = <span class="kw">new</span> <span class="ty">int</span>[n];
+    }
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; m; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">0</span>; j &lt; n; j++) {
+            <span class="kw">if</span> (i == <span class="num">0</span> || j == <span class="num">0</span>) {
+                dp[i][j] = <span class="num">1</span>;
+            } <span class="kw">else</span> {
+                dp[i][j] = dp[i - <span class="num">1</span>][j] + dp[i][j - <span class="num">1</span>];
+            }
+        }
+    }
+
+    <span class="kw">return</span> dp[m - <span class="num">1</span>][n - <span class="num">1</span>];
+}</pre>
+          </div>
+
+          <h3>Space-Optimized Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">UniquePaths_Optimized</span>(<span class="ty">int</span> m, <span class="ty">int</span> n) {
+    <span class="ty">int</span>[] prev = <span class="kw">new</span> <span class="ty">int</span>[n];
+    <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">0</span>; j &lt; n; j++) prev[j] = <span class="num">1</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; m; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">1</span>; j &lt; n; j++) {
+            prev[j] += prev[j - <span class="num">1</span>];
+        }
+    }
+
+    <span class="kw">return</span> prev[n - <span class="num">1</span>];
+}</pre>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(m × n) | <strong>Space:</strong> O(m × n) or O(n) optimized</p>
+
+          <h3>Mathematical Note</h3>
+          <p>This is equivalent to choosing m-1 down moves from m+n-2 total moves: C(m+n-2, m-1)</p>
+        </div>
+      </div>
+
+      <!-- PROBLEM 9 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">9. Minimum Path Sum (LC 64)</div>
+            <div class="algo-desc">Find minimum sum path from top-left to bottom-right in grid (move right or down only).</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">2D Grid DP</span>
+              <span class="badge b-green">LeetCode</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">09</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>m×n grid with integers. Find path from (0,0) to (m-1,n-1) with minimum sum. Move right or down only.</p>
+
+          <h3>State Definition</h3>
+          <p><code class="il">dp[i][j]</code> = minimum sum to reach cell (i,j).</p>
+
+          <h3>Recurrence</h3>
+          <p><code class="il">dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])</code></p>
+
+          <h3>Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">MinPathSum</span>(<span class="ty">int</span>[][] grid) {
+    <span class="ty">int</span> m = grid.Length, n = grid[<span class="num">0</span>].Length;
+    <span class="ty">int</span>[][] dp = <span class="kw">new</span> <span class="ty">int</span>[m][];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; m; i++) {
+        dp[i] = <span class="kw">new</span> <span class="ty">int</span>[n];
+    }
+
+    dp[<span class="num">0</span>][<span class="num">0</span>] = grid[<span class="num">0</span>][<span class="num">0</span>];
+
+    <span class="cm">// Fill first row</span>
+    <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">1</span>; j &lt; n; j++) {
+        dp[<span class="num">0</span>][j] = dp[<span class="num">0</span>][j - <span class="num">1</span>] + grid[<span class="num">0</span>][j];
+    }
+
+    <span class="cm">// Fill first column</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; m; i++) {
+        dp[i][<span class="num">0</span>] = dp[i - <span class="num">1</span>][<span class="num">0</span>] + grid[i][<span class="num">0</span>];
+    }
+
+    <span class="cm">// Fill remaining cells</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; m; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">1</span>; j &lt; n; j++) {
+            dp[i][j] = grid[i][j] + <span class="fn">Math</span>.<span class="fn">Min</span>(dp[i - <span class="num">1</span>][j], dp[i][j - <span class="num">1</span>]);
+        }
+    }
+
+    <span class="kw">return</span> dp[m - <span class="num">1</span>][n - <span class="num">1</span>];
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">grid = [[1,3,1], [1,5,1], [4,2,1]]</code></p>
+          <p>dp[0]=[1,4,5], dp[1]=[2,7,6], dp[2]=[6,8,7] → Answer: 7</p>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(m × n) | <strong>Space:</strong> O(m × n)</p>
+
+          <h3>In-Place Optimization</h3>
+          <p>Can modify grid directly instead of using separate dp array (if allowed).</p>
+        </div>
+      </div>
+
+      <!-- PROBLEM 10 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">10. Edit Distance (LC 72)</div>
+            <div class="algo-desc">Find minimum edits (insert, delete, replace) to transform one string to another.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">2D String DP</span>
+              <span class="badge b-green">LeetCode</span>
+              <span class="badge b-red">★★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">10</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Two strings word1 and word2. Find minimum edits (insert, delete, replace char) to convert word1 to word2. Each operation counts as 1 edit.</p>
+
+          <h3>State Definition</h3>
+          <p><code class="il">dp[i][j]</code> = minimum edits to convert word1[0..i-1] to word2[0..j-1].</p>
+
+          <h3>Recurrence</h3>
+          <p>If word1[i-1] == word2[j-1]: <code class="il">dp[i][j] = dp[i-1][j-1]</code></p>
+          <p>Else: <code class="il">dp[i][j] = 1 + min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1])</code> (delete, insert, replace)</p>
+
+          <h3>Base Cases</h3>
+          <p><code class="il">dp[0][j] = j (insert j chars), dp[i][0] = i (delete i chars)</code></p>
+
+          <h3>Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">MinDistance</span>(<span class="ty">string</span> word1, <span class="ty">string</span> word2) {
+    <span class="ty">int</span> m = word1.Length, n = word2.Length;
+    <span class="ty">int</span>[][] dp = <span class="kw">new</span> <span class="ty">int</span>[m + <span class="num">1</span>][];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt;= m; i++) {
+        dp[i] = <span class="kw">new</span> <span class="ty">int</span>[n + <span class="num">1</span>];
+    }
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt;= m; i++) dp[i][<span class="num">0</span>] = i;
+    <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">0</span>; j &lt;= n; j++) dp[<span class="num">0</span>][j] = j;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt;= m; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">1</span>; j &lt;= n; j++) {
+            <span class="kw">if</span> (word1[i - <span class="num">1</span>] == word2[j - <span class="num">1</span>]) {
+                dp[i][j] = dp[i - <span class="num">1</span>][j - <span class="num">1</span>];
+            } <span class="kw">else</span> {
+                dp[i][j] = <span class="num">1</span> + <span class="fn">Math</span>.<span class="fn">Min</span>(
+                    <span class="fn">Math</span>.<span class="fn">Min</span>(dp[i - <span class="num">1</span>][j], dp[i][j - <span class="num">1</span>]),
+                    dp[i - <span class="num">1</span>][j - <span class="num">1</span>]);
+            }
+        }
+    }
+
+    <span class="kw">return</span> dp[m][n];
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">word1 = "horse", word2 = "ros"</code></p>
+          <p>Build 6×4 matrix, final dp[5][3] = 3 (delete h, delete e, replace p→s)</p>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(m × n) | <strong>Space:</strong> O(m × n), optimizable to O(min(m,n))</p>
+        </div>
+      </div>
+
+      <!-- PROBLEM 11 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">11. Longest Common Subsequence (LC 1143)</div>
+            <div class="algo-desc">Find length of longest subsequence common to both strings.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">2D String DP</span>
+              <span class="badge b-green">LeetCode</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">11</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Two strings text1 and text2. Find length of longest subsequence appearing in both (not necessarily contiguous).</p>
+
+          <h3>State Definition</h3>
+          <p><code class="il">dp[i][j]</code> = length of LCS of text1[0..i-1] and text2[0..j-1].</p>
+
+          <h3>Recurrence</h3>
+          <p>If text1[i-1] == text2[j-1]: <code class="il">dp[i][j] = 1 + dp[i-1][j-1]</code></p>
+          <p>Else: <code class="il">dp[i][j] = max(dp[i-1][j], dp[i][j-1])</code></p>
+
+          <h3>Base Cases</h3>
+          <p><code class="il">dp[0][j] = 0, dp[i][0] = 0</code></p>
+
+          <h3>Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">LongestCommonSubsequence</span>(<span class="ty">string</span> text1, <span class="ty">string</span> text2) {
+    <span class="ty">int</span> m = text1.Length, n = text2.Length;
+    <span class="ty">int</span>[][] dp = <span class="kw">new</span> <span class="ty">int</span>[m + <span class="num">1</span>][];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt;= m; i++) {
+        dp[i] = <span class="kw">new</span> <span class="ty">int</span>[n + <span class="num">1</span>];
+    }
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt;= m; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> j = <span class="num">1</span>; j &lt;= n; j++) {
+            <span class="kw">if</span> (text1[i - <span class="num">1</span>] == text2[j - <span class="num">1</span>]) {
+                dp[i][j] = <span class="num">1</span> + dp[i - <span class="num">1</span>][j - <span class="num">1</span>];
+            } <span class="kw">else</span> {
+                dp[i][j] = <span class="fn">Math</span>.<span class="fn">Max</span>(dp[i - <span class="num">1</span>][j], dp[i][j - <span class="num">1</span>]);
+            }
+        }
+    }
+
+    <span class="kw">return</span> dp[m][n];
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">text1 = "ace", text2 = "abe"</code></p>
+          <p>dp[1][1]='a', dp[2][2]='a', dp[3][3]='ae' → Answer: 2</p>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(m × n) | <strong>Space:</strong> O(m × n)</p>
+
+          <h3>Reconstruction</h3>
+          <p>To find the actual LCS string, backtrack from dp[m][n] following the path that produced max values.</p>
+        </div>
+      </div>
+
+      <!-- PROBLEM 12 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">12. 0/1 Knapsack (Classic)</div>
+            <div class="algo-desc">Maximize value with weight constraint, using each item at most once.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">0/1 Knapsack</span>
+              <span class="badge b-green">Classic</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">12</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>N items with weights and values. Knapsack capacity W. Maximize total value without exceeding capacity. Each item can be selected 0 or 1 time.</p>
+
+          <h3>State Definition</h3>
+          <p><code class="il">dp[i][w]</code> = max value using first i items with capacity w.</p>
+
+          <h3>Recurrence</h3>
+          <p>If weight[i-1] > w: <code class="il">dp[i][w] = dp[i-1][w]</code> (cannot fit, skip)</p>
+          <p>Else: <code class="il">dp[i][w] = max(dp[i-1][w], dp[i-1][w-weight[i-1]] + value[i-1])</code></p>
+
+          <h3>Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">Knapsack01</span>(<span class="ty">int</span>[] weights, <span class="ty">int</span>[] values, <span class="ty">int</span> W) {
+    <span class="ty">int</span> N = weights.Length;
+    <span class="ty">int</span>[][] dp = <span class="kw">new</span> <span class="ty">int</span>[N + <span class="num">1</span>][];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt;= N; i++) {
+        dp[i] = <span class="kw">new</span> <span class="ty">int</span>[W + <span class="num">1</span>];
+    }
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt;= N; i++) {
+        <span class="kw">for</span> (<span class="ty">int</span> w = <span class="num">0</span>; w &lt;= W; w++) {
+            <span class="kw">if</span> (weights[i - <span class="num">1</span>] &gt; w) {
+                dp[i][w] = dp[i - <span class="num">1</span>][w];
+            } <span class="kw">else</span> {
+                dp[i][w] = <span class="fn">Math</span>.<span class="fn">Max</span>(
+                    dp[i - <span class="num">1</span>][w],
+                    dp[i - <span class="num">1</span>][w - weights[i - <span class="num">1</span>]] + values[i - <span class="num">1</span>]);
+            }
+        }
+    }
+
+    <span class="kw">return</span> dp[N][W];
+}</pre>
+          </div>
+
+          <h3>Space-Optimized (1D)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">Knapsack01_Optimized</span>(<span class="ty">int</span>[] weights, <span class="ty">int</span>[] values, <span class="ty">int</span> W) {
+    <span class="ty">int</span>[] dp = <span class="kw">new</span> <span class="ty">int</span>[W + <span class="num">1</span>];
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; weights.Length; i++) {
+        <span class="cm">// Traverse backwards to avoid using same item twice</span>
+        <span class="kw">for</span> (<span class="ty">int</span> w = W; w &gt;= weights[i]; w--) {
+            dp[w] = <span class="fn">Math</span>.<span class="fn">Max</span>(dp[w], dp[w - weights[i]] + values[i]);
+        }
+    }
+
+    <span class="kw">return</span> dp[W];
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">weights = [2, 3, 4], values = [3, 4, 5], W = 5</code></p>
+          <p>Optimal: items 0,1 with total weight 5, value 7</p>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(N × W) | <strong>Space:</strong> O(N × W) or O(W) optimized</p>
+        </div>
+      </div>
+
+      <!-- PROBLEM 13 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">13. Partition Equal Subset Sum (LC 416)</div>
+            <div class="algo-desc">Check if array can be partitioned into two subsets with equal sum.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">Subset Sum DP</span>
+              <span class="badge b-green">LeetCode</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">13</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Array of integers. Determine if it can be partitioned into two subsets with equal sum.</p>
+
+          <h3>Key Insight</h3>
+          <p>If total sum is odd, impossible. If even, check if we can achieve sum/2 using subset sum DP (same as MinAbsSum variant).</p>
+
+          <h3>State Definition</h3>
+          <p><code class="il">dp[i]</code> = true if sum i is achievable using some subset.</p>
+
+          <h3>Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="kw">bool</span> <span class="fn">CanPartition</span>(<span class="ty">int</span>[] nums) {
+    <span class="ty">int</span> sum = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> num <span class="kw">in</span> nums) sum += num;
+
+    <span class="kw">if</span> (sum % <span class="num">2</span> != <span class="num">0</span>) <span class="kw">return</span> <span class="kw">false</span>;
+
+    <span class="ty">int</span> target = sum / <span class="num">2</span>;
+    <span class="kw">bool</span>[] dp = <span class="kw">new</span> <span class="kw">bool</span>[target + <span class="num">1</span>];
+    dp[<span class="num">0</span>] = <span class="kw">true</span>;
+
+    <span class="kw">foreach</span> (<span class="ty">int</span> num <span class="kw">in</span> nums) {
+        <span class="cm">// Traverse backwards to use each element once</span>
+        <span class="kw">for</span> (<span class="ty">int</span> i = target; i &gt;= num; i--) {
+            dp[i] = dp[i] || dp[i - num];
+        }
+    }
+
+    <span class="kw">return</span> dp[target];
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">nums = [1, 5, 11, 5]</code></p>
+          <p>Total = 22, target = 11. Build dp array, dp[11] becomes true (via 5+5+1 or 11) → true</p>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(N × SUM/2) | <strong>Space:</strong> O(SUM/2)</p>
+
+          <h3>Early Exit Optimization</h3>
+          <p>If dp[target] becomes true, can break early from outer loop.</p>
+        </div>
+      </div>
+
+      <!-- PROBLEM 14 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">14. Longest Palindromic Substring (LC 5)</div>
+            <div class="algo-desc">Find longest substring that reads the same forwards and backwards.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">String DP / Expand</span>
+              <span class="badge b-green">LeetCode</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">14</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>String s. Find longest contiguous palindromic substring. Return the substring itself.</p>
+
+          <h3>DP Solution</h3>
+          <p><code class="il">dp[i][j]</code> = true if substring s[i..j] is palindrome.</p>
+          <p>If s[i] == s[j] and (j-i <= 1 or dp[i+1][j-1]): dp[i][j] = true</p>
+
+          <h3>DP Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">string</span> <span class="fn">LongestPalindrome_DP</span>(<span class="ty">string</span> s) {
+    <span class="ty">int</span> n = s.Length;
+    <span class="kw">if</span> (n &lt; <span class="num">2</span>) <span class="kw">return</span> s;
+
+    <span class="kw">bool</span>[][] dp = <span class="kw">new</span> <span class="kw">bool</span>[n][];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) {
+        dp[i] = <span class="kw">new</span> <span class="kw">bool</span>[n];
+        dp[i][i] = <span class="kw">true</span>;
+    }
+
+    <span class="ty">int</span> start = <span class="num">0</span>, maxLen = <span class="num">1</span>;
+
+    <span class="cm">// Check length 2</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n - <span class="num">1</span>; i++) {
+        <span class="kw">if</span> (s[i] == s[i + <span class="num">1</span>]) {
+            dp[i][i + <span class="num">1</span>] = <span class="kw">true</span>;
+            start = i; maxLen = <span class="num">2</span>;
+        }
+    }
+
+    <span class="cm">// Check length 3+</span>
+    <span class="kw">for</span> (<span class="ty">int</span> len = <span class="num">3</span>; len &lt;= n; len++) {
+        <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n - len + <span class="num">1</span>; i++) {
+            <span class="ty">int</span> j = i + len - <span class="num">1</span>;
+            <span class="kw">if</span> (s[i] == s[j] &amp;&amp; dp[i + <span class="num">1</span>][j - <span class="num">1</span>]) {
+                dp[i][j] = <span class="kw">true</span>;
+                start = i; maxLen = len;
+            }
+        }
+    }
+
+    <span class="kw">return</span> s.<span class="fn">Substring</span>(start, maxLen);
+}</pre>
+          </div>
+
+          <h3>Expand-Around-Center Solution (More Efficient)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">string</span> <span class="fn">LongestPalindrome</span>(<span class="ty">string</span> s) {
+    <span class="kw">if</span> (s.Length &lt; <span class="num">2</span>) <span class="kw">return</span> s;
+
+    <span class="ty">int</span> start = <span class="num">0</span>, maxLen = <span class="num">1</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; s.Length; i++) {
+        <span class="cm">// Odd-length palindromes (center = single char)</span>
+        <span class="ty">var</span> (l1, r1) = <span class="fn">ExpandAroundCenter</span>(s, i, i);
+        <span class="kw">if</span> (r1 - l1 + <span class="num">1</span> &gt; maxLen) {
+            start = l1;
+            maxLen = r1 - l1 + <span class="num">1</span>;
+        }
+
+        <span class="cm">// Even-length palindromes (center = between chars)</span>
+        <span class="ty">var</span> (l2, r2) = <span class="fn">ExpandAroundCenter</span>(s, i, i + <span class="num">1</span>);
+        <span class="kw">if</span> (r2 - l2 + <span class="num">1</span> &gt; maxLen) {
+            start = l2;
+            maxLen = r2 - l2 + <span class="num">1</span>;
+        }
+    }
+
+    <span class="kw">return</span> s.<span class="fn">Substring</span>(start, maxLen);
+}
+
+<span class="kw">private</span> (<span class="ty">int</span>, <span class="ty">int</span>) <span class="fn">ExpandAroundCenter</span>(<span class="ty">string</span> s, <span class="ty">int</span> left, <span class="ty">int</span> right) {
+    <span class="kw">while</span> (left &gt;= <span class="num">0</span> &amp;&amp; right &lt; s.Length &amp;&amp; s[left] == s[right]) {
+        left--;
+        right++;
+    }
+    <span class="kw">return</span> (left + <span class="num">1</span>, right - <span class="num">1</span>);
+}</pre>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>DP Time:</strong> O(N²) | <strong>Space:</strong> O(N²)</p>
+          <p><strong>Expand Time:</strong> O(N²) | <strong>Space:</strong> O(1)</p>
+        </div>
+      </div>
+
+      <!-- PROBLEM 15 -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">15. Best Time Buy Sell Stock with Cooldown (LC 309)</div>
+            <div class="algo-desc">Maximize profit with buy/sell operations and 1-day cooldown after each sale.</div>
+            <div class="algo-tags">
+              <span class="badge b-orange">State Machine DP</span>
+              <span class="badge b-green">LeetCode</span>
+              <span class="badge b-amber">★★</span>
+            </div>
+          </div>
+          <div class="algo-idx">15</div>
+        </div>
+        <div class="algo-body">
+          <h3>Problem Statement</h3>
+          <p>Array of daily stock prices. Buy and sell to maximize profit. Constraint: after selling on day i, cannot buy on day i+1 (cooldown). Unlimited transactions.</p>
+
+          <h3>State Definition (State Machine)</h3>
+          <p><code class="il">hold[i]</code> = max profit at day i if holding stock</p>
+          <p><code class="il">sold[i]</code> = max profit at day i after selling (just sold)</p>
+          <p><code class="il">rest[i]</code> = max profit at day i if resting (cooldown or not holding)</p>
+
+          <h3>Recurrence</h3>
+          <p><code class="il">hold[i] = max(hold[i-1], rest[i-1] - prices[i])</code> (keep holding or buy)</p>
+          <p><code class="il">sold[i] = hold[i-1] + prices[i]</code> (sell today)</p>
+          <p><code class="il">rest[i] = max(rest[i-1], sold[i-1])</code> (cooldown or nothing)</p>
+
+          <h3>Implementation</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public</span> <span class="ty">int</span> <span class="fn">MaxProfit</span>(<span class="ty">int</span>[] prices) {
+    <span class="kw">if</span> (prices.Length &lt;= <span class="num">1</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="ty">int</span> hold = -prices[<span class="num">0</span>]; <span class="cm">// Buy on day 0</span>
+    <span class="ty">int</span> sold = <span class="num">0</span>;        <span class="cm">// Haven't sold yet</span>
+    <span class="ty">int</span> rest = <span class="num">0</span>;        <span class="cm">// No stock, no cooldown</span>
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt; prices.Length; i++) {
+        <span class="ty">int</span> newHold = <span class="fn">Math</span>.<span class="fn">Max</span>(hold, rest - prices[i]);
+        <span class="ty">int</span> newSold = hold + prices[i];
+        <span class="ty">int</span> newRest = <span class="fn">Math</span>.<span class="fn">Max</span>(rest, sold);
+
+        hold = newHold;
+        sold = newSold;
+        rest = newRest;
+    }
+
+    <span class="kw">return</span> <span class="fn">Math</span>.<span class="fn">Max</span>(sold, rest);
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <p><code class="il">prices = [3, 1, 4]</code></p>
+          <p>Day 0: hold=-3, sold=0, rest=0</p>
+          <p>Day 1: hold=max(-3, 0-1)=-1, sold=max(-3+1)=-2, rest=max(0, 0)=0</p>
+          <p>Day 2: hold=max(-1, 0-4)=-1, sold=max(-1+4)=3, rest=max(0, -2)=0</p>
+          <p>Answer: max(3, 0) = 3 (buy at 1, sell at 4)</p>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(N) | <strong>Space:</strong> O(1)</p>
+
+          <h3>Generalization</h3>
+          <p>This state-machine pattern applies to all stock problems: vary states and transitions.</p>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fade in animations
+      const elements = document.querySelectorAll('.fade');
+      elements.forEach(el => {
+        setTimeout(() => el.classList.add('in'), 100);
+      });
+
+      // Copy button functionality
+      const copyBtns = document.querySelectorAll('.copy-btn');
+      copyBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const codeBlock = this.closest('.code-block');
+          const code = codeBlock.querySelector('pre').textContent;
+          navigator.clipboard.writeText(code).then(() => {
+            const original = this.textContent;
+            this.textContent = 'copied!';
+            setTimeout(() => {
+              this.textContent = original;
+            }, 2000);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

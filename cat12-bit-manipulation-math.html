@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta name="keywords" content="Toptal interview, Toptal screening, Codility, coding test, C#, algorithms, problem solving, technical screening, remote developer interview, Toptal preparation">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat12-bit-manipulation-math.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat12-bit-manipulation-math.html">
+  <meta property="og:title" content="Category 12: Bit Manipulation & Math — 10 Problems - Toptal Problem Bank">
+  <meta property="og:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat12-bit-manipulation-math.html">
+  <meta name="twitter:title" content="Category 12: Bit Manipulation & Math — 10 Problems - Toptal Problem Bank">
+  <meta name="twitter:description" content="Complete Toptal screening preparation guide — coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Category 12: Bit Manipulation & Math \u2014 10 Problems - Toptal Problem Bank",
+  "description": "Complete Toptal screening preparation guide \u2014 coding problems, patterns, mock tests, and live coding strategies with C# solutions for every category.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/cat12-bit-manipulation-math.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Category 12: Bit Manipulation & Math — 10 Problems - Toptal Problem Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.algo{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px}
+.algo-head{padding:28px 32px 22px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.algo-idx{font-size:58px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em}
+.algo-name{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.algo-desc{font-family:var(--serif);font-size:14.5px;color:var(--ink2);line-height:1.72;max-width:580px}
+.algo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.algo-body{padding:28px 32px}
+.cx-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.cx{background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;min-width:110px}
+.cx-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cx-v{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink)}
+.steps{margin-bottom:26px}
+.step{display:flex}
+.step-left{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--acc-l);border:1.5px solid var(--acc-b);color:var(--acc);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono);flex-shrink:0}
+.step-vline{width:1.5px;flex:1;background:var(--rule);margin:4px 0}
+.step:last-child .step-vline{display:none}
+.step-body{padding:3px 0 22px 14px;font-size:14px;color:var(--ink2);line-height:1.68}
+.step-body strong{color:var(--ink);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+@media(max-width:700px){
+  .algo-head{grid-template-columns:1fr}.algo-idx{display:none}
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Problem Bank
+        <span class="pill">v1</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#toc">Category 12</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Category 12</div>
+      </div>
+      <h1>Bit Manipulation & <em>Math</em></h1>
+      <p class="hero-sub">Master low-level bit operations, mathematical algorithms, and optimization techniques. Learn XOR properties, bit shifting patterns, fast exponentiation, number theory foundations, and how to detect overflow and optimize numeric computations.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">10</div>
+          <div class="stat-l">Problems</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">3</div>
+          <div class="stat-l">Difficulty Levels</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Complete Solutions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">3</div>
+          <div class="stat-l">Codility Problems</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THEORY SECTION -->
+    <section class="section fade" id="sec-theory">
+      <div class="sec-tag">
+        <span class="sec-num">Theory</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Bit Manipulation & Mathematical Foundations</h2>
+      <p class="lead">Bit operations form the foundation of hardware-level optimizations and elegant algorithm designs. Understanding XOR, bit shifting, and mathematical properties enables fast, elegant solutions to many problems.</p>
+
+      <h3>1. XOR Properties</h3>
+      <p><strong>Key identities:</strong> a ^ a = 0, a ^ 0 = a, a ^ b = b ^ a (commutative), (a ^ b) ^ c = a ^ (b ^ c) (associative).</p>
+      <p><strong>Application:</strong> XOR all elements to find the single unpaired element, since duplicate pairs cancel out (n ^ n = 0). Works even with negative numbers.</p>
+
+      <h3>2. Bit Counting & Manipulation</h3>
+      <p><strong>Brian Kernighan's algorithm:</strong> n & (n-1) turns off the rightmost 1-bit. Loop until n = 0 to count set bits in O(popcount) time instead of O(log n).</p>
+      <p><strong>n & (n-1) == 0:</strong> True only if n is a power of two (exactly one bit set).</p>
+
+      <h3>3. Fast Exponentiation</h3>
+      <p>Compute a^b in O(log b) using binary exponentiation. Square the base and divide exponent by 2 at each step. Apply modular arithmetic to prevent overflow.</p>
+
+      <h3>4. Sieve of Eratosthenes</h3>
+      <p>Efficiently find all primes up to n in O(n log log n) time. Mark multiples of each discovered prime as composite. Use a boolean array for space efficiency.</p>
+
+      <h3>5. Number Theory Basics</h3>
+      <p><strong>GCD:</strong> Use Euclidean algorithm: gcd(a, b) = gcd(b, a mod b). <strong>Modular arithmetic:</strong> (a × b) mod m = ((a mod m) × (b mod m)) mod m. Essential for preventing overflow in large computations.</p>
+    </section>
+
+    <!-- PROBLEMS -->
+    <section class="section fade" id="sec-problems">
+      <div class="sec-tag">
+        <span class="sec-num">Problems</span>
+        <div class="sec-line"></div>
+      </div>
+
+      <!-- Problem 1: Single Number -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">1. Single Number (LC 136)</div>
+            <p class="algo-desc">Given a non-empty array where every element appears twice except one, find the single element. Use XOR's cancellation property to eliminate pairs efficiently.</p>
+            <div class="algo-tags">
+              <span class="badge b-green">Easy</span>
+              <span class="badge b-orange">Bit Manipulation</span>
+              <span class="badge b-blue">O(n) Time</span>
+            </div>
+          </div>
+          <div class="algo-idx">1</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[4, 1, 2, 1, 2]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">4</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <div class="steps">
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">1</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body"><strong>Initialize result to 0.</strong> XOR-ing with 0 leaves value unchanged.</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">2</div>
+                <div class="step-vline"></div>
+              </div>
+              <div class="step-body"><strong>Iterate through each element.</strong> XOR it with result: result ^= nums[i].</div>
+            </div>
+            <div class="step">
+              <div class="step-left">
+                <div class="step-num">3</div>
+              </div>
+              <div class="step-body"><strong>Return result.</strong> Duplicate pairs cancel (a ^ a = 0), leaving only the single element.</div>
+            </div>
+          </div>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">SingleNumber</span>(<span class="ty">int</span>[] nums) {
+    <span class="ty">int</span> result = <span class="num">0</span>;
+    <span class="kw">foreach</span> (<span class="ty">int</span> num <span class="kw">in</span> nums) {
+        result ^= num;
+    }
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>nums = [4, 1, 2, 1, 2]
+result = 0
+
+i=0: result = 0 ^ 4 = 4
+i=1: result = 4 ^ 1 = 5
+i=2: result = 5 ^ 2 = 7
+i=3: result = 7 ^ 1 = 6 (1 ^ 1 = 0, so effect on bits)
+i=4: result = 6 ^ 2 = 4
+
+Binary check:
+4 = 0100, 1 = 0001, 2 = 0010
+4 ^ 1 ^ 2 ^ 1 ^ 2 = 4 ^ (1^1) ^ (2^2) = 4 ^ 0 ^ 0 = 4 ✓</pre>
+          </div>
+
+          <div class="callout tip">
+            <span class="callout-icon">💡</span>
+            <div><strong>Why XOR works:</strong> XOR is bitwise commutative and associative. Each bit position is evaluated independently. For a bit position, XOR of even 0s and 1s in pairs cancels out; odd 1 leaves the single element's bit.</div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Case</th>
+                  <th>Input</th>
+                  <th>Output</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Single element</td>
+                  <td>[5]</td>
+                  <td>5</td>
+                  <td>0 ^ 5 = 5</td>
+                </tr>
+                <tr>
+                  <td>Negative number</td>
+                  <td>[-2, 1, -2, 1, 4]</td>
+                  <td>4</td>
+                  <td>XOR works on two's complement</td>
+                </tr>
+                <tr>
+                  <td>Large range</td>
+                  <td>[int.MaxValue, 1, int.MaxValue]</td>
+                  <td>1</td>
+                  <td>No overflow with XOR</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n) — single pass through array. <strong>Space:</strong> O(1) — only integer variable used.</p>
+        </div>
+      </div>
+
+      <!-- Problem 2: Number of 1 Bits -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">2. Number of 1 Bits (LC 191)</div>
+            <p class="algo-desc">Count the number of 1-bits in the binary representation of an unsigned integer using Brian Kernighan's algorithm.</p>
+            <div class="algo-tags">
+              <span class="badge b-green">Easy</span>
+              <span class="badge b-orange">Bit Manipulation</span>
+              <span class="badge b-blue">O(popcount)</span>
+            </div>
+          </div>
+          <div class="algo-idx">2</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">11 (0b1011)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">3</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(k)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Brian Kernighan's trick:</strong> n & (n-1) removes the rightmost 1-bit. Repeat until n becomes 0. Count iterations.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">HammingWeight</span>(<span class="ty">uint</span> n) {
+    <span class="ty">int</span> count = <span class="num">0</span>;
+    <span class="kw">while</span> (n != <span class="num">0</span>) {
+        n &= n - <span class="num">1</span>;  <span class="cm">// Remove rightmost 1-bit</span>
+        count++;
+    }
+    <span class="kw">return</span> count;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>n = 11 = 0b1011
+count = 0
+
+Iteration 1: n = 1011, n-1 = 1010, n &= (n-1) → 1010, count = 1
+Iteration 2: n = 1010, n-1 = 1001, n &= (n-1) → 1000, count = 2
+Iteration 3: n = 1000, n-1 = 0111, n &= (n-1) → 0000, count = 3
+n == 0, stop
+
+Result: 3 ✓</pre>
+          </div>
+
+          <div class="callout tip">
+            <span class="callout-icon">💡</span>
+            <div><strong>Why efficient:</strong> Time complexity is O(k) where k is the count of 1-bits, not O(log n). If sparse, very fast. Regular bit-shift approach is O(32) for uint.</div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Input</th>
+                  <th>Binary</th>
+                  <th>Output</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0</td>
+                  <td>0b0000</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>0b0001</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>uint.MaxValue</td>
+                  <td>32 ones</td>
+                  <td>32</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(k) where k = popcount (number of 1-bits). <strong>Space:</strong> O(1).</p>
+        </div>
+      </div>
+
+      <!-- Problem 3: Counting Bits -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">3. Counting Bits (LC 338)</div>
+            <p class="algo-desc">Given an integer n, return an array of bit counts: ans[i] = count of 1-bits in i for each i from 0 to n.</p>
+            <div class="algo-tags">
+              <span class="badge b-green">Easy</span>
+              <span class="badge b-orange">Dynamic Programming</span>
+              <span class="badge b-blue">O(n)</span>
+            </div>
+          </div>
+          <div class="algo-idx">3</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">5</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">[0,1,1,2,1,2]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>DP recurrence:</strong> ans[i] = ans[i >> 1] + (i & 1). Right shift removes rightmost bit (divide by 2), so bit count of i = bit count of i/2 plus the LSB.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span>[] <span class="fn">CountBits</span>(<span class="ty">int</span> n) {
+    <span class="ty">int</span>[] ans = <span class="kw">new int</span>[n + <span class="num">1</span>];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">1</span>; i &lt;= n; i++) {
+        ans[i] = ans[i >> <span class="num">1</span>] + (i & <span class="num">1</span>);
+    }
+    <span class="kw">return</span> ans;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>n = 5
+ans = [0, 0, 0, 0, 0, 0]
+
+i=1: 1 >> 1 = 0, 1 & 1 = 1, ans[1] = ans[0] + 1 = 1
+i=2: 2 >> 1 = 1, 2 & 1 = 0, ans[2] = ans[1] + 0 = 1
+i=3: 3 >> 1 = 1, 3 & 1 = 1, ans[3] = ans[1] + 1 = 2
+i=4: 4 >> 1 = 2, 4 & 1 = 0, ans[4] = ans[2] + 0 = 1
+i=5: 5 >> 1 = 2, 5 & 1 = 1, ans[5] = ans[2] + 1 = 2
+
+Result: [0, 1, 1, 2, 1, 2] ✓</pre>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>n</th>
+                  <th>Output</th>
+                  <th>Pattern</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0</td>
+                  <td>[0]</td>
+                  <td>Single element</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>[0,1]</td>
+                  <td>Powers of 2</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>[0,1,1,2,1,2,2,3]</td>
+                  <td>Full byte</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n) — single pass, O(1) per element. <strong>Space:</strong> O(n) for output array.</p>
+        </div>
+      </div>
+
+      <!-- Problem 4: Power of Two -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">4. Power of Two (LC 231)</div>
+            <p class="algo-desc">Given an integer n, return true if it is a power of two. Use the bit manipulation trick: power of two has exactly one bit set.</p>
+            <div class="algo-tags">
+              <span class="badge b-green">Easy</span>
+              <span class="badge b-orange">Bit Manipulation</span>
+              <span class="badge b-blue">O(1)</span>
+            </div>
+          </div>
+          <div class="algo-idx">4</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">16</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">true</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Key insight:</strong> Powers of 2 have exactly one bit set (e.g., 8 = 0b1000). Check if n & (n-1) == 0 and n > 0. If true, n is a power of 2.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public bool</span> <span class="fn">IsPowerOfTwo</span>(<span class="ty">int</span> n) {
+    <span class="kw">return</span> n > <span class="num">0</span> && (n & (n - <span class="num">1</span>)) == <span class="num">0</span>;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>n = 16 = 0b10000
+n-1 = 15 = 0b01111
+n & (n-1) = 0b10000 & 0b01111 = 0b00000 = 0 ✓
+Result: true (16 = 2^4)
+
+n = 6 = 0b00110
+n-1 = 5 = 0b00101
+n & (n-1) = 0b00110 & 0b00101 = 0b00100 ≠ 0
+Result: false (6 is not a power of 2)</pre>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Input</th>
+                  <th>Output</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>true</td>
+                  <td>2^0 = 1</td>
+                </tr>
+                <tr>
+                  <td>0</td>
+                  <td>false</td>
+                  <td>Filtered by n > 0</td>
+                </tr>
+                <tr>
+                  <td>-16</td>
+                  <td>false</td>
+                  <td>Negative filtered</td>
+                </tr>
+                <tr>
+                  <td>1024</td>
+                  <td>true</td>
+                  <td>2^10</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(1) — constant bitwise operations. <strong>Space:</strong> O(1).</p>
+        </div>
+      </div>
+
+      <!-- Problem 5: Reverse Bits -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">5. Reverse Bits (LC 190)</div>
+            <p class="algo-desc">Reverse the bits of a given 32-bit unsigned integer and return the reversed value.</p>
+            <div class="algo-tags">
+              <span class="badge b-green">Easy</span>
+              <span class="badge b-orange">Bit Manipulation</span>
+              <span class="badge b-blue">O(1)</span>
+            </div>
+          </div>
+          <div class="algo-idx">5</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">43261596</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">964176192</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Shift and build:</strong> Extract the LSB using n & 1, shift left into result, then right-shift n. Repeat 32 times.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public uint</span> <span class="fn">ReverseBits</span>(<span class="ty">uint</span> n) {
+    <span class="ty">uint</span> result = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i < <span class="num">32</span>; i++) {
+        result = (result << <span class="num">1</span>) | (n & <span class="num">1</span>);
+        n >>= <span class="num">1</span>;
+    }
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>n = 0b00000010100101000001111010110100 (43261596)
+
+Extract and reverse (first 8 bits shown):
+i=0: bit=0, result=0, n >>= 1
+i=1: bit=0, result=0, n >>= 1
+...continuing pattern...
+Result = 0b00111001011110000010100101000010 (964176192) ✓</pre>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Input (Binary)</th>
+                  <th>Output (Binary)</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0b1 (1)</td>
+                  <td>0b10000...0 (2^31)</td>
+                  <td>Single bit reverses to position 31</td>
+                </tr>
+                <tr>
+                  <td>0 (0)</td>
+                  <td>0 (0)</td>
+                  <td>Palindrome</td>
+                </tr>
+                <tr>
+                  <td>uint.MaxValue</td>
+                  <td>uint.MaxValue</td>
+                  <td>All 1s palindrome</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(1) — fixed 32 iterations. <strong>Space:</strong> O(1).</p>
+        </div>
+      </div>
+
+      <!-- Problem 6: Missing Number -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">6. Missing Number (LC 268)</div>
+            <p class="algo-desc">Given an array of n numbers from 0 to n (with one missing), find the missing one. Use XOR or math approach.</p>
+            <div class="algo-tags">
+              <span class="badge b-green">Easy</span>
+              <span class="badge b-orange">Bit Manipulation / Math</span>
+              <span class="badge b-blue">O(n)</span>
+            </div>
+          </div>
+          <div class="algo-idx">6</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[3,0,1]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">2</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Approach (XOR Method)</h3>
+          <p>XOR all array elements with all numbers 0 to n. Duplicates cancel out, leaving the missing number.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">MissingNumber</span>(<span class="ty">int</span>[] nums) {
+    <span class="ty">int</span> result = nums.Length;  <span class="cm">// Start with n</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i < nums.Length; i++) {
+        result ^= i ^ nums[i];
+    }
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>nums = [3, 0, 1], n = 3
+result = 3
+
+i=0: result = 3 ^ 0 ^ 3 = 0
+i=1: result = 0 ^ 1 ^ 0 = 1
+i=2: result = 1 ^ 2 ^ 1 = 2
+
+Final: result = 2 ✓ (missing from [0,1,2,3])</pre>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Input</th>
+                  <th>Output</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>[0]</td>
+                  <td>1</td>
+                  <td>Missing is n</td>
+                </tr>
+                <tr>
+                  <td>[1]</td>
+                  <td>0</td>
+                  <td>Missing is 0</td>
+                </tr>
+                <tr>
+                  <td>[0,1,2,3,4,5,6,7,8]</td>
+                  <td>9</td>
+                  <td>Missing is n</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n) — single pass. <strong>Space:</strong> O(1).</p>
+        </div>
+      </div>
+
+      <!-- Problem 7: Pow(x, n) -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">7. Pow(x, n) (LC 50)</div>
+            <p class="algo-desc">Implement x^n efficiently using fast exponentiation (binary exponentiation). Handle negative exponents and overflow cases.</p>
+            <div class="algo-tags">
+              <span class="badge b-amber">Medium</span>
+              <span class="badge b-orange">Math / Bit Manipulation</span>
+              <span class="badge b-blue">O(log n)</span>
+            </div>
+          </div>
+          <div class="algo-idx">7</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">x=2.0, n=10</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">1024.0</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Binary exponentiation:</strong> Decompose n using binary representation. If bit i is set, multiply result by x^(2^i). Use iterative approach to avoid recursion overhead.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public double</span> <span class="fn">MyPow</span>(<span class="ty">double</span> x, <span class="ty">int</span> n) {
+    <span class="kw">long</span> N = n;
+    <span class="kw">if</span> (N < <span class="num">0</span>) {
+        x = <span class="num">1</span> / x;
+        N = -N;
+    }
+
+    <span class="ty">double</span> result = <span class="num">1.0</span>;
+    <span class="ty">double</span> base_val = x;
+
+    <span class="kw">while</span> (N > <span class="num">0</span>) {
+        <span class="kw">if</span> (N % <span class="num">2</span> == <span class="num">1</span>) {
+            result *= base_val;
+        }
+        base_val *= base_val;
+        N /= <span class="num">2</span>;
+    }
+
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>x = 2.0, n = 10 = 0b1010
+result = 1.0, base_val = 2.0
+
+N=10: N%2=0, base_val = 4.0, N = 5
+N=5: N%2=1, result = 4.0, base_val = 16.0, N = 2
+N=2: N%2=0, base_val = 256.0, N = 1
+N=1: N%2=1, result = 4.0 * 256.0 = 1024.0, base_val = (not used), N = 0
+
+Result: 1024.0 ✓</pre>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>x</th>
+                  <th>n</th>
+                  <th>Output</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2.0</td>
+                  <td>-2147483648</td>
+                  <td>≈0</td>
+                  <td>Negative overflow; use long</td>
+                </tr>
+                <tr>
+                  <td>1.0</td>
+                  <td>Any</td>
+                  <td>1.0</td>
+                  <td>1 to any power is 1</td>
+                </tr>
+                <tr>
+                  <td>-1.0</td>
+                  <td>Odd/Even</td>
+                  <td>±1</td>
+                  <td>Check parity</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(log n) — process each binary digit. <strong>Space:</strong> O(1).</p>
+        </div>
+      </div>
+
+      <!-- Problem 8: Count Primes -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">8. Count Primes (LC 204)</div>
+            <p class="algo-desc">Count the number of primes less than n using the Sieve of Eratosthenes algorithm.</p>
+            <div class="algo-tags">
+              <span class="badge b-amber">Medium</span>
+              <span class="badge b-orange">Number Theory</span>
+              <span class="badge b-blue">O(n log log n)</span>
+            </div>
+          </div>
+          <div class="algo-idx">8</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">10</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">4</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n log log n)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(n)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Sieve of Eratosthenes:</strong> Create boolean array, mark 0 and 1 as non-prime. For each prime p, mark all multiples 2p, 3p, 4p... as non-prime. Count remaining unmarked numbers.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">CountPrimes</span>(<span class="ty">int</span> n) {
+    <span class="kw">if</span> (n <= <span class="num">2</span>) <span class="kw">return</span> <span class="num">0</span>;
+
+    <span class="ty">bool</span>[] is_prime = <span class="kw">new bool</span>[n];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">2</span>; i < n; i++) {
+        is_prime[i] = <span class="kw">true</span>;
+    }
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">2</span>; i * i < n; i++) {
+        <span class="kw">if</span> (is_prime[i]) {
+            <span class="kw">for</span> (<span class="ty">int</span> j = i * i; j < n; j += i) {
+                is_prime[j] = <span class="kw">false</span>;
+            }
+        }
+    }
+
+    <span class="ty">int</span> count = <span class="num">0</span>;
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">2</span>; i < n; i++) {
+        <span class="kw">if</span> (is_prime[i]) count++;
+    }
+    <span class="kw">return</span> count;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>n = 10
+is_prime = [F, F, T, T, T, T, T, T, T, T] (index 0-9)
+
+i=2: Mark multiples starting from 4: 4,6,8 → [F,F,T,T,F,T,F,T,F,T]
+i=3: Mark multiples starting from 9: 9 → [F,F,T,T,F,T,F,T,F,F]
+i≥4: 4*4=16 ≥ 10, stop
+
+Primes: 2, 3, 5, 7 → count = 4 ✓</pre>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>n</th>
+                  <th>Output</th>
+                  <th>Primes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>None</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>0</td>
+                  <td>None (less than 2)</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>1</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>25</td>
+                  <td>2, 3, 5, ..., 97</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n log log n) — sieve efficiency. <strong>Space:</strong> O(n) for boolean array.</p>
+        </div>
+      </div>
+
+      <!-- Problem 9: FrogJmp -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">9. FrogJmp (Codility)</div>
+            <p class="algo-desc">A frog must jump from position X to position Y in steps of D. Count minimum jumps needed using ceiling division.</p>
+            <div class="algo-tags">
+              <span class="badge b-green">Easy</span>
+              <span class="badge b-orange">Math</span>
+              <span class="badge b-blue">O(1)</span>
+            </div>
+          </div>
+          <div class="algo-idx">9</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">X=10, Y=85, D=30</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">3</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(1)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Ceiling division:</strong> Number of jumps = ceil((Y - X) / D) = (Y - X + D - 1) / D using integer division.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span> <span class="fn">FrogJmp</span>(<span class="ty">int</span> X, <span class="ty">int</span> Y, <span class="ty">int</span> D) {
+    <span class="kw">return</span> (Y - X + D - <span class="num">1</span>) / D;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>X=10, Y=85, D=30
+distance = Y - X = 85 - 10 = 75
+
+jumps = (75 + 30 - 1) / 30 = 104 / 30 = 3 ✓
+
+Verify:
+- After jump 1: 10 + 30 = 40
+- After jump 2: 40 + 30 = 70
+- After jump 3: 70 + 30 = 100 ≥ 85 ✓</pre>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>X</th>
+                  <th>Y</th>
+                  <th>D</th>
+                  <th>Output</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>5</td>
+                  <td>4</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>0</td>
+                  <td>1000000000</td>
+                  <td>1</td>
+                  <td>1000000000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(1) — arithmetic only. <strong>Space:</strong> O(1).</p>
+        </div>
+      </div>
+
+      <!-- Problem 10: CountNonDivisible -->
+      <div class="algo">
+        <div class="algo-head">
+          <div>
+            <div class="algo-name">10. CountNonDivisible (Codility)</div>
+            <p class="algo-desc">Count how many elements in the array are NOT divisors of each element.</p>
+            <div class="algo-tags">
+              <span class="badge b-red">Hard</span>
+              <span class="badge b-orange">Number Theory / Optimization</span>
+              <span class="badge b-blue">O(n √m)</span>
+            </div>
+          </div>
+          <div class="algo-idx">10</div>
+        </div>
+        <div class="algo-body">
+          <div class="cx-row">
+            <div class="cx">
+              <div class="cx-l">Input</div>
+              <div class="cx-v">[3, 1, 2, 3, 6]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Output</div>
+              <div class="cx-v">[2, 4, 3, 2, 0]</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Time</div>
+              <div class="cx-v">O(n √m)</div>
+            </div>
+            <div class="cx">
+              <div class="cx-l">Space</div>
+              <div class="cx-v">O(m)</div>
+            </div>
+          </div>
+
+          <h3>Approach</h3>
+          <p><strong>Key insight:</strong> For each element A[i], count divisors efficiently. Find all divisors of A[i] by checking up to √A[i]. Use frequency map to avoid redundant factor counting.</p>
+
+          <h3>Code Solution (C#)</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">csharp</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre><span class="kw">public int</span>[] <span class="fn">CountNonDivisible</span>(<span class="ty">int</span>[] A) {
+    Dictionary&lt;<span class="ty">int</span>, <span class="ty">int</span>&gt; freq = <span class="kw">new</span> Dictionary&lt;<span class="ty">int</span>, <span class="ty">int</span>&gt;();
+    <span class="kw">int</span> maxVal = <span class="num">0</span>;
+
+    <span class="kw">foreach</span> (<span class="ty">int</span> x <span class="kw">in</span> A) {
+        <span class="kw">if</span> (freq.<span class="fn">ContainsKey</span>(x)) freq[x]++;
+        <span class="kw">else</span> freq[x] = <span class="num">1</span>;
+        maxVal = Math.<span class="fn">Max</span>(maxVal, x);
+    }
+
+    <span class="ty">int</span>[] result = <span class="kw">new int</span>[A.Length];
+
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i < A.Length; i++) {
+        <span class="ty">int</span> divisorCount = <span class="num">0</span>;
+
+        <span class="kw">for</span> (<span class="ty">int</span> d = <span class="num">1</span>; d * d <= A[i]; d++) {
+            <span class="kw">if</span> (A[i] % d == <span class="num">0</span>) {
+                <span class="kw">if</span> (freq.<span class="fn">ContainsKey</span>(d)) divisorCount += freq[d];
+
+                <span class="ty">int</span> other = A[i] / d;
+                <span class="kw">if</span> (other != d && freq.<span class="fn">ContainsKey</span>(other)) {
+                    divisorCount += freq[other];
+                }
+            }
+        }
+
+        result[i] = A.Length - divisorCount;
+    }
+
+    <span class="kw">return</span> result;
+}</pre>
+          </div>
+
+          <h3>Trace Example</h3>
+          <div class="code-block">
+            <div class="code-bar">
+              <span class="code-lang">trace</span>
+              <button class="copy-btn">copy</button>
+            </div>
+            <pre>A = [3, 1, 2, 3, 6]
+freq = {3:2, 1:1, 2:1, 6:1}
+
+i=0: A[0]=3
+  d=1: 3%1=0, freq[1]=1, other=3, freq[3]=2 → divisorCount=3
+  result[0] = 5-3 = 2 ✓
+
+i=1: A[1]=1
+  d=1: 1%1=0, freq[1]=1, other=1 (skip) → divisorCount=1
+  result[1] = 5-1 = 4 ✓
+
+i=2: A[2]=2
+  d=1: 2%1=0, freq[1]=1, other=2, freq[2]=1 → divisorCount=2
+  result[2] = 5-2 = 3 ✓
+
+i=3: A[3]=3
+  Same as i=0: result[3] = 2 ✓
+
+i=4: A[4]=6
+  d=1: 6%1=0, freq[1]=1, other=6, freq[6]=1 → divisorCount=2
+  d=2: 6%2=0, freq[2]=1, other=3, freq[3]=2 → divisorCount=2+1+2=5
+  result[4] = 5-5 = 0 ✓
+
+Result: [2, 4, 3, 2, 0] ✓</pre>
+          </div>
+
+          <div class="callout tip">
+            <span class="callout-icon">💡</span>
+            <div><strong>Optimization key:</strong> Find divisors up to √n instead of checking all n. For each d dividing n, both d and n/d are divisors. Avoid double-counting when d = √n.</div>
+          </div>
+
+          <h3>Edge Cases</h3>
+          <div class="tbl-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Input</th>
+                  <th>Output</th>
+                  <th>Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>[1]</td>
+                  <td>[0]</td>
+                  <td>1 divides itself</td>
+                </tr>
+                <tr>
+                  <td>[2, 2]</td>
+                  <td>[1, 1]</td>
+                  <td>Duplicates handled</td>
+                </tr>
+                <tr>
+                  <td>[12, 8]</td>
+                  <td>[1, 1]</td>
+                  <td>Factors: 1,2,3,4,6,12 for 12</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Complexity</h3>
+          <p><strong>Time:</strong> O(n√m) where m is max element. For each element, find divisors in O(√m). <strong>Space:</strong> O(m) for frequency map.</p>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const elements = document.querySelectorAll('.fade');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in');
+          }
+        });
+      }, { threshold: 0.1 });
+      elements.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Toptal take-home project guide — architecture decisions, code quality, testing strategies, and what reviewers look for.">
+  <meta name="keywords" content="Toptal take-home project, round 4, code review, architecture, testing, C#">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/round4-take-home-project.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/round4-take-home-project.html">
+  <meta property="og:title" content="Round 4: Take-Home Project — Clean Architecture Guide - Toptal Problem Bank">
+  <meta property="og:description" content="Toptal take-home project guide — architecture decisions, code quality, testing strategies, and what reviewers look for.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/round4-take-home-project.html">
+  <meta name="twitter:title" content="Round 4: Take-Home Project — Clean Architecture Guide - Toptal Problem Bank">
+  <meta name="twitter:description" content="Toptal take-home project guide — architecture decisions, code quality, testing strategies, and what reviewers look for.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Round 4: Take-Home Project \u2014 Clean Architecture Guide - Toptal Problem Bank",
+  "description": "Toptal take-home project guide \u2014 architecture decisions, code quality, testing strategies, and what reviewers look for.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/round4-take-home-project.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Round 4: Take-Home Project — Clean Architecture Guide - Toptal Problem Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section h4{font-size:17px;font-weight:600;margin-bottom:10px;margin-top:22px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.section ul,.section ol{margin-bottom:20px;margin-left:24px}
+.section li{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:10px}
+.algo{background:var(--white);border:1px solid var(--rule);border-radius:16px;overflow:hidden;margin-bottom:44px}
+.algo-head{padding:28px 32px 22px;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start}
+.algo-idx{font-size:58px;font-weight:800;color:var(--bg3);line-height:1;letter-spacing:-.04em}
+.algo-name{font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+.algo-desc{font-family:var(--serif);font-size:14.5px;color:var(--ink2);line-height:1.72;max-width:580px}
+.algo-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+.algo-body{padding:28px 32px}
+.cx-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.cx{background:var(--bg2);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;min-width:110px}
+.cx-l{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink4);margin-bottom:3px}
+.cx-v{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--ink)}
+.steps{margin-bottom:26px}
+.step{display:flex}
+.step-left{display:flex;flex-direction:column;align-items:center;width:38px;flex-shrink:0}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--acc-l);border:1.5px solid var(--acc-b);color:var(--acc);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--mono);flex-shrink:0}
+.step-vline{width:1.5px;flex:1;background:var(--rule);margin:4px 0}
+.step:last-child .step-vline{display:none}
+.step-body{padding:3px 0 22px 14px;font-size:14px;color:var(--ink2);line-height:1.68}
+.step-body strong{color:var(--ink);font-weight:600}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+.tree-card{background:var(--white);border:1px solid var(--rule);border-radius:12px;padding:24px;margin-bottom:26px;font-family:var(--mono);font-size:13px;color:var(--ink2);line-height:1.9;overflow-x:auto}
+.checklist{list-style:none;padding:0}
+.checklist li{display:flex;align-items:flex-start;padding:8px 0}
+.checklist input{margin-right:12px;margin-top:2px;accent-color:var(--acc);flex-shrink:0}
+@media(max-width:700px){
+  .algo-head{grid-template-columns:1fr}.algo-idx{display:none}
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Problem Bank
+        <span class="pill">v1</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#structure">Architecture</a>
+        <a href="#checklist">Code Quality</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Round 4</div>
+      </div>
+      <h1>Take-Home Project — <em>Clean Architecture Guide</em></h1>
+      <p class="hero-sub">Your complete roadmap for building production-grade backend systems using Clean Architecture (Onion/Hexagonal). Learn what evaluators look for, common pitfalls, and strategies to impress senior developers during code review.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">2</div>
+          <div class="stat-l">Weeks Timeline</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">8</div>
+          <div class="stat-l">Core Areas</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Production Ready</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">15</div>
+          <div class="stat-l">Key Checklist Items</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT TO EXPECT -->
+    <section class="section fade" id="overview">
+      <div class="sec-tag">
+        <span class="sec-num">01</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>What to Expect</h2>
+      <p class="lead">Understanding the round format helps you manage scope and time effectively. This isn't a test—it's a collaborative signal of how you approach real-world problems.</p>
+
+      <h3>Timeline & Scope</h3>
+      <p><strong>You have 2 weeks</strong> to build a small-to-medium backend project. Typical scope:</p>
+      <ul>
+        <li>3-5 core entities (e.g., User, Product, Order)</li>
+        <li>4-8 API endpoints (POST, GET, PUT, DELETE)</li>
+        <li>Database with foreign keys and relationships</li>
+        <li>Business logic layer (not just CRUD)</li>
+        <li>Unit and integration tests</li>
+      </ul>
+
+      <h3>What Gets Evaluated</h3>
+      <ul>
+        <li><strong>Architecture:</strong> Clean separation of concerns, dependency injection, testability</li>
+        <li><strong>Code Quality:</strong> SOLID principles, naming conventions, async/await, error handling</li>
+        <li><strong>Testing:</strong> Good coverage, meaningful assertions, both unit and integration tests</li>
+        <li><strong>Documentation:</strong> Clear commit messages, README, Swagger docs, Docker setup</li>
+        <li><strong>Scalability Thinking:</strong> Can you explain trade-offs? How would you scale?</li>
+      </ul>
+
+      <h3>The Code Review Meeting</h3>
+      <p>After submission, you'll meet with a senior developer for ~1 hour:</p>
+      <ul>
+        <li><strong>First 10 min:</strong> You demo the running application</li>
+        <li><strong>Next 30 min:</strong> They review code live, ask follow-up questions</li>
+        <li><strong>Final 20 min:</strong> Architectural deep-dive and problem-solving discussion</li>
+      </ul>
+
+      <div class="callout info">
+        <span class="callout-icon">ℹ️</span>
+        <div><strong>Pro tip:</strong> Evaluators value thoughtful trade-off decisions over "perfect" implementations. If you chose simple DI over a heavyweight IoC container, be ready to justify it.</div>
+      </div>
+    </section>
+
+    <!-- PROJECT STRUCTURE -->
+    <section class="section fade" id="structure">
+      <div class="sec-tag">
+        <span class="sec-num">02</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Project Structure: Clean Architecture</h2>
+      <p class="lead">Clean Architecture (Onion Model) separates concerns into independent, testable layers. Each layer has a single responsibility and depends only on inner layers.</p>
+
+      <h3>The Four-Layer Model</h3>
+
+      <h4>Layer 1: Domain (Core)</h4>
+      <p>Pure business logic with zero infrastructure dependencies. No HTTP, no databases—just entities and interfaces.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Domain/Entities/User.cs - Pure business entity</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">User</span> {
+    <span class="kw">public</span> <span class="ty">int</span> Id { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="ty">string</span> Email { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="ty">string</span> FullName { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="kw">bool</span> IsActive { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="kw">class</span> <span class="ty">CreateCommand</span> {
+        <span class="kw">public</span> <span class="ty">string</span> Email { <span class="kw">get</span>; <span class="kw">set</span>; }
+        <span class="kw">public</span> <span class="ty">string</span> FullName { <span class="kw">get</span>; <span class="kw">set</span>; }
+    }
+}
+
+<span class="cm">// Domain/Interfaces/IUserRepository.cs - Contracts (no impl)</span>
+<span class="kw">public</span> <span class="kw">interface</span> <span class="ty">IUserRepository</span> {
+    <span class="kw">Task</span>&lt;<span class="ty">User</span>&gt; <span class="fn">GetByIdAsync</span>(<span class="ty">int</span> id);
+    <span class="kw">Task</span>&lt;<span class="ty">User</span>&gt; <span class="fn">GetByEmailAsync</span>(<span class="ty">string</span> email);
+    <span class="kw">Task</span>&lt;<span class="ty">int</span>&gt; <span class="fn">CreateAsync</span>(<span class="ty">User</span> user);
+}</pre>
+      </div>
+
+      <h4>Layer 2: Application (Use Cases)</h4>
+      <p>Orchestrates domain entities to execute business use cases. Contains DTOs, validators, and application services.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Application/UseCases/CreateUserHandler.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">CreateUserHandler</span> {
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">IUserRepository</span> _userRepository;
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">IPasswordHasher</span> _passwordHasher;
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">IValidator</span>&lt;<span class="ty">User.CreateCommand</span>&gt; _validator;
+
+    <span class="kw">public</span> <span class="fn">CreateUserHandler</span>(<span class="ty">IUserRepository</span> userRepository, <span class="ty">IPasswordHasher</span> hasher, <span class="ty">IValidator</span>&lt;<span class="ty">User.CreateCommand</span>&gt; validator) {
+        _userRepository = userRepository;
+        _passwordHasher = hasher;
+        _validator = validator;
+    }
+
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span>&lt;<span class="ty">int</span>&gt; <span class="fn">HandleAsync</span>(<span class="ty">User.CreateCommand</span> command) {
+        <span class="cm">// Validate input</span>
+        <span class="kw">var</span> validationResult = <span class="kw">await</span> _validator.<span class="fn">ValidateAsync</span>(command);
+        <span class="kw">if</span> (!validationResult.IsValid) {
+            <span class="kw">throw</span> <span class="kw">new</span> <span class="ty">ValidationException</span>(validationResult.Errors);
+        }
+
+        <span class="cm">// Check if email already exists</span>
+        <span class="kw">var</span> existing = <span class="kw">await</span> _userRepository.<span class="fn">GetByEmailAsync</span>(command.Email);
+        <span class="kw">if</span> (existing != <span class="kw">null</span>) {
+            <span class="kw">throw</span> <span class="kw">new</span> <span class="ty">DomainException</span>(<span class="str">"Email already registered"</span>);
+        }
+
+        <span class="cm">// Create and persist</span>
+        <span class="kw">var</span> user = <span class="kw">new</span> <span class="ty">User</span> {
+            Email = command.Email,
+            FullName = command.FullName,
+            IsActive = <span class="kw">true</span>
+        };
+        <span class="kw">return</span> <span class="kw">await</span> _userRepository.<span class="fn">CreateAsync</span>(user);
+    }
+}
+
+<span class="cm">// Application/DTOs/UserResponseDto.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">UserResponseDto</span> {
+    <span class="kw">public</span> <span class="ty">int</span> Id { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="ty">string</span> Email { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="ty">string</span> FullName { <span class="kw">get</span>; <span class="kw">set</span>; }
+}</pre>
+      </div>
+
+      <h4>Layer 3: Infrastructure</h4>
+      <p>Implements repository interfaces, database access, and external service integrations. Uses EF Core, HTTP clients, etc.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Infrastructure/Data/EfUserRepository.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">EfUserRepository</span> : <span class="ty">IUserRepository</span> {
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">ApplicationDbContext</span> _dbContext;
+
+    <span class="kw">public</span> <span class="fn">EfUserRepository</span>(<span class="ty">ApplicationDbContext</span> dbContext) {
+        _dbContext = dbContext;
+    }
+
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span>&lt;<span class="ty">User</span>&gt; <span class="fn">GetByIdAsync</span>(<span class="ty">int</span> id) {
+        <span class="kw">return</span> <span class="kw">await</span> _dbContext.Users.<span class="fn">FirstOrDefaultAsync</span>(u =&gt; u.Id == id);
+    }
+
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span>&lt;<span class="ty">User</span>&gt; <span class="fn">GetByEmailAsync</span>(<span class="ty">string</span> email) {
+        <span class="kw">return</span> <span class="kw">await</span> _dbContext.Users.<span class="fn">FirstOrDefaultAsync</span>(u =&gt; u.Email == email);
+    }
+
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span>&lt;<span class="ty">int</span>&gt; <span class="fn">CreateAsync</span>(<span class="ty">User</span> user) {
+        _dbContext.Users.<span class="fn">Add</span>(user);
+        <span class="kw">await</span> _dbContext.<span class="fn">SaveChangesAsync</span>();
+        <span class="kw">return</span> user.Id;
+    }
+}
+
+<span class="cm">// Infrastructure/Data/ApplicationDbContext.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">ApplicationDbContext</span> : <span class="ty">DbContext</span> {
+    <span class="kw">public</span> <span class="ty">ApplicationDbContext</span>(<span class="ty">DbContextOptions</span>&lt;<span class="ty">ApplicationDbContext</span>&gt; options) : <span class="kw">base</span>(options) {}
+
+    <span class="kw">public</span> <span class="ty">DbSet</span>&lt;<span class="ty">User</span>&gt; Users { <span class="kw">get</span>; <span class="kw">set</span>; }
+
+    <span class="kw">protected</span> <span class="kw">override</span> <span class="kw">void</span> <span class="fn">OnModelCreating</span>(<span class="ty">ModelBuilder</span> modelBuilder) {
+        <span class="kw">base</span>.<span class="fn">OnModelCreating</span>(modelBuilder);
+        modelBuilder.<span class="fn">ApplyConfigurationsFromAssembly</span>(<span class="kw">typeof</span>(<span class="ty">ApplicationDbContext</span>).<span class="prop">Assembly</span>);
+    }
+}</pre>
+      </div>
+
+      <h4>Layer 4: API (Presentation)</h4>
+      <p>HTTP controllers, middleware, and Swagger docs. Depends on all inner layers.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// API/Controllers/UsersController.cs</span>
+[<span class="ty">ApiController</span>]
+[<span class="fn">Route</span>(<span class="str">"api/users"</span>)]
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">UsersController</span> : <span class="ty">ControllerBase</span> {
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">CreateUserHandler</span> _createUserHandler;
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">ILogger</span>&lt;<span class="ty">UsersController</span>&gt; _logger;
+
+    <span class="kw">public</span> <span class="fn">UsersController</span>(<span class="ty">CreateUserHandler</span> createUserHandler, <span class="ty">ILogger</span>&lt;<span class="ty">UsersController</span>&gt; logger) {
+        _createUserHandler = createUserHandler;
+        _logger = logger;
+    }
+
+    [<span class="ty">HttpPost</span>]
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span>&lt;<span class="ty">IActionResult</span>&gt; <span class="fn">CreateUserAsync</span>([<span class="ty">FromBody</span>] <span class="ty">User.CreateCommand</span> command) {
+        <span class="kw">try</span> {
+            _logger.<span class="fn">LogInformation</span>(<span class="str">"Creating user: {Email}"</span>, command.Email);
+            <span class="kw">var</span> userId = <span class="kw">await</span> _createUserHandler.<span class="fn">HandleAsync</span>(command);
+            <span class="kw">return</span> <span class="fn">CreatedAtAction</span>(<span class="fn">nameof</span>(<span class="fn">GetUserAsync</span>), <span class="kw">new</span> { id = userId }, <span class="kw">new</span> { id = userId });
+        } <span class="kw">catch</span> (<span class="ty">ValidationException</span> ex) {
+            _logger.<span class="fn">LogWarning</span>(<span class="str">"Validation failed: {Message}"</span>, ex.<span class="prop">Message</span>);
+            <span class="kw">return</span> <span class="fn">BadRequest</span>(<span class="kw">new</span> { <span class="prop">errors</span> = ex.Errors });
+        } <span class="kw">catch</span> (<span class="ty">DomainException</span> ex) {
+            _logger.<span class="fn">LogWarning</span>(<span class="str">"Domain error: {Message}"</span>, ex.<span class="prop">Message</span>);
+            <span class="kw">return</span> <span class="fn">Conflict</span>(<span class="kw">new</span> { <span class="prop">message</span> = ex.<span class="prop">Message</span> });
+        }
+    }
+
+    [<span class="ty">HttpGet</span>(<span class="str">"{id:int}"</span>)]
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span>&lt;<span class="ty">IActionResult</span>&gt; <span class="fn">GetUserAsync</span>(<span class="ty">int</span> id) {
+        <span class="kw">// Implementation</span>
+        <span class="kw">return</span> <span class="fn">Ok</span>();
+    }
+}</pre>
+      </div>
+
+      <h3>Folder Structure</h3>
+      <div class="tree-card">
+ProjectName/
+├── Domain/
+│   ├── Entities/
+│   │   ├── User.cs
+│   │   ├── Product.cs
+│   │   └── Order.cs
+│   ├── Interfaces/
+│   │   ├── IUserRepository.cs
+│   │   ├── IProductRepository.cs
+│   │   ├── IPasswordHasher.cs
+│   │   └── IEmailService.cs
+│   └── Exceptions/
+│       └── DomainException.cs
+├── Application/
+│   ├── UseCases/
+│   │   ├── Users/
+│   │   │   ├── CreateUserHandler.cs
+│   │   │   ├── GetUserHandler.cs
+│   │   │   └── UpdateUserHandler.cs
+│   │   ├── Products/
+│   │   │   └── ListProductsHandler.cs
+│   │   └── Orders/
+│   │       └── CreateOrderHandler.cs
+│   ├── DTOs/
+│   │   ├── UserResponseDto.cs
+│   │   ├── ProductResponseDto.cs
+│   │   └── OrderResponseDto.cs
+│   ├── Validators/
+│   │   ├── CreateUserValidator.cs
+│   │   └── CreateOrderValidator.cs
+│   └── Exceptions/
+│       └── ValidationException.cs
+├── Infrastructure/
+│   ├── Data/
+│   │   ├── ApplicationDbContext.cs
+│   │   ├── EfUserRepository.cs
+│   │   ├── EfProductRepository.cs
+│   │   ├── EntityConfigurations/
+│   │   │   ├── UserConfiguration.cs
+│   │   │   └── OrderConfiguration.cs
+│   │   └── Migrations/
+│   └── Services/
+│       ├── PasswordHasher.cs
+│       ├── EmailService.cs
+│       └── ExternalApiClient.cs
+├── API/
+│   ├── Controllers/
+│   │   ├── UsersController.cs
+│   │   ├── ProductsController.cs
+│   │   └── OrdersController.cs
+│   ├── Middleware/
+│   │   ├── ErrorHandlingMiddleware.cs
+│   │   └── LoggingMiddleware.cs
+│   ├── Program.cs
+│   ├── Dockerfile
+│   └── appsettings.json
+├── Tests/
+│   ├── Unit/
+│   │   ├── CreateUserHandlerTests.cs
+│   │   └── UserValidatorTests.cs
+│   └── Integration/
+│       ├── UsersControllerTests.cs
+│       └── OrdersControllerTests.cs
+├── docker-compose.yml
+└── README.md
+      </div>
+    </section>
+
+    <!-- MUST-HAVE FEATURES -->
+    <section class="section fade">
+      <div class="sec-tag">
+        <span class="sec-num">03</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Must-Have Features</h2>
+      <p class="lead">These features distinguish production-grade code from student projects. Evaluators expect all of them.</p>
+
+      <h3>1. Dependency Injection (IServiceCollection)</h3>
+      <p>Configure all dependencies in one place. Makes testing and scaling straightforward.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Program.cs - DI Registration</span>
+<span class="kw">var</span> builder = <span class="ty">WebApplication</span>.<span class="fn">CreateBuilder</span>(args);
+
+<span class="cm">// Database</span>
+builder.Services.<span class="fn">AddDbContext</span>&lt;<span class="ty">ApplicationDbContext</span>&gt;(options =&gt;
+    options.<span class="fn">UseSqlServer</span>(builder.<span class="prop">Configuration</span>.<span class="fn">GetConnectionString</span>(<span class="str">"DefaultConnection"</span>))
+);
+
+<span class="cm">// Repositories</span>
+builder.Services.<span class="fn">AddScoped</span>&lt;<span class="ty">IUserRepository</span>, <span class="ty">EfUserRepository</span>&gt;();
+builder.Services.<span class="fn">AddScoped</span>&lt;<span class="ty">IProductRepository</span>, <span class="ty">EfProductRepository</span>&gt;();
+
+<span class="cm">// Use Cases</span>
+builder.Services.<span class="fn">AddScoped</span>&lt;<span class="ty">CreateUserHandler</span>&gt;();
+builder.Services.<span class="fn">AddScoped</span>&lt;<span class="ty">GetUserHandler</span>&gt;();
+
+<span class="cm">// Services</span>
+builder.Services.<span class="fn">AddScoped</span>&lt;<span class="ty">IPasswordHasher</span>, <span class="ty">BcryptPasswordHasher</span>&gt;();
+builder.Services.<span class="fn">AddScoped</span>&lt;<span class="ty">IEmailService</span>, <span class="ty">SmtpEmailService</span>&gt;();
+
+<span class="cm">// Validators</span>
+builder.Services.<span class="fn">AddValidatorsFromAssembly</span>(<span class="kw">typeof</span>(<span class="ty">Program</span>).<span class="prop">Assembly</span>);
+
+<span class="cm">// Controllers & Logging</span>
+builder.Services.<span class="fn">AddControllers</span>();
+builder.Services.<span class="fn">AddLogging</span>(config =&gt;
+    config.<span class="fn">AddConsole</span>().<span class="fn">AddDebug</span>()
+);
+
+<span class="kw">var</span> app = builder.<span class="fn">Build</span>();
+app.<span class="fn">UseHttpsRedirection</span>();
+app.<span class="fn">MapControllers</span>();
+<span class="kw">await</span> app.<span class="fn">RunAsync</span>();</pre>
+      </div>
+
+      <h3>2. Repository Pattern with Unit of Work</h3>
+      <p>Abstracts data access, enables testing, and maintains consistency across entities.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Domain/Interfaces/IUnitOfWork.cs</span>
+<span class="kw">public</span> <span class="kw">interface</span> <span class="ty">IUnitOfWork</span> : <span class="ty">IDisposable</span> {
+    <span class="ty">IUserRepository</span> Users { <span class="kw">get</span>; }
+    <span class="ty">IProductRepository</span> Products { <span class="kw">get</span>; }
+    <span class="ty">IOrderRepository</span> Orders { <span class="kw">get</span>; }
+    <span class="kw">Task</span>&lt;<span class="ty">int</span>&gt; <span class="fn">SaveChangesAsync</span>();
+}
+
+<span class="cm">// Infrastructure/Data/UnitOfWork.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">UnitOfWork</span> : <span class="ty">IUnitOfWork</span> {
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">ApplicationDbContext</span> _dbContext;
+    <span class="kw">private</span> <span class="ty">IUserRepository</span> _userRepository;
+    <span class="kw">private</span> <span class="ty">IProductRepository</span> _productRepository;
+
+    <span class="kw">public</span> <span class="fn">UnitOfWork</span>(<span class="ty">ApplicationDbContext</span> dbContext) {
+        _dbContext = dbContext;
+    }
+
+    <span class="kw">public</span> <span class="ty">IUserRepository</span> Users =&gt; _userRepository ??= <span class="kw">new</span> <span class="ty">EfUserRepository</span>(_dbContext);
+    <span class="kw">public</span> <span class="ty">IProductRepository</span> Products =&gt; _productRepository ??= <span class="kw">new</span> <span class="ty">EfProductRepository</span>(_dbContext);
+
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span>&lt;<span class="ty">int</span>&gt; <span class="fn">SaveChangesAsync</span>() =&gt; <span class="kw">await</span> _dbContext.<span class="fn">SaveChangesAsync</span>();
+
+    <span class="kw">public</span> <span class="kw">void</span> <span class="fn">Dispose</span>() =&gt; _dbContext?.<span class="fn">Dispose</span>();
+}</pre>
+      </div>
+
+      <h3>3. Unit Tests with xUnit + Moq</h3>
+      <p>Test business logic in isolation. Aim for >70% code coverage.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Tests/Unit/CreateUserHandlerTests.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">CreateUserHandlerTests</span> {
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">Mock</span>&lt;<span class="ty">IUserRepository</span>&gt; _userRepoMock;
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">Mock</span>&lt;<span class="ty">IPasswordHasher</span>&gt; _hasherMock;
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">CreateUserHandler</span> _handler;
+
+    <span class="kw">public</span> <span class="fn">CreateUserHandlerTests</span>() {
+        _userRepoMock = <span class="kw">new</span> <span class="ty">Mock</span>&lt;<span class="ty">IUserRepository</span>&gt;();
+        _hasherMock = <span class="kw">new</span> <span class="ty">Mock</span>&lt;<span class="ty">IPasswordHasher</span>&gt;();
+        _handler = <span class="kw">new</span> <span class="ty">CreateUserHandler</span>(_userRepoMock.<span class="prop">Object</span>, _hasherMock.<span class="prop">Object</span>);
+    }
+
+    [<span class="ty">Fact</span>]
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span> <span class="fn">Handle_WithValidCommand_ReturnsUserId</span>() {
+        <span class="cm">// Arrange</span>
+        <span class="kw">var</span> command = <span class="kw">new</span> <span class="ty">User.CreateCommand</span> {
+            Email = <span class="str">"john@example.com"</span>,
+            FullName = <span class="str">"John Doe"</span>
+        };
+        _userRepoMock.<span class="fn">Setup</span>(r =&gt; r.<span class="fn">GetByEmailAsync</span>(command.Email)).<span class="fn">ReturnsAsync</span>((<span class="ty">User</span>)<span class="kw">null</span>);
+        _userRepoMock.<span class="fn">Setup</span>(r =&gt; r.<span class="fn">CreateAsync</span>(<span class="ty">It</span>.<span class="prop">IsAny</span>&lt;<span class="ty">User</span>&gt;())).<span class="fn">ReturnsAsync</span>(<span class="num">1</span>);
+
+        <span class="cm">// Act</span>
+        <span class="kw">var</span> result = <span class="kw">await</span> _handler.<span class="fn">HandleAsync</span>(command);
+
+        <span class="cm">// Assert</span>
+        Assert.<span class="fn">Equal</span>(<span class="num">1</span>, result);
+        _userRepoMock.<span class="fn">Verify</span>(r =&gt; r.<span class="fn">CreateAsync</span>(<span class="ty">It</span>.<span class="prop">IsAny</span>&lt;<span class="ty">User</span>&gt;()), <span class="ty">Times</span>.<span class="fn">Once</span>);
+    }
+
+    [<span class="ty">Fact</span>]
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span> <span class="fn">Handle_WithExistingEmail_ThrowsDomainException</span>() {
+        <span class="cm">// Arrange</span>
+        <span class="kw">var</span> command = <span class="kw">new</span> <span class="ty">User.CreateCommand</span> { Email = <span class="str">"existing@example.com"</span> };
+        _userRepoMock.<span class="fn">Setup</span>(r =&gt; r.<span class="fn">GetByEmailAsync</span>(command.Email))
+            .<span class="fn">ReturnsAsync</span>(<span class="kw">new</span> <span class="ty">User</span> { Id = <span class="num">1</span>, Email = command.Email });
+
+        <span class="cm">// Act & Assert</span>
+        <span class="kw">await</span> Assert.<span class="fn">ThrowsAsync</span>&lt;<span class="ty">DomainException</span>&gt;(() =&gt; _handler.<span class="fn">HandleAsync</span>(command));
+    }
+}</pre>
+      </div>
+
+      <h3>4. Integration Tests</h3>
+      <p>Test API endpoints end-to-end with a real (test) database.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Tests/Integration/UsersControllerTests.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">UsersControllerTests</span> {
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">WebApplicationFactory</span>&lt;<span class="ty">Program</span>&gt; _factory;
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">HttpClient</span> _client;
+
+    <span class="kw">public</span> <span class="fn">UsersControllerTests</span>() {
+        _factory = <span class="kw">new</span> <span class="ty">WebApplicationFactory</span>&lt;<span class="ty">Program</span>&gt;()
+            .<span class="fn">WithWebHostBuilder</span>(builder =&gt; {
+                builder.<span class="fn">ConfigureServices</span>(services =&gt; {
+                    <span class="cm">// Replace real DB with in-memory</span>
+                    <span class="kw">var</span> descriptor = services.<span class="fn">SingleOrDefault</span>(d =&gt; d.<span class="prop">ServiceType</span> == <span class="kw">typeof</span>(<span class="ty">DbContextOptions</span>&lt;<span class="ty">ApplicationDbContext</span>&gt;));
+                    services.<span class="fn">Remove</span>(descriptor);
+                    services.<span class="fn">AddDbContext</span>&lt;<span class="ty">ApplicationDbContext</span>&gt;(options =&gt;
+                        options.<span class="fn">UseInMemoryDatabase</span>(<span class="str">"TestDb"</span>)
+                    );
+                });
+            });
+        _client = _factory.<span class="fn">CreateClient</span>();
+    }
+
+    [<span class="ty">Fact</span>]
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span> <span class="fn">CreateUser_WithValidData_Returns201</span>() {
+        <span class="cm">// Arrange</span>
+        <span class="kw">var</span> payload = <span class="kw">new</span> { Email = <span class="str">"test@example.com"</span>, FullName = <span class="str">"Test User"</span> };
+        <span class="kw">var</span> content = <span class="kw">new</span> <span class="ty">StringContent</span>(<span class="ty">JsonSerializer</span>.<span class="fn">Serialize</span>(payload), <span class="ty">Encoding</span>.<span class="prop">UTF8</span>, <span class="str">"application/json"</span>);
+
+        <span class="cm">// Act</span>
+        <span class="kw">var</span> response = <span class="kw">await</span> _client.<span class="fn">PostAsync</span>(<span class="str">"/api/users"</span>, content);
+
+        <span class="cm">// Assert</span>
+        Assert.<span class="fn">Equal</span>(<span class="ty">HttpStatusCode</span>.<span class="fn">Created</span>, response.<span class="prop">StatusCode</span>);
+    }
+}</pre>
+      </div>
+
+      <h3>5. Error Handling Middleware</h3>
+      <p>Centralize exception handling to return consistent HTTP responses.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// API/Middleware/ErrorHandlingMiddleware.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">ErrorHandlingMiddleware</span> {
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">RequestDelegate</span> _next;
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">ILogger</span>&lt;<span class="ty">ErrorHandlingMiddleware</span>&gt; _logger;
+
+    <span class="kw">public</span> <span class="fn">ErrorHandlingMiddleware</span>(<span class="ty">RequestDelegate</span> next, <span class="ty">ILogger</span>&lt;<span class="ty">ErrorHandlingMiddleware</span>&gt; logger) {
+        _next = next;
+        _logger = logger;
+    }
+
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span> <span class="fn">InvokeAsync</span>(<span class="ty">HttpContext</span> context) {
+        <span class="kw">try</span> {
+            <span class="kw">await</span> _next(context);
+        } <span class="kw">catch</span> (<span class="ty">Exception</span> ex) {
+            _logger.<span class="fn">LogError</span>(ex, <span class="str">"Unhandled exception"</span>);
+            context.<span class="prop">Response</span>.<span class="prop">ContentType</span> = <span class="str">"application/json"</span>;
+
+            <span class="kw">var</span> response = ex <span class="kw">switch</span> {
+                <span class="ty">ValidationException</span> ve =&gt; <span class="kw">new</span> { <span class="prop">statusCode</span> = <span class="num">400</span>, <span class="prop">message</span> = <span class="str">"Validation failed"</span>, errors = ve.Errors },
+                <span class="ty">DomainException</span> de =&gt; <span class="kw">new</span> { <span class="prop">statusCode</span> = <span class="num">409</span>, <span class="prop">message</span> = de.<span class="prop">Message</span> },
+                _ =&gt; <span class="kw">new</span> { <span class="prop">statusCode</span> = <span class="num">500</span>, <span class="prop">message</span> = <span class="str">"Internal server error"</span> }
+            };
+
+            context.<span class="prop">Response</span>.<span class="prop">StatusCode</span> = (<span class="ty">int</span>)(<span class="kw">dynamic</span>)response.<span class="fn">GetType</span>().<span class="fn">GetProperty</span>(<span class="str">"statusCode"</span>).<span class="fn">GetValue</span>(response);
+            <span class="kw">await</span> context.<span class="prop">Response</span>.<span class="fn">WriteAsJsonAsync</span>(response);
+        }
+    }
+}</pre>
+      </div>
+
+      <h3>6. Logging (ILogger)</h3>
+      <p>Instrument code for debugging and monitoring. Use structured logging.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Infrastructure/Services/UserService.cs - With Logging</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">UserService</span> {
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">IUserRepository</span> _repository;
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">ILogger</span>&lt;<span class="ty">UserService</span>&gt; _logger;
+
+    <span class="kw">public</span> <span class="fn">UserService</span>(<span class="ty">IUserRepository</span> repository, <span class="ty">ILogger</span>&lt;<span class="ty">UserService</span>&gt; logger) {
+        _repository = repository;
+        _logger = logger;
+    }
+
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span>&lt;<span class="ty">User</span>&gt; <span class="fn">GetUserAsync</span>(<span class="ty">int</span> id) {
+        _logger.<span class="fn">LogInformation</span>(<span class="str">"Fetching user: {UserId}"</span>, id);
+        <span class="kw">var</span> user = <span class="kw">await</span> _repository.<span class="fn">GetByIdAsync</span>(id);
+
+        <span class="kw">if</span> (user == <span class="kw">null</span>) {
+            _logger.<span class="fn">LogWarning</span>(<span class="str">"User not found: {UserId}"</span>, id);
+            <span class="kw">throw</span> <span class="kw">new</span> <span class="ty">NotFoundException</span>(<span class="str">"User not found"</span>);
+        }
+
+        _logger.<span class="fn">LogInformation</span>(<span class="str">"User retrieved successfully: {UserId} {Email}"</span>, user.Id, user.Email);
+        <span class="kw">return</span> user;
+    }
+}</pre>
+      </div>
+
+      <h3>7. Input Validation (FluentValidation)</h3>
+      <p>Validate data at the application layer before business logic.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Application/Validators/CreateUserValidator.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">CreateUserValidator</span> : <span class="ty">AbstractValidator</span>&lt;<span class="ty">User.CreateCommand</span>&gt; {
+    <span class="kw">public</span> <span class="fn">CreateUserValidator</span>() {
+        <span class="fn">RuleFor</span>(x =&gt; x.Email)
+            .<span class="fn">NotEmpty</span>().<span class="fn">WithMessage</span>(<span class="str">"Email is required"</span>)
+            .<span class="fn">EmailAddress</span>().<span class="fn">WithMessage</span>(<span class="str">"Email must be valid"</span>)
+            .<span class="fn">MaximumLength</span>(<span class="num">255</span>).<span class="fn">WithMessage</span>(<span class="str">"Email is too long"</span>);
+
+        <span class="fn">RuleFor</span>(x =&gt; x.FullName)
+            .<span class="fn">NotEmpty</span>().<span class="fn">WithMessage</span>(<span class="str">"Full name is required"</span>)
+            .<span class="fn">Length</span>(<span class="num">2</span>, <span class="num">100</span>).<span class="fn">WithMessage</span>(<span class="str">"Full name must be 2-100 chars"</span>);
+    }
+}</pre>
+      </div>
+
+      <h3>8. Swagger/OpenAPI Documentation</h3>
+      <p>Auto-generate and document your API.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Program.cs - Swagger Setup</span>
+builder.Services.<span class="fn">AddSwaggerGen</span>(c =&gt; {
+    c.<span class="fn">SwaggerDoc</span>(<span class="str">"v1"</span>, <span class="kw">new</span> <span class="ty">OpenApiInfo</span> {
+        Title = <span class="str">"My API"</span>,
+        Version = <span class="str">"v1"</span>,
+        Description = <span class="str">"Production API with Clean Architecture"</span>
+    });
+});
+
+<span class="kw">var</span> app = builder.<span class="fn">Build</span>();
+app.<span class="fn">UseSwagger</span>();
+app.<span class="fn">UseSwaggerUI</span>(c =&gt; c.<span class="fn">SwaggerEndpoint</span>(<span class="str">"/swagger/v1/swagger.json"</span>, <span class="str">"v1"</span>));
+
+<span class="cm">// Controller - With XML Documentation</span>
+[<span class="ty">HttpPost</span>]
+[<span class="fn">ProducesResponseType</span>(typeof(<span class="ty">UserResponseDto</span>), <span class="num">201</span>)]
+[<span class="fn">ProducesResponseType</span>(<span class="num">400</span>)]
+<span class="cm">/// &lt;summary&gt;</span>
+<span class="cm">/// Creates a new user account&lt;/summary&gt;</span>
+<span class="cm">/// &lt;param name="command"&gt;User creation data&lt;/param&gt;</span>
+<span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span>&lt;<span class="ty">IActionResult</span>&gt; <span class="fn">CreateAsync</span>([<span class="ty">FromBody</span>] <span class="ty">User.CreateCommand</span> command) {
+    <span class="kw">// Implementation</span>
+}</pre>
+      </div>
+
+      <h3>9. Docker Support</h3>
+      <p>Containerize your application for easy deployment.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">dockerfile</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm"># Dockerfile</span>
+FROM mcr.microsoft.com/dotnet/sdk:<span class="num">7</span>.<span class="num">0</span> AS build
+WORKDIR /app
+COPY . .
+RUN dotnet restore
+RUN dotnet publish -c Release -o out
+
+FROM mcr.microsoft.com/dotnet/aspnet:<span class="num">7</span>.<span class="num">0</span>
+WORKDIR /app
+COPY --from=build /app/out .
+EXPOSE <span class="num">8080</span>
+ENTRYPOINT [<span class="str">"dotnet"</span>, <span class="str">"API.dll"</span>]</pre>
+      </div>
+
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">yaml</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm"># docker-compose.yml</span>
+version: <span class="str">'3.8'</span>
+services:
+  api:
+    build: .
+    ports:
+      - <span class="str">"8080:8080"</span>
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=db;Database=myapp;User Id=sa;Password=YourPassword123!
+    depends_on:
+      - db
+  db:
+    image: mcr.microsoft.com/mssql/server:<span class="num">2022</span>-latest
+    environment:
+      ACCEPT_EULA: <span class="str">"Y"</span>
+      SA_PASSWORD: YourPassword123!
+    ports:
+      - <span class="str">"1433:1433"</span></pre>
+      </div>
+    </section>
+
+    <!-- CODE QUALITY CHECKLIST -->
+    <section class="section fade" id="checklist">
+      <div class="sec-tag">
+        <span class="sec-num">04</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Code Quality Checklist</h2>
+      <p class="lead">Before you submit, verify every item. This is what evaluators assess in code review.</p>
+
+      <h3>SOLID Principles</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> <strong>S (Single Responsibility):</strong> Each class has one reason to change. UserRepository only handles user data access.</li>
+        <li><input type="checkbox"> <strong>O (Open/Closed):</strong> Classes are open for extension, closed for modification. Use interfaces, not inheritance.</li>
+        <li><input type="checkbox"> <strong>L (Liskov Substitution):</strong> Derived classes can substitute base classes without breaking. Repository implementations are interchangeable.</li>
+        <li><input type="checkbox"> <strong>I (Interface Segregation):</strong> Don't force clients to depend on interfaces they don't use. IRepository is granular.</li>
+        <li><input type="checkbox"> <strong>D (Dependency Inversion):</strong> Depend on abstractions (IUserRepository), not concretions (EfUserRepository).</li>
+      </ul>
+
+      <h3>Naming & Consistency</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> <strong>PascalCase for public members:</strong> GetUserAsync, CreateUserCommand</li>
+        <li><input type="checkbox"> <strong>camelCase for private/local:</strong> _userRepository, int userId</li>
+        <li><input type="checkbox"> <strong>Prefix interfaces with I:</strong> IUserRepository, IPasswordHasher</li>
+        <li><input type="checkbox"> <strong>Descriptive names:</strong> CreateUserHandler (not Process, Handle, Do)</li>
+        <li><input type="checkbox"> <strong>Avoid abbreviations:</strong> UserRepository (not UserRepo, UserMgr)</li>
+        <li><input type="checkbox"> <strong>Use domain language:</strong> Order, Payment (not Txn, TRX)</li>
+      </ul>
+
+      <h3>Async/Await</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> <strong>All I/O is async:</strong> GetByIdAsync, CreateAsync, SaveChangesAsync</li>
+        <li><input type="checkbox"> <strong>No .Result or .Wait():</strong> These cause deadlocks. Use await.</li>
+        <li><input type="checkbox"> <strong>ConfigureAwait(false) in libraries:</strong> Not critical for API, but good practice.</li>
+        <li><input type="checkbox"> <strong>Async all the way up:</strong> If method calls async, method must be async.</li>
+      </ul>
+
+      <h3>Magic Numbers & Strings</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> <strong>Use constants:</strong> const int MaxPasswordLength = 128; (not scattered 128s)</li>
+        <li><input type="checkbox"> <strong>Config values in appsettings.json:</strong> JWT secret, DB timeout, not hardcoded</li>
+        <li><input type="checkbox"> <strong>Enum for status:</strong> OrderStatus.Pending (not 1, 2, 3)</li>
+      </ul>
+
+      <h3>HTTP Status Codes</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> <strong>201 Created:</strong> For POST that creates a resource. Include Location header.</li>
+        <li><input type="checkbox"> <strong>204 No Content:</strong> For DELETE/PUT with no response body.</li>
+        <li><input type="checkbox"> <strong>400 Bad Request:</strong> Validation failed. Return error details.</li>
+        <li><input type="checkbox"> <strong>401 Unauthorized:</strong> Authentication required.</li>
+        <li><input type="checkbox"> <strong>403 Forbidden:</strong> User lacks permission.</li>
+        <li><input type="checkbox"> <strong>404 Not Found:</strong> Resource doesn't exist.</li>
+        <li><input type="checkbox"> <strong>409 Conflict:</strong> Domain constraint violation (e.g., duplicate email).</li>
+        <li><input type="checkbox"> <strong>500 Internal Server Error:</strong> Unhandled exception.</li>
+      </ul>
+
+      <h3>Git History</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> <strong>Meaningful commit messages:</strong> "Add user creation endpoint with validation" (not "fix", "update")</li>
+        <li><input type="checkbox"> <strong>Small, logical commits:</strong> One feature per commit, not everything at the end.</li>
+        <li><input type="checkbox"> <strong>No merge conflicts unresolved.</strong> If there are conflicts, resolve cleanly.</li>
+        <li><input type="checkbox"> <strong>Clean history:</strong> No excessive "fix typo" or "oops" commits. Squash if needed.</li>
+      </ul>
+
+      <h3>Testing</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> <strong>&gt;70% code coverage:</strong> Use OpenCover or similar tools.</li>
+        <li><input type="checkbox"> <strong>Unit tests for handlers/services:</strong> With Moq for dependencies.</li>
+        <li><input type="checkbox"> <strong>Integration tests for endpoints:</strong> WebApplicationFactory with real DB.</li>
+        <li><input type="checkbox"> <strong>Edge cases tested:</strong> null input, empty collection, max/min values.</li>
+        <li><input type="checkbox"> <strong>Tests are readable:</strong> Arrange-Act-Assert format, clear test names.</li>
+      </ul>
+
+      <h3>Error Handling</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> <strong>Custom exception types:</strong> DomainException, ValidationException (not generic Exception).</li>
+        <li><input type="checkbox"> <strong>Centralized error handling:</strong> Middleware, not try-catch in every controller.</li>
+        <li><input type="checkbox"> <strong>Never expose internal details:</strong> Return user-friendly messages, not stack traces.</li>
+        <li><input type="checkbox"> <strong>Log all errors:</strong> With context (UserId, RequestId, etc.).</li>
+      </ul>
+
+      <h3>Documentation</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> <strong>README.md with setup instructions</strong> (How to clone, build, run locally)</li>
+        <li><input type="checkbox"> <strong>Swagger UI accessible at /swagger</strong></li>
+        <li><input type="checkbox"> <strong>XML comments on public methods</strong></li>
+        <li><input type="checkbox"> <strong>Database schema diagram or ERD</strong></li>
+      </ul>
+    </section>
+
+    <!-- EXAMPLE PROJECT STRUCTURE -->
+    <section class="section fade">
+      <div class="sec-tag">
+        <span class="sec-num">05</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Example: Simple E-Commerce Project</h2>
+      <p class="lead">A real end-to-end example showing proper architecture, testing, and deployment setup.</p>
+
+      <h3>Domain Layer: Core Entities</h3>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Domain/Entities/Product.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">Product</span> {
+    <span class="kw">public</span> <span class="ty">int</span> Id { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="ty">string</span> Name { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="ty">string</span> Description { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="ty">decimal</span> Price { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="ty">int</span> StockQuantity { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="ty">DateTime</span> CreatedAt { <span class="kw">get</span>; <span class="kw">set</span>; }
+
+    <span class="cm">// Business method: Reduce stock on purchase</span>
+    <span class="kw">public</span> <span class="kw">void</span> <span class="fn">ReduceStock</span>(<span class="ty">int</span> quantity) {
+        <span class="kw">if</span> (quantity &gt; StockQuantity) {
+            <span class="kw">throw</span> <span class="kw">new</span> <span class="ty">DomainException</span>(<span class="str">"Insufficient stock"</span>);
+        }
+        StockQuantity -= quantity;
+    }
+
+    <span class="kw">public</span> <span class="kw">class</span> <span class="ty">CreateCommand</span> {
+        <span class="kw">public</span> <span class="ty">string</span> Name { <span class="kw">get</span>; <span class="kw">set</span>; }
+        <span class="kw">public</span> <span class="ty">string</span> Description { <span class="kw">get</span>; <span class="kw">set</span>; }
+        <span class="kw">public</span> <span class="ty">decimal</span> Price { <span class="kw">get</span>; <span class="kw">set</span>; }
+        <span class="kw">public</span> <span class="ty">int</span> StockQuantity { <span class="kw">get</span>; <span class="kw">set</span>; }
+    }
+}
+
+<span class="cm">// Domain/Interfaces/IProductRepository.cs</span>
+<span class="kw">public</span> <span class="kw">interface</span> <span class="ty">IProductRepository</span> {
+    <span class="kw">Task</span>&lt;<span class="ty">Product</span>&gt; <span class="fn">GetByIdAsync</span>(<span class="ty">int</span> id);
+    <span class="kw">Task</span>&lt;<span class="ty">List</span>&lt;<span class="ty">Product</span>&gt;&gt; <span class="fn">ListAsync</span>(<span class="ty">int</span> skip = <span class="num">0</span>, <span class="ty">int</span> take = <span class="num">10</span>);
+    <span class="kw">Task</span>&lt;<span class="ty">int</span>&gt; <span class="fn">CreateAsync</span>(<span class="ty">Product</span> product);
+    <span class="kw">Task</span>&lt;<span class="ty">bool</span>&gt; <span class="fn">UpdateAsync</span>(<span class="ty">Product</span> product);
+}</pre>
+      </div>
+
+      <h3>Application Layer: Use Case Handler</h3>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Application/UseCases/CreateProductHandler.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">CreateProductHandler</span> {
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">IProductRepository</span> _repository;
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">IValidator</span>&lt;<span class="ty">Product.CreateCommand</span>&gt; _validator;
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">ILogger</span>&lt;<span class="ty">CreateProductHandler</span>&gt; _logger;
+
+    <span class="kw">public</span> <span class="fn">CreateProductHandler</span>(
+        <span class="ty">IProductRepository</span> repository,
+        <span class="ty">IValidator</span>&lt;<span class="ty">Product.CreateCommand</span>&gt; validator,
+        <span class="ty">ILogger</span>&lt;<span class="ty">CreateProductHandler</span>&gt; logger) {
+        _repository = repository;
+        _validator = validator;
+        _logger = logger;
+    }
+
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span>&lt;<span class="ty">int</span>&gt; <span class="fn">HandleAsync</span>(<span class="ty">Product.CreateCommand</span> command) {
+        <span class="cm">// Validate</span>
+        <span class="kw">var</span> result = <span class="kw">await</span> _validator.<span class="fn">ValidateAsync</span>(command);
+        <span class="kw">if</span> (!result.IsValid) {
+            _logger.<span class="fn">LogWarning</span>(<span class="str">"Product validation failed"</span>);
+            <span class="kw">throw</span> <span class="kw">new</span> <span class="ty">ValidationException</span>(result.Errors);
+        }
+
+        <span class="cm">// Create entity</span>
+        <span class="kw">var</span> product = <span class="kw">new</span> <span class="ty">Product</span> {
+            Name = command.Name,
+            Description = command.Description,
+            Price = command.Price,
+            StockQuantity = command.StockQuantity,
+            CreatedAt = <span class="ty">DateTime</span>.<span class="ty">UtcNow</span>
+        };
+
+        <span class="cm">// Persist</span>
+        <span class="kw">var</span> id = <span class="kw">await</span> _repository.<span class="fn">CreateAsync</span>(product);
+        _logger.<span class="fn">LogInformation</span>(<span class="str">"Product created: {ProductId}"</span>, id);
+        <span class="kw">return</span> id;
+    }
+}
+
+<span class="cm">// Application/Validators/CreateProductValidator.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">CreateProductValidator</span> : <span class="ty">AbstractValidator</span>&lt;<span class="ty">Product.CreateCommand</span>&gt; {
+    <span class="kw">public</span> <span class="fn">CreateProductValidator</span>() {
+        <span class="fn">RuleFor</span>(x =&gt; x.Name)
+            .<span class="fn">NotEmpty</span>().<span class="fn">WithMessage</span>(<span class="str">"Product name required"</span>)
+            .<span class="fn">MaximumLength</span>(<span class="num">200</span>);
+
+        <span class="fn">RuleFor</span>(x =&gt; x.Price)
+            .<span class="fn">GreaterThan</span>(<span class="num">0</span>).<span class="fn">WithMessage</span>(<span class="str">"Price must be positive"</span>);
+
+        <span class="fn">RuleFor</span>(x =&gt; x.StockQuantity)
+            .<span class="fn">GreaterThanOrEqualTo</span>(<span class="num">0</span>).<span class="fn">WithMessage</span>(<span class="str">"Stock cannot be negative"</span>);
+    }
+}
+
+<span class="cm">// Application/DTOs/ProductResponseDto.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">ProductResponseDto</span> {
+    <span class="kw">public</span> <span class="ty">int</span> Id { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="ty">string</span> Name { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="ty">decimal</span> Price { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="ty">int</span> StockQuantity { <span class="kw">get</span>; <span class="kw">set</span>; }
+}</pre>
+      </div>
+
+      <h3>API Controller with Swagger</h3>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// API/Controllers/ProductsController.cs</span>
+[<span class="ty">ApiController</span>]
+[<span class="fn">Route</span>(<span class="str">"api/products"</span>)]
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">ProductsController</span> : <span class="ty">ControllerBase</span> {
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">CreateProductHandler</span> _createHandler;
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">IProductRepository</span> _repository;
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">ILogger</span>&lt;<span class="ty">ProductsController</span>&gt; _logger;
+
+    <span class="kw">public</span> <span class="fn">ProductsController</span>(
+        <span class="ty">CreateProductHandler</span> createHandler,
+        <span class="ty">IProductRepository</span> repository,
+        <span class="ty">ILogger</span>&lt;<span class="ty">ProductsController</span>&gt; logger) {
+        _createHandler = createHandler;
+        _repository = repository;
+        _logger = logger;
+    }
+
+    [<span class="ty">HttpPost</span>]
+    [<span class="fn">ProducesResponseType</span>(typeof(<span class="ty">ProductResponseDto</span>), <span class="num">201</span>)]
+    [<span class="fn">ProducesResponseType</span>(<span class="num">400</span>)]
+    <span class="cm">/// &lt;summary&gt;Create a new product&lt;/summary&gt;</span>
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span>&lt;<span class="ty">IActionResult</span>&gt; <span class="fn">CreateAsync</span>([<span class="ty">FromBody</span>] <span class="ty">Product.CreateCommand</span> command) {
+        <span class="kw">try</span> {
+            <span class="kw">var</span> productId = <span class="kw">await</span> _createHandler.<span class="fn">HandleAsync</span>(command);
+            <span class="kw">var</span> product = <span class="kw">await</span> _repository.<span class="fn">GetByIdAsync</span>(productId);
+            <span class="kw">var</span> dto = <span class="kw">new</span> <span class="ty">ProductResponseDto</span> {
+                Id = product.Id,
+                Name = product.Name,
+                Price = product.Price,
+                StockQuantity = product.StockQuantity
+            };
+            <span class="kw">return</span> <span class="fn">CreatedAtAction</span>(<span class="fn">nameof</span>(<span class="fn">GetAsync</span>), <span class="kw">new</span> { id = productId }, dto);
+        } <span class="kw">catch</span> (<span class="ty">ValidationException</span> ex) {
+            <span class="kw">return</span> <span class="fn">BadRequest</span>(<span class="kw">new</span> { errors = ex.Errors });
+        }
+    }
+
+    [<span class="ty">HttpGet</span>(<span class="str">"{id:int}"</span>)]
+    [<span class="fn">ProducesResponseType</span>(typeof(<span class="ty">ProductResponseDto</span>), <span class="num">200</span>)]
+    [<span class="fn">ProducesResponseType</span>(<span class="num">404</span>)]
+    <span class="cm">/// &lt;summary&gt;Get product by ID&lt;/summary&gt;</span>
+    <span class="kw">public</span> <span class="kw">async</span> <span class="kw">Task</span>&lt;<span class="ty">IActionResult</span>&gt; <span class="fn">GetAsync</span>(<span class="ty">int</span> id) {
+        <span class="kw">var</span> product = <span class="kw">await</span> _repository.<span class="fn">GetByIdAsync</span>(id);
+        <span class="kw">if</span> (product == <span class="kw">null</span>) {
+            _logger.<span class="fn">LogWarning</span>(<span class="str">"Product not found: {ProductId}"</span>, id);
+            <span class="kw">return</span> <span class="fn">NotFound</span>();
+        }
+
+        <span class="kw">return</span> <span class="fn">Ok</span>(<span class="kw">new</span> <span class="ty">ProductResponseDto</span> {
+            Id = product.Id,
+            Name = product.Name,
+            Price = product.Price,
+            StockQuantity = product.StockQuantity
+        });
+    }
+}</pre>
+      </div>
+
+      <h3>Integration Test Example</h3>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// Tests/Integration/ProductsControllerTests.cs</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">ProductsControllerTests</span> : <span class="ty">IAsyncLifetime</span> {
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">WebApplicationFactory</span>&lt;<span class="ty">Program</span>&gt; _factory;
+    <span class="kw">private</span> <span class="ty">HttpClient</span> _client;
+
+    <span class="kw">public</span> <span class="fn">ProductsControllerTests</span>() {
+        _factory = <span class="kw">new</span> <span class="ty">WebApplicationFactory</span>&lt;<span class="ty">Program</span>&gt;()
+            .<span class="fn">WithWebHostBuilder</span>(builder =&gt; {
+                builder.<span class="fn">ConfigureServices</span>(services =&gt; {
+                    <span class="kw">var</span> descriptor = services.<span class="fn">SingleOrDefault</span>(
+                        d =&gt; d.<span class="prop">ServiceType</span> == <span class="kw">typeof</span>(<span class="ty">DbContextOptions</span>&lt;<span class="ty">ApplicationDbContext</span>&gt;));
+                    services.<span class="fn">Remove</span>(descriptor);
+                    services.<span class="fn">AddDbContext</span>&lt;<span class="ty">ApplicationDbContext</span>&gt;(
+                        options =&gt; options.<span class="fn">UseInMemoryDatabase</span>(<span class="str">"TestDb"</span>));
+                });
+            });
+    }
+
+    <span class="kw">public</span> async <span class="kw">Task</span> <span class="fn">InitializeAsync</span>() {
+        _client = _factory.<span class="fn">CreateClient</span>();
+    }
+
+    <span class="kw">public</span> async <span class="kw">Task</span> <span class="fn">DisposeAsync</span>() {
+        _client?.<span class="fn">Dispose</span>();
+        _factory?.<span class="fn">Dispose</span>();
+    }
+
+    [<span class="ty">Fact</span>]
+    <span class="kw">public</span> async <span class="kw">Task</span> <span class="fn">Create_WithValidData_Returns201</span>() {
+        <span class="kw">var</span> payload = <span class="kw">new</span> {
+            Name = <span class="str">"Laptop"</span>,
+            Description = <span class="str">"High-end laptop"</span>,
+            Price = <span class="num">999.99</span>,
+            StockQuantity = <span class="num">10</span>
+        };
+        <span class="kw">var</span> content = <span class="kw">new</span> <span class="ty">StringContent</span>(
+            <span class="ty">JsonSerializer</span>.<span class="fn">Serialize</span>(payload),
+            <span class="ty">Encoding</span>.<span class="prop">UTF8</span>,
+            <span class="str">"application/json"</span>);
+
+        <span class="kw">var</span> response = <span class="kw">await</span> _client.<span class="fn">PostAsync</span>(<span class="str">"/api/products"</span>, content);
+
+        Assert.<span class="fn">Equal</span>(<span class="ty">HttpStatusCode</span>.<span class="fn">Created</span>, response.<span class="prop">StatusCode</span>);
+        Assert.<span class="fn">NotNull</span>(response.<span class="prop">Headers</span>.<span class="fn">Location</span>);
+    }
+
+    [<span class="ty">Fact</span>]
+    <span class="kw">public</span> async <span class="kw">Task</span> <span class="fn">Create_WithInvalidPrice_Returns400</span>() {
+        <span class="kw">var</span> payload = <span class="kw">new</span> {
+            Name = <span class="str">"Invalid"</span>,
+            Price = <span class="num">-10</span>,
+            StockQuantity = <span class="num">5</span>
+        };
+        <span class="kw">var</span> content = <span class="kw">new</span> <span class="ty">StringContent</span>(
+            <span class="ty">JsonSerializer</span>.<span class="fn">Serialize</span>(payload),
+            <span class="ty">Encoding</span>.<span class="prop">UTF8</span>,
+            <span class="str">"application/json"</span>);
+
+        <span class="kw">var</span> response = <span class="kw">await</span> _client.<span class="fn">PostAsync</span>(<span class="str">"/api/products"</span>, content);
+
+        Assert.<span class="fn">Equal</span>(<span class="ty">HttpStatusCode</span>.<span class="fn">BadRequest</span>, response.<span class="prop">StatusCode</span>);
+    }
+}</pre>
+      </div>
+    </section>
+
+    <!-- CODE REVIEW PREPARATION -->
+    <section class="section fade">
+      <div class="sec-tag">
+        <span class="sec-num">06</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Code Review Preparation</h2>
+      <p class="lead">Evaluators will ask these questions. Have concise, confident answers ready.</p>
+
+      <h3>Architecture & Design Decisions</h3>
+
+      <h4>Q: "Why did you choose this architecture?"</h4>
+      <p><strong>Good Answer:</strong> "I used Clean Architecture (Onion Model) because it separates concerns into independent layers. The domain layer contains pure business logic, the application layer orchestrates use cases, and the infrastructure layer handles persistence. This separation makes testing easier—I can test handlers in isolation by mocking repositories—and it makes the codebase more maintainable and scalable."</p>
+
+      <h4>Q: "How would you scale this system?"</h4>
+      <p><strong>Good Answer:</strong> "First, I'd identify the bottleneck. If it's database reads, I'd add caching (Redis) at the repository layer. If it's writes, I'd implement CQRS to separate read and write models. For horizontal scaling, I'd containerize with Docker and orchestrate with Kubernetes. I'd also add logging and monitoring to track performance."</p>
+
+      <h4>Q: "What would you do differently if building this again?"</h4>
+      <p><strong>Good Answer:</strong> "I'd evaluate whether the full 4-layer architecture was necessary—maybe a simpler layered model would suffice. I might also consider event sourcing if the domain involves complex state changes. And I'd invest more upfront in integration tests for critical paths rather than discovering issues in production."</p>
+
+      <h4>Q: "Tell me about your error handling strategy."</h4>
+      <p><strong>Good Answer:</strong> "I define custom exception types (DomainException, ValidationException) to signal specific error conditions. At the API layer, middleware catches exceptions and returns consistent HTTP responses with appropriate status codes. I log all errors with context (RequestId, UserId) for debugging. Clients receive user-friendly messages, never stack traces."</p>
+
+      <h3>Testing & Quality</h3>
+
+      <h4>Q: "Explain your testing strategy."</h4>
+      <p><strong>Good Answer:</strong> "I follow the testing pyramid: mostly unit tests for business logic (handlers, services), fewer integration tests for API endpoints, and a few end-to-end tests for critical user workflows. Unit tests use Moq to isolate dependencies. Integration tests use WebApplicationFactory with an in-memory database. I aim for >70% coverage on critical paths."</p>
+
+      <h4>Q: "How do you ensure database migrations don't break production?"</h4>
+      <p><strong>Good Answer:</strong> "I design migrations to be reversible and backward-compatible. I avoid deleting columns immediately—instead, I deprecate them first. I test migrations locally and in a staging environment before production. I also keep database schema changes separate from code changes when possible."</p>
+
+      <h4>Q: "What's your approach to validation?"</h4>
+      <p><strong>Good Answer:</strong> "I use FluentValidation to validate input at the application layer boundary. Validators check format, length, and business rules (e.g., email uniqueness). If validation fails, handlers throw ValidationException, which middleware converts to a 400 response with detailed error messages. This keeps validation logic testable and separate from controllers."</p>
+
+      <h3>Code Quality</h3>
+
+      <h4>Q: "Walk me through your dependency injection setup."</h4>
+      <p><strong>Good Answer:</strong> "In Program.cs, I register all dependencies with the IServiceCollection. Repositories are registered as Scoped (one per HTTP request). Handlers and services are Scoped as well. External dependencies (password hashers, email services) are abstracted behind interfaces so they can be swapped for testing. This makes the container a single source of truth for wiring."</p>
+
+      <h4>Q: "How do you prevent common bugs like SQL injection?"</h4>
+      <p><strong>Good Answer:</strong> "I use Entity Framework Core with parameterized queries—never string concatenation. EF translates LINQ queries to parameterized SQL. I also validate all user input before passing to the database layer. Additionally, I run static analysis tools like SonarAnalyzer to catch security issues early."</p>
+
+      <h3>Communication & Trade-Offs</h3>
+
+      <h4>Q: "What trade-offs did you make?"</h4>
+      <p><strong>Good Answer:</strong> "I chose simplicity over premature optimization. For example, I used synchronous validation instead of async validators because the overhead wasn't justified. I also decided to use in-memory caching initially rather than Redis because the system's traffic was predictable. These decisions are easy to revisit as requirements change."</p>
+
+      <h4>Q: "What would you do if you had more time?"</h4>
+      <p><strong>Good Answer:</strong> "I'd add distributed tracing (Application Insights or Jaeger) to track requests across services if we scale horizontally. I'd also implement API versioning to maintain backward compatibility. And I'd spend more time on performance testing—profiling the most common queries and ensuring they use indexes efficiently."</p>
+    </section>
+
+    <!-- COMMON MISTAKES -->
+    <section class="section fade">
+      <div class="sec-tag">
+        <span class="sec-num">07</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Common Mistakes to Avoid</h2>
+      <p class="lead">Evaluators see these patterns frequently. Avoid them to stand out.</p>
+
+      <h3>❌ No Tests</h3>
+      <p><strong>Problem:</strong> Submitting code with zero unit or integration tests signals that you haven't validated your code. Tests are non-negotiable in production systems.</p>
+      <p><strong>Fix:</strong> Write at minimum 10-15 unit tests covering the happy path and edge cases. Add 3-5 integration tests for critical endpoints.</p>
+
+      <h3>❌ God Classes</h3>
+      <p><strong>Problem:</strong> A single UserService with 50+ methods handling users, validation, emails, and logging. Violates Single Responsibility.</p>
+      <p><strong>Fix:</strong> Break into smaller classes: UserHandler, PasswordValidator, EmailService. Each has one reason to change.</p>
+
+      <h3>❌ SQL Injection (String Concatenation)</h3>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// ❌ WRONG - SQL Injection vulnerability</span>
+<span class="kw">var</span> query = $<span class="str">"SELECT * FROM Users WHERE Email = '{email}'"</span>;
+<span class="kw">var</span> user = dbContext.<span class="fn">Users</span>.<span class="fn">FromSqlInterpolated</span>(query);
+
+<span class="cm">// ✅ CORRECT - Parameterized query</span>
+<span class="kw">var</span> user = <span class="kw">await</span> dbContext.Users.<span class="fn">FirstOrDefaultAsync</span>(u =&gt; u.Email == email);</pre>
+      </div>
+
+      <h3>❌ Synchronous I/O</h3>
+      <p><strong>Problem:</strong> Using .Result or .Wait() on async calls blocks threads and causes deadlocks under load.</p>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// ❌ WRONG - Blocks thread</span>
+<span class="kw">var</span> user = _repository.<span class="fn">GetByIdAsync</span>(id).<span class="prop">Result</span>;
+
+<span class="cm">// ✅ CORRECT - Async all the way</span>
+<span class="kw">var</span> user = <span class="kw">await</span> _repository.<span class="fn">GetByIdAsync</span>(id);</pre>
+      </div>
+
+      <h3>❌ No Error Handling</h3>
+      <p><strong>Problem:</strong> Exceptions bubble up unhandled, returning 500 with stack traces. Clients get no useful information.</p>
+      <p><strong>Fix:</strong> Add ErrorHandlingMiddleware to catch exceptions and return appropriate status codes with meaningful messages.</p>
+
+      <h3>❌ No Logging</h3>
+      <p><strong>Problem:</strong> When something breaks in production, there's no audit trail. You can't debug issues.</p>
+      <p><strong>Fix:</strong> Use ILogger throughout. Log at entry/exit of important methods, and log all errors with context.</p>
+
+      <h3>❌ Tight Coupling</h3>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// ❌ WRONG - Tightly coupled</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">UserHandler</span> {
+    <span class="kw">private</span> <span class="ty">EfUserRepository</span> _repository = <span class="kw">new</span> <span class="ty">EfUserRepository</span>();
+}
+
+<span class="cm">// ✅ CORRECT - Loosely coupled via interface</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">UserHandler</span> {
+    <span class="kw">private</span> <span class="kw">readonly</span> <span class="ty">IUserRepository</span> _repository;
+    <span class="kw">public</span> <span class="fn">UserHandler</span>(<span class="ty">IUserRepository</span> repository) =&gt; _repository = repository;
+}</pre>
+      </div>
+
+      <h3>❌ Unvalidated User Input</h3>
+      <p><strong>Problem:</strong> Accepting any input (negative prices, huge strings) and trusting the database to reject it.</p>
+      <p><strong>Fix:</strong> Validate at the application layer using FluentValidation. Fail fast with clear error messages.</p>
+
+      <h3>❌ Inconsistent HTTP Status Codes</h3>
+      <p><strong>Problem:</strong> Always returning 200 or 500, even when errors occur. Clients can't tell if a request succeeded.</p>
+      <p><strong>Fix:</strong> Use correct status codes: 201 for Created, 400 for Bad Request, 404 for Not Found, 409 for Conflict, 500 for Internal Server Error.</p>
+
+      <h3>❌ Magic Numbers & Strings</h3>
+      <div class="code-block">
+        <div class="code-bar">
+          <span class="code-lang">csharp</span>
+          <button class="copy-btn">copy</button>
+        </div>
+        <pre><span class="cm">// ❌ WRONG - Magic number</span>
+<span class="kw">if</span> (password.Length &lt; <span class="num">8</span>) <span class="kw">throw</span> <span class="kw">new</span> <span class="ty">Exception</span>(<span class="str">"Too short"</span>);
+
+<span class="cm">// ✅ CORRECT - Named constant</span>
+<span class="kw">const</span> <span class="ty">int</span> MinPasswordLength = <span class="num">8</span>;
+<span class="kw">if</span> (password.Length &lt; MinPasswordLength) {
+    <span class="kw">throw</span> <span class="kw">new</span> <span class="ty">ValidationException</span>(<span class="str">"Password too short"</span>);
+}</pre>
+      </div>
+
+      <h3>❌ Missing Documentation</h3>
+      <p><strong>Problem:</strong> No README, no Swagger docs, no commit messages. Evaluators can't understand the project architecture.</p>
+      <p><strong>Fix:</strong> Include a README with setup instructions, enable Swagger UI, write meaningful commit messages, add XML comments to public methods.</p>
+
+      <h3>❌ Incomplete Git History</h3>
+      <p><strong>Problem:</strong> Entire project committed in one massive commit, or commits like "fix", "update", "oops". No way to track design decisions.</p>
+      <p><strong>Fix:</strong> Commit frequently with descriptive messages: "Add user repository with GetByIdAsync and CreateAsync methods".</p>
+    </section>
+
+    <!-- FINAL CHECKLIST -->
+    <section class="section fade">
+      <div class="sec-tag">
+        <span class="sec-num">08</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Pre-Submission Checklist</h2>
+      <p class="lead">Use this checklist the night before submission. Don't submit until all items are green.</p>
+
+      <h3>Architecture & Code</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> Clean Architecture layers are well-separated (Domain, Application, Infrastructure, API)</li>
+        <li><input type="checkbox"> All public methods are async (async/await, no .Result/.Wait())</li>
+        <li><input type="checkbox"> All dependencies are injected via constructors, not instantiated</li>
+        <li><input type="checkbox"> No string concatenation in SQL (all queries are parameterized)</li>
+        <li><input type="checkbox"> Consistent PascalCase naming for public, camelCase for private</li>
+        <li><input type="checkbox"> No magic numbers—all constants are named</li>
+      </ul>
+
+      <h3>Testing</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> Unit tests exist for all handlers (>10 tests)</li>
+        <li><input type="checkbox"> Integration tests exist for all endpoints (>3 tests)</li>
+        <li><input type="checkbox"> Tests follow Arrange-Act-Assert pattern</li>
+        <li><input type="checkbox"> Edge cases are tested (null, empty, invalid data)</li>
+        <li><input type="checkbox"> Code coverage is >70% (verified with tool)</li>
+        <li><input type="checkbox"> All tests pass locally: dotnet test</li>
+      </ul>
+
+      <h3>Error Handling & Logging</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> ErrorHandlingMiddleware catches all exceptions and returns proper HTTP status codes</li>
+        <li><input type="checkbox"> Custom exception types exist (DomainException, ValidationException)</li>
+        <li><input type="checkbox"> ILogger is used in handlers, services, and controllers</li>
+        <li><input type="checkbox"> No stack traces returned to clients</li>
+        <li><input type="checkbox"> Error logs include context (RequestId, UserId, etc.)</li>
+      </ul>
+
+      <h3>Validation</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> FluentValidation validators exist for all commands</li>
+        <li><input type="checkbox"> Validators check required fields, format, and length</li>
+        <li><input type="checkbox"> Validation errors return HTTP 400 with details</li>
+      </ul>
+
+      <h3>API & Documentation</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> Swagger UI is accessible at /swagger</li>
+        <li><input type="checkbox"> All endpoints have XML comments and [ProducesResponseType]</li>
+        <li><input type="checkbox"> Correct HTTP status codes used (201, 400, 404, 409, 500)</li>
+        <li><input type="checkbox"> All endpoints return JSON with consistent structure</li>
+      </ul>
+
+      <h3>Git & Documentation</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> README.md exists with setup instructions</li>
+        <li><input type="checkbox"> Git history is clean with meaningful commit messages</li>
+        <li><input type="checkbox"> No .env files or secrets committed</li>
+        <li><input type="checkbox"> Dockerfile and docker-compose.yml work (tested locally)</li>
+      </ul>
+
+      <h3>Final Tests</h3>
+      <ul class="checklist">
+        <li><input type="checkbox"> dotnet build succeeds without warnings</li>
+        <li><input type="checkbox"> dotnet test passes all tests</li>
+        <li><input type="checkbox"> docker-compose up builds and runs without errors</li>
+        <li><input type="checkbox"> All API endpoints respond with correct status codes and data</li>
+        <li><input type="checkbox"> Swagger UI loads and shows all endpoints</li>
+      </ul>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>You're ready to submit!</strong> If you've checked every item above, your code is at professional quality. The evaluator will be impressed by your architecture decisions and thoroughness. Good luck!</div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const pre = this.closest('.code-block').querySelector('pre');
+        const text = pre.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          const original = this.textContent;
+          this.textContent = 'copied!';
+          setTimeout(() => this.textContent = original, 2000);
+        });
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

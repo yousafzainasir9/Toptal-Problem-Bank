@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="FAANG coding pattern cheat sheet — quick reference for all major algorithm patterns with when to use each and C# templates.">
+  <meta name="keywords" content="coding patterns, cheat sheet, algorithm patterns, FAANG reference, C#, quick guide">
+  <meta name="author" content="yousafzainasir9">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yousafzainasir9.github.io/Toptal-Problem-Bank/pattern-cheatsheet.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/pattern-cheatsheet.html">
+  <meta property="og:title" content="Pattern Recognition & Edge Cases — Master Cheatsheet - Toptal Problem Bank">
+  <meta property="og:description" content="FAANG coding pattern cheat sheet — quick reference for all major algorithm patterns with when to use each and C# templates.">
+  <meta property="og:site_name" content="Toptal Problem Bank">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://yousafzainasir9.github.io/Toptal-Problem-Bank/pattern-cheatsheet.html">
+  <meta name="twitter:title" content="Pattern Recognition & Edge Cases — Master Cheatsheet - Toptal Problem Bank">
+  <meta name="twitter:description" content="FAANG coding pattern cheat sheet — quick reference for all major algorithm patterns with when to use each and C# templates.">
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Pattern Recognition & Edge Cases \u2014 Master Cheatsheet - Toptal Problem Bank",
+  "description": "FAANG coding pattern cheat sheet \u2014 quick reference for all major algorithm patterns with when to use each and C# templates.",
+  "url": "https://yousafzainasir9.github.io/Toptal-Problem-Bank/pattern-cheatsheet.html",
+  "author": {
+    "@type": "Person",
+    "name": "yousafzainasir9",
+    "url": "https://github.com/yousafzainasir9"
+  },
+  "inLanguage": "en",
+  "datePublished": "2026-03-24"
+}</script>
+  <title>Pattern Recognition & Edge Cases — Master Cheatsheet - Toptal Problem Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Source+Serif+4:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#f8f7f3;--bg2:#f0ede6;--bg3:#e8e4db;--white:#ffffff;
+  --ink:#1c1a17;--ink2:#3d3a34;--ink3:#6b6760;--ink4:#a8a49e;--rule:#dedad3;
+  --acc:#c96b1e;--acc-l:#fdf3eb;--acc-b:#f5c99a;
+  --green:#1d6b45;--green-l:#edf8f2;--green-b:#9fd9bc;
+  --blue:#1a4f8a;--blue-l:#edf2fb;--blue-b:#afc8ef;
+  --red:#9b2020;--red-l:#fdf0f0;--red-b:#efb8b8;
+  --amber:#7a5200;--amber-l:#fdf8ec;--amber-b:#e8d08a;
+  --sans:'Outfit',sans-serif;--serif:'Source Serif 4',serif;--mono:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+nav{position:sticky;top:0;z-index:100;background:rgba(248,247,243,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule);padding:0 2rem}
+.nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;height:54px}
+.nav-brand{font-size:14px;font-weight:700;color:var(--acc);margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nav-brand .pill{background:var(--acc);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase}
+.nav-links a{font-size:12px;font-weight:500;color:var(--ink3);text-decoration:none;padding:0 12px;height:54px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:all .15s}
+.nav-links a:hover{color:var(--ink);border-color:var(--acc)}
+.wrap{max-width:960px;margin:0 auto;padding:0 2rem}
+.hero{padding:72px 0 52px;border-bottom:1px solid var(--rule)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.eyebrow-line{width:28px;height:2px;background:var(--acc)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.hero h1{font-size:clamp(38px,5.5vw,62px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--acc)}
+.hero-sub{font-family:var(--serif);font-size:17px;font-weight:300;color:var(--ink2);line-height:1.78;max-width:640px;margin-bottom:36px}
+.stats{display:flex;border:1px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--white);width:fit-content}
+.stat{padding:14px 26px;border-right:1px solid var(--rule)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:800;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.stat-l{font-size:10px;font-weight:600;color:var(--ink4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+.section{padding-top:72px}
+.sec-tag{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--ink4);flex-shrink:0}
+.sec-line{flex:1;height:1px;background:var(--rule)}
+.section h2{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-bottom:14px}
+.section h3{font-size:20px;font-weight:700;margin-bottom:12px;margin-top:28px}
+.section h4{font-size:17px;font-weight:600;margin-bottom:10px;margin-top:18px}
+.section .lead{font-family:var(--serif);font-size:16px;color:var(--ink2);line-height:1.78;margin-bottom:26px;max-width:760px}
+.section p{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:16px}
+.section ul,.section ol{margin-bottom:20px;margin-left:24px}
+.section li{font-size:15px;color:var(--ink2);line-height:1.78;margin-bottom:8px}
+.code-block{background:#1a1916;border-radius:12px;overflow:hidden;margin:0 0 26px}
+.code-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.code-lang{font-family:var(--mono);font-size:11px;color:#8a8680;letter-spacing:.07em;text-transform:uppercase}
+.copy-btn{font-size:11px;color:#6a6660;background:none;border:none;cursor:pointer;font-family:var(--sans);transition:color .15s;padding:0}
+.copy-btn:hover{color:#d4d0c8}
+pre{padding:20px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.9;color:#d4d0c8}
+.kw{color:#e8946a}.fn{color:#79b8f7}.ty{color:#56d364}.str{color:#a8d8a8}.cm{color:#6b6760;font-style:italic}.num{color:#f0b96e}.prop{color:#c8a6f5}.va{color:#ffd085}
+.callout{display:flex;gap:14px;padding:16px 20px;border-radius:10px;margin:0 0 22px;font-size:14px;line-height:1.7}
+.callout-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.callout.tip{background:var(--green-l);border:1px solid var(--green-b);color:#164d32}
+.callout.warn{background:var(--amber-l);border:1px solid var(--amber-b);color:#5a3c00}
+.callout.danger{background:var(--red-l);border:1px solid var(--red-b);color:#6e1616}
+.callout.info{background:var(--blue-l);border:1px solid var(--blue-b);color:#10325a}
+.callout strong{color:inherit;font-weight:600}
+.tbl-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--rule);margin-bottom:26px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white)}
+thead tr{background:var(--bg2)}
+th{text-align:left;padding:11px 16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--rule)}
+td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink2);vertical-align:top}
+td:first-child{font-weight:600;color:var(--ink)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg)}
+.badge{display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:99px;border:1px solid;white-space:nowrap}
+.b-green{background:var(--green-l);color:var(--green);border-color:var(--green-b)}
+.b-red{background:var(--red-l);color:var(--red);border-color:var(--red-b)}
+.b-amber{background:var(--amber-l);color:var(--amber);border-color:var(--amber-b)}
+.b-blue{background:var(--blue-l);color:var(--blue);border-color:var(--blue-b)}
+.b-orange{background:var(--acc-l);color:var(--acc);border-color:var(--acc-b)}
+.fade{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade.in{opacity:1;transform:none}
+code.il{font-family:var(--mono);font-size:12px;background:var(--bg2);padding:1px 7px;border-radius:4px;color:var(--acc)}
+.template-box{background:var(--white);border:1px solid var(--rule);border-radius:12px;padding:20px;margin-bottom:26px}
+.template-title{font-size:15px;font-weight:600;margin-bottom:12px;color:var(--ink)}
+@media(max-width:700px){
+  .stats{flex-wrap:wrap}.stat{border-right:none;border-bottom:1px solid var(--rule)}
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        Toptal Problem Bank
+        <span class="pill">v1</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#patterns">Patterns</a>
+        <a href="#complexity">Complexity</a>
+        <a href="#templates">Templates</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">
+        <div class="eyebrow-line"></div>
+        <div class="eyebrow-text">Cheatsheet</div>
+      </div>
+      <h1>Pattern Recognition & <em>Edge Cases</em> — Master Guide</h1>
+      <p class="hero-sub">The ultimate quick-reference for recognizing problem patterns, choosing algorithms, and handling edge cases. Use this before every coding interview to prime your intuition and avoid common mistakes.</p>
+      <div class="stats fade">
+        <div class="stat">
+          <div class="stat-n">35+</div>
+          <div class="stat-l">Problem Patterns</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">20+</div>
+          <div class="stat-l">Edge Cases</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">10</div>
+          <div class="stat-l">Code Templates</div>
+        </div>
+        <div class="stat">
+          <div class="stat-n">100%</div>
+          <div class="stat-l">Test-Ready</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PATTERN RECOGNITION TABLE -->
+    <section class="section fade" id="patterns">
+      <div class="sec-tag">
+        <span class="sec-num">01</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Pattern Recognition Table (35+ Patterns)</h2>
+      <p class="lead">Read the problem statement. Find the signal below. Match the algorithm. Solve.</p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Problem Signal</th>
+              <th>Core Algorithm</th>
+              <th>Time/Space</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sorted array, find target</td>
+              <td>Binary Search</td>
+              <td>O(log n) / O(1)</td>
+              <td>LeetCode 704 (Search Insert Position)</td>
+            </tr>
+            <tr>
+              <td>Two pointers, find pair sum</td>
+              <td>Two Pointers</td>
+              <td>O(n) / O(1)</td>
+              <td>LeetCode 167 (Two Sum II)</td>
+            </tr>
+            <tr>
+              <td>"All permutations" or "generate all"</td>
+              <td>Backtracking + DFS</td>
+              <td>O(n!) / O(n)</td>
+              <td>LeetCode 46 (Permutations)</td>
+            </tr>
+            <tr>
+              <td>Min/max optimization on choices</td>
+              <td>Dynamic Programming or Greedy</td>
+              <td>O(n²) or O(n) / O(n)</td>
+              <td>LeetCode 121 (Best Time Buy Stock)</td>
+            </tr>
+            <tr>
+              <td>Shortest path (unweighted graph)</td>
+              <td>BFS</td>
+              <td>O(V+E) / O(V)</td>
+              <td>LeetCode 1091 (Shortest Path in Grid)</td>
+            </tr>
+            <tr>
+              <td>Shortest path (weighted graph)</td>
+              <td>Dijkstra</td>
+              <td>O((V+E) log V) / O(V)</td>
+              <td>LeetCode 743 (Network Delay Time)</td>
+            </tr>
+            <tr>
+              <td>Connected components, count groups</td>
+              <td>DFS / Union-Find</td>
+              <td>O(V+E) / O(V)</td>
+              <td>LeetCode 200 (Number of Islands)</td>
+            </tr>
+            <tr>
+              <td>Top K elements, k-th largest</td>
+              <td>Heap / QuickSelect</td>
+              <td>O(n log k) or O(n) avg / O(k)</td>
+              <td>LeetCode 215 (Kth Largest Element)</td>
+            </tr>
+            <tr>
+              <td>Count frequency, find duplicate</td>
+              <td>HashMap / HashSet</td>
+              <td>O(n) / O(n)</td>
+              <td>LeetCode 1 (Two Sum)</td>
+            </tr>
+            <tr>
+              <td>Substring with condition (length, chars)</td>
+              <td>Sliding Window</td>
+              <td>O(n) / O(1) or O(26)</td>
+              <td>LeetCode 3 (Longest Substring)</td>
+            </tr>
+            <tr>
+              <td>Tree traversal, search</td>
+              <td>DFS recursion or BFS</td>
+              <td>O(n) / O(h) recursive stack</td>
+              <td>LeetCode 104 (Max Depth)</td>
+            </tr>
+            <tr>
+              <td>Cycle detection in graph</td>
+              <td>DFS coloring or Topological Sort</td>
+              <td>O(V+E) / O(V)</td>
+              <td>LeetCode 207 (Course Schedule)</td>
+            </tr>
+            <tr>
+              <td>Overlapping intervals, merge</td>
+              <td>Sort + Sweep Line</td>
+              <td>O(n log n) / O(n)</td>
+              <td>LeetCode 56 (Merge Intervals)</td>
+            </tr>
+            <tr>
+              <td>Palindrome check or build</td>
+              <td>Two Pointers or Dynamic Programming</td>
+              <td>O(n) two-ptr, O(n²) DP / O(n)</td>
+              <td>LeetCode 5 (Longest Palindromic Substring)</td>
+            </tr>
+            <tr>
+              <td>Matrix/grid traversal, find path</td>
+              <td>BFS/DFS + visited set</td>
+              <td>O(m*n) / O(m*n)</td>
+              <td>LeetCode 79 (Word Search)</td>
+            </tr>
+            <tr>
+              <td>Linked list cycle, reverse</td>
+              <td>Fast/slow pointers</td>
+              <td>O(n) / O(1)</td>
+              <td>LeetCode 141 (Linked List Cycle)</td>
+            </tr>
+            <tr>
+              <td>Distinct subsequences, combinations</td>
+              <td>Dynamic Programming</td>
+              <td>O(n*m) / O(n*m)</td>
+              <td>LeetCode 1143 (Longest Common Subsequence)</td>
+            </tr>
+            <tr>
+              <td>Range sum queries</td>
+              <td>Prefix Sum or Segment Tree</td>
+              <td>O(1) query after O(n) / O(n)</td>
+              <td>LeetCode 303 (Range Sum Query)</td>
+            </tr>
+            <tr>
+              <td>Parentheses/brackets matching</td>
+              <td>Stack</td>
+              <td>O(n) / O(n)</td>
+              <td>LeetCode 20 (Valid Parentheses)</td>
+            </tr>
+            <tr>
+              <td>Rebuild tree from traversal</td>
+              <td>Recursion + HashMap for lookup</td>
+              <td>O(n) / O(n)</td>
+              <td>LeetCode 105 (Construct Binary Tree)</td>
+            </tr>
+            <tr>
+              <td>Median of data stream</td>
+              <td>Two Heaps (max-heap + min-heap)</td>
+              <td>O(log n) add / O(1) median</td>
+              <td>LeetCode 295 (Find Median)</td>
+            </tr>
+            <tr>
+              <td>LRU Cache design</td>
+              <td>HashMap + Doubly-Linked List</td>
+              <td>O(1) get/put / O(capacity)</td>
+              <td>LeetCode 146 (LRU Cache)</td>
+            </tr>
+            <tr>
+              <td>Integer overflow, bit manipulation</td>
+              <td>Bit operations or modular arithmetic</td>
+              <td>O(log n) / O(1)</td>
+              <td>LeetCode 371 (Sum of Two Integers)</td>
+            </tr>
+            <tr>
+              <td>Trie prefix matching, autocomplete</td>
+              <td>Trie (prefix tree)</td>
+              <td>O(m) search, O(m) insert / O(n*m)</td>
+              <td>LeetCode 208 (Implement Trie)</td>
+            </tr>
+            <tr>
+              <td>Topological sort, dependency order</td>
+              <td>Kahn's algorithm or DFS</td>
+              <td>O(V+E) / O(V)</td>
+              <td>LeetCode 207 (Course Schedule)</td>
+            </tr>
+            <tr>
+              <td>K-way merge, merge K sorted lists</td>
+              <td>Min-Heap / PriorityQueue</td>
+              <td>O(n log k) / O(k)</td>
+              <td>LeetCode 23 (Merge K Sorted Lists)</td>
+            </tr>
+            <tr>
+              <td>Rotate, shift array elements</td>
+              <td>Array reversal trick</td>
+              <td>O(n) / O(1)</td>
+              <td>LeetCode 189 (Rotate Array)</td>
+            </tr>
+            <tr>
+              <td>Partition, quicksort-style split</td>
+              <td>Two Pointers</td>
+              <td>O(n) / O(1)</td>
+              <td>LeetCode 75 (Sort Colors)</td>
+            </tr>
+            <tr>
+              <td>Trapping water, rain water</td>
+              <td>Two Pointers or Dynamic Programming</td>
+              <td>O(n) / O(n)</td>
+              <td>LeetCode 42 (Trapping Rain Water)</td>
+            </tr>
+            <tr>
+              <td>"Number of ways", count distinct</td>
+              <td>Dynamic Programming + HashMap</td>
+              <td>O(n) to O(n³) / O(n)</td>
+              <td>LeetCode 70 (Climbing Stairs)</td>
+            </tr>
+            <tr>
+              <td>Backtracking with constraints</td>
+              <td>DFS + memoization</td>
+              <td>O(n!) worst / O(n)</td>
+              <td>LeetCode 37 (Sudoku Solver)</td>
+            </tr>
+            <tr>
+              <td>Divide and conquer recursion</td>
+              <td>Merge Sort, Quick Sort, Binary Tree ops</td>
+              <td>O(n log n) / O(log n) stack</td>
+              <td>LeetCode 315 (Count Smaller)</td>
+            </tr>
+            <tr>
+              <td>Monotonic stack, next greater/smaller</td>
+              <td>Stack maintaining decreasing/increasing order</td>
+              <td>O(n) / O(n)</td>
+              <td>LeetCode 739 (Daily Temperatures)</td>
+            </tr>
+            <tr>
+              <td>Matrix chain multiplication order</td>
+              <td>Dynamic Programming + optimization</td>
+              <td>O(n³) / O(n²)</td>
+              <td>LeetCode 1039 (Minimum Score)</td>
+            </tr>
+            <tr>
+              <td>Edit distance, string similarity</td>
+              <td>Dynamic Programming 2D</td>
+              <td>O(m*n) / O(m*n)</td>
+              <td>LeetCode 72 (Edit Distance)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">💡</span>
+        <div><strong>Cheat code:</strong> See "find target in sorted array"? Think Binary Search first. See "count ways"? Think DP. See "shortest path"? Think BFS (unweighted) or Dijkstra (weighted). These patterns repeat constantly.</div>
+      </div>
+    </section>
+
+    <!-- COMPLEXITY-DRIVEN LOOKUP -->
+    <section class="section fade" id="complexity">
+      <div class="sec-tag">
+        <span class="sec-num">02</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Complexity → Technique Lookup</h2>
+      <p class="lead">Given constraint n, which techniques are feasible? This lookup helps you eliminate impossible approaches.</p>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Input Size (n)</th>
+              <th>Feasible Complexity</th>
+              <th>Algorithm Class</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>n ≤ 10</td>
+              <td>O(n!), O(2^n)</td>
+              <td>Brute force, permutations, subsets</td>
+              <td>Try all combinations. Backtracking acceptable.</td>
+            </tr>
+            <tr>
+              <td>n ≤ 20</td>
+              <td>O(2^n), O(n³)</td>
+              <td>Bitmask DP, subset enumeration</td>
+              <td>2^20 ≈ 1M. Avoid exponential beyond this.</td>
+            </tr>
+            <tr>
+              <td>n ≤ 100</td>
+              <td>O(n³), O(n² log n)</td>
+              <td>DP, Floyd-Warshall, all-pairs</td>
+              <td>N³ ≈ 1M operations. Feasible in 1s.</td>
+            </tr>
+            <tr>
+              <td>n ≤ 500</td>
+              <td>O(n³), O(n² log n)</td>
+              <td>DP, graph algorithms</td>
+              <td>500³ ≈ 125M. Tight but usually OK.</td>
+            </tr>
+            <tr>
+              <td>n ≤ 10^4</td>
+              <td>O(n²), O(n² log n)</td>
+              <td>Nested loops, sorting+analysis</td>
+              <td>10K² = 100M. Must be efficient constant factors.</td>
+            </tr>
+            <tr>
+              <td>n ≤ 10^5</td>
+              <td>O(n log n), O(n√n)</td>
+              <td>Sorting, binary search, segment trees</td>
+              <td>100K log 100K ≈ 1.7M. Standard online judge limit.</td>
+            </tr>
+            <tr>
+              <td>n ≤ 10^6</td>
+              <td>O(n), O(n log n)</td>
+              <td>Linear pass, hashmap, sorting</td>
+              <td>1M operations is baseline. O(n) or O(n log n) only.</td>
+            </tr>
+            <tr>
+              <td>n ≤ 10^7</td>
+              <td>O(n)</td>
+              <td>Single pass, prefix sums</td>
+              <td>10M operations. No nested loops.</td>
+            </tr>
+            <tr>
+              <td>n ≤ 10^8</td>
+              <td>O(n), optimized</td>
+              <td>Cache-friendly, minimal branching</td>
+              <td>100M. Optimization matters (SIMD, cache locality).</td>
+            </tr>
+            <tr>
+              <td>n > 10^8</td>
+              <td>O(log n), O(1)</td>
+              <td>Binary search, math formula, lookup</td>
+              <td>Only mathematical solutions. No iteration.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Decision Tree</h3>
+      <p>Use this to decide an approach when seeing constraint n:</p>
+      <ul>
+        <li><strong>n ≤ 20?</strong> Try brute force with backtracking or bitmask DP. O(2^n) is acceptable.</li>
+        <li><strong>n ≤ 500?</strong> O(n³) DP is acceptable. Try NLP solutions (edit distance, LCS).</li>
+        <li><strong>n ≤ 10^4?</strong> O(n²) nested loops might be tight. Binary search, two pointers, sorting preferred.</li>
+        <li><strong>n ≤ 10^5?</strong> Must be O(n log n) or O(n√n). Sorting + analysis, segment trees, Dijkstra.</li>
+        <li><strong>n ≤ 10^6?</strong> Only O(n) or O(n log n) solutions. Single pass, hashmap, sort once then analyze.</li>
+        <li><strong>n > 10^6?</strong> Must be O(n) single pass or O(log n) lookup. No nested loops, no sorting.</li>
+      </ul>
+
+      <div class="callout warn">
+        <span class="callout-icon">⚠️</span>
+        <div><strong>Common mistake:</strong> Writing O(n²) solution for n=10^5. Test locally with n=10^5 and measure time. If it takes >1s, optimize. Most online judges allow ~1-2s per test.</div>
+      </div>
+    </section>
+
+    <!-- EDGE CASES MASTER CHECKLIST -->
+    <section class="section fade">
+      <div class="sec-tag">
+        <span class="sec-num">03</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Edge Cases Master Checklist (20+ Cases)</h2>
+      <p class="lead">Before submitting, check EVERY edge case. These catch 80% of WA (Wrong Answer) verdicts.</p>
+
+      <h3>Input Validation</h3>
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Empty input:</strong> What if array is empty []? String is ""? Answer should handle gracefully (return 0, empty list, false, etc.).</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Single element:</strong> n=1. Array [5], string "a", tree with one node. Does your solution work?</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>All identical elements:</strong> [5,5,5,5,5]. Does your algorithm fail if all elements are the same?</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Duplicates:</strong> [1,1,2,2,2,3]. Does your solution assume unique elements?</div>
+      </div>
+
+      <h3>Ordering</h3>
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Already sorted (ascending):</strong> [1,2,3,4,5]. Does binary search still work? Does merge fail?</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Reverse sorted (descending):</strong> [5,4,3,2,1]. Common edge case for many algorithms.</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Almost sorted (1-2 elements out of place):</strong> [1,2,5,3,4]. Does your sort still work?</div>
+      </div>
+
+      <h3>Numeric Edge Cases</h3>
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>All negative:</strong> [-5,-3,-1]. No positive numbers at all. Does min/max fail?</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Mix of positive and negative:</strong> [-2,0,2]. Watch for overflow when summing.</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Zero:</strong> Does [0] or [0,0,0] cause division by zero? Off-by-one errors?</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>int.MaxValue overflow:</strong> Adding two large ints can overflow. Use <code class="il">long</code> for sums.</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Boundary values:</strong> Input at exactly the limits. n=1, n=10^6, price=0, price=10^9. Does code handle?</div>
+      </div>
+
+      <h3>Data Structure Edge Cases</h3>
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Empty collections:</strong> HashMap with 0 entries, ArrayList with 0 elements. Can you call <code class="il">get()</code>?</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Null/undefined:</strong> Java/C#: null references. Python: None. Does your code check before dereferencing?</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Single element in heap/queue:</strong> Extract min from heap with 1 element. Still valid?</div>
+      </div>
+
+      <h3>String & Array Edge Cases</h3>
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Empty string "":</strong> substring("", 0, 0)? charAt(0) on empty string crashes.</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Single character "a":</strong> Palindrome check? Longest substring? Should return true/1.</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Off-by-one in indexing:</strong> Is it i < n or i <= n? [0, n-1] is valid range.</div>
+      </div>
+
+      <h3>Graph & Tree Edge Cases</h3>
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Single node tree:</strong> Root only, no children. Does traversal work?</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Disconnected graph:</strong> Two separate components. Does DFS find all nodes?</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Cycle in graph:</strong> Will DFS revisit nodes? Do you use visited set?</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Self-loop:</strong> Edge from node to itself (u → u). Does cycle detection handle?</div>
+      </div>
+
+      <h3>Floating Point & Precision</h3>
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Floating point precision:</strong> 0.1 + 0.2 ≠ 0.3 in binary. Use epsilon for comparison: <code class="il">abs(a - b) < 1e-9</code>.</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Division by zero:</strong> Avoid <code class="il">a / b</code> when b could be 0. Check first.</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Very large/very small numbers:</strong> log(0) is undefined. sqrt of negative is NaN.</div>
+      </div>
+
+      <h3>Comparison & Sorting</h3>
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Custom comparator edge case:</strong> If you define comparator for sorting, test with equal elements. Comparator must handle a==b.</div>
+      </div>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Circular arrays:</strong> Indices wrap around. Index n should map to 0. Use modulo: <code class="il">i % n</code>.</div>
+      </div>
+    </section>
+
+    <!-- CODE TEMPLATES -->
+    <section class="section fade" id="templates">
+      <div class="sec-tag">
+        <span class="sec-num">04</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Code Templates (Copy-Paste Ready)</h2>
+      <p class="lead">Keep these templates in a text editor. Paste them when you recognize the pattern.</p>
+
+      <!-- Binary Search Template -->
+      <div class="template-box">
+        <div class="template-title">Binary Search Template</div>
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="cm">// Binary Search Template - Find target in sorted array</span>
+<span class="kw">public</span> <span class="ty">int</span> <span class="fn">BinarySearch</span>(<span class="ty">int</span>[] arr, <span class="ty">int</span> target) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = arr.Length - <span class="num">1</span>;
+
+    <span class="kw">while</span> (left &lt;= right) {
+        <span class="ty">int</span> mid = left + (right - left) / <span class="num">2</span>; <span class="cm">// Avoid overflow</span>
+
+        <span class="kw">if</span> (arr[mid] == target) {
+            <span class="kw">return</span> mid;
+        } <span class="kw">else</span> <span class="kw">if</span> (arr[mid] &lt; target) {
+            left = mid + <span class="num">1</span>; <span class="cm">// Search right</span>
+        } <span class="kw">else</span> {
+            right = mid - <span class="num">1</span>; <span class="cm">// Search left</span>
+        }
+    }
+
+    <span class="kw">return</span> -<span class="num">1</span>; <span class="cm">// Not found</span>
+}
+
+<span class="cm">// Variant: Find insertion position (leftmost)</span>
+<span class="kw">public</span> <span class="ty">int</span> <span class="fn">SearchInsert</span>(<span class="ty">int</span>[] arr, <span class="ty">int</span> target) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = arr.Length;
+
+    <span class="kw">while</span> (left &lt; right) {
+        <span class="ty">int</span> mid = left + (right - left) / <span class="num">2</span>;
+        <span class="kw">if</span> (arr[mid] &lt; target) {
+            left = mid + <span class="num">1</span>;
+        } <span class="kw">else</span> {
+            right = mid;
+        }
+    }
+
+    <span class="kw">return</span> left; <span class="cm">// Insert position</span>
+}</pre>
+        </div>
+      </div>
+
+      <!-- BFS Template -->
+      <div class="template-box">
+        <div class="template-title">BFS Template (Shortest Path / Level-Order)</div>
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="cm">// BFS Template - Shortest path in unweighted graph</span>
+<span class="kw">public</span> <span class="ty">int</span> <span class="fn">BFS</span>(<span class="ty">int</span>[][] graph, <span class="ty">int</span> start, <span class="ty">int</span> end) {
+    <span class="ty">Queue</span>&lt;<span class="ty">int</span>&gt; queue = <span class="kw">new</span> <span class="ty">Queue</span>&lt;<span class="ty">int</span>&gt;();
+    <span class="ty">HashSet</span>&lt;<span class="ty">int</span>&gt; visited = <span class="kw">new</span> <span class="ty">HashSet</span>&lt;<span class="ty">int</span>&gt;();
+    <span class="ty">Dictionary</span>&lt;<span class="ty">int</span>, <span class="ty">int</span>&gt; distance = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="ty">int</span>, <span class="ty">int</span>&gt;();
+
+    queue.<span class="fn">Enqueue</span>(start);
+    visited.<span class="fn">Add</span>(start);
+    distance[start] = <span class="num">0</span>;
+
+    <span class="kw">while</span> (queue.Count &gt; <span class="num">0</span>) {
+        <span class="ty">int</span> node = queue.<span class="fn">Dequeue</span>();
+
+        <span class="kw">if</span> (node == end) {
+            <span class="kw">return</span> distance[end];
+        }
+
+        <span class="kw">foreach</span> (<span class="ty">int</span> neighbor <span class="kw">in</span> graph[node]) {
+            <span class="kw">if</span> (!visited.<span class="fn">Contains</span>(neighbor)) {
+                visited.<span class="fn">Add</span>(neighbor);
+                distance[neighbor] = distance[node] + <span class="num">1</span>;
+                queue.<span class="fn">Enqueue</span>(neighbor);
+            }
+        }
+    }
+
+    <span class="kw">return</span> -<span class="num">1</span>; <span class="cm">// No path found</span>
+}</pre>
+        </div>
+      </div>
+
+      <!-- DFS Template -->
+      <div class="template-box">
+        <div class="template-title">DFS Template (Graph Traversal)</div>
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="cm">// DFS Template - Recursive traversal</span>
+<span class="ty">HashSet</span>&lt;<span class="ty">int</span>&gt; visited = <span class="kw">new</span> <span class="ty">HashSet</span>&lt;<span class="ty">int</span>&gt;();
+
+<span class="kw">public</span> <span class="kw">void</span> <span class="fn">DFS</span>(<span class="ty">int</span> node, <span class="ty">int</span>[][] graph) {
+    <span class="kw">if</span> (visited.<span class="fn">Contains</span>(node)) {
+        <span class="kw">return</span>;
+    }
+
+    visited.<span class="fn">Add</span>(node);
+    <span class="cm">// Process current node</span>
+
+    <span class="kw">foreach</span> (<span class="ty">int</span> neighbor <span class="kw">in</span> graph[node]) {
+        <span class="kw">if</span> (!visited.<span class="fn">Contains</span>(neighbor)) {
+            <span class="fn">DFS</span>(neighbor, graph);
+        }
+    }
+}
+
+<span class="cm">// Iterative DFS using stack</span>
+<span class="kw">public</span> <span class="kw">void</span> <span class="fn">DFSIterative</span>(<span class="ty">int</span> start, <span class="ty">int</span>[][] graph) {
+    <span class="ty">Stack</span>&lt;<span class="ty">int</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="ty">int</span>&gt;();
+    stack.<span class="fn">Push</span>(start);
+    visited.<span class="fn">Add</span>(start);
+
+    <span class="kw">while</span> (stack.Count &gt; <span class="num">0</span>) {
+        <span class="ty">int</span> node = stack.<span class="fn">Pop</span>();
+        <span class="cm">// Process node</span>
+
+        <span class="kw">foreach</span> (<span class="ty">int</span> neighbor <span class="kw">in</span> graph[node]) {
+            <span class="kw">if</span> (!visited.<span class="fn">Contains</span>(neighbor)) {
+                visited.<span class="fn">Add</span>(neighbor);
+                stack.<span class="fn">Push</span>(neighbor);
+            }
+        }
+    }
+}</pre>
+        </div>
+      </div>
+
+      <!-- Sliding Window Template -->
+      <div class="template-box">
+        <div class="template-title">Sliding Window Template</div>
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="cm">// Sliding Window Template - Fixed/variable window</span>
+<span class="cm">// Problem: Find longest substring with at most k distinct chars</span>
+<span class="kw">public</span> <span class="ty">int</span> <span class="fn">MaxWindowLength</span>(<span class="ty">string</span> s, <span class="ty">int</span> k) {
+    <span class="ty">Dictionary</span>&lt;<span class="ty">char</span>, <span class="ty">int</span>&gt; charCount = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="ty">char</span>, <span class="ty">int</span>&gt;();
+    <span class="ty">int</span> left = <span class="num">0</span>, maxLen = <span class="num">0</span>;
+
+    <span class="kw">for</span> (<span class="ty">int</span> right = <span class="num">0</span>; right &lt; s.Length; right++) {
+        <span class="cm">// Expand window: add s[right]</span>
+        <span class="kw">if</span> (!charCount.<span class="fn">ContainsKey</span>(s[right])) {
+            charCount[s[right]] = <span class="num">0</span>;
+        }
+        charCount[s[right]]++;
+
+        <span class="cm">// Shrink window: remove from left while invalid</span>
+        <span class="kw">while</span> (charCount.Count &gt; k) {
+            charCount[s[left]]--;
+            <span class="kw">if</span> (charCount[s[left]] == <span class="num">0</span>) {
+                charCount.<span class="fn">Remove</span>(s[left]);
+            }
+            left++;
+        }
+
+        <span class="cm">// Update answer</span>
+        maxLen = <span class="ty">Math</span>.<span class="fn">Max</span>(maxLen, right - left + <span class="num">1</span>);
+    }
+
+    <span class="kw">return</span> maxLen;
+}</pre>
+        </div>
+      </div>
+
+      <!-- Two Pointers Template -->
+      <div class="template-box">
+        <div class="template-title">Two Pointers Template</div>
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="cm">// Two Pointers Template - Find pair with target sum</span>
+<span class="kw">public</span> <span class="ty">int</span>[] <span class="fn">TwoSum</span>(<span class="ty">int</span>[] sorted, <span class="ty">int</span> target) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = sorted.Length - <span class="num">1</span>;
+
+    <span class="kw">while</span> (left &lt; right) {
+        <span class="ty">int</span> sum = sorted[left] + sorted[right];
+
+        <span class="kw">if</span> (sum == target) {
+            <span class="kw">return</span> <span class="kw">new</span> <span class="ty">int</span>[] { left, right };
+        } <span class="kw">else</span> <span class="kw">if</span> (sum &lt; target) {
+            left++; <span class="cm">// Need larger sum</span>
+        } <span class="kw">else</span> {
+            right--; <span class="cm">// Need smaller sum</span>
+        }
+    }
+
+    <span class="kw">return</span> <span class="kw">new</span> <span class="ty">int</span>[] { -<span class="num">1</span>, -<span class="num">1</span> };
+}
+
+<span class="cm">// Variant: Partition array (e.g., sort colors 0,1,2)</span>
+<span class="kw">public</span> <span class="kw">void</span> <span class="fn">Partition</span>(<span class="ty">int</span>[] arr, <span class="ty">int</span> k) {
+    <span class="ty">int</span> left = <span class="num">0</span>, right = arr.Length - <span class="num">1</span>;
+
+    <span class="kw">while</span> (left &lt; right) {
+        <span class="kw">while</span> (left &lt; right &amp;&amp; arr[left] &lt; k) left++;
+        <span class="kw">while</span> (left &lt; right &amp;&amp; arr[right] &gt;= k) right--;
+
+        <span class="cm">// Swap</span>
+        <span class="ty">int</span> temp = arr[left];
+        arr[left] = arr[right];
+        arr[right] = temp;
+    }
+}</pre>
+        </div>
+      </div>
+
+      <!-- Union-Find Template -->
+      <div class="template-box">
+        <div class="template-title">Union-Find (Disjoint Set) Template</div>
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="cm">// Union-Find with path compression and union by rank</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">UnionFind</span> {
+    <span class="kw">private</span> <span class="ty">int</span>[] parent;
+    <span class="kw">private</span> <span class="ty">int</span>[] rank;
+
+    <span class="kw">public</span> <span class="fn">UnionFind</span>(<span class="ty">int</span> n) {
+        parent = <span class="kw">new</span> <span class="ty">int</span>[n];
+        rank = <span class="kw">new</span> <span class="ty">int</span>[n];
+
+        <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) {
+            parent[i] = i;
+            rank[i] = <span class="num">0</span>;
+        }
+    }
+
+    <span class="cm">// Find root with path compression</span>
+    <span class="kw">public</span> <span class="ty">int</span> <span class="fn">Find</span>(<span class="ty">int</span> x) {
+        <span class="kw">if</span> (parent[x] != x) {
+            parent[x] = <span class="fn">Find</span>(parent[x]); <span class="cm">// Path compression</span>
+        }
+        <span class="kw">return</span> parent[x];
+    }
+
+    <span class="cm">// Union by rank</span>
+    <span class="kw">public</span> <span class="kw">bool</span> <span class="fn">Union</span>(<span class="ty">int</span> x, <span class="ty">int</span> y) {
+        <span class="ty">int</span> rootX = <span class="fn">Find</span>(x);
+        <span class="ty">int</span> rootY = <span class="fn">Find</span>(y);
+
+        <span class="kw">if</span> (rootX == rootY) <span class="kw">return</span> <span class="kw">false</span>; <span class="cm">// Already connected</span>
+
+        <span class="kw">if</span> (rank[rootX] &lt; rank[rootY]) {
+            parent[rootX] = rootY;
+        } <span class="kw">else</span> <span class="kw">if</span> (rank[rootX] &gt; rank[rootY]) {
+            parent[rootY] = rootX;
+        } <span class="kw">else</span> {
+            parent[rootY] = rootX;
+            rank[rootX]++;
+        }
+
+        <span class="kw">return</span> <span class="kw">true</span>; <span class="cm">// Successfully merged</span>
+    }
+}</pre>
+        </div>
+      </div>
+
+      <!-- Prefix Sum Template -->
+      <div class="template-box">
+        <div class="template-title">Prefix Sum Template</div>
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="cm">// Prefix Sum Template - O(1) range queries</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">RangeSumQuery</span> {
+    <span class="kw">private</span> <span class="ty">long</span>[] prefix;
+
+    <span class="kw">public</span> <span class="fn">RangeSumQuery</span>(<span class="ty">int</span>[] nums) {
+        prefix = <span class="kw">new</span> <span class="ty">long</span>[nums.Length + <span class="num">1</span>];
+
+        <span class="cm">// Build prefix sum: prefix[i] = sum of nums[0..i-1]</span>
+        <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; nums.Length; i++) {
+            prefix[i + <span class="num">1</span>] = prefix[i] + nums[i];
+        }
+    }
+
+    <span class="cm">// Query sum of nums[left..right] in O(1)</span>
+    <span class="kw">public</span> <span class="ty">long</span> <span class="fn">RangeSum</span>(<span class="ty">int</span> left, <span class="ty">int</span> right) {
+        <span class="kw">return</span> prefix[right + <span class="num">1</span>] - prefix[left];
+    }
+}
+
+<span class="cm">// For 2D matrix: prefix[i][j] = sum of rect from (0,0) to (i-1,j-1)</span>
+<span class="kw">public</span> <span class="ty">long</span> <span class="fn">RangeSum2D</span>(<span class="ty">long</span>[][] prefix, <span class="ty">int</span> r1, <span class="ty">int</span> c1, <span class="ty">int</span> r2, <span class="ty">int</span> c2) {
+    <span class="kw">return</span> prefix[r2+<span class="num">1</span>][c2+<span class="num">1</span>]
+        - prefix[r1][c2+<span class="num">1</span>]
+        - prefix[r2+<span class="num">1</span>][c1]
+        + prefix[r1][c1];
+}</pre>
+        </div>
+      </div>
+
+      <!-- Monotonic Stack Template -->
+      <div class="template-box">
+        <div class="template-title">Monotonic Stack Template</div>
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="cm">// Monotonic Stack - Find next greater element</span>
+<span class="kw">public</span> <span class="ty">int</span>[] <span class="fn">NextGreaterElement</span>(<span class="ty">int</span>[] nums) {
+    <span class="ty">Stack</span>&lt;<span class="ty">int</span>&gt; stack = <span class="kw">new</span> <span class="ty">Stack</span>&lt;<span class="ty">int</span>&gt;();
+    <span class="ty">Dictionary</span>&lt;<span class="ty">int</span>, <span class="ty">int</span>&gt; result = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="ty">int</span>, <span class="ty">int</span>&gt;();
+
+    <span class="cm">// Process in reverse to build monotonic decreasing stack</span>
+    <span class="kw">for</span> (<span class="ty">int</span> i = nums.Length - <span class="num">1</span>; i &gt;= <span class="num">0</span>; i--) {
+        <span class="cm">// Pop smaller elements</span>
+        <span class="kw">while</span> (stack.Count &gt; <span class="num">0</span> &amp;&amp; stack.<span class="fn">Peek</span>() &lt; nums[i]) {
+            stack.<span class="fn">Pop</span>();
+        }
+
+        <span class="cm">// Top of stack is next greater (or -1 if empty)</span>
+        result[nums[i]] = stack.Count &gt; <span class="num">0</span> ? stack.<span class="fn">Peek</span>() : -<span class="num">1</span>;
+
+        <span class="cm">// Push current element</span>
+        stack.<span class="fn">Push</span>(nums[i]);
+    }
+
+    <span class="ty">int</span>[] answer = <span class="kw">new</span> <span class="ty">int</span>[nums.Length];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; nums.Length; i++) {
+        answer[i] = result[nums[i]];
+    }
+
+    <span class="kw">return</span> answer;
+}</pre>
+        </div>
+      </div>
+
+      <!-- Trie Template -->
+      <div class="template-box">
+        <div class="template-title">Trie (Prefix Tree) Template</div>
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="cm">// Trie Template - Efficient prefix matching</span>
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">TrieNode</span> {
+    <span class="kw">public</span> <span class="ty">Dictionary</span>&lt;<span class="ty">char</span>, <span class="ty">TrieNode</span>&gt; Children { <span class="kw">get</span>; <span class="kw">set</span>; }
+    <span class="kw">public</span> <span class="kw">bool</span> IsEndOfWord { <span class="kw">get</span>; <span class="kw">set</span>; }
+
+    <span class="kw">public</span> <span class="fn">TrieNode</span>() {
+        Children = <span class="kw">new</span> <span class="ty">Dictionary</span>&lt;<span class="ty">char</span>, <span class="ty">TrieNode</span>&gt;();
+        IsEndOfWord = <span class="kw">false</span>;
+    }
+}
+
+<span class="kw">public</span> <span class="kw">class</span> <span class="ty">Trie</span> {
+    <span class="kw">private</span> <span class="ty">TrieNode</span> root;
+
+    <span class="kw">public</span> <span class="fn">Trie</span>() {
+        root = <span class="kw">new</span> <span class="ty">TrieNode</span>();
+    }
+
+    <span class="cm">// Insert word - O(m) where m = word length</span>
+    <span class="kw">public</span> <span class="kw">void</span> <span class="fn">Insert</span>(<span class="ty">string</span> word) {
+        <span class="ty">TrieNode</span> node = root;
+
+        <span class="kw">foreach</span> (<span class="ty">char</span> ch <span class="kw">in</span> word) {
+            <span class="kw">if</span> (!node.Children.<span class="fn">ContainsKey</span>(ch)) {
+                node.Children[ch] = <span class="kw">new</span> <span class="ty">TrieNode</span>();
+            }
+            node = node.Children[ch];
+        }
+
+        node.IsEndOfWord = <span class="kw">true</span>;
+    }
+
+    <span class="cm">// Search for exact word</span>
+    <span class="kw">public</span> <span class="kw">bool</span> <span class="fn">Search</span>(<span class="ty">string</span> word) {
+        <span class="ty">TrieNode</span> node = <span class="fn">FindNode</span>(word);
+        <span class="kw">return</span> node != <span class="kw">null</span> &amp;&amp; node.IsEndOfWord;
+    }
+
+    <span class="cm">// Search with prefix (no exact match needed)</span>
+    <span class="kw">public</span> <span class="kw">bool</span> <span class="fn">StartsWith</span>(<span class="ty">string</span> prefix) {
+        <span class="kw">return</span> <span class="fn">FindNode</span>(prefix) != <span class="kw">null</span>;
+    }
+
+    <span class="kw">private</span> <span class="ty">TrieNode</span> <span class="fn">FindNode</span>(<span class="ty">string</span> word) {
+        <span class="ty">TrieNode</span> node = root;
+
+        <span class="kw">foreach</span> (<span class="ty">char</span> ch <span class="kw">in</span> word) {
+            <span class="kw">if</span> (!node.Children.<span class="fn">ContainsKey</span>(ch)) {
+                <span class="kw">return</span> <span class="kw">null</span>;
+            }
+            node = node.Children[ch];
+        }
+
+        <span class="kw">return</span> node;
+    }
+}</pre>
+        </div>
+      </div>
+
+      <!-- Dijkstra Template -->
+      <div class="template-box">
+        <div class="template-title">Dijkstra's Algorithm Template</div>
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">csharp</span>
+            <button class="copy-btn">copy</button>
+          </div>
+          <pre><span class="cm">// Dijkstra - Shortest path in weighted graph</span>
+<span class="kw">public</span> <span class="ty">long</span>[] <span class="fn">Dijkstra</span>(<span class="ty">int</span> n, <span class="ty">List</span>&lt;(<span class="ty">int</span> neighbor, <span class="ty">long</span> weight)&gt;[] graph, <span class="ty">int</span> start) {
+    <span class="ty">long</span>[] dist = <span class="kw">new</span> <span class="ty">long</span>[n];
+    <span class="kw">for</span> (<span class="ty">int</span> i = <span class="num">0</span>; i &lt; n; i++) dist[i] = <span class="ty">long</span>.<span class="ty">MaxValue</span>;
+    dist[start] = <span class="num">0</span>;
+
+    <span class="ty">PriorityQueue</span>&lt;(<span class="ty">long</span> dist, <span class="ty">int</span> node)&gt; pq = <span class="kw">new</span>();
+    pq.<span class="fn">Enqueue</span>((<span class="num">0</span>, start), <span class="num">0</span>);
+
+    <span class="kw">while</span> (pq.Count &gt; <span class="num">0</span>) {
+        (<span class="ty">long</span> d, <span class="ty">int</span> u) = pq.<span class="fn">Dequeue</span>();
+
+        <span class="kw">if</span> (d &gt; dist[u]) <span class="kw">continue</span>; <span class="cm">// Skip outdated entry</span>
+
+        <span class="kw">foreach</span> ((<span class="ty">int</span> v, <span class="ty">long</span> w) <span class="kw">in</span> graph[u]) {
+            <span class="kw">if</span> (dist[u] + w &lt; dist[v]) {
+                dist[v] = dist[u] + w;
+                pq.<span class="fn">Enqueue</span>((dist[v], v), (<span class="ty">int</span>)dist[v]);
+            }
+        }
+    }
+
+    <span class="kw">return</span> dist;
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEST DAY CHECKLIST -->
+    <section class="section fade">
+      <div class="sec-tag">
+        <span class="sec-num">05</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Test Day Checklist (Morning Of)</h2>
+      <p class="lead">Review this list before you start coding. Takes 5 minutes. Could save 50+ points.</p>
+
+      <h3>Mental Prep (5 minutes)</h3>
+      <ul>
+        <li>✓ Eat a good breakfast. Brain needs fuel for 3-4 hours.</li>
+        <li>✓ Use the bathroom. Don't code with a full bladder.</li>
+        <li>✓ Clear your desk. No distractions. No phone.</li>
+        <li>✓ Close unnecessary tabs. Keep only problem statement, judge, editor.</li>
+        <li>✓ Take 3 deep breaths. Calm your nervous system. You've trained for this.</li>
+      </ul>
+
+      <h3>Problem-Solving Strategy (Each Problem)</h3>
+      <ul>
+        <li>✓ <strong>Read carefully:</strong> Underline constraints (n ≤ 10^5), requirements (positive integers?), edge cases (empty input?).</li>
+        <li>✓ <strong>Ask clarifying questions:</strong> Are duplicates allowed? Is array sorted? Can I modify the input?</li>
+        <li>✓ <strong>Identify pattern:</strong> Match against the 35 patterns. Is this sorted array? Two sum? Tree DFS?</li>
+        <li>✓ <strong>Design algorithm:</strong> State time and space. O(n log n)? O(n²)? Is it feasible for the constraint?</li>
+        <li>✓ <strong>Write pseudocode:</strong> High-level steps before coding. Verify logic works on example.</li>
+        <li>✓ <strong>Code carefully:</strong> Use templates. Copy from template, adapt for the problem.</li>
+        <li>✓ <strong>Test on example:</strong> Trace through by hand. Does output match expected?</li>
+      </ul>
+
+      <h3>Before Hitting Submit (5 minute review)</h3>
+      <ul>
+        <li>✓ Test on PROVIDED example (usually 1-2 test cases shown).</li>
+        <li>✓ Test on EMPTY input. Array=[], String="", Graph with 1 node.</li>
+        <li>✓ Test on EDGE case. All duplicates, already sorted, reverse sorted.</li>
+        <li>✓ Check INDEXING. Array goes [0, n-1]. Not [1, n]. Not [0, n].</li>
+        <li>✓ Check LOOPS. i < n (not <=). right = arr.Length - 1 (not arr.Length).</li>
+        <li>✓ Check OVERFLOW. Summing large ints? Use long. mid = left + (right - left) / 2?</li>
+        <li>✓ Check NULL checks. Do you dereference null pointers? List.Count before accessing [0]?</li>
+        <li>✓ Check LOGIC. Walk through algorithm once more. Does it handle all cases?</li>
+        <li>✓ Check NAMING. Variable names make sense? Easy to read?</li>
+      </ul>
+
+      <h3>If You Get Wrong Answer (WA)</h3>
+      <ul>
+        <li>✓ Don't panic. WA happens even to experts.</li>
+        <li>✓ Create a CUSTOM test case that fails. Print intermediate values to debug.</li>
+        <li>✓ Check the edge cases again: n=0, n=1, all duplicates, negative numbers, zero.</li>
+        <li>✓ Check indexing: off-by-one is the #1 bug.</li>
+        <li>✓ Check overflow: if n=10^6 and you sum all, use long not int.</li>
+        <li>✓ Reread the problem statement. Maybe you misunderstood a requirement.</li>
+      </ul>
+
+      <h3>If You Get Time Limit Exceeded (TLE)</h3>
+      <ul>
+        <li>✓ Your algorithm is too slow. Look at the constraint n again.</li>
+        <li>✓ If n ≤ 10^5, you need O(n log n) or better. O(n²) will TLE.</li>
+        <li>✓ Check for accidental nested loops. Sorting inside a loop? That's O(n² log n).</li>
+        <li>✓ Try a more efficient data structure. ArrayList.Contains() is O(n). Use HashSet for O(1).</li>
+        <li>✓ Memoize if you're recalculating the same subproblems.</li>
+      </ul>
+
+      <h3>Pacing Guide (3-4 hours, 3-5 problems)</h3>
+      <ul>
+        <li>✓ <strong>Problem 1 (Easy):</strong> 20-30 minutes. Should be fast. Warm up.</li>
+        <li>✓ <strong>Problem 2 (Medium):</strong> 40-60 minutes. Needs thinking, but doable.</li>
+        <li>✓ <strong>Problem 3 (Medium-Hard):</strong> 60-90 minutes. Hard, might need multiple attempts.</li>
+        <li>✓ <strong>Problem 4+ (Hard/Expert):</strong> If time permits. Don't spend >90 min on one problem.</li>
+        <li>✓ <strong>Final 5 minutes:</strong> Skim all problems. Make sure you haven't missed an easy win.</li>
+      </ul>
+
+      <div class="callout tip">
+        <span class="callout-icon">✓</span>
+        <div><strong>Pro tip:</strong> Read all problems first. Solve the easy ones first to build momentum. Hard problems can wait.</div>
+      </div>
+
+      <h3>What NOT to Do</h3>
+      <ul>
+        <li>✗ Don't code without a plan. Pseudocode first.</li>
+        <li>✗ Don't submit without testing. At least test on the example.</li>
+        <li>✗ Don't spend >90 minutes on one problem. Move on, try another.</li>
+        <li>✗ Don't ignore constraints. If n ≤ 10^5, O(n²) is likely wrong.</li>
+        <li>✗ Don't assume unique elements if the problem doesn't say so. Handle duplicates.</li>
+        <li>✗ Don't copy-paste without understanding. Adapt templates to your problem.</li>
+      </ul>
+    </section>
+
+    <!-- FINAL TIPS -->
+    <section class="section fade">
+      <div class="sec-tag">
+        <span class="sec-num">06</span>
+        <div class="sec-line"></div>
+      </div>
+      <h2>Final Tips & Mindset</h2>
+
+      <h3>Common Mistakes Summary</h3>
+      <ul>
+        <li><strong>Off-by-one errors:</strong> i < n, not i <= n. array[i], not array[i+1].</li>
+        <li><strong>Overflow:</strong> Sum of large ints overflows. Use long. mid = left + (right - left) / 2 to avoid overflow.</li>
+        <li><strong>Empty edge cases:</strong> Empty array, empty string, single element. Always test n=0, n=1.</li>
+        <li><strong>Null pointer dereference:</strong> Check if collection is empty before accessing [0].</li>
+        <li><strong>Wrong complexity:</strong> O(n²) on n=10^5. Use constraint to validate your approach.</li>
+        <li><strong>Forgot visited set:</strong> DFS/BFS on graph? Use visited HashSet to avoid infinite loops.</li>
+      </ul>
+
+      <h3>When You're Stuck</h3>
+      <ol>
+        <li><strong>Reread the problem.</strong> You might have misunderstood.</li>
+        <li><strong>Work through an example by hand.</strong> Trace the algorithm step-by-step.</li>
+        <li><strong>Think about edge cases.</strong> Empty? Single element? All duplicates?</li>
+        <li><strong>Ask for a hint.</strong> If this is a practice problem, look at the hints or editorial.</li>
+        <li><strong>Move on.</strong> If contest, try another problem. Come back later with fresh eyes.</li>
+      </ol>
+
+      <h3>Build Intuition</h3>
+      <p>Solve 100+ problems and patterns become automatic. When you see "sorted array + target", binary search pops into your head instantly. When you see "shortest path unweighted", BFS is your default. This is pattern recognition. The more you practice, the faster you solve.</p>
+
+      <h3>You've Got This</h3>
+      <p>You have the templates. You know the 35 patterns. You've reviewed edge cases. You understand the complexity trade-offs. Now it's execution. Trust your preparation. Stay calm. Read carefully. Test thoroughly. You'll pass.</p>
+
+      <div class="callout green" style="background:var(--green-l);border:1px solid var(--green-b);color:#164d32">
+        <span class="callout-icon">✓</span>
+        <div><strong>Good luck!</strong> Come back to this cheatsheet anytime you need a refresh. Share it with friends. Help each other succeed. And remember: every expert was once a beginner who didn't give up.</div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.querySelectorAll('.copy-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        const pre = this.closest('.code-block').querySelector('pre');
+        const text = pre.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+          const original = this.textContent;
+          this.textContent = 'copied!';
+          setTimeout(() => this.textContent = original, 2000);
+        });
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
